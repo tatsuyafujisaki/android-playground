@@ -1,0 +1,17 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/destination_home">
+    <fragment
+        android:id="@+id/destination_home"
+        android:name="com.github.tatsuyafujisaki.androidplayground.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/destination_explore"
+        android:name="com.github.tatsuyafujisaki.androidplayground.ExploreFragment"
+        android:label="ExploreFragment" />
+    <fragment
+        android:id="@+id/destination_account"
+        android:name="com.github.tatsuyafujisaki.androidplayground.HomeFragment"
+        android:label="AccountFragment" />
+</navigation>

@@ -1,0 +1,54 @@
+package com.github.tatsuyafujisaki.androidplayground.util
+
+import android.util.Log
+import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.NavHostFragment
+
+object FragmentUtils {
+    fun logFragmentManagers(fragment: Fragment) {
+        fragment.run {
+            val fragmentName = fragment.javaClass.simpleName
+            logFragmentManager("$fragmentName.parentFragmentManager", parentFragmentManager)
+            logFragmentManager("$fragmentName.childFragmentManager", childFragmentManager)
+        }
+    }
+
+    private fun logFragmentManager(tagPrefix: String, fragmentManager: FragmentManager) {
+        return fragmentManager.let {
+            Log.d("$tagPrefix.fragments", getFragmentNames(it)
+                .joinToString(",").run { if (isEmpty()) "(empty)" else this })
+            Log.d("$tagPrefix.backStackEntries", getBackStackEntryNames(it)
+                .joinToString(",").run { if (isEmpty()) "(empty)" else this })
+        }
+    }
+
+    private fun getFragmentNames(fragmentManager: FragmentManager) =
+        fragmentManager.fragments.map { it.javaClass.simpleName }
+
+    private fun getBackStackEntryNames(fragmentManager: FragmentManager) =
+        (0 until fragmentManager.backStackEntryCount)
+            .map {
+                val tag = fragmentManager.getBackStackEntryAt(it).name
+                /**
+                 * findFragmentByTag(String) returns null
+                 * if the BackStackEntry was NOT added with the tag.
+                 */
+                fragmentManager.findFragmentByTag(tag)?.javaClass?.simpleName ?: tag
+            }
+
+    fun getNavHostFragment(fragmentManager: FragmentManager) =
+        fragmentManager.fragments.filterIsInstance(NavHostFragment::class.java) as? NavHostFragment
+
+    /**
+     * @id Resource ID of FragmentContainerView where NavHostFragment is set.
+     */
+    fun getNavHostFragment(fragmentManager: FragmentManager, @IdRes id: Int) =
+        fragmentManager.findFragmentById(id) as? NavHostFragment
+
+    fun getCurrentFragment(navHostFragment: NavHostFragment) =
+        navHostFragment
+            .childFragmentManager
+            .primaryNavigationFragment
+}
