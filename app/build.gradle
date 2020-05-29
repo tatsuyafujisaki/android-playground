@@ -143,7 +143,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.google.android.play:core-ktx:1.7.0'
 
-    def daggerVersion = '2.27'
+    def daggerVersion = '2.28'
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     // imports the classes of the namespace "dagger.android"
