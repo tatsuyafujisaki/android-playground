@@ -8,13 +8,11 @@ import com.facebook.flipper.plugins.network.BuildConfig
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.facebook.stetho.Stetho
-import com.github.tatsuyafujisaki.androidplayground.di.ApplicationComponent
 import com.github.tatsuyafujisaki.androidplayground.di.DaggerApplicationComponent
+import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
 class MainApplication : DaggerApplication() {
-    val applicationComponent: ApplicationComponent =
-        DaggerApplicationComponent.factory().create(this)
 
     override fun onCreate() {
         super.onCreate()
@@ -36,7 +34,7 @@ class MainApplication : DaggerApplication() {
         }
     }
 
-    override fun applicationInjector() =
+    override fun applicationInjector(): AndroidInjector<MainApplication> =
         DaggerApplicationComponent.factory().create(this)
 
     companion object {

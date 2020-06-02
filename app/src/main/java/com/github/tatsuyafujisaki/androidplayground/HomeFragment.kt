@@ -8,16 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.Observer
+import com.github.tatsuyafujisaki.androidplayground.dataClass.Sample
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentHomeBinding
+import dagger.android.support.DaggerFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import javax.inject.Inject
 
-class HomeFragment : Fragment(), CoroutineScope by MainScope(), WebViewContainer {
+class HomeFragment : DaggerFragment(), CoroutineScope by MainScope(), WebViewContainer {
+    @Inject
+    lateinit var sample: Sample
+
     private val logTag = this::class.java.simpleName
     private lateinit var binding: FragmentHomeBinding
     private val mainViewModel: MainViewModel by activityViewModels()
