@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
+import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtils
 import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtils
@@ -22,6 +23,8 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     private val tag = this::class.java.simpleName
+
+    private lateinit var mainActivityComponent: MainActivityComponent
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navHostFragment: NavHostFragment
@@ -30,6 +33,13 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+
+        mainActivityComponent = (applicationContext as MainApplication)
+            .applicationComponent
+            .mainComponent()
+            .create().apply {
+                inject(this@MainActivity)
+            }
 
         lifecycle.addObserver(LifecycleEventObserver { _, event ->
             Log.d(tag, event.toString())
