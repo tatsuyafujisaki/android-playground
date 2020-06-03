@@ -11,15 +11,14 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.github.tatsuyafujisaki.androidplayground.dataClass.Sample
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentHomeBinding
 import dagger.android.support.DaggerFragment
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeFragment : DaggerFragment(), CoroutineScope by MainScope(), WebViewContainer {
+class HomeFragment : DaggerFragment(), WebViewContainer {
     @Inject
     lateinit var sample: Sample
 
@@ -46,6 +45,11 @@ class HomeFragment : DaggerFragment(), CoroutineScope by MainScope(), WebViewCon
     ): View? {
         Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            Log.d(logTag, "This is a demonstration of viewLifecycleOwner.lifecycleScope.")
+        }
+
         return binding.root
     }
 
@@ -120,7 +124,6 @@ class HomeFragment : DaggerFragment(), CoroutineScope by MainScope(), WebViewCon
     override fun onDestroyView() {
         super.onDestroyView()
         Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
-        cancel()
     }
 
     override fun onDestroy() {

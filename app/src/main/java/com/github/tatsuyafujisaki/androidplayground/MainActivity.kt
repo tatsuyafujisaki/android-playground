@@ -1,12 +1,12 @@
 package com.github.tatsuyafujisaki.androidplayground
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.addCallback
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,13 +17,10 @@ import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtils
 import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtils
 import dagger.android.support.DaggerAppCompatActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainActivity : DaggerAppCompatActivity(), CoroutineScope by MainScope() {
+class MainActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var sample: Sample
 
@@ -90,7 +87,7 @@ class MainActivity : DaggerAppCompatActivity(), CoroutineScope by MainScope() {
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener {
-            launch {
+            lifecycleScope.launch {
                 runCatching {
                     RetrofitClient.googleApiService.getBooks("The Little Prince")
                 }.fold({
@@ -99,6 +96,10 @@ class MainActivity : DaggerAppCompatActivity(), CoroutineScope by MainScope() {
                     ContextUtils.toast(this@MainActivity, it.toString())
                 })
             }
+        }
+
+        lifecycleScope.launch {
+            Log.d(tag, "This is a demonstration of lifecycleScope.")
         }
     }
 
@@ -135,7 +136,6 @@ class MainActivity : DaggerAppCompatActivity(), CoroutineScope by MainScope() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
-        cancel()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
