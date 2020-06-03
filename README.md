@@ -16,8 +16,13 @@
   * Note that `CharSequence.isDigitsOnly()` returns true for an empty string.
 * Use `String.toUri()` rather than `Uri.parse(...)` for simplicity.
 
-### References
-https://android.github.io/android-ktx/core-ktx/
+### How to get a query parameter
+```kotlin
+val url = "https://example.com?key1=value1&key2=value2"
+
+// String.toUri() is from Core KTX.
+val value2 = url.toUri().getQueryParameter("key2") // value2
+```
 
 # How to run a unit test or an instrumented unit test from Terminal
 ## How to run a local unit test
