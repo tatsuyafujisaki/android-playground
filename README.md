@@ -1,20 +1,12 @@
-# Note
-* density [(# of 160px) / inch] = dpi / 160
-* dp [(1 / 160) inch] = px * (160 / dpi) = px / density
-
 # Shortcuts
 * Quick documentation ... `Control`+`J`
 * Show type info ... `Control`+`Shift`+`P`
 
 # Best practices
-* Use `<androidx.fragment.app.FragmentContainerView>` rather than `<FrameLayout>` or `<fragment>`.
-  * https://www.youtube.com/watch?v=RS1IACnZLy4&t=537
-
-## Core KTX
-* Use `bundleOf()` to create a Bundle.
-* Use `CharSequence.isDigitsOnly()` to check if a string contains only digits.
-  * Note that `CharSequence.isDigitsOnly()` returns true for an empty string.
-* Use `String.toUri()` rather than `Uri.parse(...)` for simplicity.
+* Use `bundleOf()` in Core KTX to create a Bundle.
+* Use `CharSequence.isDigitsOnly()` in Core KTX to check if a string contains only digits.
+  * FYI, `CharSequence.isDigitsOnly()` returns true for an empty string.
+* Use `String.toUri()` in Core KTX rather than `Uri.parse(...)` for simplicity.
 
 ### How to get a query parameter
 ```kotlin
