@@ -8,7 +8,7 @@
   * FYI, `CharSequence.isDigitsOnly()` returns true for an empty string.
 * Use `String.toUri()` in Core KTX rather than `Uri.parse(...)` for simplicity.
 
-#How to decode HTML entities
+# How to decode HTML entities
 ```kotlin
 val decoded = Html.fromHtml("&amp;&gt;&lt;&nbsp;&quot;", Html.FROM_HTML_MODE_COMPACT).toString() // "&>< ""
 ```
