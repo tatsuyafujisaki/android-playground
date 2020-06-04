@@ -45,7 +45,7 @@ val value2 = url.toUri().getQueryParameter("key2") // value2
 # How to find what class causes an error by `minifyenabled true`
 Add the following in `proguard-rule.pro`.
 ```
-keepattributes SourceFile,LineNumberTable
+-keepattributes SourceFile,LineNumberTable
 ```
 
 # How to remove comments
