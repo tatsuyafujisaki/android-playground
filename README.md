@@ -74,7 +74,7 @@ Add the following in `proguard-rule.pro`.
 https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
 
 ## How to enable Charles Proxy in release build
-1. From Android, access http://www.charlesproxy.com/getssl/ to download Charles's TLS/SSL certificate.
+1. From Android, access http://www.charlesproxy.com/getssl/ to download Charles Root Certificate.
 2. Open Charles and go to the menu bar > `Help` > `SSL Proxying` > `Save Charles Root Certificate`
 3. Add the downloaded PEM file as `res/raw/charles_certificate.pem`.
 4. Add `ref/xml/network_security_config.xml` as follows.
