@@ -1,7 +1,3 @@
-# Shortcuts
-* Quick documentation ... `Control`+`J`
-* Show type info ... `Control`+`Shift`+`P`
-
 # Best practices
 * Use `bundleOf()` in Core KTX to create a Bundle.
 * Use `CharSequence.isDigitsOnly()` in Core KTX to check if a string contains only digits.
