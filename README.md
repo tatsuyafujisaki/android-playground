@@ -69,5 +69,32 @@ Add the following in `proguard-rule.pro`.
 <!--([\S\s]+?Copyright[\S\s]+?)-->
 ```
 
-## References
-https://developer.android.com/studio/test/command-line
+# Charles
+## How to enable Charles Proxy in debug build
+https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
+
+## How to enable Charles Proxy in release build
+1. From Android, access http://www.charlesproxy.com/getssl/ to download Charles's TLS/SSL certificate.
+2. Open Charles and go to the menu bar > `Help` > `SSL Proxying` > `Save Charles Root Certificate`
+3. Add the downloaded PEM file as `res/raw/charles_certificate.pem`.
+4. Add `ref/xml/network_security_config.xml` as follows.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="@raw/charles_certificate"/>
+            <!-- The following in <base-config> has no effect. -->
+            <!-- <certificates src="user" /> -->
+        </trust-anchors>
+    </base-config>
+</network-security-config>
+```
+5. Reference `ref/xml/network_security_config.xml` in `AndroidManifest.xml` as follows.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+    <application android:networkSecurityConfig="@xml/network_security_config" />
+</manifest>
+```
