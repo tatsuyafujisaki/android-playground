@@ -8,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion rootProject.compileAndTargetSdkVersion
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId 'com.github.tatsuyafujisaki.androidplayground'
         minSdkVersion 26
-        targetSdkVersion rootProject.compileAndTargetSdkVersion
+        targetSdkVersion 29
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
