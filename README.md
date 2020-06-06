@@ -2,7 +2,6 @@
 * Add `android:contentDescription="@null"` to `ImageView` to solve a lint warning unless you have the time to take care of accessibility.
 * Use `bundleOf()` in Core KTX to create a Bundle.
 * Use `CharSequence.isDigitsOnly()` in Core KTX to check if a string contains only digits.
-  * FYI, `CharSequence.isDigitsOnly()` returns true for an empty string.
 * Use `String.toUri()` in Core KTX rather than `Uri.parse(...)` for simplicity.
 
 # How to decode HTML entities
