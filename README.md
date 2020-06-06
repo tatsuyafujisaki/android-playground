@@ -94,3 +94,10 @@ https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
     <application android:networkSecurityConfig="@xml/network_security_config" />
 </manifest>
 ```
+### Note
+If you have installed the Charles Root Certificate on Android and still see the following error, you may be doing the release build. If so, the above steps will solve the error.
+```
+SSL handshake with client failed: An unknown issue occurred processing the certificate (certificate_unknown)
+You may need to configure your browser or application to trust the Charles Root Certificate. See SSL Proxying in the Help menu.
+certificate_unknown (46) - An unknown issue occurred processing the certificate.
+```
