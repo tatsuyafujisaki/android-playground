@@ -1,20 +1,26 @@
 # Best practices
 * Add `android:contentDescription="@null"` to `ImageView` to solve a lint warning unless you have the time to take care of accessibility.
-* Use `bundleOf()` in Core KTX to create a Bundle.
-* Use `CharSequence.isDigitsOnly()` in Core KTX to check if a string contains only digits.
-* Use `String.toUri()` in Core KTX rather than `Uri.parse(...)` for simplicity.
+## Core KTX
+* Use `String.toUri()` rather than `Uri.parse(...)` for simplicity.
+* Use `CharSequence.isDigitsOnly()` to check if a string contains only digits.
+* Use `Context.withStyledAttributes(...)` rather than `obtainStyledAttributes(...)` for simplicity.
+
+# How to create a Bundle
+```kotlin
+val bundle: Bundle = bundleOf("apple" to 123, "orange" to 456)
+```
 
 # How to decode HTML entities
 ```kotlin
-val decoded = Html.fromHtml("&amp;&gt;&lt;&nbsp;&quot;", Html.FROM_HTML_MODE_COMPACT).toString() // "&>< ""
+val decoded: String = Html.fromHtml("&amp;&gt;&lt;&nbsp;&quot;", Html.FROM_HTML_MODE_COMPACT).toString() // "&>< ""
 ```
 
 # How to get a query parameter
 ```kotlin
-val url = "https://example.com?key1=value1&key2=value2"
+val url: String = "https://example.com?key1=value1&key2=value2"
 
 // String.toUri() is from Core KTX.
-val value2 = url.toUri().getQueryParameter("key2") // value2
+val value2: String = url.toUri().getQueryParameter("key2") // value2
 ```
 
 # How to run a unit test or an instrumented unit test from Terminal
