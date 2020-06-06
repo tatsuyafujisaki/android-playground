@@ -18,9 +18,7 @@ val decoded: String = Html.fromHtml("&amp;&gt;&lt;&nbsp;&quot;", Html.FROM_HTML_
 # How to get a query parameter
 ```kotlin
 val url: String = "https://example.com?key1=value1&key2=value2"
-
-// String.toUri() is from Core KTX.
-val value2: String = url.toUri().getQueryParameter("key2") // value2
+val value: String = url.toUri().getQueryParameter("key2") // value2
 ```
 
 # How to run a unit test or an instrumented unit test from Terminal
