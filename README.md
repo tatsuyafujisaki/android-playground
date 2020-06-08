@@ -10,11 +10,6 @@
 val bundle: Bundle = bundleOf("apple" to 123, "orange" to 456)
 ```
 
-# How to decode HTML entities
-```kotlin
-val decoded: String = Html.fromHtml("&amp;&gt;&lt;&nbsp;&quot;", Html.FROM_HTML_MODE_COMPACT).toString() // "&>< ""
-```
-
 # How to get a query parameter
 ```kotlin
 val uri: Uri = "https://example.com?key1=value1&key2=value2".toUri()
