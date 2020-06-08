@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.NavHostFragment
 
-object FragmentUtils {
+object FragmentUtil {
     fun logFragmentManagers(fragment: Fragment) {
         fragment.run {
             val fragmentName = fragment.javaClass.simpleName

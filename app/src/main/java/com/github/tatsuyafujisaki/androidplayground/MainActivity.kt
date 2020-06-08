@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground
 
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -14,8 +15,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.github.tatsuyafujisaki.androidplayground.dataClass.Sample
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
-import com.github.tatsuyafujisaki.androidplayground.util.ContextUtils
-import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtils
+import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil
+import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtil
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -56,7 +57,7 @@ class MainActivity : DaggerAppCompatActivity() {
         onBackPressedDispatcher.addCallback(this) {
             Log.d(tag, "Back button is pressed.")
 
-            (FragmentUtils.getCurrentFragment(navHostFragment) as? WebViewContainer)?.run {
+            (FragmentUtil.getCurrentFragment(navHostFragment) as? WebViewContainer)?.run {
                 if (canGoBack()) {
                     goBack()
                 } else {
@@ -91,9 +92,9 @@ class MainActivity : DaggerAppCompatActivity() {
                 runCatching {
                     RetrofitClient.googleApiService.getBooks("The Little Prince")
                 }.fold({
-                    ContextUtils.toast(this@MainActivity, it.toString())
+                    ContextUtil.toast(this@MainActivity, it.toString())
                 }, {
-                    ContextUtils.toast(this@MainActivity, it.toString())
+                    ContextUtil.toast(this@MainActivity, it.toString())
                 })
             }
         }
@@ -151,7 +152,7 @@ class MainActivity : DaggerAppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home ->
-                (FragmentUtils.getCurrentFragment(navHostFragment) as? WebViewContainer)?.run {
+                (FragmentUtil.getCurrentFragment(navHostFragment) as? WebViewContainer)?.run {
                     if (canGoBack()) {
                         goBack()
                     } else {

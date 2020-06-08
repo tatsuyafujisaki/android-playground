@@ -12,7 +12,7 @@ import androidx.core.net.toUri
 import com.google.android.material.snackbar.Snackbar
 import java.io.BufferedReader
 
-object ContextUtils {
+object ContextUtil {
     private val tag = this::class.java.simpleName
 
     fun isInteractive(context: Context) =
