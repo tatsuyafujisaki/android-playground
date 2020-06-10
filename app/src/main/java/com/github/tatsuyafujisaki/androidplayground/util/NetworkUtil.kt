@@ -3,6 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import okhttp3.HttpUrl
 
 object NetworkUtil {
     fun isNetworkAvailable(context: Context) =
@@ -13,4 +14,7 @@ object NetworkUtil {
                     || hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
             } ?: false
         }
+
+    private fun getBaseUrl(url: HttpUrl) =
+        HttpUrl.Builder().scheme(url.scheme).host(url.host).build()
 }
