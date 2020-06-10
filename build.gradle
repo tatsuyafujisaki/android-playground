@@ -18,7 +18,7 @@ buildscript {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
         classpath 'com.google.gms:google-services:4.3.3'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.1.1'
-        classpath 'org.jlleitschuh.gradle:ktlint-gradle:9.1.1'
+        classpath 'org.jlleitschuh.gradle:ktlint-gradle:9.2.1'
     }
 }
 
@@ -27,10 +27,13 @@ allprojects {
         google()
         jcenter()
     }
+}
 
+subprojects {
     apply plugin: 'org.jlleitschuh.gradle.ktlint'
 
     ktlint {
+        debug = true
         android = true
     }
 }
