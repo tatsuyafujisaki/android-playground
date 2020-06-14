@@ -1,7 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground
 
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -51,7 +50,7 @@ class MainActivity : DaggerAppCompatActivity() {
 //        }
 
         navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         // https://developer.android.com/guide/navigation/navigation-custom-back
         onBackPressedDispatcher.addCallback(this) {
