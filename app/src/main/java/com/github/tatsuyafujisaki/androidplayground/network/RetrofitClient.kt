@@ -43,7 +43,7 @@ object RetrofitClient {
                         .getCookie(url.toString())
                         ?.split(';')
                         ?.filter {
-                            isKeyOfInterest(it.split('=').firstOrNull())
+                            isKeyOfInterest(it.split('=').firstOrNull()?.trim())
                         }
                         ?.mapNotNull {
                             Cookie.parse(getBaseUrl(url), it.trim() /* key=value */)
