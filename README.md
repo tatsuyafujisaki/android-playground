@@ -16,6 +16,11 @@ val uri: Uri = "https://example.com?key1=value1&key2=value2".toUri()
 val value: String = uri.getQueryParameter("key2") // value2
 ```
 
+# How to convert AARRGGBB as Int to Color
+```kotlin
+val color: Color = Color.valueOf(0x11223344)
+```
+
 # How to run a unit test or an instrumented unit test from Terminal
 ## How to run a local unit test
 ```shell
