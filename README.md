@@ -69,6 +69,18 @@ Add the following in `proguard-rule.pro`.
 <!--([\S\s]+?Copyright[\S\s]+?)-->
 ```
 
+# Template
+## LinearLayout
+```xml
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:showDividers="middle"
+    android:dividerPadding="16dp"
+    android:divider="?android:listDivider" or "?android:dividerHorizontal"
+    android:orientation="vertical">
+```
+
 # Charles
 ## How to enable Charles Proxy in debug build
 https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
