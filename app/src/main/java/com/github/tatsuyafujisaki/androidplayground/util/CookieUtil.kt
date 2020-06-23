@@ -3,11 +3,12 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.webkit.CookieManager
 
 object CookieUtil {
-    fun getCookies(cookieManager: CookieManager, url: String): Map<String, String> =
-        cookieManager.getCookie(url)
+    fun CookieManager.getCookies(url: String): Map<String, String> =
+        getCookie(url)
             ?.split(';')
-            ?.flatMap {
-                it.split('=').zipWithNext()
+            ?.map {
+                val (key, value) = it.split('=')
+                key.trim() to value.trim()
             }?.toMap()
             .orEmpty()
 
