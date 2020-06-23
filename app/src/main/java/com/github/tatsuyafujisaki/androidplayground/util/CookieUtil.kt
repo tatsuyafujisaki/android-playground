@@ -3,8 +3,9 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.webkit.CookieManager
 
 object CookieUtil {
-    fun CookieManager.getCookies(url: String): Map<String, String> =
-        getCookie(url)
+    fun getCookies(cookieManager: CookieManager, url: String): Map<String, String> =
+        cookieManager
+            .getCookie(url)
             ?.split(';')
             ?.map {
                 val (key, value) = it.split('=')
