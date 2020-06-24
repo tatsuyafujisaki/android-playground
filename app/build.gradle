@@ -112,7 +112,6 @@ dependencies {
 
     def lifecycleVersion = '2.2.0'
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
-    // lifecycle-livedata-ktx includes lifecycle-livedata-core-ktx
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
