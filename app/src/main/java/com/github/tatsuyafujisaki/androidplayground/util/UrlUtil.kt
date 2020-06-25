@@ -11,18 +11,18 @@ object UrlUtil {
     fun createHttpUrl(url: String) = url.toHttpUrlOrNull()
 
     /**
-     * "https://foo.example.com/bar".toHttpUrl() -> "https://foo.example.com/"
+     * "https://sub.example.com/foo".toHttpUrl() -> "https://sub.example.com/"
      */
     fun getPathlessUrl(url: HttpUrl) =
         HttpUrl.Builder().scheme(url.scheme).host(url.host).build()
 
     /**
-     * "https://foo.example.com/bar" -> "foo.example.com"
+     * "https://sub.example.com/foo" -> "sub.example.com"
      */
     fun getHost(url: String) = url.toUri().host
 
     /**
-     * "https://foo.example.com/bar" -> "example.com"
+     * "https://sub.example.com/foo" -> "example.com"
      */
     fun getDomain(url: String) = url.toHttpUrlOrNull()?.topPrivateDomain()
 }
