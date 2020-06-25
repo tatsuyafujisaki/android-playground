@@ -70,9 +70,22 @@ Add the following in `proguard-rule.pro`.
 ```
 
 # Template
+## Child in ConstraintLayout
+```xml
+<View
+    android:id="@+id/view"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+```
+
 ## LinearLayout
 ```xml
 <LinearLayout
+    android:id="@+id/linear_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:showDividers="middle"
