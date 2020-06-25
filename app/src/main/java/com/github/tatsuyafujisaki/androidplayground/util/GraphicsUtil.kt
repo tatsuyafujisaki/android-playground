@@ -24,7 +24,7 @@ object GraphicsUtil {
         }
     }
 
-    fun downloadBitmap2(context: Context, url: String): Bitmap? =
+    fun downloadBitmap2(context: Context, url: String) =
         try {
             Glide.with(context).asBitmap().load(url).submit().get()
         } catch (_: Exception) {
