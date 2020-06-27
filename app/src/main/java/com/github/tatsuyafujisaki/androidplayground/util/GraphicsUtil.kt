@@ -26,7 +26,14 @@ object GraphicsUtil {
 
     fun downloadBitmap2(context: Context, url: String) =
         try {
-            Glide.with(context).asBitmap().load(url).submit().get()
+            Glide.with(context)
+                .asBitmap()
+                .load(url)
+                // .error(...) or .fallback(...) does not help if URL is broken.
+                // .error(R.drawable.ic_broken_image_black_24dp)
+                // .fallback(R.drawable.ic_broken_image_black_24dp)
+                .submit()
+                .get()
         } catch (_: Exception) {
             null
         }
