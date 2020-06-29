@@ -38,8 +38,8 @@ object FragmentUtil {
                 fragmentManager.findFragmentByTag(tag)?.javaClass?.simpleName ?: tag
             }
 
-    fun getNavHostFragment(fragmentManager: FragmentManager) =
-        fragmentManager.fragments.filterIsInstance(NavHostFragment::class.java) as? NavHostFragment
+    fun getNavHostFragments(fragmentManager: FragmentManager) =
+        fragmentManager.fragments.filterIsInstance(NavHostFragment::class.java)
 
     /**
      * @id Resource ID of FragmentContainerView where NavHostFragment is set.
