@@ -51,4 +51,7 @@ object FragmentUtil {
         navHostFragment
             .childFragmentManager
             .primaryNavigationFragment
+
+    fun canNavigateUp(navController: NavController) =
+        navController.graph.startDestination != navController.currentDestination?.id
 }
