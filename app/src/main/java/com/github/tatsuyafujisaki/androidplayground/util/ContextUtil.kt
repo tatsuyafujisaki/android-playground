@@ -7,8 +7,11 @@ import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
+import com.github.tatsuyafujisaki.androidplayground.R
+import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import java.io.BufferedReader
 
@@ -76,4 +79,17 @@ object ContextUtil {
 
     fun toast(context: Context, text: String) =
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+
+    fun <T> createChip(context: Context, text: String, tag: T): Chip {
+        return Chip(context).apply {
+            this.text = text
+            this.tag = tag
+            chipBackgroundColor = getColorStateList(context, R.color.chip_background_selector)
+            chipStrokeColor = getColorStateList(context, R.color.chip_stroke_selector)
+            chipStrokeWidth = 1f
+            isCheckable = true
+            isCheckedIconVisible = false
+            setTextColor(getColorStateList(context, R.color.chip_text_selector))
+        }
+    }
 }
