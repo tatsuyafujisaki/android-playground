@@ -1,10 +1,13 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.app.Activity
 import android.util.Log
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 
 object FragmentUtil {
@@ -45,8 +48,12 @@ object FragmentUtil {
     /**
      * @id Resource ID of FragmentContainerView where NavHostFragment is set.
      */
-    fun getNavHostFragment(fragmentManager: FragmentManager, @IdRes id: Int) =
-        fragmentManager.findFragmentById(id) as? NavHostFragment
+    fun getNavHostFragment(fragmentManager: FragmentManager, @IdRes navHostFragmentId: Int) =
+        fragmentManager.findFragmentById(navHostFragmentId) as? NavHostFragment
+
+    // Redundant explanatory wrapper. Unnecessary in practice.
+    fun getNavController(activity: Activity, @IdRes navHostFragmentId: Int) =
+        activity.findNavController(navHostFragmentId)
 
     fun getCurrentFragment(navHostFragment: NavHostFragment) =
         navHostFragment
@@ -55,4 +62,5 @@ object FragmentUtil {
 
     fun canNavigateUp(navController: NavController) =
         navController.graph.startDestination != navController.currentDestination?.id
+
 }
