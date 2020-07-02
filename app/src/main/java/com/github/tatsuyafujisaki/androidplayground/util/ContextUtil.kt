@@ -89,6 +89,7 @@ object ContextUtil {
             chipStrokeWidth = 1f
             isCheckable = true
             isCheckedIconVisible = false
+            textAlignment = TEXT_ALIGNMENT_CENTER
             setTextColor(getColorStateList(context, R.color.chip_text_selector))
         }
     }
