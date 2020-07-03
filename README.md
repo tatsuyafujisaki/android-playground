@@ -94,6 +94,24 @@ Add the following in `proguard-rule.pro`.
     android:orientation="vertical">
 ```
 
+## RecyclerView
+```xml
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycler_view"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    tools:listitem="@layout/view_holder" />
+```
+
+```kotlin
+with(recyclerView) {
+    adapter = myAdapter
+    itemAnimator = null
+}
+```
+
 # Charles
 ## How to enable Charles Proxy in debug build
 https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
