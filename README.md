@@ -126,9 +126,12 @@ with(recyclerView) {
         android:id="@+id/chip_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:singleSelection="true"
         app:chipSpacingHorizontal="0dp" />
 </HorizontalScrollView>
 ```
+* `app:singleSelection="true"` makes [choice chips](https://material.io/components/chips#choice-chips) and enables [`ChipGroup.setOnCheckedChangeListener()`](https://developer.android.com/reference/com/google/android/material/chip/ChipGroup#setoncheckedchangelistener).
+* If `app:singleSelection="true"` is not set, you have to add an `View.OnClickListener` on each chip.
 
 # Charles
 ## How to enable Charles Proxy in debug build
