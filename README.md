@@ -132,6 +132,7 @@ with(recyclerView) {
 ```
 * `app:singleSelection="true"` makes [choice chips](https://material.io/components/chips#choice-chips) and enables [`ChipGroup.setOnCheckedChangeListener()`](https://developer.android.com/reference/com/google/android/material/chip/ChipGroup#setoncheckedchangelistener).
 * If `app:singleSelection="true"` is not set, you have to add an `View.OnClickListener` on each chip.
+* `ChipGroup.setOnCheckedChangeListener()` returns -1 if the currently selected chip is re-selected.
 
 # Charles
 ## How to enable Charles Proxy in debug build
