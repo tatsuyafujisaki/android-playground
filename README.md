@@ -112,6 +112,24 @@ with(recyclerView) {
 }
 ```
 
+## HorizontalScrollView and ChipGroup
+```xml
+<HorizontalScrollView
+    android:id="@+id/horizontal_scroll_view"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:requiresFadingEdge="horizontal"
+    android:fadingEdgeLength="80dp">
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:chipSpacingHorizontal="0dp" />
+</HorizontalScrollView>
+```
+
 # Charles
 ## How to enable Charles Proxy in debug build
 https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
