@@ -140,6 +140,22 @@ with(recyclerView) {
 * If `app:singleSelection="true"` is not set, you have to add an `View.OnClickListener` on each chip.
 * `ChipGroup.setOnCheckedChangeListener()` returns -1 if the currently selected chip is re-selected.
 
+```kotlin
+chipGroup.setOnCheckedChangeListener { group, checkedId ->
+    group.children.filterIsInstance<Chip>().firstOrNull { it.id == checkedId }?.run {
+        /*
+         * Prevents re-selecting the selected chip because it will unselect the selected chip and leave all the chips unselected.
+         * app:selectionRequired="true" in Material Components 1.2.0-alpha02 or higher dispenses with this workaround.
+         * https://github.com/material-components/material-components-android/issues/651
+         */
+        isClickable = false
+        group.children.filterIsInstance<Chip>().filterNot { it.id == id }.forEach {
+            it.isClickable = true
+        }
+    }
+}
+```
+
 # Charles
 ## How to enable Charles Proxy in debug build
 https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
