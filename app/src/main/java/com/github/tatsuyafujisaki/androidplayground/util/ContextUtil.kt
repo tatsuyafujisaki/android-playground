@@ -6,6 +6,7 @@ import android.os.PowerManager
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
+import android.view.View.TEXT_ALIGNMENT_CENTER
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.ContextCompat.startActivity
