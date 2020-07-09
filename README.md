@@ -109,6 +109,12 @@ Add the following in `proguard-rule.pro`.
 with(recyclerView) {
     adapter = myAdapter
     itemAnimator = null
+    registerAdapterDataObserver(
+    object : RecyclerView.AdapterDataObserver() {
+        override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+            scrollToPosition(0) // RecyclerView#scrollToPosition(0)
+        }
+    })
 }
 ```
 
