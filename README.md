@@ -21,6 +21,14 @@ val value: String = uri.getQueryParameter("key2") // value2
 val color: Color = Color.valueOf(0x11223344)
 ```
 
+# How to change the color of a menu item
+No need to use `SpannableString`.
+```kotlin
+R.id.my_menu_item -> {
+    findViewById<TextView>(R.id.my_menu_item)?.setTextColor(Color.RED)
+}
+```
+
 # How to run a unit test or an instrumented unit test from Terminal
 ## How to run a local unit test
 ```shell
