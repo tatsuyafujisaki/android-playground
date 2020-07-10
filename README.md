@@ -1,5 +1,4 @@
 # Best practices
-* Add `android:contentDescription="@null"` to `ImageView` to solve a lint warning unless you have the time to take care of accessibility.
 ## Core KTX
 * Use `String.toUri()` rather than `Uri.parse(...)` for simplicity.
 * Use `CharSequence.isDigitsOnly()` to check if a string contains only digits.
