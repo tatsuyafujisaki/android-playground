@@ -102,19 +102,17 @@ object ContextUtil {
         }
     }
 
-    fun colorMenuItem1(menuItem: MenuItem, @ColorInt color: Int) {
-        with(menuItem) {
-            title = SpannableString(title.toString()).apply {
-                setSpan(ForegroundColorSpan(color), 0, length, 0)
-            }
+    fun MenuItem.color(@ColorInt color: Int) {
+        title = SpannableString(title.toString()).apply {
+            setSpan(ForegroundColorSpan(color), 0, length, 0)
         }
     }
 
-    fun Activity.colorMenuItem2(menuItem: MenuItem, @ColorInt color: Int) {
-        findViewById<TextView>(menuItem.itemId)?.setTextColor(color)
+    fun MenuItem.color2(activity: Activity, @ColorInt color: Int) {
+        activity.findViewById<TextView>(itemId)?.setTextColor(color)
     }
 
-    fun Fragment.colorMenuItem3(menuItem: MenuItem, @ColorInt color: Int) {
-        view?.findViewById<TextView>(menuItem.itemId)?.setTextColor(color)
+    fun MenuItem.color3(fragment: Fragment, @ColorInt color: Int) {
+        fragment.view?.findViewById<TextView>(itemId)?.setTextColor(color)
     }
 }
