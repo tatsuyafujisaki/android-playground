@@ -29,7 +29,7 @@ object ContextUtil {
     fun isInteractive(context: Context) =
         (context.getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
 
-    fun readAssetAsString(context: Context, fileName: String) =
+    fun readAsset(context: Context, fileName: String) =
         context
             .assets
             .open(fileName)
