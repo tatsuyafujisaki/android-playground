@@ -1,16 +1,23 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.PowerManager
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.util.DisplayMetrics
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.view.View.TEXT_ALIGNMENT_CENTER
+import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
+import androidx.fragment.app.Fragment
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
@@ -93,5 +100,21 @@ object ContextUtil {
             textAlignment = TEXT_ALIGNMENT_CENTER
             setTextColor(getColorStateList(context, R.color.chip_text_selector))
         }
+    }
+
+    fun colorMenuItem1(menuItem: MenuItem, @ColorInt color: Int) {
+        with(menuItem) {
+            title = SpannableString(title.toString()).apply {
+                setSpan(ForegroundColorSpan(color), 0, length, 0)
+            }
+        }
+    }
+
+    fun Activity.colorMenuItem2(menuItem: MenuItem, @ColorInt color: Int) {
+        findViewById<TextView>(menuItem.itemId)?.setTextColor(color)
+    }
+
+    fun Fragment.colorMenuItem3(menuItem: MenuItem, @ColorInt color: Int) {
+        view?.findViewById<TextView>(menuItem.itemId)?.setTextColor(color)
     }
 }
