@@ -14,6 +14,8 @@ import android.view.View.TEXT_ALIGNMENT_CENTER
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
@@ -68,11 +70,11 @@ object ContextUtil {
         Log.i(tag, "heightPixels: $heightPixels")
         Log.i(
             tag, "widthInDp [(1 / 160) inch] (= px / density): " +
-            "${(widthPixels / density).toInt()}"
+                    "${(widthPixels / density).toInt()}"
         )
         Log.i(
             tag, "heightInDp [(1 / 160) inch] (= px / density): " +
-            "${(heightPixels / density).toInt()}"
+                    "${(heightPixels / density).toInt()}"
         )
     }
 
@@ -105,6 +107,12 @@ object ContextUtil {
     fun MenuItem.color(@ColorInt color: Int) {
         title = SpannableString(title.toString()).apply {
             setSpan(ForegroundColorSpan(color), 0, length, 0)
+        }
+    }
+
+    fun MenuItem.color(context: Context, @ColorRes id: Int) {
+        title = SpannableString(title.toString()).apply {
+            setSpan(ForegroundColorSpan(ContextCompat.getColor(context, id)), 0, length, 0)
         }
     }
 
