@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId 'com.github.tatsuyafujisaki.androidplayground'
         minSdkVersion 26
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -167,7 +167,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
 
-    def okHttpVersion = '4.7.2'
+    def okHttpVersion = '4.8.0'
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // CookieJar
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
