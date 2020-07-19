@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.viewbinding.ViewBinding
 
 /*
- * Source:
+ * Simplified from:
  * https://github.com/android/animation-samples/blob/master/DrawableAnimations/app/src/main/java/com/example/android/drawableanimations/ViewBindingDelegates.kt
  * https://github.com/android/user-interface-samples/blob/master/People/app/src/main/java/com/example/android/people/ui/ViewBindingDelegates.kt
  * https://github.com/googlecodelabs/android-people/blob/master/app/src/main/java/com/example/android/people/ui/ViewBindingDelegates.kt
@@ -47,6 +47,10 @@ inline fun <reified T : ViewBinding> Fragment.viewBindings(
         get() = cached ?: bind(requireView()).also {
             viewLifecycleOwner.lifecycle.addObserver(
                 LifecycleEventObserver { _, event ->
+                    /*
+                     * ON_DESTROY here is called just before onDestroyView(), not onDestroy(),
+                     * because the lifecycle is about Fragment's view, not Fragment itself.
+                     */
                     if (event == Lifecycle.Event.ON_DESTROY) {
                         cached = null
                     }
