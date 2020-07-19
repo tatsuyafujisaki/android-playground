@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleEventObserver
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentExploreBinding
+import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 
-class ExploreFragment : Fragment() {
+class ExploreFragment : Fragment(R.layout.fragment_explore) {
     private val logTag = this::class.java.simpleName
-    private var bindin: FragmentExploreBinding? = null
-    private val binding get() = bindin!!
+    private val binding by viewBindings(FragmentExploreBinding::bind)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -28,13 +28,11 @@ class ExploreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
-        bindin = FragmentExploreBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
-        bindin = null
     }
 }

@@ -17,13 +17,14 @@ import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil
 import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtil
+import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private val tag = this::class.java.simpleName
 
+    private val binding by viewBindings(ActivityMainBinding::bind)
     private lateinit var mainActivityComponent: MainActivityComponent
-    private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
@@ -43,10 +44,6 @@ class MainActivity : AppCompatActivity() {
         lifecycle.addObserver(LifecycleEventObserver { _, event ->
             Log.d(tag, event.toString())
         })
-
-        binding = ActivityMainBinding.inflate(layoutInflater).apply {
-            setContentView(root)
-        }
 
 //        if (savedInstanceState == null) {
 //            supportFragmentManager.commit {
