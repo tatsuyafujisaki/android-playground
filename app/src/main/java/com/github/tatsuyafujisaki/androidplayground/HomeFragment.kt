@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), WebViewContainer {
     private val logTag = this::class.java.simpleName
+    private val logTagForView = this::class.java.simpleName + ".view"
     private lateinit var binding: FragmentHomeBinding
     private val mainViewModel: MainViewModel by activityViewModels()
 
@@ -40,6 +41,10 @@ class HomeFragment : Fragment(), WebViewContainer {
     ): View? {
         Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        viewLifecycleOwner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
+            Log.d(logTagForView, event.toString())
+        })
 
         viewLifecycleOwner.lifecycleScope.launch {
             Log.d(logTag, "This is a demonstration of viewLifecycleOwner.lifecycleScope.")
