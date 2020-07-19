@@ -49,7 +49,7 @@ inline fun <reified T : ViewBinding> Fragment.viewBindings(
                 LifecycleEventObserver { _, event ->
                     /*
                      * ON_DESTROY here is called just before onDestroyView(), not onDestroy(),
-                     * because the lifecycle is about Fragment's view, not Fragment itself.
+                     * because the lifecycle is of a fragment's view instead of a fragment itself.
                      */
                     if (event == Lifecycle.Event.ON_DESTROY) {
                         cached = null
