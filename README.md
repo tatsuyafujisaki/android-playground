@@ -122,6 +122,12 @@ with(recyclerView) {
             scrollToPosition(0) // RecyclerView#scrollToPosition(0)
         }
     })
+    myLiveData.observe(viewLifecycleOwner) {
+        with(adapter as MyAdapter) {
+            submitList(it)
+            // notifyDataSetChanged() // Uncomment this only if new data is not reflected on UI after submitList(...).
+        }
+    }
 }
 ```
 
