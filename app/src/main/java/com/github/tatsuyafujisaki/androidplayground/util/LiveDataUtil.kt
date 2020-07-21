@@ -7,6 +7,15 @@ object LiveDataUtil {
         value = value
     }
 
+    fun <T> LiveData<T>.observeOnce(onChanged: (T) -> Unit) {
+        observeForever(object : Observer<T> {
+            override fun onChanged(t: T) {
+                onChanged(t)
+                removeObserver(this)
+            }
+        })
+    }
+
     fun <A, B, C> mediate(
         liveData1: LiveData<A>,
         liveData2: LiveData<B>,
