@@ -7,6 +7,18 @@ object LiveDataUtil {
         value = value
     }
 
+    fun <T> LiveData<T>.observeOnce(owner: LifecycleOwner, onChanged: (T) -> Unit) {
+        observe(owner, object : Observer<T> {
+            override fun onChanged(t: T) {
+                onChanged(t)
+                removeObserver(this)
+            }
+        })
+    }
+
+    /**
+     * NB: observeForever(...) observes even after LifecycleOwner, which contains this LiveData, gets destroyed.
+     */
     fun <T> LiveData<T>.observeOnce(onChanged: (T) -> Unit) {
         observeForever(object : Observer<T> {
             override fun onChanged(t: T) {
