@@ -105,7 +105,7 @@ Add the following in `proguard-rule.pro`.
 ```xml
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler_view"
-    android:layout_width="0dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -131,11 +131,24 @@ with(recyclerView) {
 }
 ```
 
+## EditText
+`android:hint`, `android:importantForAutofill`, and `android:inputType` are to suppress a warning.
+```xml
+<EditText
+    android:id="@+id/edit_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@null"
+    android:importantForAutofill="no"
+    android:inputType="text"
+    android:text="Hello, World!" />
+```
+
 ## HorizontalScrollView and ChipGroup
 ```xml
 <HorizontalScrollView
     android:id="@+id/horizontal_scroll_view"
-    android:layout_width="0dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:scrollbars="none"
     android:requiresFadingEdge="horizontal"
