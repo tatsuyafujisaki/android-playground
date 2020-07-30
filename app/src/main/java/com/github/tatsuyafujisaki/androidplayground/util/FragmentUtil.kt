@@ -6,11 +6,14 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 
 object FragmentUtil {
+    fun clearViewModels(fragment: Fragment) {
+        fragment.viewModelStore.clear()
+    }
+
     fun logFragmentManagers(fragment: Fragment) {
         fragment.run {
             val fragmentName = fragment.javaClass.simpleName
@@ -51,7 +54,9 @@ object FragmentUtil {
     fun getNavHostFragment(fragmentManager: FragmentManager, @IdRes navHostFragmentId: Int) =
         fragmentManager.findFragmentById(navHostFragmentId) as? NavHostFragment
 
-    // Redundant explanatory wrapper. Unnecessary in practice.
+    /**
+     * Redundant explanatory wrapper. Unnecessary in practice.
+     */
     fun getNavController(activity: Activity, @IdRes navHostFragmentId: Int) =
         activity.findNavController(navHostFragmentId)
 
