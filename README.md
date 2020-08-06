@@ -28,6 +28,15 @@ R.id.my_menu_item -> {
 }
 ```
 
+# How to show an app's dependencies
+## Option 1
+Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
+
+## Option 2
+```shell
+./gradlew app:androidDependencies
+```
+
 # How to run a unit test or an instrumented unit test from Terminal
 ## How to run a local unit test
 ```shell
