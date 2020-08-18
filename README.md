@@ -28,6 +28,18 @@ R.id.my_menu_item -> {
 }
 ```
 
+# Gradlew
+## How to list all the source sets (subdirectories under the `src` directory)
+```shell
+./gradlew sourceSets
+```
+
+## How to do assemble, lint, and test
+```shell
+./gradlew build
+```
+
+
 # How to show an app's dependencies
 ## Option 1
 Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
