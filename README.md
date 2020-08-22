@@ -1,4 +1,10 @@
-# Best practices
+# Official style guides
+* https://developer.android.com/kotlin/style-guide
+* https://kotlinlang.org/docs/reference/coding-conventions.html
+
+These should precede other style guides.
+
+# Personal best practices
 ## Core KTX
 * Use `String.toUri()` rather than `Uri.parse(...)` for simplicity.
 * Use `CharSequence.isDigitsOnly()` to check if a string contains only digits.
