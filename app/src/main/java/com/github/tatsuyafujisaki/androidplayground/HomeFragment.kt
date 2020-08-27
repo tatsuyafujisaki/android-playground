@@ -1,5 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -57,7 +58,14 @@ class HomeFragment : Fragment(), WebViewContainer {
         super.onViewCreated(view, savedInstanceState)
         Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
 
-        binding.run {
+        with(binding) {
+            /**
+             * Without setting lifecycleOwner, updating liveData.value does not update EditText.
+             * On the other hand, updating EditText updates liveData.value
+             * regardless of setting lifecycleOwner.
+             */
+            lifecycleOwner = this@HomeFragment
+
             viewModel = mainViewModel
 
             clearButton.setOnClickListener {
@@ -70,14 +78,8 @@ class HomeFragment : Fragment(), WebViewContainer {
                 }
             })
 
-            /**
-             * Without setting lifecycleOwner, updating liveData.value does not update EditText.
-             * On the other hand, updating EditText updates liveData.value
-             * regardless of setting lifecycleOwner.
-             */
-            lifecycleOwner = this@HomeFragment
-
-            webView.run {
+            with(webView) {
+                enableJavaScript()
                 webViewClient = object : WebViewClient() {
                     // Enable page transitions inside the WebView instead of opening a browser.
                     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -138,4 +140,10 @@ class HomeFragment : Fragment(), WebViewContainer {
 
     override fun canGoBack() = binding.webView.canGoBack()
     override fun goBack() = binding.webView.goBack()
+
+    // Minimize the function that uses @SuppressLint.
+    @SuppressLint("SetJavaScriptEnabled")
+    fun WebView.enableJavaScript() {
+        settings.javaScriptEnabled = true
+    }
 }
