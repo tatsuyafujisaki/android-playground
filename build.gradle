@@ -7,9 +7,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://plugins.gradle.org/m2' // ktlint-gradle
-        }
     }
 
     dependencies {
@@ -22,7 +19,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.jlleitschuh.gradle.ktlint' version '9.2.1'
+    id 'org.jlleitschuh.gradle.ktlint' version '9.3.0'
 }
 
 allprojects {
