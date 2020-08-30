@@ -1,8 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground
 
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.testing.launchFragment
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle.State
@@ -14,17 +12,14 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.tatsuyafujisaki.androidplayground.dataClass.SampleRepository
+import com.github.tatsuyafujisaki.androidplayground.factory.FragmentFactoryFactory
+import com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment
 import com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleDialogFragment
+import com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleFragment
 import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import org.junit.Test
 import org.junit.runner.RunWith
-
-class FragmentFactoryFactory<F : Fragment>(private val instantiate: () -> F): FragmentFactory() {
-    override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
-        return instantiate()
-    }
-}
 
 @RunWith(AndroidJUnit4::class)
 class FragmentTest {
