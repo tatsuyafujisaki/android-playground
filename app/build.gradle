@@ -19,10 +19,29 @@ android {
 
         /*
          * Instruct Android Test Orchestrator to remove all shared state
-         * from a device's CPU and memory after each test.
+         * from a device's CPU and memory between tests.
+         * https://developer.android.com/training/testing/junit-runner#ato-gradle
          */
         testInstrumentationRunnerArguments clearPackageData: 'true'
+
+        testOptions {
+            execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        }
+
+        /*
+         * Enable Robolectric.
+         * https://developer.android.com/training/testing/unit-testing/local-unit-tests#include-framework-dependencies
+         */
+        testOptions.unitTests.includeAndroidResources = true
     }
+
+    /*
+     * Gradle automatically adds the following as a dependency.
+     * https://developer.android.com/training/testing/set-up-project#add-gradle-dependencies
+     */
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+    useLibrary 'android.test.runner'
 
     buildTypes {
         release {
@@ -177,7 +196,7 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
-    /**
+    /*
      * Third-party
      */
 
@@ -206,50 +225,37 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-    /**
-     * Local unit test
-     * https://developer.android.com/training/testing/unit-testing/local-unit-tests#setup
-     * https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies
-     */
-
     def androidxTestVersion = '1.3.0'
-    def junit = 'androidx.test.ext:junit-ktx:1.1.2'
-    def core = "androidx.test:core-ktx:$androidxTestVersion"
 
-    /**
-     * JUnit is required not only as androidTestImplementation
-     * but also as testImplementation to annotate a class
-     * with @RunWith(androidx.test.ext.junit.runners.AndroidJUnit4::class) to run Robolectric.
-     */
-    testImplementation junit
-
-    /**
-     * For Robolectric
+    /*
+     * Local unit tests
      * https://developer.android.com/training/testing/unit-testing/local-unit-tests#setup
-     */
-    testImplementation core
-
-    /**
-     * For LiveData
      * https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies
      */
+
+    testImplementation 'junit:junit:4.13'
+    testImplementation "androidx.test:core-ktx:$androidxTestVersion"
     testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    testImplementation 'org.robolectric:robolectric:4.4'
 
-    testImplementation 'org.robolectric:robolectric:4.3.1'
+    def mockkVersion = '1.10.0'
+    testImplementation "io.mockk:mockk:$mockkVersion"
 
-    /**
-     * Instrumented unit test
+    /*
+     * Instrumented unit tests
      * https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#setup
      * https://developer.android.com/training/testing/set-up-project#gradle-dependencies
      */
 
-    androidTestImplementation junit
-    androidTestImplementation core
-    androidTestImplementation 'com.google.truth:truth:1.0.1'
     androidTestImplementation "androidx.test.ext:truth:$androidxTestVersion"
-    androidTestImplementation "androidx.test:orchestrator:$androidxTestVersion"
+    androidTestImplementation "androidx.test:core-ktx:$androidxTestVersion"
     androidTestImplementation "androidx.test:rules:$androidxTestVersion"
     androidTestImplementation "androidx.test:runner:$androidxTestVersion"
+    androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestImplementation 'com.google.truth:truth:1.0.1'
+    androidTestUtil "androidx.test:orchestrator:$androidxTestVersion"
 
     def espressoVersion = '3.3.0'
     androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espressoVersion"
@@ -259,10 +265,6 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-web:$espressoVersion"
     androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
-
-    def mockkVersion = '1.10.0'
-    testImplementation "io.mockk:mockk:$mockkVersion"
-    androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
 }
 
 apply plugin: 'com.google.gms.google-services'

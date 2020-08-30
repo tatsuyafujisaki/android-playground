@@ -8,11 +8,14 @@ import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle.State
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.tatsuyafujisaki.androidplayground.dataClass.SampleRepository
+import com.github.tatsuyafujisaki.androidplayground.ui.SampleDialogFragment
+import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -61,5 +64,22 @@ class FragmentTest {
         val scenario = launchFragment<HomeFragment>(
             bundleOf("Apple" to 100, "Orange" to 200)
         )
+    }
+
+    @Test
+    fun testDismissDialogFragment() {
+        // Assumes that "MyDialogFragment" extends the DialogFragment class.
+        with(launchFragment<SampleDialogFragment>()) {
+            onFragment {
+                assertThat(it.dialog).isNotNull()
+                assertThat(it.requireDialog().isShowing).isTrue()
+                it.dismiss()
+                it.parentFragmentManager.executePendingTransactions()
+                assertThat(it.dialog).isNull()
+            }
+
+            // Assumes that the dialog had a button containing the text "Cancel".
+            onView(withText("Cancel")).check(doesNotExist())
+        }
     }
 }
