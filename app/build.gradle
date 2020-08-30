@@ -24,25 +24,7 @@ android {
          * https://developer.android.com/training/testing/junit-runner#ato-gradle
          */
         testInstrumentationRunnerArguments clearPackageData: 'true'
-
-        testOptions {
-            execution 'ANDROIDX_TEST_ORCHESTRATOR'
-        }
-
-        /*
-         * Enable Robolectric.
-         * https://developer.android.com/training/testing/unit-testing/local-unit-tests#include-framework-dependencies
-         */
-        testOptions.unitTests.includeAndroidResources = true
     }
-
-    /*
-     * Gradle automatically adds the following as a dependency.
-     * https://developer.android.com/training/testing/set-up-project#add-gradle-dependencies
-     */
-    useLibrary 'android.test.base'
-    useLibrary 'android.test.mock'
-    useLibrary 'android.test.runner'
 
     buildTypes {
         release {
@@ -87,12 +69,22 @@ android {
     }
 
     testOptions {
-        execution 'ANDROIDX_TEST_ORCHESTRATOR' // Android Test Orchestrator
+        // Android Test Orchestrator
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
 
         unitTests {
-            includeAndroidResources true // Robolectric
+            // Robolectric
+            includeAndroidResources true
         }
     }
+
+    /*
+     * Gradle automatically adds the following as a dependency.
+     * https://developer.android.com/training/testing/set-up-project#add-gradle-dependencies
+     */
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+    useLibrary 'android.test.runner'
 }
 
 dependencies {
