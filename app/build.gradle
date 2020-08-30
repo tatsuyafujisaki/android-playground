@@ -22,6 +22,7 @@ android {
          * Instruct Android Test Orchestrator to remove all shared state
          * from a device's CPU and memory between tests.
          * https://developer.android.com/training/testing/junit-runner#ato-gradle
+         * https://developer.android.com/training/testing/junit-runner#using-android-test-orchestrator
          */
         testInstrumentationRunnerArguments clearPackageData: 'true'
     }
