@@ -212,7 +212,7 @@ dependencies {
     // Stetho
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 
-    def flipperVersion = '0.37.0'
+    def flipperVersion = '0.54.0'
     debugImplementation "com.facebook.flipper:flipper:$flipperVersion"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipperVersion"
     debugImplementation 'com.facebook.soloader:soloader:0.9.0'
