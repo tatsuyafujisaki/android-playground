@@ -161,7 +161,6 @@ dependencies {
      */
 
     implementation 'com.google.maps.android:places-ktx:0.3.1'
-    implementation 'com.google.places.android:places-ktx:*'
 
     /*
      * com.google
