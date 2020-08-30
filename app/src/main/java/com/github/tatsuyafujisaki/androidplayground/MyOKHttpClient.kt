@@ -20,7 +20,7 @@ val okHttpClient: OkHttpClient =
         // The following interceptor is useful to look into malformed JSON.
         .addInterceptor {
             it.proceed(it.request()).apply {
-                body()?.string()?.let { json ->
+                body?.string()?.let { json ->
                     Log.w(this::class.java.simpleName, json)
                 }
             }
