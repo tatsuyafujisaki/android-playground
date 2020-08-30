@@ -4,6 +4,8 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.testing.launchFragment
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle.State
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
@@ -18,6 +20,7 @@ import com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleDialogFrag
 import com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleFragment
 import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -25,10 +28,10 @@ import org.junit.runner.RunWith
 class FragmentTest {
     @Test
     fun testWithGraphicalFragment() {
-        val repository = mockk<SampleRepository>()
+        val mockRepository = mockk<SampleRepository>()
 
         val fragmentFactory = FragmentFactoryFactory {
-            SampleFragment.newInstance("foo", "bar", repository)
+            SampleFragment.newInstance("foo", "bar", mockRepository)
         }
 
         val scenario = launchFragmentInContainer<SampleFragment>(
@@ -75,6 +78,27 @@ class FragmentTest {
 
             // Assumes that the dialog had a button containing the text "Cancel".
             onView(withText("Cancel")).check(doesNotExist())
+        }
+    }
+
+    @Test
+    fun testNavigateToSampleFragment() {
+        val scenario = launchFragmentInContainer<HomeFragment>(
+            fragmentArgs = bundleOf("Apple" to 100, "Orange" to 200)
+        )
+
+        val mockNavController= mockk<NavController>(relaxed = true)
+
+        scenario.onFragment {
+            Navigation.setViewNavController(
+                it.requireView(), mockNavController
+            )
+        }
+
+        onView(withId(R.id.navigate_to_sample_fragment_button)).perform(click())
+
+        verify {
+            mockNavController.navigate(R.id.action_from_home_to_sample)
         }
     }
 }
