@@ -1,6 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.di
 
-import com.github.tatsuyafujisaki.androidplayground.MainActivity
+import com.github.tatsuyafujisaki.androidplayground.ui.activity.MainActivity
 import dagger.Subcomponent
 
 @ActivityScope

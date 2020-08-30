@@ -1,7 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.di
 
-import com.github.tatsuyafujisaki.androidplayground.HomeFragment
-import com.github.tatsuyafujisaki.androidplayground.MainActivity
+import com.github.tatsuyafujisaki.androidplayground.ui.activity.MainActivity
+import com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

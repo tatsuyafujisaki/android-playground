@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.ui
+package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
 import androidx.fragment.app.DialogFragment
 

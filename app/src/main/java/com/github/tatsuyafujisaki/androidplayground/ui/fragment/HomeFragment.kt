@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground
+package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -14,6 +14,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import com.github.tatsuyafujisaki.androidplayground.MainViewModel
+import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 

@@ -14,7 +14,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.tatsuyafujisaki.androidplayground.dataClass.SampleRepository
-import com.github.tatsuyafujisaki.androidplayground.ui.SampleDialogFragment
+import com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleDialogFragment
 import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import org.junit.Test

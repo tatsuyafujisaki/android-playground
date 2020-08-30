@@ -4,14 +4,14 @@
     app:startDestination="@id/destination_home">
     <fragment
         android:id="@+id/destination_home"
-        android:name="com.github.tatsuyafujisaki.androidplayground.HomeFragment"
+        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/destination_explore"
-        android:name="com.github.tatsuyafujisaki.androidplayground.ExploreFragment"
+        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.ExploreFragment"
         android:label="ExploreFragment" />
     <fragment
         android:id="@+id/destination_account"
-        android:name="com.github.tatsuyafujisaki.androidplayground.HomeFragment"
+        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment"
         android:label="AccountFragment" />
 </navigation>

@@ -1,9 +1,10 @@
-package com.github.tatsuyafujisaki.androidplayground
+package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
 import android.content.Context
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleEventObserver
+import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentExploreBinding
 import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 

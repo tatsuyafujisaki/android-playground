@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground
+package com.github.tatsuyafujisaki.androidplayground.ui.activity
 
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +12,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.github.tatsuyafujisaki.androidplayground.MainApplication
+import com.github.tatsuyafujisaki.androidplayground.R
+import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
 import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient

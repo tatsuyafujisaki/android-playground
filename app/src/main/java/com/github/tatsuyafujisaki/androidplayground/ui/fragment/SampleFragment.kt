@@ -1,7 +1,8 @@
-package com.github.tatsuyafujisaki.androidplayground
+package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.dataClass.SampleRepository
 
 class SampleFragment : Fragment(R.layout.fragment_sample) {
