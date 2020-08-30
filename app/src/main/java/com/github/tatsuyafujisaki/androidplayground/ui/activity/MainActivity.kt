@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             )
         )
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        setSupportActionBar(binding.toolbar)
 
         binding.fab.setOnClickListener {
             lifecycleScope.launch {

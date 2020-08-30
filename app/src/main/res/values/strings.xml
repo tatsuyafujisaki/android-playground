@@ -6,4 +6,6 @@
     <string name="home">Home</string>
     <string name="explore">Explorer</string>
     <string name="account">Account</string>
+    <string name="name">Name</string>
+    <string name="sample">Sample</string>
 </resources>
