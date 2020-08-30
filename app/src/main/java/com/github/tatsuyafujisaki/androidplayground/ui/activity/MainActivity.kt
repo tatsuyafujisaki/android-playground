@@ -150,7 +150,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     /**
-     * You must call setSupportActionBar(...) in Activity.onCreate()
+     * You must call setSupportActionBar(...) in Activity#onCreate()
      * to make tapping the Up button call onOptionsItemSelected()
      * even when there is no other menu item.
      */

@@ -5,7 +5,11 @@
     <fragment
         android:id="@+id/destination_home"
         android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_from_home_to_sample"
+            app:destination="@id/destination_sample" />
+    </fragment>
     <fragment
         android:id="@+id/destination_explore"
         android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.ExploreFragment"
@@ -14,4 +18,8 @@
         android:id="@+id/destination_account"
         android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment"
         android:label="AccountFragment" />
+    <fragment
+        android:id="@+id/destination_sample"
+        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleFragment"
+        android:label="SampleFragment" />
 </navigation>

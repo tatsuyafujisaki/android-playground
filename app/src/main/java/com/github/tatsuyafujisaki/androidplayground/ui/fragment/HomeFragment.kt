@@ -12,9 +12,10 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import com.github.tatsuyafujisaki.androidplayground.MainViewModel
+import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
@@ -74,11 +75,15 @@ class HomeFragment : Fragment(), WebViewContainer {
                 mainViewModel.liveData.value = null
             }
 
-            mainViewModel.liveData.observe(viewLifecycleOwner, Observer {
+            navigateToSampleFragmentButton.setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.action_from_home_to_sample)
+            )
+
+            mainViewModel.liveData.observe(viewLifecycleOwner) {
                 if (it != null) {
                     Log.d(logTag, it)
                 }
-            })
+            }
 
             with(webView) {
                 enableJavaScript()
