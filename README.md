@@ -50,7 +50,8 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
 
 ## Option 2
 ```shell
-./gradlew app:androidDependencies
+./gradlew app:dependencies // shows dependencies as a tree.
+./gradlew app:androidDependencies // shows dependencies as a list.
 ```
 
 # How to run a unit test or an instrumented unit test from Terminal
