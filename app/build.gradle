@@ -227,7 +227,10 @@ dependencies {
      * https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies
      */
 
-    testImplementation 'junit:junit:4.13'
+    // Truth assertion library
+    testImplementation 'com.google.truth:truth:1.0.1'
+    testImplementation "androidx.test.ext:truth:$androidxTestVersion"
+
     testImplementation "androidx.test:core-ktx:$androidxTestVersion"
     testImplementation 'androidx.arch.core:core-testing:2.1.0'
     testImplementation 'org.robolectric:robolectric:4.4'
@@ -241,13 +244,15 @@ dependencies {
      * https://developer.android.com/training/testing/set-up-project#gradle-dependencies
      */
 
+    // Truth assertion library
+    androidTestImplementation 'com.google.truth:truth:1.0.1'
     androidTestImplementation "androidx.test.ext:truth:$androidxTestVersion"
+
     androidTestImplementation "androidx.test:core-ktx:$androidxTestVersion"
     androidTestImplementation "androidx.test:rules:$androidxTestVersion"
     androidTestImplementation "androidx.test:runner:$androidxTestVersion"
     androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
-    androidTestImplementation 'com.google.truth:truth:1.0.1'
     androidTestUtil "androidx.test:orchestrator:$androidxTestVersion"
 
     def espressoVersion = '3.3.0'
