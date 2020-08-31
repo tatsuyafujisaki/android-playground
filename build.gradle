@@ -2,6 +2,7 @@ buildscript {
     ext {
         kotlinVersion = '1.4.0'
         navigationVersion = '2.3.0'
+        androidxTestVersion = '1.3.0'
     }
 
     repositories {
