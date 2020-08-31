@@ -1,8 +1,8 @@
 package com.github.tatsuyafujisaki.androidplayground
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.ext.truth.os.ParcelableSubject.assertThat
 import androidx.test.platform.app.InstrumentationRegistry
+import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 
