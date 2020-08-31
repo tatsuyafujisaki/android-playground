@@ -164,7 +164,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                         onBackPressed()
                     }
                     return true
-                } ?: false
+                } ?: navController.navigateUp()
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
