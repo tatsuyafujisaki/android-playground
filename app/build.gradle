@@ -121,7 +121,13 @@ dependencies {
 
     def fragmentVersion = '1.2.5'
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
-    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    debugImplementation("androidx.fragment:fragment-testing:$fragmentVersion") {
+        /*
+         * https://github.com/android/android-test/issues/481
+         * https://issuetracker.google.com/issues/128612536
+         */
+        exclude group: 'androidx.test', module: 'monitor'
+    }
 
     def lifecycleVersion = '2.2.0'
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
@@ -267,10 +273,10 @@ dependencies {
  * Fix the "No tests found" error occurring when "./gradlew connectedCheck" is run.
  * The error is introduced by fragment-testing.
  */
-configurations.all {
-    resolutionStrategy {
-        force "androidx.test:monitor:$androidxTestVersion"
-    }
-}
+//configurations.all {
+//    resolutionStrategy {
+//        force "androidx.test:monitor:$androidxTestVersion"
+//    }
+//}
 
 apply plugin: 'com.google.gms.google-services'
