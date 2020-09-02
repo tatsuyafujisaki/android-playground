@@ -1,11 +1,14 @@
 package com.github.tatsuyafujisaki.androidplayground
 
+import android.app.Application
+import android.content.Context
 import androidx.core.os.bundleOf
 import androidx.fragment.app.testing.launchFragment
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle.State
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
@@ -21,11 +24,32 @@ import com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleFragment
 import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import io.mockk.verify
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class FragmentTest {
+class MyFragmentTest {
+    private lateinit var context: Context
+    private lateinit var application: Application
+
+    @Before
+    fun setUp() {
+        context = ApplicationProvider.getApplicationContext()
+        application = ApplicationProvider.getApplicationContext()
+    }
+
+    @Test
+    fun testFragment() {
+        val scenario = launchFragmentInContainer<HomeFragment>() // debugImplementation 'androidx.fragment:fragment-testing:*'
+
+        // How to click a button.
+        // onView(withId(R.id.my_button)).perform(click())
+
+        // How to move to a state. Unless specified, it moves to RESUMED.
+        // scenario.moveToState(State.STARTED)
+    }
+
     @Test
     fun testWithGraphicalFragment() {
         val mockRepository = mockk<SampleRepository>()
@@ -39,7 +63,7 @@ class FragmentTest {
             factory = fragmentFactory
         )
 
-        // Demonstration of specifying the state. If omitted, the state moves to RESUMED.
+        // How to move to the state. If omitted, the state moves to RESUMED.
         scenario.moveToState(State.STARTED)
 
         // Demonstration of interacting with the fragment
