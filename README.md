@@ -252,6 +252,9 @@ scenario.recreate()
 ## How to click a button
 ```kotlin
 onView(withId(R.id.my_button)).perform(click())
+
+// If the view is not displayed without scrolling, you have to scroll to click it.
+onView(withId(R.id.my_button)).perform(scrollTo(), click())
 ```
 
 ## How to check the visibility of a view
