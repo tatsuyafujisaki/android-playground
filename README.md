@@ -213,6 +213,19 @@ chipGroup.setOnCheckedChangeListener { group, checkedId ->
 ```
 
 # Espresso
+## How to interact with an Activity
+```kotlin
+activityScenario.onActivity {
+    // Do something with an Activity.
+}
+```
+## How to interact with a Fragment
+```kotlin
+fragmentScenario.onFragment {
+    // Do something with a Fragment.
+}
+```
+
 ## How to move to a state
 Unless specified, it moves to RESUMED.
 ```kotlin
@@ -220,7 +233,7 @@ Unless specified, it moves to RESUMED.
 scenario.moveToState(State.STARTED)
 ```
 
-## How to recreate an activity or a fragment
+## How to recreate an Activity or a Fragment
 ```kotlin
 // scenario is ActivityScenario or FragmentScenario.
 scenario.recreate()
