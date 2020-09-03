@@ -67,6 +67,10 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
 ## How to run an instrumented unit test
 ```shell
 ./gradlew connectedAndroidTest
+
+# Alternatively
+# https://docs.gradle.org/current/userguide/command_line_interface.html#task_name_abbreviation
+./gradlew cAT
 ```
 
 ## How to run a local unit test for a build variant and a module
