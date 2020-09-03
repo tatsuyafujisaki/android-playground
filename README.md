@@ -212,6 +212,32 @@ chipGroup.setOnCheckedChangeListener { group, checkedId ->
 }
 ```
 
+# Espresso
+## How to move to a state
+Unless specified, it moves to RESUMED.
+```kotlin
+// scenario is ActivityScenario or FragmentScenario.
+scenario.moveToState(State.STARTED)
+```
+
+## How to recreate an activity or a fragment
+```kotlin
+// scenario is ActivityScenario or FragmentScenario.
+scenario.recreate()
+```
+
+## How to click a button
+```kotlin
+onView(withId(R.id.my_button)).perform(click())
+```
+
+## How to check the visibility of a view
+```kotlin
+onView(withId(R.id.my_view)).check(matches(isDisplayed())) // VISIBLE
+onView(withId(R.id.my_view)).check(matches(not(isDisplayed()))) // INVISIBLE
+onView(withId(R.id.my_view)).check(doesNotExist()) // GONE
+```
+
 # Charles
 ## How to enable Charles Proxy in debug build
 https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
