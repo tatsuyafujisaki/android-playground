@@ -217,6 +217,12 @@ chipGroup.setOnCheckedChangeListener { group, checkedId ->
 ```
 
 # Espresso
+## How to check whether or not a text is displayed
+```kotlin
+onView(withText("foo")).check(matches(isDisplayed()))
+onView(withText("foo")).check(matches(not(isDisplayed())))
+```
+
 ## How to interact with an Activity
 ```kotlin
 activityScenario.onActivity {
