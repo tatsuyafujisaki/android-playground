@@ -36,11 +36,5 @@ class MyActivityTest {
             // How to start another Activity
             // it.startActivity(Intent(it, AnotherActivity::class.java))
         }
-
-        // How to click a button.
-        // onView(withId(R.id.my_button)).perform(click())
-
-        // How to move to a state. Unless specified, it moves to RESUMED.
-        // scenario.moveToState(State.STARTED)
     }
 }

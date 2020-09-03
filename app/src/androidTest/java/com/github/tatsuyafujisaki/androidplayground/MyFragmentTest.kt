@@ -5,7 +5,6 @@ import android.content.Context
 import androidx.core.os.bundleOf
 import androidx.fragment.app.testing.launchFragment
 import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.lifecycle.Lifecycle.State
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.core.app.ApplicationProvider
@@ -43,11 +42,8 @@ class MyFragmentTest {
     fun testFragment() {
         val scenario = launchFragmentInContainer<HomeFragment>() // debugImplementation 'androidx.fragment:fragment-testing:*'
 
-        // How to click a button.
-        // onView(withId(R.id.my_button)).perform(click())
-
-        // How to move to a state. Unless specified, it moves to RESUMED.
-        // scenario.moveToState(State.STARTED)
+        scenario.onFragment {
+        }
     }
 
     @Test
@@ -62,17 +58,6 @@ class MyFragmentTest {
             fragmentArgs = bundleOf("Apple" to 100, "Orange" to 200),
             factory = fragmentFactory
         )
-
-        // How to move to the state. If omitted, the state moves to RESUMED.
-        scenario.moveToState(State.STARTED)
-
-        // Demonstration of interacting with the fragment
-        scenario.onFragment {
-            // Do something
-        }
-
-        // Demonstration of recreating the activity.
-        scenario.recreate()
 
         onView(withId(R.id.sample_text_view))
             .check(matches(withText("Sample")))
