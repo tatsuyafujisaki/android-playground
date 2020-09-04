@@ -253,7 +253,7 @@ scenario.recreate()
 ```kotlin
 onView(withId(R.id.my_button)).perform(click())
 
-// If the view is not displayed without scrolling, you have to scroll to click it.
+// scrollTo() is necessary only if the view is not displayed without scrolling.
 onView(withId(R.id.my_button)).perform(scrollTo(), click())
 ```
 
@@ -262,6 +262,20 @@ onView(withId(R.id.my_button)).perform(scrollTo(), click())
 onView(withId(R.id.my_view)).check(matches(isDisplayed())) // VISIBLE
 onView(withId(R.id.my_view)).check(matches(not(isDisplayed()))) // INVISIBLE
 onView(withId(R.id.my_view)).check(doesNotExist()) // GONE
+```
+
+## How to check if a view has exactly the same string
+```kotlin
+onView(withId(R.id.my_view))
+.perform(scrollTo()) // Necessary only if the view is not displayed without scrolling.
+.check(matches(withText("foo")))
+```
+
+## How to check if a view contains a string
+```kotlin
+onView(withId(R.id.my_view))
+.perform(scrollTo()) // Necessary only if the view is not displayed without scrolling.
+.check(matches(withText(containsString("foo"))))
 ```
 
 ## How to troubleshoot
