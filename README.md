@@ -264,6 +264,12 @@ onView(withId(R.id.my_view)).check(matches(not(isDisplayed()))) // INVISIBLE
 onView(withId(R.id.my_view)).check(doesNotExist()) // GONE
 ```
 
+## How to troubleshoot
+* Issue
+  * `java.lang.TypeNotPresentException: Type http://android.support.test.runner.AndroidJUnit4 not present (when trying to run an instrumented unit test)`
+* Solution
+  * Go to Android Studio's menu bar > `Run` > `Edit Configurations` > delete all the tests.
+
 # Charles
 ## How to enable Charles Proxy in debug build
 https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
