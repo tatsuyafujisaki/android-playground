@@ -11,8 +11,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.*
 import androidx.navigation.Navigation
 import com.github.tatsuyafujisaki.androidplayground.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.R
@@ -48,6 +47,18 @@ class HomeFragment : Fragment(), WebViewContainer {
 
         viewLifecycleOwner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
             Log.d(logTagForView, event.toString())
+        })
+
+        // Demonstration of how to use a custom LifecycleObserver.
+        viewLifecycleOwner.lifecycle.addObserver(object: LifecycleObserver {
+            @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+            fun registerSomething() {
+
+            }
+
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            fun unregisterSomething() {
+            }
         })
 
         viewLifecycleOwner.lifecycleScope.launch {
