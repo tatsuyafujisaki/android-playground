@@ -89,27 +89,6 @@ Add the following in `proguard-rule.pro`.
 -keepattributes SourceFile,LineNumberTable
 ```
 
-# How to remove comments
-1. Command+Shift+F in Android Studio.
-2. Check `Regex`.
-3. Put one of the following regexes.
-4. Click `Replace All`.
-
-## Regex to match all the comments (/* \*/ including /** \*/)
-```
-/\*([\S\s]+?)\*/
-```
-
-## Regex to match copyright comments (/* \*/ including /** \*/)
-```
-/\*([\S\s]+?Copyright[\S\s]+?)\*/
-```
-
-## Regex to match copyright comments in XML
-```
-<!--([\S\s]+?Copyright[\S\s]+?)-->
-```
-
 # Template
 ## Child in ConstraintLayout
 ```xml
@@ -216,6 +195,30 @@ chipGroup.setOnCheckedChangeListener { group, checkedId ->
 }
 ```
 
+# How to use CookieManager
+```kotlin
+val cookieManager = CookieManager.getInstance()
+
+val url1 = "example.com"
+val url2 = "example.com/foo"
+val url3 = "sub.example.com"
+val url4 = "https://example.com"
+val url5 = "http://example.com"
+
+cookieManager.setCookie(url1, "a=1")
+cookieManager.setCookie(url2, "b=2")
+cookieManager.setCookie(url3, "c=3")
+cookieManager.setCookie(url4, "d=4")
+cookieManager.setCookie(url5, "e=5")
+cookieManager.setCookie(url5, "e=5!")
+
+val cookie1: String = cookieManager.getCookie(url1) // a = 1; b = 2; d = 4; e = 5!
+val cookie2: String = cookieManager.getCookie(url2) // a = 1; b = 2; d = 4; e = 5!
+val cookie3: String = cookieManager.getCookie(url3) // c = 3
+val cookie4: String = cookieManager.getCookie(url4) // a = 1; b = 2; d = 4; e = 5!
+val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 5!
+```
+
 # Espresso
 ## How to check whether or not a text is displayed
 ```kotlin
@@ -320,4 +323,25 @@ If you have installed the Charles Root Certificate on Android and still see the 
 SSL handshake with client failed: An unknown issue occurred processing the certificate (certificate_unknown)
 You may need to configure your browser or application to trust the Charles Root Certificate. See SSL Proxying in the Help menu.
 certificate_unknown (46) - An unknown issue occurred processing the certificate.
+```
+
+# How to remove comments
+1. Command+Shift+F in Android Studio.
+2. Check `Regex`.
+3. Put one of the following regexes.
+4. Click `Replace All`.
+
+## Regex to match all the comments (/* \*/ including /** \*/)
+```
+/\*([\S\s]+?)\*/
+```
+
+## Regex to match copyright comments (/* \*/ including /** \*/)
+```
+/\*([\S\s]+?Copyright[\S\s]+?)\*/
+```
+
+## Regex to match copyright comments in XML
+```
+<!--([\S\s]+?Copyright[\S\s]+?)-->
 ```
