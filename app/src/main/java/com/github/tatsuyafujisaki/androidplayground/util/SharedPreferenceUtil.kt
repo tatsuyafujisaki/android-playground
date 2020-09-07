@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 
 /**
- * Redundant explanatory wrapper. Unnecessary in practice.
+ * A set of redundant explanatory wrappers. Unnecessary in practice.
  */
 object SharedPreferenceUtil {
     fun getSharedPreferences(context: Context, name: String) =
