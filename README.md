@@ -220,12 +220,6 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 ```
 
 # Espresso
-## How to check whether or not a text is displayed
-```kotlin
-onView(withText("foo")).check(matches(isDisplayed()))
-onView(withText("foo")).check(matches(not(isDisplayed())))
-```
-
 ## How to interact with an Activity
 ```kotlin
 activityScenario.onActivity {
@@ -264,7 +258,7 @@ onView(withId(R.id.my_button)).perform(scrollTo(), click())
 ```kotlin
 onView(withId(R.id.my_view)).check(matches(isDisplayed())) // VISIBLE
 onView(withId(R.id.my_view)).check(matches(not(isDisplayed()))) // INVISIBLE
-onView(withId(R.id.my_view)).check(doesNotExist()) // GONE
+onView(withId(R.id.my_view)).check(doesNotExist()) // GONE or does not exist.
 ```
 
 ## How to check if a view has exactly the same string
