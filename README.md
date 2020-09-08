@@ -254,7 +254,7 @@ onView(withId(R.id.my_button)).perform(click())
 onView(withId(R.id.my_button)).perform(scrollTo(), click())
 ```
 
-## How to check the visibility of a view
+## How to check the visibility or the existence of a view
 ```kotlin
 onView(withId(R.id.my_view)).check(matches(isDisplayed())) // VISIBLE
 onView(withId(R.id.my_view)).check(matches(not(isDisplayed()))) // INVISIBLE
