@@ -162,7 +162,7 @@ dependencies {
      * https://github.com/googlemaps/android-maps-ktx#installation
      */
 
-    implementation 'com.google.maps.android:maps-ktx:2.1.1'
+    implementation 'com.google.maps.android:maps-ktx:2.1.2'
     implementation 'com.google.maps.android:maps-utils-ktx:2.1.2'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.maps.android:android-maps-utils:2.0.3'
@@ -179,7 +179,7 @@ dependencies {
      */
 
     implementation 'com.google.android.libraries.places:places:2.3.0'
-    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
     implementation 'com.google.android.play:core-ktx:1.8.1'
 
     def daggerVersion = '2.28.3'
@@ -210,7 +210,7 @@ dependencies {
     debugImplementation 'com.facebook.soloader:soloader:0.9.0'
     releaseImplementation "com.facebook.flipper:flipper-noop:$flipperVersion"
 
-    def moshiVersion = '1.9.3'
+    def moshiVersion = '1.10.0'
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
