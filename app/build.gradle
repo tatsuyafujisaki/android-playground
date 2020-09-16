@@ -236,6 +236,9 @@ dependencies {
     androidTestImplementation 'com.google.truth:truth:1.0.1'
     androidTestImplementation "androidx.test.ext:truth:$androidxTestVersion"
 
+    // JUnit Assertion library (unnecessary if Truth is used?)
+    // androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
+
     // https://issuetracker.google.com/128612536 is resolved, uncomment the following.
     // https://github.com/googlecodelabs/android-testing/blob/end_codelab_3/app/build.gradle
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
