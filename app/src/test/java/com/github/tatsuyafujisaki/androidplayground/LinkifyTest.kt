@@ -8,7 +8,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
-class LinkifyTest {
+class RobolectricTest {
     private val context = ApplicationProvider.getApplicationContext<Context>()
 
     @Test
