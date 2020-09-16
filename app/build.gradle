@@ -227,18 +227,16 @@ dependencies {
 
     /*
      * Testing code should not be included in the main code.
-     * Once https://issuetracker.google.com/128612536 is resolved, remove the following and ...
+     * Once https://issuetracker.google.com/128612536 is resolved, uncomment the following.
+     *
+     * debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+     * testImplementation "androidx.test:core-ktx:$androidxTestVersion"
+     * androidTestImplementation "androidx.test:core-ktx:$androidxTestVersion"
+     *
+     * https://github.com/googlecodelabs/android-testing/blob/end_codelab_3/app/build.gradle
      */
     implementation "androidx.fragment:fragment-testing:$fragmentVersion"
     implementation "androidx.test:core-ktx:$androidxTestVersion"
-
-    /*
-     * ... uncomment the following.
-     * https://github.com/googlecodelabs/android-testing/blob/end_codelab_3/app/build.gradle
-     */
-    // debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
-    // testImplementation "androidx.test:core-ktx:$androidxTestVersion"
-    // androidTestImplementation "androidx.test:core-ktx:$androidxTestVersion"
 
     testImplementation 'androidx.arch.core:core-testing:2.1.0'
     testImplementation 'org.robolectric:robolectric:4.4'
