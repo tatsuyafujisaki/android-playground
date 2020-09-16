@@ -21,7 +21,7 @@ class MainApplication : DaggerApplication() {
 
         SoLoader.init(this, false)
         if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
-            AndroidFlipperClient.getInstance(this).run {
+            with(AndroidFlipperClient.getInstance(this)) {
                 addPlugin(
                     InspectorFlipperPlugin(
                         this@MainApplication,
