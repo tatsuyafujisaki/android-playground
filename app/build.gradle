@@ -128,6 +128,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
+    // https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies
+    testImplementation 'androidx.arch.core:core-testing:2.1.0' // for testing LiveData
 
     def roomVersion = '2.2.5'
     implementation "androidx.room:room-runtime:$roomVersion"
@@ -218,51 +220,49 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-
     /*
-     * Local unit tests
-     * https://developer.android.com/training/testing/unit-testing/local-unit-tests#setup
-     * https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies
+     * For both local unit tests and instrumented unit tests
      */
 
-    /*
-     * Testing code should not be included in the main code.
-     * Once https://issuetracker.google.com/128612536 is resolved, uncomment the following.
-     *
-     * debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
-     * testImplementation "androidx.test:core-ktx:$androidxTestVersion"
-     * androidTestImplementation "androidx.test:core-ktx:$androidxTestVersion"
-     *
-     * https://github.com/googlecodelabs/android-testing/blob/end_codelab_3/app/build.gradle
-     */
-    implementation "androidx.fragment:fragment-testing:$fragmentVersion"
-    implementation "androidx.test:core-ktx:$androidxTestVersion"
+    def androidxTestVersion = '1.3.0'
 
-    testImplementation 'androidx.arch.core:core-testing:2.1.0'
-    testImplementation 'org.robolectric:robolectric:4.4'
+    // AndroidX core library
+    testImplementation "androidx.test:core-ktx:$androidxTestVersion" // for Robolectric
+    androidTestImplementation "androidx.test:core-ktx:$androidxTestVersion"
 
     // Truth assertion library
     testImplementation 'com.google.truth:truth:1.0.1'
     testImplementation "androidx.test.ext:truth:$androidxTestVersion"
+    androidTestImplementation 'com.google.truth:truth:1.0.1'
+    androidTestImplementation "androidx.test.ext:truth:$androidxTestVersion"
+
+    // https://issuetracker.google.com/128612536 is resolved, uncomment the following.
+    // https://github.com/googlecodelabs/android-testing/blob/end_codelab_3/app/build.gradle
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    androidTestUtil "androidx.test:orchestrator:$androidxTestVersion"
 
     def mockkVersion = '1.10.0'
     testImplementation "io.mockk:mockk:$mockkVersion"
+    androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
 
     /*
-     * Instrumented unit tests
+     * For local unit tests
+     * https://developer.android.com/training/testing/unit-testing/local-unit-tests#setup
+     */
+
+    testImplementation 'org.robolectric:robolectric:4.4'
+
+    /*
+     * For instrumented unit tests
      * https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#setup
      * https://developer.android.com/training/testing/set-up-project#gradle-dependencies
      */
 
-    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
-    androidTestImplementation "androidx.test:rules:$androidxTestVersion"
+    // AndroidJUnitRunner
     androidTestImplementation "androidx.test:runner:$androidxTestVersion"
-    androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
-    androidTestUtil "androidx.test:orchestrator:$androidxTestVersion"
 
-    // Truth assertion library
-    androidTestImplementation 'com.google.truth:truth:1.0.1'
-    androidTestImplementation "androidx.test.ext:truth:$androidxTestVersion"
+    // JUnit Rules
+    androidTestImplementation "androidx.test:rules:$androidxTestVersion"
 
     def espressoVersion = '3.3.0'
     androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espressoVersion"
