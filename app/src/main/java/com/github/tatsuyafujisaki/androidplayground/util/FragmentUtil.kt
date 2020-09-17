@@ -55,7 +55,7 @@ object FragmentUtil {
         fragmentManager.findFragmentById(navHostFragmentId) as? NavHostFragment
 
     /**
-     * Redundant explanatory wrapper. Unnecessary in practice.
+     * Impractical redundant explanatory wrappers
      */
     fun getNavController(activity: Activity, @IdRes navHostFragmentId: Int) =
         activity.findNavController(navHostFragmentId)

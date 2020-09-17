@@ -7,11 +7,16 @@ import androidx.core.content.edit
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import androidx.preference.PreferenceManager
 
 /**
- * A set of redundant explanatory wrappers. Unnecessary in practice.
+ * Impractical redundant explanatory wrappers
  */
 object SharedPreferenceUtil {
+    fun getSharedPreferences(context: Context) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+    }
+
     fun getSharedPreferences(context: Context, name: String) =
         context.getSharedPreferences(name, Context.MODE_PRIVATE)
 
