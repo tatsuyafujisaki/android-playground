@@ -17,6 +17,8 @@ class MainApplication : DaggerApplication() {
     override fun onCreate() {
         super.onCreate()
 
+        instance = this
+
         Stetho.initializeWithDefaults(this)
 
         SoLoader.init(this, false)
@@ -38,5 +40,7 @@ class MainApplication : DaggerApplication() {
 
     companion object {
         val networkFlipperPlugin = NetworkFlipperPlugin()
+        lateinit var instance: MainApplication
+            private set
     }
 }

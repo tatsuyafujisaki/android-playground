@@ -9,4 +9,8 @@
     <string name="name">Name</string>
     <string name="sample">Sample</string>
     <string name="navigate_to_sample_fragment">Go to SampleFragment</string>
+
+    <!-- Fruit -->
+    <string name="apple">Apple!</string>
+    <string name="orange">Orange!</string>
 </resources>
