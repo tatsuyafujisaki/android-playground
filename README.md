@@ -45,23 +45,23 @@ R.id.my_menu_item -> {
 
 
 # How to show an app's dependencies
-## Option 1 (shows dependencies as a tree)
+## Option 1
 Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
 
-## Option 2 (shows dependencies as a tree)
+The above shows dependencies, as a list, declared in the project `app`.
+
+## Option 2
 ```shell
 ./gradlew app:dependencies
 ```
-Commands I use often:
-```shell
-tempflie=$(mktemp)
-./gradlew app:dependencies > $tempflie && code $tempflie
-```
+shows dependencies, as a tree, declared in the project `app`.
 
-## Option 3 (shows dependencies as a list)
+## Option 3
 ```shell
 ./gradlew app:androidDependencies
 ```
+shows dependencies, as a list, declared in the project `app`.
+
 
 # How to run a unit test or an instrumented unit test from Terminal
 ## How to run a local unit test
