@@ -45,7 +45,7 @@ R.id.my_menu_item -> {
 
 
 # How to show an app's dependencies
-## Option 1
+## Option 1 (shows dependencies as a tree)
 Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
 
 ## Option 2 (shows dependencies as a tree)
