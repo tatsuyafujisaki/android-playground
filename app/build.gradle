@@ -70,12 +70,20 @@ android {
     }
 
     testOptions {
-        // Android Test Orchestrator
-        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        execution 'ANDROIDX_TEST_ORCHESTRATOR' // Android Test Orchestrator
 
         unitTests {
-            // Robolectric
-            includeAndroidResources true
+            includeAndroidResources true // Robolectric
+        }
+
+        /*
+         * Unless explicitly specified, the following default is used.
+         * https://developer.android.com/reference/tools/gradle-api/com/android/build/api/dsl/LintOptions
+         * https://developer.android.com/studio/write/lint#gradle
+         */
+        lintOptions {
+            // Keep on building even if errors are found. Default is true.
+            abortOnError false
         }
     }
 
