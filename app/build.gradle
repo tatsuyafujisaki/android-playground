@@ -130,13 +130,12 @@ dependencies {
     def fragmentVersion = '1.2.5'
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
 
-    def lifecycleVersion = '2.2.0'
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
     // https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies
+    def lifecycleVersion = '2.2.0'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion" // LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion" // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion" // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"// ReactiveStreams support for LiveData
     testImplementation 'androidx.arch.core:core-testing:2.1.0' // for testing LiveData
 
     def roomVersion = '2.2.5'
@@ -229,6 +228,10 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
+    def rxVersion = '3.0.0'
+    implementation "io.reactivex.rxjava3:rxandroid:$rxVersion"
+    implementation "io.reactivex.rxjava3:rxjava:$rxVersion"
+
     /*
      * For both local unit tests and instrumented unit tests
      */
@@ -246,7 +249,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:truth:$androidxTestVersion"
 
     // JUnit Assertion library (unnecessary if Truth is used?)
-    // androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
 
     // https://issuetracker.google.com/128612536 is resolved, uncomment the following.
     // https://github.com/googlecodelabs/android-testing/blob/end_codelab_3/app/build.gradle
