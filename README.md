@@ -52,6 +52,11 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
 ```shell
 ./gradlew app:dependencies
 ```
+Commands I use often:
+```shell
+tempflie=$(mktemp)
+./gradlew app:dependencies > $tempflie && code $tempflie
+```
 
 ## Option 3 (shows dependencies as a list)
 ```shell
