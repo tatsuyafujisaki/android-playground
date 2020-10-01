@@ -135,7 +135,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion" // LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion" // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion" // Saved state module for ViewModel
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"// ReactiveStreams support for LiveData
     testImplementation 'androidx.arch.core:core-testing:2.1.0' // for testing LiveData
 
     def roomVersion = '2.2.5'
@@ -228,9 +227,10 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-    def rxVersion = '3.0.0'
-    implementation "io.reactivex.rxjava3:rxandroid:$rxVersion"
-    implementation "io.reactivex.rxjava3:rxjava:$rxVersion"
+    // Use Rx only if your client sticks with it.
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion" // ReactiveStreams support for LiveData
 
     /*
      * For both local unit tests and instrumented unit tests
