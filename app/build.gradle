@@ -94,6 +94,23 @@ android {
     useLibrary 'android.test.base'
     useLibrary 'android.test.mock'
     useLibrary 'android.test.runner'
+
+    /*
+     * for debugging purposes
+     */
+
+//    productFlavors.all { productFlavor ->
+//        println 'productFlavor: ' + productFlavor.name
+//    }
+//
+//    buildTypes.all { buildType ->
+//        println 'buildType: ' + buildType.name
+//    }
+//
+//    applicationVariants.all { applicationVariant ->
+//        println 'buildVariant: ' + applicationVariant.name
+//        println 'buildVariant (capitalized): ' + applicationVariant.name.capitalize()
+//    }
 }
 
 dependencies {
@@ -132,7 +149,8 @@ dependencies {
     def lifecycleVersion = '2.2.0'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion" // LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion" // ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion" // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
+    // Saved state module for ViewModel
     testImplementation 'androidx.arch.core:core-testing:2.1.0' // for testing LiveData
 
     def roomVersion = '2.2.5'
@@ -228,7 +246,8 @@ dependencies {
     // Use Rx only if your client sticks with it.
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion" // ReactiveStreams support for LiveData
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
+    // ReactiveStreams support for LiveData
 
     /*
      * For both local unit tests and instrumented unit tests
@@ -288,13 +307,13 @@ dependencies {
 }
 
 /*
- * Fix the "No tests found" error occurring when "./gradlew connectedCheck" is run.
- * The error is introduced by fragment-testing.
+ * for debugging purposes
  */
-//configurations.all {
-//    resolutionStrategy {
-//        force "androidx.test:monitor:$androidxTestVersion"
-//    }
+
+//println 'currentBuildVariant: ' + gradle.startParameter.taskNames[0]
+//
+//tasks.all { task ->
+//    println "task: " + task.name
 //}
 
 apply plugin: 'com.google.gms.google-services'
