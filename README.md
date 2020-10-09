@@ -133,6 +133,7 @@ Add the following in `proguard-rule.pro`.
 ```kotlin
 with(recyclerView) {
     adapter = myAdapter
+    addItemDecoration(DividerItemDecoration(context, (layoutManager as LinearLayoutManager).orientation))
     itemAnimator = null
     registerAdapterDataObserver(
     object : RecyclerView.AdapterDataObserver() {
