@@ -88,14 +88,6 @@ android {
     }
 
     /*
-     * Gradle automatically adds the following as a dependency.
-     * https://developer.android.com/training/testing/set-up-project#add-gradle-dependencies
-     */
-    useLibrary 'android.test.base'
-    useLibrary 'android.test.mock'
-    useLibrary 'android.test.runner'
-
-    /*
      * for debugging purposes
      */
 
