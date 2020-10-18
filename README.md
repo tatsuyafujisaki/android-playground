@@ -32,7 +32,7 @@ R.id.my_menu_item -> {
 }
 ```
 
-# Gradlew
+# Gradle
 ## How to list all the source sets (subdirectories under the `src` directory)
 ```shell
 ./gradlew sourceSets
@@ -43,6 +43,15 @@ R.id.my_menu_item -> {
 ./gradlew build
 ```
 
+## How to skip lint and tests
+Add the following to the beginning of the project-level `build.gradle`.
+```shell
+tasks.whenTaskAdded { task ->
+    if (task.name == "lint" || task.name.endsWith("Test")) {
+        task.enabled false
+    }
+}
+```
 
 # How to show an app's dependencies
 ## Option 1
