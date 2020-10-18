@@ -1,3 +1,3 @@
-package com.github.tatsuyafujisaki.androidplayground.dataClass
+package com.github.tatsuyafujisaki.androidplayground.dataclass
 
 data class Sample(val name: String)

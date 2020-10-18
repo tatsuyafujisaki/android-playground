@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.dataClass
+package com.github.tatsuyafujisaki.androidplayground.dataclass
 
 data class BookList(
     val kind: String,

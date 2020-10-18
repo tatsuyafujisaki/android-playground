@@ -15,7 +15,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.github.tatsuyafujisaki.androidplayground.dataClass.SampleRepository
+import com.github.tatsuyafujisaki.androidplayground.dataclass.SampleRepository
 import com.github.tatsuyafujisaki.androidplayground.factory.FragmentFactoryFactory
 import com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment
 import com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleDialogFragment

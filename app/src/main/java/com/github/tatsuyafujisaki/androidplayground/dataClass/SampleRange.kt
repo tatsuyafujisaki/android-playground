@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.dataClass
+package com.github.tatsuyafujisaki.androidplayground.dataclass
 
 /**
  * @IntRange must be fully qualified or Kotlin confuses it with [kotlin.ranges.IntRange].

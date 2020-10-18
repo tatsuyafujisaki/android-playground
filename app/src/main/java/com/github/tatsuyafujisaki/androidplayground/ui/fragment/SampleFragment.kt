@@ -3,7 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.github.tatsuyafujisaki.androidplayground.R
-import com.github.tatsuyafujisaki.androidplayground.dataClass.SampleRepository
+import com.github.tatsuyafujisaki.androidplayground.dataclass.SampleRepository
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentSampleBinding
 import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 

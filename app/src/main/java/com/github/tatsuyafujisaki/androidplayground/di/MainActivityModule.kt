@@ -1,6 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.di
 
-import com.github.tatsuyafujisaki.androidplayground.dataClass.Sample
+import com.github.tatsuyafujisaki.androidplayground.dataclass.Sample
 import dagger.Module
 import dagger.Provides
 
