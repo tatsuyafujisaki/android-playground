@@ -103,6 +103,17 @@ Add the following in `proguard-rule.pro`.
 -keepattributes SourceFile,LineNumberTable
 ```
 
+# Predefined string resources
+```kotlin
+val a: String = resources.getString(android.R.string.ok) // OK
+val d: String = resources.getString(android.R.string.cancel) // Cancel
+val b: String = resources.getString(android.R.string.unknownName) // Unknown
+val c: String = resources.getString(android.R.string.untitled) // <Untitled>
+```
+
+* https://developer.android.com/reference/kotlin/android/R.string
+* (Japanese) https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
+
 # Template
 ## Child in ConstraintLayout
 ```xml
