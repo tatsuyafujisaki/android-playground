@@ -307,6 +307,20 @@ onView(withId(R.id.my_view))
 * Solution
   * Go to Android Studio's menu bar > `Run` > `Edit Configurations` > delete all the tests.
 
+# Emulators
+# How to list emulators
+```shell
+~/Library/Android/sdk/emulator/emulator -list-avds
+```
+
+# How to launch an emulator specifying a DNS server
+```shell
+~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 8.8.8.8
+
+# You don't have to specify an emulator if you have only one emulator.
+~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) -dns-server 8.8.8.8
+```
+
 # Charles
 ## How to enable Charles Proxy in debug build
 https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
@@ -343,25 +357,4 @@ If you have installed the Charles Root Certificate on Android and still see the 
 SSL handshake with client failed: An unknown issue occurred processing the certificate (certificate_unknown)
 You may need to configure your browser or application to trust the Charles Root Certificate. See SSL Proxying in the Help menu.
 certificate_unknown (46) - An unknown issue occurred processing the certificate.
-```
-
-# How to remove comments
-1. Command+Shift+F in Android Studio.
-2. Check `Regex`.
-3. Put one of the following regexes.
-4. Click `Replace All`.
-
-## Regex to match all the comments (/* \*/ including /** \*/)
-```
-/\*([\S\s]+?)\*/
-```
-
-## Regex to match copyright comments (/* \*/ including /** \*/)
-```
-/\*([\S\s]+?Copyright[\S\s]+?)\*/
-```
-
-## Regex to match copyright comments in XML
-```
-<!--([\S\s]+?Copyright[\S\s]+?)-->
 ```
