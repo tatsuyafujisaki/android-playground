@@ -315,10 +315,10 @@ onView(withId(R.id.my_view))
 
 # How to launch an emulator specifying a DNS server
 ```shell
-~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 8.8.8.8
+~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 8.8.8.8,8.8.4.4
 
 # You don't have to specify an emulator if you have only one emulator.
-~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) -dns-server 8.8.8.8
+~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) -dns-server 8.8.8.8,8.8.4.4
 ```
 
 # Charles
