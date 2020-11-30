@@ -181,7 +181,7 @@ dependencies {
     implementation 'com.google.maps.android:maps-ktx:2.2.0'
     implementation 'com.google.maps.android:maps-utils-ktx:2.2.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'com.google.maps.android:android-maps-utils:2.1.0'
+    implementation 'com.google.maps.android:android-maps-utils:2.2.0'
 
     /*
      * com.google Places SDK
@@ -199,7 +199,7 @@ dependencies {
     implementation 'com.google.android.play:core-ktx:1.8.1'
 
     // TODO Use Hilt when it goes out of beta.
-    def daggerVersion = '2.30'
+    def daggerVersion = '2.30.1'
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     implementation "com.google.dagger:dagger-android:$daggerVersion"
