@@ -38,9 +38,12 @@ R.id.my_menu_item -> {
 ./gradlew sourceSets
 ```
 
-## How to do assemble, lint, and test
+## How to assemble, lint, and test
 ```shell
 ./gradlew build
+
+# In case you want to exclude lint and test
+./gradlew build -x lint -x test
 ```
 
 ## How to skip lint and tests
