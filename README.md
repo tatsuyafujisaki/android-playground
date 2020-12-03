@@ -43,7 +43,7 @@ R.id.my_menu_item -> {
 ./gradlew build
 
 # In case you want to exclude lint and test
-./gradlew build -x lint -x test
+./gradlew build --exclude-task lint --exclude-task test
 ```
 
 ## How to skip lint and tests
