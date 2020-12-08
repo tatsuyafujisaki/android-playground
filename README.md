@@ -60,7 +60,7 @@ tasks.whenTaskAdded { task ->
 ## Option 1
 Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
 
-The above shows dependencies, as a list, declared in the project `app`.
+The preceding shows dependencies, as a list, declared in the project `app`.
 
 ## Option 2
 ```shell
