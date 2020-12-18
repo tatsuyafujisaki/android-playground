@@ -145,7 +145,7 @@ dependencies {
     // Saved state module for ViewModel
     testImplementation 'androidx.arch.core:core-testing:2.1.0' // for testing LiveData
 
-    def roomVersion = '2.2.5'
+    def roomVersion = '2.2.6'
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     testImplementation "androidx.room:room-testing:$roomVersion"
@@ -168,10 +168,10 @@ dependencies {
      */
 
     implementation 'com.google.firebase:firebase-analytics-ktx:18.0.0'
-    implementation 'com.google.firebase:firebase-common-ktx:19.4.0'
+    implementation 'com.google.firebase:firebase-common-ktx:19.5.0'
     implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:22.0.0'
-    implementation 'com.google.firebase:firebase-storage-ktx:19.2.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:22.0.1'
+    implementation 'com.google.firebase:firebase-storage-ktx:19.2.1'
 
     /*
      * com.google Maps SDK
