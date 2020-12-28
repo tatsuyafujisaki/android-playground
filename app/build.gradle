@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.10'
     id 'com.google.firebase.crashlytics'
 }
 
@@ -34,12 +35,8 @@ android {
 
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                     'proguard-rules.pro',
-                    'glide.pro', // http://bumptech.github.io/glide/doc/download-setup.html#proguard
-                    'okhttp3.pro', // https://square.github.io/okhttp/r8_proguard/
-                    'okio.pro', // https://square.github.io/okio/#r8-proguard
-                    'moshi.pro', // https://github.com/square/moshi#r8--proguard
-                    'moshi-kotlin.pro', // ditto
-                    'retrofit2.pro' // https://github.com/square/retrofit#r8--proguard
+                    'glide.pro', // https://bumptech.github.io/glide/doc/download-setup.html#proguard
+                    'kotlin-serialization.pro' // https://github.com/Kotlin/kotlinx.serialization#android
 
             buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
 
