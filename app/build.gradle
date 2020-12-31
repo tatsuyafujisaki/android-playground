@@ -262,7 +262,7 @@ dependencies {
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     androidTestUtil "androidx.test:orchestrator:$androidxTestVersion"
 
-    def mockkVersion = '1.10.3'
+    def mockkVersion = '1.10.4'
     testImplementation "io.mockk:mockk:$mockkVersion"
     androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
 
