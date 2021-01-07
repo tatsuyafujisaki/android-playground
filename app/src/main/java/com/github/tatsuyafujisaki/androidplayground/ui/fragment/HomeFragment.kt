@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -9,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.*
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.github.tatsuyafujisaki.androidplayground.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
@@ -41,7 +42,7 @@ class HomeFragment : Fragment(), WebViewContainer {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
@@ -64,6 +65,16 @@ class HomeFragment : Fragment(), WebViewContainer {
         viewLifecycleOwner.lifecycleScope.launch {
             Log.d(logTag, "This is a demonstration of viewLifecycleOwner.lifecycleScope.")
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+                if(!findNavController().popBackStack()) {
+                    // Finish the Activity if it has nothing in the back stack.
+                    requireActivity().finish()
+                }
+            }
+        })
 
         return binding.root
     }
@@ -158,10 +169,4 @@ class HomeFragment : Fragment(), WebViewContainer {
 
     override fun canGoBack() = binding.webView.canGoBack()
     override fun goBack() = binding.webView.goBack()
-
-    // Minimize the function that uses @SuppressLint.
-    @SuppressLint("SetJavaScriptEnabled")
-    fun WebView.enableJavaScript() {
-        settings.javaScriptEnabled = true
-    }
 }

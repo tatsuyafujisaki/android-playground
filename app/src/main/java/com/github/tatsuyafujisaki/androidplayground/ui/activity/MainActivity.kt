@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleEventObserver
@@ -150,8 +152,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     /**
-     * You must call setSupportActionBar(...) in Activity#onCreate()
-     * to make tapping the Up button call onOptionsItemSelected()
+     * You must call [AppCompatActivity.setSupportActionBar] in [AppCompatActivity.onCreate]
+     * to make tapping the Up button call [AppCompatActivity.onOptionsItemSelected]
      * even when there is no other menu item.
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -168,5 +170,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onBackPressed() {
+        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        /**
+         * If you override [ComponentActivity.onBackPressed] but does not call super.onBackPressed() in it,
+         * [OnBackPressedDispatcher]'s callbacks will not be called.
+         */
+        super.onBackPressed()
     }
 }
