@@ -18,6 +18,7 @@ import com.github.tatsuyafujisaki.androidplayground.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentHomeBinding
+import com.github.tatsuyafujisaki.androidplayground.util.WebViewUtil.enableJavaScript
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), WebViewContainer {
