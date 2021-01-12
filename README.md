@@ -2,11 +2,18 @@
 * https://developer.android.com/kotlin/style-guide
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 
-# Best practices
-## Core KTX
+# Core KTX
 * Use `String.toUri()` rather than `Uri.parse(...)` for simplicity.
 * Use `CharSequence.isDigitsOnly()` to check if a string contains only digits.
 * Use `Context.withStyledAttributes(...)` rather than `obtainStyledAttributes(...)` for simplicity.
+
+# How to encode and decode HTML entities:
+```kotlin
+val s = "<>&'\""
+val encoded: String = s.htmlEncode() // &lt;&gt;&amp;&#39;&quot;
+val decoded: String = Html.fromHtml(encoded, Html.FROM_HTML_MODE_COMPACT).toString() // <>&'"
+```
+[String.htmlEncode](https://developer.android.com/reference/kotlin/androidx/core/text/package-summary#htmlencode) is a part of the Core KTX library and is syntactic sugar for [TextUtils.htmlEncode](https://developer.android.com/reference/kotlin/android/text/TextUtils#htmlEncode(kotlin.String)).
 
 # How to create a Bundle
 ```kotlin
