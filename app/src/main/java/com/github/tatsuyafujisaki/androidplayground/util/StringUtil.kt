@@ -6,18 +6,20 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.util.Patterns
 import androidx.annotation.ColorInt
+import androidx.core.text.htmlEncode
 
 object StringUtil {
-    fun isValidEmailAddress(emailAddress: String) =
-        Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
-
-    fun isValidPhoneNumber(phoneNumber: String) =
-        Patterns.PHONE.matcher(phoneNumber).matches()
-
     /**
-     * Decode HTML entities such as "&amp;" to "&".
+     * Decodes HTML entities. For encoding HTML entities, use [htmlEncode].
      */
-    fun decode(html: String) = Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT).toString()
+    fun String.htmlDecode() =
+        Html.fromHtml(this, Html.FROM_HTML_MODE_COMPACT).toString()
+
+    fun String.isValidEmailAddress() =
+        Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
+    fun String.isValidPhoneNumber() =
+        Patterns.PHONE.matcher(this).matches()
 
     fun String.color(@ColorInt color: Int) =
         SpannableString(this).apply {
