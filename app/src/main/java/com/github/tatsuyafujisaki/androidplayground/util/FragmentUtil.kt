@@ -68,4 +68,6 @@ object FragmentUtil {
     fun canNavigateUp(navController: NavController) =
         navController.graph.startDestination != navController.currentDestination?.id
 
+    fun Fragment.hasEnabledCallbacks() =
+        requireActivity().onBackPressedDispatcher.hasEnabledCallbacks()
 }
