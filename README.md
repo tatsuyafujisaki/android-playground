@@ -124,6 +124,13 @@ val c: String = resources.getString(android.R.string.untitled) // <Untitled>
 * https://developer.android.com/reference/kotlin/android/R.string
 * (Japanese) https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
 
+# OnBackPressedDispatcher
+`OnBackPressedDispatcher.hasEnabledCallbacks()` returns true if both of the following are met.
+
+1. There is at least one callback registered with this dispatcher.
+2. The Activity's lifecycle state is after `onStart()` and before `onStop()`. If you override `onStart()` and/or `onStop()`, it is between `super.onStart()` and `super.onStop()`.
+    1. Even if you pass a Fragment to `OnBackPressedDispatcher.addCallback(...)`, the Fragment's lifecycle does nothing to do with `OnBackPressedDispatcher.hasEnabledCallbacks()`.
+
 # Template
 ## Child in ConstraintLayout
 ```xml
