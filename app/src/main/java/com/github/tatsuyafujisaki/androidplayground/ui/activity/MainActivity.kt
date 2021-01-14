@@ -66,17 +66,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             (FragmentUtil.getCurrentFragment(navHostFragment) as? WebViewContainer)?.run {
                 if (canGoBack()) {
                     goBack()
-                } else {
-                    if (isEnabled) {
-                        /**
-                         * Disable callbacks for the Back button.
-                         * Otherwise, this callback will be called recursively
-                         * because onBackPressed() below calls this callback again.
-                         */
-                        isEnabled = false
-
-                        onBackPressed()
-                    }
+                } else if (!navController.popBackStack()) {
+                    finish()
                 }
             }
         }
