@@ -121,42 +121,39 @@ R.id.my_menu_item -> {
 ```
 
 # Gradle
+## How to list tasks even if they don't belong to a task group.
+```shell
+gradle tasks --all
+```
+
 ## How to list all the source sets (subdirectories under the `src` directory)
 ```shell
 ./gradlew sourceSets
 ```
 
-## How to assemble, lint, and test
+## How to exclude tasks
 ```shell
-./gradlew build
-
-# In case you want to exclude lint and test
-./gradlew build --exclude-task lint --exclude-task test
+./gradlew -x <task1-to-exclude> -x <task2-to-exclude> <task>
 ```
 
-## How to skip lint and tests
-Add the following to the beginning of the project-level `build.gradle`.
+## How to show tasks a task depends on
 ```shell
-tasks.whenTaskAdded { task ->
-    if (task.name == "lint" || task.name.endsWith("Test")) {
-        task.enabled false
-    }
-}
+./gradlew -m <task>
 ```
 
-# How to show an app's dependencies
-## Option 1
+## How to show an app's dependencies
+### Option 1
 Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
 
 The preceding shows dependencies, as a list, declared in the project `app`.
 
-## Option 2
+### Option 2
 ```shell
 ./gradlew app:dependencies
 ```
 shows dependencies, as a tree, declared in the project `app`.
 
-## Option 3
+### Option 3
 ```shell
 ./gradlew app:androidDependencies
 ```
