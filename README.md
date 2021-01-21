@@ -67,19 +67,26 @@ val black: Int = ContextCompat.getColor(this, android.R.color.black)
 val white: Int = ContextCompat.getColor(this, android.R.color.white)
 val transparent: Int = ContextCompat.getColor(this, android.R.color.transparent)
 ```
-
 ```xml
+<TextView android:textColor="@android:color/black" />
 <TextView android:textColor="@android:color/white" />
+<TextView android:textColor="@android:color/transparent" />
 ```
 
 https://developer.android.com/reference/kotlin/android/R.color
 
-# Predefined String resources from Android SDK
+# Predefined string resources from Android SDK
 ```kotlin
-val a: String = resources.getString(android.R.string.ok) // OK
-val d: String = resources.getString(android.R.string.cancel) // Cancel
-val b: String = resources.getString(android.R.string.unknownName) // Unknown
-val c: String = resources.getString(android.R.string.untitled) // <Untitled>
+val ok: String = resources.getString(android.R.string.ok) // OK
+val cancel: String = resources.getString(android.R.string.cancel) // Cancel
+val unknown: String = resources.getString(android.R.string.unknownName) // Unknown
+val untitled: String = resources.getString(android.R.string.untitled) // <Untitled>
+```
+```xml
+<TextView android:text="@android:string/ok" />
+<TextView android:text="@android:string/cancel" />
+<TextView android:text="@android:string/unknownName" />
+<TextView android:text="@android:string/untitled" />
 ```
 
 * https://developer.android.com/reference/kotlin/android/R.string
