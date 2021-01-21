@@ -41,11 +41,7 @@ Style|Scalable pixels (sp)
 
 ## Usage
 ```xml
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Hello, World!"
-    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+<TextView android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 ```
 
 Or if you want to create a style:
@@ -65,25 +61,29 @@ Or if you want to create a style:
 * https://github.com/material-components/material-components-android
 * https://developer.android.com/guide/topics/ui/look-and-feel/themes#textappearance
 
-# Colors on Android SDK
-* black
-* darker_gray
-* red
-  * not documented in https://d.android.com/reference/kotlin/android/R.color but available.
-* transparent
-* white
-
-## Usage
-```xml
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Hello, World!"
-    android:textColor="@android:color/white" />
+# Predefined colors from Android SDK
+```kotlin
+val black: Int = ContextCompat.getColor(this, android.R.color.black)
+val white: Int = ContextCompat.getColor(this, android.R.color.white)
+val transparent: Int = ContextCompat.getColor(this, android.R.color.transparent)
 ```
 
-## References
+```xml
+<TextView android:textColor="@android:color/white" />
+```
+
 https://developer.android.com/reference/kotlin/android/R.color
+
+# Predefined String resources from Android SDK
+```kotlin
+val a: String = resources.getString(android.R.string.ok) // OK
+val d: String = resources.getString(android.R.string.cancel) // Cancel
+val b: String = resources.getString(android.R.string.unknownName) // Unknown
+val c: String = resources.getString(android.R.string.untitled) // <Untitled>
+```
+
+* https://developer.android.com/reference/kotlin/android/R.string
+* (Japanese) https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
 
 # How to create a Bundle
 ```kotlin
@@ -118,7 +118,7 @@ R.id.my_menu_item -> {
 ```
 
 # Gradle
-## How to list tasks even if they don't belong to a task group.
+## How to list tasks even if they don't belong to a task group
 ```shell
 gradle tasks --all
 ```
@@ -185,17 +185,6 @@ Add the following in `proguard-rule.pro`.
 ```
 -keepattributes SourceFile,LineNumberTable
 ```
-
-# String resources predefined on Android SDK
-```kotlin
-val a: String = resources.getString(android.R.string.ok) // OK
-val d: String = resources.getString(android.R.string.cancel) // Cancel
-val b: String = resources.getString(android.R.string.unknownName) // Unknown
-val c: String = resources.getString(android.R.string.untitled) // <Untitled>
-```
-
-* https://developer.android.com/reference/kotlin/android/R.string
-* (Japanese) https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
 
 # OnBackPressedDispatcher
 `OnBackPressedDispatcher.hasEnabledCallbacks()` returns true if both of the following are met.
