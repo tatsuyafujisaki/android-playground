@@ -3,7 +3,7 @@
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 
 # Material Design typography
-## TextAppearance from [Material Components for Android](https://material.io/develop/android/docs/getting-started/)
+## TextAppearance from [Material Components for Android](https://material.io/develop/android/docs/getting-started)
 Style|Scalable pixels (sp)
 --|--
 @style/TextAppearance.MaterialComponents.Headline1|96sp
