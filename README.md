@@ -94,7 +94,7 @@ val untitled: String = resources.getString(android.R.string.untitled) // <Untitl
 
 # How to create a Bundle
 ```kotlin
-val bundle: Bundle = bundleOf("apple" to 123, "orange" to 456) // Core KTX
+val bundle: Bundle = bundleOf("apple" to 100, "orange" to 200)
 ```
 
 # How to encode and decode HTML entities
@@ -438,7 +438,7 @@ https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
 </manifest>
 ```
 
-### Note
+### Troubleshooting
 If you have installed the Charles Root Certificate on Android and still see the following error, you may be doing the release build. If so, the above steps will solve the error.
 ```
 SSL handshake with client failed: An unknown issue occurred processing the certificate (certificate_unknown)
