@@ -68,7 +68,8 @@ Or if you want to create a style:
 # Predefined major colors from Android SDK
 * black
 * darker_gray
-* red (not documented in https://d.android.com/reference/kotlin/android/R.color but available)
+* red
+  * not documented in https://d.android.com/reference/kotlin/android/R.color but available.
 * transparent
 * white
 
