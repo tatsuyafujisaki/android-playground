@@ -83,10 +83,10 @@ val unknown: String = resources.getString(android.R.string.unknownName) // Unkno
 val untitled: String = resources.getString(android.R.string.untitled) // <Untitled>
 ```
 ```xml
-<TextView android:text="@android:string/ok" />
-<TextView android:text="@android:string/cancel" />
-<TextView android:text="@android:string/unknownName" />
-<TextView android:text="@android:string/untitled" />
+<TextView android:text="@android:string/ok" /> <!-- OK -->
+<TextView android:text="@android:string/cancel" /> <!-- Cancel -->
+<TextView android:text="@android:string/unknownName" /> <!-- Unknown -->
+<TextView android:text="@android:string/untitled" /> <!-- <Untitled> -->
 ```
 
 * https://developer.android.com/reference/kotlin/android/R.string
