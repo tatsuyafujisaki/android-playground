@@ -85,7 +85,7 @@ Or if you want to create a style:
 ## References
 https://developer.android.com/reference/kotlin/android/R.color
 
-# Japanese strings.xml on Android SDK
+# Japanese string resources predefined on Android SDK
 https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
 
 # How to create a Bundle
