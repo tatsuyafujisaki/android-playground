@@ -2,10 +2,87 @@
 * https://developer.android.com/kotlin/style-guide
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 
-# Best practices
-* Use `String.toUri()` rather than `Uri.parse(...)` for simplicity.
-* Use `CharSequence.isDigitsOnly()` to check if a string contains only digits.
-* Use `Context.withStyledAttributes(...)` rather than `obtainStyledAttributes(...)` for simplicity.
+# Material Design typography
+## Usage
+```xml
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello, World!"
+    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+```
+
+Or if you want to create a style:
+
+```xml
+<!-- res/values/styles.xml -->
+<resources>
+    <style name="MyStyle">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+    </style>
+</resources>
+```
+
+## TextAppearance from [Material Components for Android](https://material.io/develop/android/docs/getting-started/)
+Style|Scalable pixels (sp)
+--|--
+@style/TextAppearance.MaterialComponents.Headline1|96sp
+@style/TextAppearance.MaterialComponents.Headline2|60sp
+@style/TextAppearance.MaterialComponents.Headline3|48sp
+@style/TextAppearance.MaterialComponents.Headline4|34sp
+@style/TextAppearance.MaterialComponents.Headline5|24sp
+@style/TextAppearance.MaterialComponents.Headline6|20sp
+@style/TextAppearance.MaterialComponents.Subtitle1|16sp
+@style/TextAppearance.MaterialComponents.Body1|16sp
+@style/TextAppearance.MaterialComponents.Subtitle2|14sp
+@style/TextAppearance.MaterialComponents.Body2|14sp
+@style/TextAppearance.MaterialComponents.Button|14sp
+@style/TextAppearance.MaterialComponents.Chip|14sp
+@style/TextAppearance.Design.Tab|14sp
+@style/TextAppearance.Design.Snackbar.Message|14sp
+@style/TextAppearance.MaterialComponents.Overline|12sp
+@style/TextAppearance.MaterialComponents.Caption|12sp
+
+## TextAppearance from Android SDK
+Style|Scalable pixels (sp)
+--|--
+@android:style/TextAppearance.Material.Display4|112sp
+@android:style/TextAppearance.Material.Display3|56sp
+@android:style/TextAppearance.Material.Display2|45sp
+@android:style/TextAppearance.Material.Display1|34sp
+@android:style/TextAppearance.Material.Headline|24sp
+@android:style/TextAppearance.Material.Title|20sp
+@android:style/TextAppearance.Material.Subhead|16sp
+@android:style/TextAppearance.Material.Menu|16sp
+@android:style/TextAppearance.Material.Body1|14sp
+@android:style/TextAppearance.Material.Body2|14sp
+@android:style/TextAppearance.Material.Button|14sp
+@android:style/TextAppearance.Material.Caption|12sp
+
+## References
+* https://material.io/develop/android/theming/typography/
+* https://material.io/design/typography/the-type-system.html
+* https://github.com/material-components/material-components-android
+* https://developer.android.com/guide/topics/ui/look-and-feel/themes#textappearance
+
+# Colors defined on Android SDK
+* black
+* darker_gray
+* red (not documented in https://d.android.com/reference/kotlin/android/R.color but available)
+* transparent
+* white
+
+# Usage
+```xml
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello, World!"
+    android:textColor="@android:color/white" />
+```
+
+# References
+https://developer.android.com/reference/kotlin/android/R.color
 
 # How to create a Bundle
 ```kotlin
@@ -368,6 +445,7 @@ https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/
     <application android:networkSecurityConfig="@xml/network_security_config" />
 </manifest>
 ```
+
 ### Note
 If you have installed the Charles Root Certificate on Android and still see the following error, you may be doing the release build. If so, the above steps will solve the error.
 ```
@@ -375,3 +453,8 @@ SSL handshake with client failed: An unknown issue occurred processing the certi
 You may need to configure your browser or application to trust the Charles Root Certificate. See SSL Proxying in the Help menu.
 certificate_unknown (46) - An unknown issue occurred processing the certificate.
 ```
+
+# Best practices
+* Use `String.toUri()` rather than `Uri.parse(...)` for simplicity.
+* Use `CharSequence.isDigitsOnly()` to check if a string contains only digits.
+* Use `Context.withStyledAttributes(...)` rather than `obtainStyledAttributes(...)` for simplicity.
