@@ -65,7 +65,7 @@ Or if you want to create a style:
 * https://github.com/material-components/material-components-android
 * https://developer.android.com/guide/topics/ui/look-and-feel/themes#textappearance
 
-# Colors predefined on Android SDK
+# Colors on Android SDK
 * black
 * darker_gray
 * red
@@ -84,9 +84,6 @@ Or if you want to create a style:
 
 ## References
 https://developer.android.com/reference/kotlin/android/R.color
-
-# Japanese string resources predefined on Android SDK
-https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
 
 # How to create a Bundle
 ```kotlin
@@ -145,7 +142,7 @@ gradle tasks --all
 ### Option 1
 Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
 
-The preceding shows dependencies, as a list, declared in the project `app`.
+shows dependencies, as a list, declared in the project `app`.
 
 ### Option 2
 ```shell
@@ -159,23 +156,21 @@ shows dependencies, as a tree, declared in the project `app`.
 ```
 shows dependencies, as a list, declared in the project `app`.
 
-
-# How to run a unit test or an instrumented unit test from Terminal
-## How to run a local unit test
+## How to run a unit test or an instrumented unit test from Terminal
+### How to run a local unit test
 ```shell
 ./gradlew test
 ```
 
-## How to run an instrumented unit test
+### How to run an instrumented unit test
 ```shell
 ./gradlew connectedAndroidTest
 
-# Alternatively
-# https://docs.gradle.org/current/userguide/command_line_interface.html#task_name_abbreviation
+# Alternatively (https://docs.gradle.org/current/userguide/command_line_interface.html#task_name_abbreviation)
 ./gradlew cAT
 ```
 
-## How to run a local unit test for a build variant and a module
+### How to run a local unit test for a build variant and a module
 ```shell
 ./gradlew <module>:test<build-variant>UnitTest
 ```
@@ -191,7 +186,7 @@ Add the following in `proguard-rule.pro`.
 -keepattributes SourceFile,LineNumberTable
 ```
 
-# Predefined string resources
+# String resources predefined on Android SDK
 ```kotlin
 val a: String = resources.getString(android.R.string.ok) // OK
 val d: String = resources.getString(android.R.string.cancel) // Cancel
