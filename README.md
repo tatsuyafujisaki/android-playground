@@ -3,26 +3,6 @@
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 
 # Material Design typography
-## Usage
-```xml
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Hello, World!"
-    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
-```
-
-Or if you want to create a style:
-
-```xml
-<!-- res/values/styles.xml -->
-<resources>
-    <style name="MyStyle">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
-    </style>
-</resources>
-```
-
 ## TextAppearance from [Material Components for Android](https://material.io/develop/android/docs/getting-started/)
 Style|Scalable pixels (sp)
 --|--
@@ -59,20 +39,40 @@ Style|Scalable pixels (sp)
 @android:style/TextAppearance.Material.Button|14sp
 @android:style/TextAppearance.Material.Caption|12sp
 
+## Usage
+```xml
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello, World!"
+    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+```
+
+Or if you want to create a style:
+
+```xml
+<!-- res/values/styles.xml -->
+<resources>
+    <style name="MyStyle">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+    </style>
+</resources>
+```
+
 ## References
 * https://material.io/develop/android/theming/typography/
 * https://material.io/design/typography/the-type-system.html
 * https://github.com/material-components/material-components-android
 * https://developer.android.com/guide/topics/ui/look-and-feel/themes#textappearance
 
-# Colors defined on Android SDK
+# Predefined major colors from Android SDK
 * black
 * darker_gray
 * red (not documented in https://d.android.com/reference/kotlin/android/R.color but available)
 * transparent
 * white
 
-# Usage
+## Usage
 ```xml
 <TextView
     android:layout_width="wrap_content"
