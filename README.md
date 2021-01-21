@@ -65,7 +65,7 @@ Or if you want to create a style:
 * https://github.com/material-components/material-components-android
 * https://developer.android.com/guide/topics/ui/look-and-feel/themes#textappearance
 
-# Predefined major colors from Android SDK
+# Colors predefined on Android SDK
 * black
 * darker_gray
 * red
@@ -82,8 +82,11 @@ Or if you want to create a style:
     android:textColor="@android:color/white" />
 ```
 
-# References
+## References
 https://developer.android.com/reference/kotlin/android/R.color
+
+# Japanese strings.xml on Android SDK
+https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
 
 # How to create a Bundle
 ```kotlin
