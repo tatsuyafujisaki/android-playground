@@ -114,7 +114,7 @@ val encoded: String = "<>&'\"".htmlEncode() // &lt;&gt;&amp;&#39;&quot;
 ```
 ## How to decode HTML entities
 ```kotlin
-val decoded: String = String = Html.fromHtml(encoded, Html.FROM_HTML_MODE_COMPACT).toString() // <>&'"
+val decoded: String = String = Html.fromHtml("&lt;&gt;&amp;&#39;&quot;", Html.FROM_HTML_MODE_COMPACT).toString() // <>&'"
 ```
 
 [String.htmlEncode](https://developer.android.com/reference/kotlin/androidx/core/text/package-summary#htmlencode) is a part of the Core KTX library and is syntactic sugar for [TextUtils.htmlEncode](https://developer.android.com/reference/kotlin/android/text/TextUtils#htmlEncode(kotlin.String)).
