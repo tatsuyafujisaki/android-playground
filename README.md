@@ -97,17 +97,26 @@ val untitled: String = resources.getString(android.R.string.untitled) // <Untitl
 ```kotlin
 val uri: Uri = "https://example.com".toUri() // Simpler than Uri.parse(String)
 ```
+## How to check if a string contains only digits
+```kotlin
+val isDigitsOnly: Boolean = "123".isDigitsOnly() // true
+```
 
 # How to create a Bundle
 ```kotlin
 val bundle: Bundle = bundleOf("apple" to 100, "orange" to 200) // Simpler than Bundle().apply { putInt("apple", 100) ... }
 ```
 
-# How to encode and decode HTML entities
+# HTML entities
+## How to encode HTML entities
 ```kotlin
 val encoded: String = "<>&'\"".htmlEncode() // &lt;&gt;&amp;&#39;&quot;
-val decoded: String = Html.fromHtml(encoded, Html.FROM_HTML_MODE_COMPACT).toString() // <>&'"
 ```
+## How to decode HTML entities
+```kotlin
+val decoded: String = String = Html.fromHtml(encoded, Html.FROM_HTML_MODE_COMPACT).toString() // <>&'"
+```
+
 [String.htmlEncode](https://developer.android.com/reference/kotlin/androidx/core/text/package-summary#htmlencode) is a part of the Core KTX library and is syntactic sugar for [TextUtils.htmlEncode](https://developer.android.com/reference/kotlin/android/text/TextUtils#htmlEncode(kotlin.String)).
 
 # How to get a query parameter
@@ -452,5 +461,5 @@ certificate_unknown (46) - An unknown issue occurred processing the certificate.
 ```
 
 # Best practices
-* Use `CharSequence.isDigitsOnly()` to check if a string contains only digits.
+* Use `CharSequence.isDigitsOnly()` to .
 * Use `Context.withStyledAttributes(...)` rather than `obtainStyledAttributes(...)` for simplicity.
