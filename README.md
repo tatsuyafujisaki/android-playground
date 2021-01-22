@@ -95,7 +95,7 @@ val untitled: String = resources.getString(android.R.string.untitled) // <Untitl
 # String
 ## How to convert a String to a Uri
 ```kotlin
-val uri: Uri = "https://example.com".toUri() // Simpler than Uri.parse(String)
+val uri: Uri = "https://example.com".toUri() // simpler than Uri.parse(String)
 ```
 ## How to check if a string contains only digits
 ```kotlin
@@ -104,7 +104,7 @@ val isDigitsOnly: Boolean = "123".isDigitsOnly() // true
 
 # How to create a Bundle
 ```kotlin
-val bundle: Bundle = bundleOf("apple" to 100, "orange" to 200) // Simpler than Bundle().apply { putInt("apple", 100) ... }
+val bundle: Bundle = bundleOf("apple" to 100, "orange" to 200) // simpler than Bundle().apply { putInt("apple", 100) ... }
 ```
 
 # HTML entities
@@ -214,6 +214,21 @@ Add the following in `proguard-rule.pro`.
 2. The Activity's lifecycle state is after `onStart()` and before `onStop()`. If you override `onStart()` and/or `onStop()`, it is between `super.onStart()` and `super.onStop()`.
     1. Even if you pass a Fragment to `OnBackPressedDispatcher.addCallback(...)`, the Fragment's lifecycle does nothing to do with `OnBackPressedDispatcher.hasEnabledCallbacks()`.
 
+# How to define a custom view
+```kotlin
+class MyCustomView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyle: Int = 0
+) : View(context, attrs, defStyle) {
+    init {
+        context.withStyledAttributes(attrs, R.styleable.MyCustomView, defStyle, 0) { // simpler than Theme.obtainStyledAttributes(...)
+            // ...
+        }
+    }
+}
+```
+
 # Template
 ## Child in ConstraintLayout
 ```xml
@@ -321,7 +336,7 @@ chipGroup.setOnCheckedChangeListener { group, checkedId ->
 }
 ```
 
-# How to use CookieManager
+# CookieManager
 ```kotlin
 val cookieManager = CookieManager.getInstance()
 
@@ -459,7 +474,3 @@ SSL handshake with client failed: An unknown issue occurred processing the certi
 You may need to configure your browser or application to trust the Charles Root Certificate. See SSL Proxying in the Help menu.
 certificate_unknown (46) - An unknown issue occurred processing the certificate.
 ```
-
-# Best practices
-* Use `CharSequence.isDigitsOnly()` to .
-* Use `Context.withStyledAttributes(...)` rather than `obtainStyledAttributes(...)` for simplicity.
