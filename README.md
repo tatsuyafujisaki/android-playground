@@ -8,7 +8,7 @@ A|B|Note
 --|--|--
 `String.toUri()`|`Uri.parse(...)`
 `bundleOf(...)`|`Bundle().apply { ... }`
-`CharSequence.isDigitsOnly()`|(various old-school ways)
+`CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
 `Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
 
 
