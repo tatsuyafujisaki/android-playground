@@ -11,7 +11,6 @@ A|B|Note
 `CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
 `Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
 
-
 # Material Design typography
 ## TextAppearance from [Material Components for Android](https://material.io/develop/android/docs/getting-started)
 Style|Scalable pixels (sp)
