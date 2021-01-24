@@ -2,6 +2,16 @@
 * https://developer.android.com/kotlin/style-guide
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 
+# Best practices
+## Use A rather than B for simplicity or clarity
+A|B|Note
+--|--|--
+`String.toUri()`|`Uri.parse(...)`
+`bundleOf(...)`|`Bundle().apply { ... }`
+`CharSequence.isDigitsOnly()`|(various old-school ways)
+`Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
+
+
 # Material Design typography
 ## TextAppearance from [Material Components for Android](https://material.io/develop/android/docs/getting-started)
 Style|Scalable pixels (sp)
