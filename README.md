@@ -386,5 +386,11 @@ onView(withId(R.id.my_view))
 ~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) -dns-server 1.1.1.1,8.8.8.8,8.8.4.4
 ```
 
+# Material design typography
+[material-design-typography.md](markdown/charles.md)
+
+# ADB
+[adb.md](markdown/adb.md)
+
 # Charles
-[charles.md](charles.md)
+[charles.md](markdown/charles.md)
