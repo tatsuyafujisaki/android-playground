@@ -3,11 +3,11 @@
   * https://stackoverflow.com/questions/37938767/designing-cardview-while-its-parent-is-constraintlayout
 * If a view has an attribute related to ConstraintLayout, the innermost ViewGroup that contains the view must be ConstraintLayout to interpret the attribute. For example, If the ViewGroup is a CardView, the attribute will not be understood.
 
-# `<MotionScene>`
+## `<MotionScene>`
 * must contain at least one `<Transition>`.
 * When using `MotionLayout`, all the constraints of animated views must be specified in `<MotionScene>`. The constraints of non-animated views can be specified in `<MotionLayout>`.
 
-# `<Transition>`
+## `<Transition>`
 * is one animation.
 * contains the following attributes
   * `constraintSetStart`
@@ -15,22 +15,22 @@
   * `duration`
   * Optionally, `<KeyFrameSet>`
 
-# `<KeyFrameSet>`
+## `<KeyFrameSet>`
 * contains at least one `<KeyPosition>`.
 > At `framePosition` modify the path of `motionTarget` by moving it by `percentX` or `percentY` according to the coordinates determined by `keyPositionType`.
 * https://codelabs.developers.google.com/codelabs/motion-layout/index.html?index=..%2F..advanced-android-kotlin-training#4
 
-# `<KeyPosition>`
+## `<KeyPosition>`
 * never affects start and end constraints.
 * never affects other views that are constained to the view associated with `<KeyPosition>`.
 
-# `<ConstraintSet>`
+## `<ConstraintSet>`
 * is the start and the end constraints of a motion.
 * contains `<Constraint>`(s).
 * contains only constraints or layout information such as width, height, alpha, or visibility, but not views.
 * whose constraints override constraints in a layout file.
 
-# RelativeLayout vs. ConstraintLayout
+## RelativeLayout vs. ConstraintLayout
 RelativeLayout|ConstraintLayout
 --|--
 android:layout_centerInParent="true"|app:layout_constraintBottom_toBottomOf="parent"<br>app:layout_constraintStart_toStartOf="parent"<br>app:layout_constraintEnd_toEndOf="parent"<br>app:layout_constraintTop_toTopOf=""parent"<br>
