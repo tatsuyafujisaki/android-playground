@@ -341,6 +341,13 @@ task clean(type: Delete) {
 }
 ```
 
+## Density / dpi / dp / px
+* density [(# of 160px) / inch] = dpi / 160
+* dp [(1 / 160) inch] = px * (160 / dpi) = px / density
+
+## Round image
+Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but neither of them can draw a border around it.
+
 ## UI Automator
 is to interact with other apps.
 
