@@ -324,6 +324,9 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 ~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) -dns-server 1.1.1.1,8.8.8.8,8.8.4.4
 ```
 
+# Build variant / Build type / Flavor dimension
+[build-variant.md](markdown/build-variant.md)
+
 # Material design typography
 [material-design-typography.md](markdown/charles.md)
 
