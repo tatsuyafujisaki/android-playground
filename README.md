@@ -354,7 +354,7 @@ is to interact with other apps.
 # Build variant / Build type / Flavor dimension
 [build-variant.md](markdown/build-variant.md)
 
-# Material design typography
+# Material Design typography
 [material-design-typography.md](markdown/charles.md)
 
 # Fragment
