@@ -1,4 +1,5 @@
-# ViewPager 1
+# ViewPager
+## ViewPager 1
 * `PagerAdapter.getCount(...)` is automatically called after `viewPager.adapter = viewPagerAdapter`.
 * If `PagerAdapter.getCount(...)` returns more than 0, which is the number of pages, `PagerAdapter.instantiateItem(...)` is automatically called for each page.
 * The following error occurs if you don't call `PagerAdapter.notifyDataSetChanged()` after changing the adapter's contents.
