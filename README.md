@@ -286,6 +286,14 @@ chipGroup.setOnCheckedChangeListener { group, checkedId ->
 }
 ```
 
+# CoordinatorLayout
+* shares scrolling information between its children.
+
+# ContentProvider
+* You work with content providers in one of two scenarios
+  * You may want to implement code to access an existing content provider in another application.
+  * You may want to create a new content provider in your application to share data with other applications.
+
 # CookieManager
 ```kotlin
 val cookieManager = CookieManager.getInstance()
@@ -310,7 +318,7 @@ val cookie4: String = cookieManager.getCookie(url4) // a = 1; b = 2; d = 4; e = 
 val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 5!
 ```
 
-# Emulators
+# Emulator
 # How to list emulators
 ```shell
 ~/Library/Android/sdk/emulator/emulator -list-avds
