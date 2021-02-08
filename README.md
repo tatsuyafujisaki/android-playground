@@ -363,6 +363,9 @@ is to interact with other apps.
 # Constriant Layout
 [constraint-layout.md](markdown/constraint-layout.md)
 
+# RecyclerView
+[recyclerview.md](markdown/recyclerview.md)
+
 # ViewPager
 [viewpager.md](markdown/viewpager.md)
 
