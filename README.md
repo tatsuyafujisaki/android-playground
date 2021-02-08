@@ -332,6 +332,15 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 ~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) -dns-server 1.1.1.1,8.8.8.8,8.8.4.4
 ```
 
+# Misc
+## Gradle
+The following custom task in the project-level `build.gradle` is to delete the project-level `build` directory when clicking the menu bar > `Build` > `Clean Project`.
+```gradle
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+```
+
 # Build variant / Build type / Flavor dimension
 [build-variant.md](markdown/build-variant.md)
 
