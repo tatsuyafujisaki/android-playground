@@ -338,8 +338,11 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 # Material design typography
 [material-design-typography.md](markdown/charles.md)
 
+# Fragment
+[fragment.md](markdown/fragment.md)
+
 # Constriant Layout
-[constraint-layout](markdown/constraint-layout.md)
+[constraint-layout.md](markdown/constraint-layout.md)
 
 # Android Debug Bridge (adb)
 [adb.md](markdown/adb.md)
