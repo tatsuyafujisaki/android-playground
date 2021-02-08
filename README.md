@@ -310,9 +310,6 @@ val cookie4: String = cookieManager.getCookie(url4) // a = 1; b = 2; d = 4; e = 
 val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 5!
 ```
 
-# Espresso
-[espresso.md](markdown/espresso.md)
-
 # Emulators
 # How to list emulators
 ```shell
@@ -330,7 +327,7 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 # Material design typography
 [material-design-typography.md](markdown/charles.md)
 
-# ADB
+# Android Debug Bridge (adb)
 [adb.md](markdown/adb.md)
 
 # Espresso
