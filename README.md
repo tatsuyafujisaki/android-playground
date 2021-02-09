@@ -2,6 +2,9 @@
 * https://developer.android.com/kotlin/style-guide
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 
+# Vocabulary for Android Basics in Kotlin
+https://developer.android.com/courses/android-basics-kotlin/android-basics-kotlin-vocab
+
 # Best practices
 ## Use A rather than B for simplicity or clarity
 A|B|Note
