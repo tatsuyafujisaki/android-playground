@@ -13,6 +13,7 @@ A|B|Note
 `bundleOf(...)`|`Bundle().apply { ... }`
 `CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
 `Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
+`fragment.parentFragmentManager`|`fragment.requireActivity().supportFragmentManager`
 
 # Predefined colors from Android SDK
 ```kotlin
