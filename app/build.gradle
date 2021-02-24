@@ -119,7 +119,7 @@ dependencies {
      * androidx
      */
 
-    implementation 'androidx.activity:activity-ktx:1.1.0'
+    implementation 'androidx.activity:activity-ktx:1.2.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.collection:collection-ktx:1.1.0'
@@ -127,15 +127,16 @@ dependencies {
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.preference:preference-ktx:1.1.1'
-    implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
-    def fragmentVersion = '1.2.5'
+    def fragmentVersion = '1.3.0'
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
+    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
 
     // https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies
-    def lifecycleVersion = '2.2.0'
+    def lifecycleVersion = '2.3.0'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion" // LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion" // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
@@ -156,7 +157,7 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
     testImplementation "androidx.paging:paging-common-ktx:$pagingVersion"
 
-    def workVersion = '2.4.0'
+    def workVersion = '2.5.0'
     implementation "androidx.work:work-runtime-ktx:$workVersion"
     androidTestImplementation "androidx.work:work-testing:$workVersion"
 
@@ -164,10 +165,10 @@ dependencies {
      * com.google.firebase
      */
 
-    implementation 'com.google.firebase:firebase-analytics-ktx:18.0.0'
+    implementation 'com.google.firebase:firebase-analytics-ktx:18.0.2'
     implementation 'com.google.firebase:firebase-common-ktx:19.5.0'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:22.0.1'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:22.1.0'
     implementation 'com.google.firebase:firebase-storage-ktx:19.2.1'
 
     /*
@@ -192,7 +193,7 @@ dependencies {
      */
 
     implementation 'com.google.android.libraries.places:places:2.4.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
     implementation 'com.google.android.play:core-ktx:1.8.1'
 
     // TODO Use Hilt when it goes out of beta.
@@ -259,10 +260,9 @@ dependencies {
 
     // https://issuetracker.google.com/128612536 is resolved, uncomment the following.
     // https://github.com/googlecodelabs/android-testing/blob/end_codelab_3/app/build.gradle
-    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
     androidTestUtil "androidx.test:orchestrator:$androidxTestVersion"
 
-    def mockkVersion = '1.10.4'
+    def mockkVersion = '1.10.6'
     testImplementation "io.mockk:mockk:$mockkVersion"
     androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
 
