@@ -6,6 +6,8 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.BackStackEntry
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -59,4 +61,20 @@ object FragmentUtil {
 
     fun Fragment.hasEnabledCallbacks() =
         requireActivity().onBackPressedDispatcher.hasEnabledCallbacks()
+
+    inline fun <reified F : Fragment> FragmentManager.replaceFragment(
+        @IdRes containerViewId: Int,
+        fragmentTag: String? = null,
+        transactionName: String? = null
+    ) {
+            commit {
+                if (fragmentTag.isNullOrBlank()) {
+                    replace<F>(containerViewId)
+                } else {
+                    replace<F>(containerViewId, fragmentTag)
+                }
+                setReorderingAllowed(true)
+                addToBackStack(transactionName)
+            }
+    }
 }
