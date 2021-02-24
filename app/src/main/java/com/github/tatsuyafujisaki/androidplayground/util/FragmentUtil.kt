@@ -67,14 +67,21 @@ object FragmentUtil {
         fragmentTag: String? = null,
         transactionName: String? = null
     ) {
-            commit {
-                if (fragmentTag.isNullOrBlank()) {
-                    replace<F>(containerViewId)
-                } else {
-                    replace<F>(containerViewId, fragmentTag)
-                }
-                setReorderingAllowed(true)
-                addToBackStack(transactionName)
+        commit {
+            if (fragmentTag.isNullOrBlank()) {
+                replace<F>(containerViewId)
+            } else {
+                replace<F>(containerViewId, fragmentTag)
             }
+            setReorderingAllowed(true)
+            addToBackStack(transactionName)
+        }
+    }
+
+    fun FragmentManager.popBackStack(popFragmentCount: Int) {
+        popBackStack(
+            getBackStackEntryAt(backStackEntryCount - popFragmentCount).id,
+            FragmentManager.POP_BACK_STACK_INCLUSIVE
+        )
     }
 }
