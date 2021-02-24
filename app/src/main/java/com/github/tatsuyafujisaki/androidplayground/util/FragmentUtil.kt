@@ -5,68 +5,57 @@ import android.util.Log
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentManager.BackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 
 object FragmentUtil {
-    fun clearViewModels(fragment: Fragment) {
-        fragment.viewModelStore.clear()
+    fun Fragment.clearViewModels() {
+        viewModelStore.clear()
     }
 
-    fun logFragmentManagers(fragment: Fragment) {
-        fragment.run {
-            val fragmentName = fragment.javaClass.simpleName
-            logFragmentManager("$fragmentName.parentFragmentManager", parentFragmentManager)
-            logFragmentManager("$fragmentName.childFragmentManager", childFragmentManager)
+    fun Fragment.logFragmentManagers() {
+        fun FragmentManager.log(tagPrefix: String) {
+            Log.d("$tagPrefix.fragments", getFragmentNames().joinToString(","))
+            Log.d("$tagPrefix.backStackEntries", getBackStackEntryNames().joinToString(","))
         }
+        val fragmentName = javaClass.simpleName
+        parentFragmentManager.log("$fragmentName.parentFragmentManager")
+        childFragmentManager.log("$fragmentName.childFragmentManager")
     }
 
-    private fun logFragmentManager(tagPrefix: String, fragmentManager: FragmentManager) {
-        return fragmentManager.let {
-            Log.d("$tagPrefix.fragments", getFragmentNames(it)
-                .joinToString(",").run { if (isEmpty()) "(empty)" else this })
-            Log.d("$tagPrefix.backStackEntries", getBackStackEntryNames(it)
-                .joinToString(",").run { if (isEmpty()) "(empty)" else this })
-        }
-    }
+    private fun FragmentManager.getFragmentNames() =
+        fragments.map { it.javaClass.simpleName }
 
-    private fun getFragmentNames(fragmentManager: FragmentManager) =
-        fragmentManager.fragments.map { it.javaClass.simpleName }
-
-    private fun getBackStackEntryNames(fragmentManager: FragmentManager) =
-        (0 until fragmentManager.backStackEntryCount)
+    private fun FragmentManager.getBackStackEntryNames() =
+        (0 until backStackEntryCount)
             .map {
-                val tag = fragmentManager.getBackStackEntryAt(it).name
+                val tag = getBackStackEntryAt(it).name
                 /**
-                 * findFragmentByTag(String) returns null
-                 * if the BackStackEntry was NOT added with the tag.
+                 * [FragmentManager.findFragmentByTag] returns null if the [BackStackEntry] has NOT been added with the tag.
                  */
-                fragmentManager.findFragmentByTag(tag)?.javaClass?.simpleName ?: tag
+                findFragmentByTag(tag)?.javaClass?.simpleName ?: tag
             }
 
-    fun getNavHostFragments(fragmentManager: FragmentManager) =
-        fragmentManager.fragments.filterIsInstance(NavHostFragment::class.java)
+    fun FragmentManager.getNavHostFragments() =
+        fragments.filterIsInstance(NavHostFragment::class.java)
 
     /**
      * @id Resource ID of FragmentContainerView where NavHostFragment is set.
      */
-    fun getNavHostFragment(fragmentManager: FragmentManager, @IdRes navHostFragmentId: Int) =
-        fragmentManager.findFragmentById(navHostFragmentId) as? NavHostFragment
+    fun FragmentManager.getNavHostFragment(@IdRes navHostFragmentId: Int) =
+        findFragmentById(navHostFragmentId) as? NavHostFragment
 
     /**
      * Impractical redundant explanatory wrappers
      */
-    fun getNavController(activity: Activity, @IdRes navHostFragmentId: Int) =
-        activity.findNavController(navHostFragmentId)
+    fun Activity.getNavController(@IdRes navHostFragmentId: Int) =
+        findNavController(navHostFragmentId)
 
-    fun getCurrentFragment(navHostFragment: NavHostFragment) =
-        navHostFragment
-            .childFragmentManager
-            .primaryNavigationFragment
+    fun NavHostFragment.getCurrentFragment() = childFragmentManager.primaryNavigationFragment
 
-    fun canNavigateUp(navController: NavController) =
-        navController.graph.startDestination != navController.currentDestination?.id
+    fun NavController.canNavigateUp() = graph.startDestination != currentDestination?.id
 
     fun Fragment.hasEnabledCallbacks() =
         requireActivity().onBackPressedDispatcher.hasEnabledCallbacks()
