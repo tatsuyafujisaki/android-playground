@@ -155,6 +155,14 @@ shows dependencies, as a list, declared in the project `app`.
 ./gradlew <module>:connected<build-variant>AndroidTest
 ```
 
+## `task clean` in project-level `build.gradle`
+The following custom task in the project-level `build.gradle` is to delete the project-level `build` directory when clicking the menu bar > `Build` > `Clean Project`.
+```gradle
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+```
+
 # How to find what class causes an error by `minifyenabled true`
 Add the following in `proguard-rule.pro`.
 ```
@@ -337,14 +345,6 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 ```
 
 # Misc
-## Gradle
-The following custom task in the project-level `build.gradle` is to delete the project-level `build` directory when clicking the menu bar > `Build` > `Clean Project`.
-```gradle
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-```
-
 ## Density / dpi / dp / px
 * density [(# of 160px) / inch] = dpi / 160
 * dp [(1 / 160) inch] = px * (160 / dpi) = px / density
