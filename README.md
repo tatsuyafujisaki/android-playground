@@ -349,6 +349,11 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 * density [(# of 160px) / inch] = dpi / 160
 * dp [(1 / 160) inch] = px * (160 / dpi) = px / density
 
+## How a density bucket (mdpi, hdpi,  xhdpi, ...) is chosen
+> Android will select the resource at the closest larger density bucket and then scale down.
+
+https://developer.android.com/codelabs/basic-android-kotlin-training-change-app-icon?continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-2-pathway-2%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-change-app-icon#2
+
 ## Round image
 Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but neither of them can draw a border around it.
 
