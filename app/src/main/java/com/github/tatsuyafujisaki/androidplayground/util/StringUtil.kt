@@ -12,14 +12,14 @@ object StringUtil {
     /**
      * Decodes HTML entities. For encoding HTML entities, use [htmlEncode].
      */
-    fun String.htmlDecode() =
-        Html.fromHtml(this, Html.FROM_HTML_MODE_COMPACT).toString()
+    val String.decoded
+        get() = Html.fromHtml(this, Html.FROM_HTML_MODE_COMPACT).toString()
 
-    fun String.isValidEmailAddress() =
-        Patterns.EMAIL_ADDRESS.matcher(this).matches()
+    val String.isValidEmailAddress
+        get() = Patterns.EMAIL_ADDRESS.matcher(this).matches()
 
-    fun String.isValidPhoneNumber() =
-        Patterns.PHONE.matcher(this).matches()
+    val String.isValidPhoneNumber
+        get() = Patterns.PHONE.matcher(this).matches()
 
     fun String.color(@ColorInt color: Int) =
         SpannableString(this).apply {

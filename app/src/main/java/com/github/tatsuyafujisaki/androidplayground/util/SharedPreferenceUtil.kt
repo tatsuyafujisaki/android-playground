@@ -13,16 +13,14 @@ import androidx.preference.PreferenceManager
  * Impractical redundant explanatory wrappers
  */
 object SharedPreferenceUtil {
-    fun getSharedPreferences(context: Context) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-    }
+    val Context.sharedPreferences: SharedPreferences
+        get() = PreferenceManager.getDefaultSharedPreferences(this)
 
-    fun getSharedPreferences(context: Context, name: String) =
-        context.getSharedPreferences(name, Context.MODE_PRIVATE)
+    fun Context.sharedPreferences(name: String): SharedPreferences =
+        getSharedPreferences(name, Context.MODE_PRIVATE)
 
     fun example(sharedPreferences: SharedPreferences, key: String) {
         val exists: Boolean = sharedPreferences.contains(key)
-
         val map: Map<String, *> = sharedPreferences.all
     }
 
@@ -43,7 +41,7 @@ object SharedPreferenceUtil {
     fun SharedPreferences.getInt(key: String) = getInt(key, Int.MIN_VALUE)
     fun SharedPreferences.getLong(key: String) = getLong(key, Long.MIN_VALUE)
     fun SharedPreferences.getString(key: String) = getString(key, null)
-    fun SharedPreferences.getStringSet(key: String) = getStringSet(key, null)
+    fun SharedPreferences.getStringSet(key: String): MutableSet<String>? = getStringSet(key, null)
 
     fun SharedPreferences.putBoolean(key: String, value: Boolean) {
         edit {

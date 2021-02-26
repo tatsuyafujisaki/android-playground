@@ -17,7 +17,6 @@ class SampleLifecycleObserver(
 ) : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun registerSomething() {
-
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)

@@ -4,5 +4,6 @@ import java.io.File
 import java.net.URLEncoder
 
 object FileUtil {
-    fun encode(file: File) = URLEncoder.encode(file.name, "UTF-8")
+    val File.encoded
+        get() = URLEncoder.encode(name, "UTF-8")
 }

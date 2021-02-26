@@ -20,8 +20,8 @@ import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
 import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
-import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil
-import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtil
+import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.toast
+import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtil.currentFragment
 import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 import kotlinx.coroutines.launch
 
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         onBackPressedDispatcher.addCallback(this) {
             Log.d(tag, "Back button is pressed.")
 
-            (FragmentUtil.getCurrentFragment(navHostFragment) as? WebViewContainer)?.run {
+            (navHostFragment.currentFragment as? WebViewContainer)?.run {
                 if (canGoBack()) {
                     goBack()
                 } else if (!navController.popBackStack()) {
@@ -90,9 +90,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 runCatching {
                     RetrofitClient.googleApiService.getBooks("The Little Prince")
                 }.fold({
-                    ContextUtil.toast(this@MainActivity, it.toString())
+                    this@MainActivity.toast(it.toString())
                 }, {
-                    ContextUtil.toast(this@MainActivity, it.toString())
+                    this@MainActivity.toast(it.toString())
                 })
             }
         }
@@ -150,7 +150,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home ->
-                (FragmentUtil.getCurrentFragment(navHostFragment) as? WebViewContainer)?.run {
+                (navHostFragment.currentFragment as? WebViewContainer)?.run {
                     if (canGoBack()) {
                         goBack()
                     } else {

@@ -6,8 +6,8 @@ import android.net.NetworkCapabilities
 import okhttp3.HttpUrl
 
 object NetworkUtil {
-    fun isNetworkAvailable(context: Context) =
-        with(context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager) {
+    val Context.isNetworkAvailable
+        get() = with(getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager) {
             getNetworkCapabilities(activeNetwork)?.run {
                 hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
                     || hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
@@ -15,6 +15,6 @@ object NetworkUtil {
             } ?: false
         }
 
-    private fun getBaseUrl(url: HttpUrl) =
-        HttpUrl.Builder().scheme(url.scheme).host(url.host).build()
+    private val HttpUrl.baseUrl
+        get() = HttpUrl.Builder().scheme(scheme).host(host).build()
 }

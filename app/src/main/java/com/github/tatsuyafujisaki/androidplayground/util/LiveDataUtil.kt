@@ -1,6 +1,13 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.map
+import androidx.lifecycle.switchMap
 
 object LiveDataUtil {
     fun <T> MutableLiveData<T>.notifyObserver() {
@@ -41,7 +48,7 @@ object LiveDataUtil {
         }
     }
 
-    fun <A, B, C> mediateNonNull(
+    private fun <A, B, C> mediateNonNull(
         liveData1: LiveData<A>,
         liveData2: LiveData<B>,
         onChanged: (A, B) -> C

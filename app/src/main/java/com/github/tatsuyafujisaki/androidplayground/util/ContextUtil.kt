@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import com.github.tatsuyafujisaki.androidplayground.BuildConfig
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
@@ -28,29 +29,23 @@ import java.io.BufferedReader
 object ContextUtil {
     private val tag = this::class.java.simpleName
 
-    fun isInteractive(context: Context) =
-        (context.getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
+    val Context.isInteractive
+        get() = (getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
 
-    fun readAsset(context: Context, fileName: String) =
-        context
-            .assets
+    fun Context.readAsset(fileName: String) =
+        assets
             .open(fileName)
             .bufferedReader()
             .use(BufferedReader::readText)
 
-    fun openInBrowser(context: Context, url: String) =
-        startActivity(context, Intent(Intent.ACTION_VIEW, url.toUri()), null)
+    fun Context.openInBrowser(url: String) =
+        startActivity(this, Intent(Intent.ACTION_VIEW, url.toUri()), null)
 
     // Usage: logScreenInfo(resources.displayMetrics)
-    fun logScreenInfo(displayMetrics: DisplayMetrics) {
-        val widthPixels = displayMetrics.widthPixels
-        val heightPixels = displayMetrics.heightPixels
-        val densityDpi = displayMetrics.densityDpi
-        val density = displayMetrics.density
-
+    fun DisplayMetrics.logScreenInfo() {
         require(density == densityDpi / 160f)
 
-        val densityQualifier = displayMetrics.densityDpi.let {
+        val densityQualifier = densityDpi.let {
             when {
                 it <= DisplayMetrics.DENSITY_LOW -> "ldpi (~120dpi)"
                 it <= DisplayMetrics.DENSITY_MEDIUM -> "mdpi (121~160dpi)"
@@ -58,8 +53,7 @@ object ContextUtil {
                 it <= DisplayMetrics.DENSITY_XHIGH -> "xhdpi (241~320dpi)"
                 it <= DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi (321~480dpi)"
                 it <= DisplayMetrics.DENSITY_XXXHIGH -> "xxxhdpi (481~640dpi)"
-                else ->
-                    throw IllegalArgumentException("Screen quantifier for $it is not supported.")
+                else -> error("Screen quantifier for $it is not supported.")
             }
         }
 
@@ -68,14 +62,8 @@ object ContextUtil {
         Log.i(tag, "densityQualifier: $densityQualifier")
         Log.i(tag, "widthPixels: $widthPixels")
         Log.i(tag, "heightPixels: $heightPixels")
-        Log.i(
-            tag, "widthInDp [(1 / 160) inch] (= px / density): " +
-                    "${(widthPixels / density).toInt()}"
-        )
-        Log.i(
-            tag, "heightInDp [(1 / 160) inch] (= px / density): " +
-                    "${(heightPixels / density).toInt()}"
-        )
+        Log.i(tag, "widthInDp [(1 / 160) inch] (= px / density): " + "${(widthPixels / density).toInt()}")
+        Log.i(tag, "heightInDp [(1 / 160) inch] (= px / density): " + "${(heightPixels / density).toInt()}")
     }
 
     /**
@@ -85,13 +73,12 @@ object ContextUtil {
      * as they can be displayed in the context of the UI where the action occurred."
      * quoted from https://material.io/develop/android/components/snackbar
      */
-    fun snackBar(view: View, text: String) = Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
+    fun View.snackbar(text: String) = Snackbar.make(this, text, Snackbar.LENGTH_SHORT).show()
 
-    fun toast(context: Context, text: String) =
-        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+    fun Context.toast(text: String) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 
-    fun <T> createChip(context: Context, text: String, tag: T): Chip {
-        return Chip(context).apply {
+    fun <T> Context.createChip(text: String, tag: T): Chip {
+        return Chip(this).apply {
             this.text = text
             this.tag = tag
             chipBackgroundColor = getColorStateList(context, R.color.chip_background_selector)
@@ -122,5 +109,15 @@ object ContextUtil {
 
     fun MenuItem.color3(fragment: Fragment, @ColorInt color: Int) {
         fragment.view?.findViewById<TextView>(itemId)?.setTextColor(color)
+    }
+
+    /**
+     * https://developer.android.com/distribute/marketing-tools/linking-to-google-play#android-app
+     */
+    fun Context.openGooglePlay() {
+        Intent(Intent.ACTION_VIEW).apply {
+            data = ("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID).toUri()
+            setPackage("com.android.vending")
+        }.let(::startActivity)
     }
 }

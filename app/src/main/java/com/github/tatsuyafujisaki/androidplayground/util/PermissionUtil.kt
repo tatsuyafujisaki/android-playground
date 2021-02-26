@@ -7,16 +7,16 @@ import android.content.Context
 import android.content.pm.PackageManager
 
 object PermissionUtil {
-    const val REQUEST_EXTERNAL_STORAGE = 0
+    private const val REQUEST_EXTERNAL_STORAGE = 0
 
-    fun isStoragePermissionGranted(context: Context) =
-        context.checkSelfPermission(READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+    val Context.isStoragePermissionGranted
+        get() = checkSelfPermission(READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
 
     /**
      * Activity#requestPermissions has been deprecated since Activity 1.2.0-alpha02
      */
-    fun requestStoragePermission(activity: Activity) {
-        activity.requestPermissions(
+    fun Activity.requestStoragePermission() {
+        requestPermissions(
             arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE),
             REQUEST_EXTERNAL_STORAGE
         )

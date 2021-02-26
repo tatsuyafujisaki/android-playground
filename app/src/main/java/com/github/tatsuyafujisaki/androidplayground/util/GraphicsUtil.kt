@@ -10,23 +10,23 @@ import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 
 object GraphicsUtil {
-    fun downloadBitmap(context: Context, url: String): Bitmap? {
+    fun Context.downloadBitmap(url: String): Bitmap? {
         val uri = url.toUri()
         return try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                ImageDecoder.createSource(context.contentResolver, uri)
+                ImageDecoder.createSource(contentResolver, uri)
                     .let(ImageDecoder::decodeBitmap)
             } else {
-                MediaStore.Images.Media.getBitmap(context.contentResolver, uri)
+                MediaStore.Images.Media.getBitmap(contentResolver, uri)
             }
         } catch (_: Exception) {
             null
         }
     }
 
-    fun downloadBitmap2(context: Context, url: String) =
+    fun Context.downloadBitmap2(url: String) =
         try {
-            Glide.with(context)
+            Glide.with(this)
                 .asBitmap()
                 .load(url)
                 // .error(...) or .fallback(...) does not help if URL is broken.
@@ -38,9 +38,9 @@ object GraphicsUtil {
             null
         }
 
-    fun rotateClockwise(bitmap: Bitmap, degrees: Float) =
+    fun Bitmap.rotateClockwise(degrees: Float): Bitmap =
         Bitmap.createBitmap(
-            bitmap, 0, 0, bitmap.width, bitmap.height,
+            this, 0, 0, width, height,
             Matrix().apply { postRotate(degrees) }, true
         )
 }
