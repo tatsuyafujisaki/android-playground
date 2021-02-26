@@ -3,7 +3,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.app.Activity
 import android.content.Context
 import android.view.KeyEvent
-import android.view.View
 import android.view.View.OnKeyListener
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
@@ -28,13 +27,12 @@ object ActivityUtil {
     fun ComponentActivity.hasEnabledCallbacks() =
         onBackPressedDispatcher.hasEnabledCallbacks()
 
-    fun Activity.hideKeyboardOnEnter() = object : OnKeyListener {
-        override fun onKey(v: View, keyCode: Int, event: KeyEvent): Boolean {
-            if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                inputMethodManager.hideSoftInputFromWindow(v.windowToken, 0)
-                return true
-            }
-            return false
+    fun Activity.hideKeyboardOnEnter() = OnKeyListener { v, keyCode, _ ->
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            inputMethodManager.hideSoftInputFromWindow(v.windowToken, 0)
+            true
+        } else {
+            false
         }
     }
 }
