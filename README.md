@@ -364,7 +364,7 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 [build-variant.md](markdown/build-variant.md)
 
 # Material Design typography
-[material-design-typography.md](markdown/charles.md)
+[material-design-typography.md](markdown/material-design-typography.md)
 
 # Fragment
 [fragment.md](markdown/fragment.md)
