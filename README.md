@@ -231,6 +231,7 @@ class MyCustomView @JvmOverloads constructor(
 with(recyclerView) {
     adapter = myAdapter
     addItemDecoration(DividerItemDecoration(context, (layoutManager as LinearLayoutManager).orientation))
+    setHasFixedSize(true) // only if the size is fixed.
     itemAnimator = null
     registerAdapterDataObserver(
     object : RecyclerView.AdapterDataObserver() {
