@@ -14,7 +14,6 @@ enum class Fruit(@StringRes val resId: Int) {
 
 fun fruitSampleUsage() {
     for (fruit in Fruit.values()) {
-        val x = fruit
         println(fruit.toString())
     }
 }

@@ -123,11 +123,6 @@ class HomeFragment : Fragment(), WebViewContainer {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
-    }
-
     override fun onStart() {
         super.onStart()
         Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
