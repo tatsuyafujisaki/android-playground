@@ -332,18 +332,22 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 ```
 
 # Emulator
-# How to list emulators
+## How to list emulators
 ```shell
 ~/Library/Android/sdk/emulator/emulator -list-avds
 ```
 
-# How to launch an emulator specifying a DNS server
+## How to launch an emulator specifying a DNS server
 ```shell
-~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 1.1.1.1,8.8.8.8,8.8.4.4
+~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
 
 # You don't have to specify an emulator if you have only one emulator.
 ~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) -dns-server 1.1.1.1,8.8.8.8,8.8.4.4
 ```
+
+## Settings in a Pixel 4 emulator to stabilize
+* Settings > System > Languages & input > Autofill service > None
+* Settings > Location > off
 
 # Misc
 ## Density / dpi / dp / px
