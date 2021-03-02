@@ -331,24 +331,6 @@ val cookie4: String = cookieManager.getCookie(url4) // a = 1; b = 2; d = 4; e = 
 val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 5!
 ```
 
-# Emulator
-## How to list emulators
-```shell
-~/Library/Android/sdk/emulator/emulator -list-avds
-```
-
-## How to launch an emulator specifying a DNS server
-```shell
-~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
-
-# You don't have to specify an emulator if you have only one emulator.
-~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) -dns-server 1.1.1.1,8.8.8.8,8.8.4.4
-```
-
-## Settings in a Pixel 4 emulator to stabilize
-* Settings > System > Languages & input > Autofill service > None
-* Settings > Location > off
-
 # Misc
 ## Density / dpi / dp / px
 * density [(# of 160px) / inch] = dpi / 160
@@ -383,11 +365,14 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 # ViewPager
 [viewpager.md](markdown/viewpager.md)
 
+# Espresso
+[espresso.md](markdown/espresso.md)
+
 # Android Debug Bridge (adb)
 [adb.md](markdown/adb.md)
 
-# Espresso
-[espresso.md](markdown/espresso.md)
+# Emulator
+[emulator.md](markdown/emulator.md)
 
 # Charles
 [charles.md](markdown/charles.md)
