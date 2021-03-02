@@ -169,7 +169,7 @@ dependencies {
      */
 
     def mapsVersion = '2.2.0'
-    implementation "com.google.maps.android:android-maps-utils$mapsVersion"
+    implementation "com.google.maps.android:android-maps-utils:$mapsVersion"
     implementation "com.google.maps.android:maps-ktx:$mapsVersion"
     implementation "com.google.maps.android:maps-utils-ktx:$mapsVersion"
     implementation 'com.google.maps.android:places-ktx:0.4.0'
@@ -213,6 +213,7 @@ dependencies {
 
     // Use Rx only if your client sticks with it.
     implementation 'io.reactivex.rxjava3:rxjava:3.0.10'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0' // required for io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 
     /*
      * For both local unit tests and instrumented unit tests
