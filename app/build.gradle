@@ -10,7 +10,6 @@ plugins {
 
 android {
     compileSdkVersion 30
-
     defaultConfig {
         applicationId 'com.github.tatsuyafujisaki.androidplayground'
         minSdkVersion 26
@@ -27,7 +26,18 @@ android {
          */
         testInstrumentationRunnerArguments clearPackageData: 'true'
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        allWarningsAsErrors = true
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
     buildTypes {
         release {
             minifyEnabled true
@@ -52,21 +62,6 @@ android {
             buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
         }
     }
-
-    buildFeatures {
-        viewBinding true
-        dataBinding true
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR' // Android Test Orchestrator
 
