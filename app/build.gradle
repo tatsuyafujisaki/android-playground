@@ -211,7 +211,7 @@ dependencies {
     // Stetho
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
 
-    // Use Rx only if your client sticks with it.
+    // in case you are not authorized to use coroutines.
     implementation 'io.reactivex.rxjava3:rxjava:3.0.10'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0' // required for io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 
