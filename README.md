@@ -7,13 +7,14 @@ https://developer.android.com/courses/android-basics-kotlin/android-basics-kotli
 
 # Best practices
 ## Use A rather than B for simplicity or clarity
-A|B
---|--
+A|B|Note
+--|--|--
 `String.toUri()`|`Uri.parse(...)`
 `bundleOf(...)`|`Bundle().apply { ... }`
 `CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
 `Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
 `fragment.parentFragmentManager`|`fragment.requireActivity().supportFragmentManager`
+`requireViewById(...)`|`findViewById(...)`|in case you are not authorized to use view binding
 
 # Predefined colors from Android SDK
 ```kotlin
