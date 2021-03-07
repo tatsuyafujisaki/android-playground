@@ -35,4 +35,6 @@ object ActivityUtil {
             false
         }
     }
+
+    fun Activity.getExtraString(key: String) = intent?.extras?.getString(key).orEmpty()
 }
