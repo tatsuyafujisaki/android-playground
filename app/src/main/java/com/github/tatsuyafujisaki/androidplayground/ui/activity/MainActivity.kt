@@ -8,7 +8,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedDispatcher
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -43,10 +42,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
 
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-
-        lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            Log.d(TAG, event.toString())
-        })
 
 //        if (savedInstanceState == null) {
 //            supportFragmentManager.commit {
@@ -171,6 +166,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     companion object {
-        private const val TAG = "MainActivity”
+        private const val TAG = "MainActivity"
     }
 }

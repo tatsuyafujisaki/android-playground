@@ -29,9 +29,6 @@ class HomeFragment : Fragment(), WebViewContainer {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-        lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            Log.d(TAG, event.toString())
-        })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
