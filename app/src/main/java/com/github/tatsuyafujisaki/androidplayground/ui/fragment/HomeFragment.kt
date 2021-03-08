@@ -43,22 +43,6 @@ class HomeFragment : Fragment(), WebViewContainer {
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        viewLifecycleOwner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            Log.d(logTagForView, event.toString())
-        })
-
-        // Demonstration of how to use a custom LifecycleObserver.
-        viewLifecycleOwner.lifecycle.addObserver(object: LifecycleObserver {
-            @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-            fun registerSomething() {
-
-            }
-
-            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            fun unregisterSomething() {
-            }
-        })
-
         viewLifecycleOwner.lifecycleScope.launch {
             Log.d(TAG, "This is a demonstration of viewLifecycleOwner.lifecycleScope.")
         }
