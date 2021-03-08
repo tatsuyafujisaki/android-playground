@@ -9,19 +9,22 @@ import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentExploreB
 import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 
 class ExploreFragment : Fragment(R.layout.fragment_explore) {
-    private val logTag = this::class.java.simpleName
     private val binding by viewBindings(FragmentExploreBinding::bind)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
         lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            Log.d(logTag, event.toString())
+            Log.d(TAG, event.toString())
         })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
+    }
+
+    companion object {
+        private const val TAG = "ExploreFragment"
     }
 }

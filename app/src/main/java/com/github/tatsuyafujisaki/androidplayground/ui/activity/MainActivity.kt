@@ -26,8 +26,6 @@ import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    private val tag = this::class.java.simpleName
-
     private val binding by viewBindings(ActivityMainBinding::bind)
     private lateinit var mainActivityComponent: MainActivityComponent
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -44,10 +42,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 inject(this@MainActivity)
             }
 
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
 
         lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            Log.d(tag, event.toString())
+            Log.d(TAG, event.toString())
         })
 
 //        if (savedInstanceState == null) {
@@ -61,7 +59,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         // https://developer.android.com/guide/navigation/navigation-custom-back
         onBackPressedDispatcher.addCallback(this) {
-            Log.d(tag, "Back button is pressed.")
+            Log.d(TAG, "Back button is pressed.")
 
             (navHostFragment.currentFragment as? WebViewContainer)?.run {
                 if (canGoBack()) {
@@ -98,43 +96,43 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
 
         lifecycleScope.launch {
-            Log.d(tag, "This is a demonstration of lifecycleScope.")
+            Log.d(TAG, "This is a demonstration of lifecycleScope.")
         }
     }
 
     override fun onStart() {
         super.onStart()
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -164,11 +162,15 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     override fun onBackPressed() {
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
         /**
          * If you override [ComponentActivity.onBackPressed] but does not call super.onBackPressed() in it,
          * [OnBackPressedDispatcher]'s callbacks will not be called.
          */
         super.onBackPressed()
+    }
+
+    companion object {
+        private const val TAG = "MainActivity”
     }
 }

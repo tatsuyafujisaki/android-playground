@@ -5,11 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
-    private val tag = this::class.java.simpleName
     val liveData = MutableLiveData<String>()
 
     override fun onCleared() {
         super.onCleared()
-        Log.d(tag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
+    }
+
+    companion object {
+        private const val TAG = "MainViewModel"
     }
 }

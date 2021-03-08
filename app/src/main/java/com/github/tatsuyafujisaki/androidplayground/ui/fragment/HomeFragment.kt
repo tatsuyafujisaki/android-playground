@@ -22,29 +22,28 @@ import com.github.tatsuyafujisaki.androidplayground.util.WebViewUtil.enableJavaS
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), WebViewContainer {
-    private val logTag = this::class.java.simpleName
     private val logTagForView = this::class.java.simpleName + ".view"
     private lateinit var binding: FragmentHomeBinding
     private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
         lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            Log.d(logTag, event.toString())
+            Log.d(TAG, event.toString())
         })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         viewLifecycleOwner.lifecycle.addObserver(LifecycleEventObserver { _, event ->
@@ -64,12 +63,12 @@ class HomeFragment : Fragment(), WebViewContainer {
         })
 
         viewLifecycleOwner.lifecycleScope.launch {
-            Log.d(logTag, "This is a demonstration of viewLifecycleOwner.lifecycleScope.")
+            Log.d(TAG, "This is a demonstration of viewLifecycleOwner.lifecycleScope.")
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+                Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
                 if(!findNavController().popBackStack()) {
                     // Finish the Activity if it has nothing in the back stack.
                     requireActivity().finish()
@@ -82,7 +81,7 @@ class HomeFragment : Fragment(), WebViewContainer {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
 
         with(binding) {
             /**
@@ -104,7 +103,7 @@ class HomeFragment : Fragment(), WebViewContainer {
 
             mainViewModel.liveData.observe(viewLifecycleOwner) {
                 if (it != null) {
-                    Log.d(logTag, it)
+                    Log.d(TAG, it)
                 }
             }
 
@@ -125,44 +124,48 @@ class HomeFragment : Fragment(), WebViewContainer {
 
     override fun onStart() {
         super.onStart()
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onDetach() {
         super.onDetach()
-        Log.d(logTag, object {}.javaClass.enclosingMethod!!.name)
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun canGoBack() = binding.webView.canGoBack()
     override fun goBack() = binding.webView.goBack()
+
+    companion object {
+        private const val TAG = "HomeFragment"
+    }
 }

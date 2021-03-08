@@ -27,8 +27,6 @@ import com.google.android.material.snackbar.Snackbar
 import java.io.BufferedReader
 
 object ContextUtil {
-    private val tag = this::class.java.simpleName
-
     val Context.isInteractive
         get() = (getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
 
@@ -57,13 +55,15 @@ object ContextUtil {
             }
         }
 
-        Log.i(tag, "dpi: $densityDpi")
-        Log.i(tag, "density [(# of 160px) / inch] (= dpi / 160): $density")
-        Log.i(tag, "densityQualifier: $densityQualifier")
-        Log.i(tag, "widthPixels: $widthPixels")
-        Log.i(tag, "heightPixels: $heightPixels")
-        Log.i(tag, "widthInDp [(1 / 160) inch] (= px / density): " + "${(widthPixels / density).toInt()}")
-        Log.i(tag, "heightInDp [(1 / 160) inch] (= px / density): " + "${(heightPixels / density).toInt()}")
+        val tag = "LogScreenInfo"
+
+        Log.d(tag, "dpi: $densityDpi")
+        Log.d(tag, "density [(# of 160px) / inch] (= dpi / 160): $density")
+        Log.d(tag, "densityQualifier: $densityQualifier")
+        Log.d(tag, "widthPixels: $widthPixels")
+        Log.d(tag, "heightPixels: $heightPixels")
+        Log.d(tag, "widthInDp [(1 / 160) inch] (= px / density): " + "${(widthPixels / density).toInt()}")
+        Log.d(tag, "heightInDp [(1 / 160) inch] (= px / density): " + "${(heightPixels / density).toInt()}")
     }
 
     /**
