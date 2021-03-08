@@ -8,29 +8,31 @@ import androidx.lifecycle.OnLifecycleEvent
 
 object LifecycleUtil {
     fun Lifecycle.onStateChanged() {
-        addObserver(LifecycleEventObserver { source, event ->
-            Log.d(source::class.java.simpleName, event.name)
+        addObserver(
+            LifecycleEventObserver { source, event ->
+                Log.d(source::class.java.simpleName, event.name)
 
-            when (event) {
-                Lifecycle.Event.ON_CREATE -> {
-                }
-                Lifecycle.Event.ON_START -> {
-                }
-                Lifecycle.Event.ON_RESUME -> {
-                }
-                Lifecycle.Event.ON_PAUSE -> {
-                }
-                Lifecycle.Event.ON_STOP -> {
-                }
-                Lifecycle.Event.ON_DESTROY -> {
-                }
-                Lifecycle.Event.ON_ANY -> {
+                when (event) {
+                    Lifecycle.Event.ON_CREATE -> {
+                    }
+                    Lifecycle.Event.ON_START -> {
+                    }
+                    Lifecycle.Event.ON_RESUME -> {
+                    }
+                    Lifecycle.Event.ON_PAUSE -> {
+                    }
+                    Lifecycle.Event.ON_STOP -> {
+                    }
+                    Lifecycle.Event.ON_DESTROY -> {
+                    }
+                    Lifecycle.Event.ON_ANY -> {
+                    }
                 }
             }
-        })
+        )
     }
 
-    @Deprecated("Use onStateChanged()")
+    @Deprecated("Use onStateChanged() because it is simpler and have access to source (LifecycleOwner).")
     fun Lifecycle.onStateChangedDeprecated() {
         addObserver(
             object : LifecycleObserver {
