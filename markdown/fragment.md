@@ -21,9 +21,6 @@
 * onDestroy()
 * onDetach()
 
-# FragmentActivity
-is an Activity that can get FragmentManager.
-
 # FragmentContainerView
 is a container to which multiple fragments can be added.
 
