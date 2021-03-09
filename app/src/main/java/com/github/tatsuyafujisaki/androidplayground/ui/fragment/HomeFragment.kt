@@ -123,11 +123,6 @@ class HomeFragment : Fragment(), WebViewContainer {
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)

@@ -43,12 +43,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
 
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.commit {
-//                replace(R.id.fragment_container_view, HomeFragment())
-//            }
-//        }
-
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
@@ -100,11 +94,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-    }
-
     override fun onResume() {
         super.onResume()
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
@@ -117,11 +106,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onStop() {
         super.onStop()
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
