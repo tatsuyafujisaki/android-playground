@@ -1,3 +1,7 @@
+# Meanings of onStart and onResume
+* onStart ... Activity is visible.
+* onResume ... Activity has focus. 
+
 # Activity lifecycle
 * onCreate()
 * onStart()
