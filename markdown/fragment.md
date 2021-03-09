@@ -1,4 +1,8 @@
-# Fragment/DialogFragment lifecycle
+# Meanings of onStart and onResume
+* onStart ... Fragment is visible.
+* onResume ... Fragment has focus. 
+
+# DialogFragment/Fragment lifecycle
 * onAttach()
 * onCreate()
 * onCreateDialog()
