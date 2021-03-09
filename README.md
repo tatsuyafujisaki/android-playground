@@ -3,9 +3,6 @@
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 * https://developer.android.com/courses/android-basics-kotlin/android-basics-kotlin-vocab
 
-# Vocabulary for Android Basics in Kotlin
-https://developer.android.com/courses/android-basics-kotlin/android-basics-kotlin-vocab
-
 # Use A rather than B for simplicity or clarity
 A|B|Note
 --|--|--
