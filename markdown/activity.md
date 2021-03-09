@@ -21,3 +21,6 @@
 
 # Activity.isFinishing()
   * is false if the system is temporarily destroying the activity to save space.
+
+# FragmentActivity
+is an Activity that can get FragmentManager.
