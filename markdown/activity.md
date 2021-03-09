@@ -16,7 +16,6 @@
     * https://developer.android.com/reference/kotlin/android/app/Activity#onsaveinstancestate_1
 * onDestroy()
 
-
 # Activity.finish()
   * calls these in order: onPause > onStop > onDestroy
 
