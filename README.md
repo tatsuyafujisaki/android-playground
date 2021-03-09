@@ -5,6 +5,9 @@
 # Vocabulary for Android Basics in Kotlin
 https://developer.android.com/courses/android-basics-kotlin/android-basics-kotlin-vocab
 
+# Best practices for coroutines in Android
+https://developer.android.com/kotlin/coroutines/coroutines-best-practices
+
 # Best practices
 ## Use A rather than B for simplicity or clarity
 A|B|Note
