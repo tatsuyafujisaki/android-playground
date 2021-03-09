@@ -7,6 +7,7 @@
 * onStart()
 * onRestoreInstanceState() (API 21+)
   * called only if savedInstanceState is not null.
+  * Restore a state in onRestoreInstanceState() instead of onCreate() if you must restore it after onStart().
 * onResume()
 * onPause()
 * onStop()
