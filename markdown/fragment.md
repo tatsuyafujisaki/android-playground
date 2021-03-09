@@ -1,3 +1,22 @@
+# Fragment/DialogFragment lifecycle
+* onAttach()
+* onCreate()
+* onCreateDialog()
+  * DialogFragment only
+* onCreateView()
+* onActivityCreated()
+* onStart()
+* onResume()
+* onDismiss()
+  * DialogFragment only
+* onPause()
+* onSaveInstanceState()
+* onStop()
+  * When going to sleep, up to onStop() is called, but onDestroyView() is not.
+* onDestroyView()
+* onDestroy()
+* onDetach()
+
 # FragmentActivity
 is an Activity that can get FragmentManager.
 
