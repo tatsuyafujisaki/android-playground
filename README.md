@@ -1,12 +1,9 @@
-# Official style guides
+# Official style guides and best practices
 * https://developer.android.com/kotlin/style-guide
 * https://kotlinlang.org/docs/reference/coding-conventions.html
+* https://developer.android.com/courses/android-basics-kotlin/android-basics-kotlin-vocab
 
 # Vocabulary for Android Basics in Kotlin
-https://developer.android.com/courses/android-basics-kotlin/android-basics-kotlin-vocab
-
-# Best practices for coroutines in Android
-https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 
 # Best practices
 ## Use A rather than B for simplicity or clarity
