@@ -345,35 +345,38 @@ https://developer.android.com/codelabs/basic-android-kotlin-training-change-app-
 ## Round image
 Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but neither of them can draw a border around it.
 
-# Jetpack Compose
-[jetpack-compose.md](markdown/jetpack-compose.md)
+# Activity
+[activity.md](markdown/activity.md)
+
+# Android Debug Bridge (adb)
+[adb.md](markdown/adb.md)
 
 # Build variant / Build type / Flavor dimension
 [build-variant.md](markdown/build-variant.md)
 
-# Material Design typography
-[material-design-typography.md](markdown/material-design-typography.md)
+# Charles
+[charles.md](markdown/charles.md)
+
+# Constriant Layout
+[constraint-layout.md](markdown/constraint-layout.md)
+
+# Emulator
+[emulator.md](markdown/emulator.md)
+
+# Espresso
+[espresso.md](markdown/espresso.md)
 
 # Fragment
 [fragment.md](markdown/fragment.md)
 
-# Constriant Layout
-[constraint-layout.md](markdown/constraint-layout.md)
+# Jetpack Compose
+[jetpack-compose.md](markdown/jetpack-compose.md)
+
+# Material Design typography
+[material-design-typography.md](markdown/material-design-typography.md)
 
 # RecyclerView
 [recyclerview.md](markdown/recyclerview.md)
 
 # ViewPager
 [viewpager.md](markdown/viewpager.md)
-
-# Espresso
-[espresso.md](markdown/espresso.md)
-
-# Android Debug Bridge (adb)
-[adb.md](markdown/adb.md)
-
-# Emulator
-[emulator.md](markdown/emulator.md)
-
-# Charles
-[charles.md](markdown/charles.md)
