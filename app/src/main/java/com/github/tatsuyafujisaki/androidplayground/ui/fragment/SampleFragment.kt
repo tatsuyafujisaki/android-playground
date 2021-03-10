@@ -1,28 +1,35 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
-import androidx.core.os.bundleOf
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.github.tatsuyafujisaki.androidplayground.R
-import com.github.tatsuyafujisaki.androidplayground.dataclass.SampleRepository
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentSampleBinding
-import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 
 class SampleFragment : Fragment(R.layout.fragment_sample) {
-    private val binding by viewBindings(FragmentSampleBinding::bind)
+    private var _binding: FragmentSampleBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
+        _binding = FragmentSampleBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
+        _binding = null
+    }
 
     companion object {
-        private const val FOO_KEY = "foo"
-        private const val BAR_KEY = "bar"
-        private const val REPOSITORY_KEY = "repository"
-
-        // Old school best practice (factory method pattern) of creating a Fragment before the Navigation era.
-        fun newInstance(foo: String, bar: String, repository: SampleRepository) =
-            SampleFragment().apply {
-                arguments = bundleOf(
-                    FOO_KEY to foo,
-                    BAR_KEY to bar,
-                    REPOSITORY_KEY to repository
-                )
-            }
+        private const val TAG = "SampleFragment"
     }
 }
