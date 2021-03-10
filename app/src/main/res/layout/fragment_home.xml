@@ -1,76 +1,64 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                                                   tools:layout=".HomeFragment">
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="text_view,text_input_layout,edit_text,clear_button,navigate_to_sample_fragment_button,web_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <data>
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is a test view."
+        tools:text="@tools:sample/lorem" />
 
-        <variable
-            name="viewModel"
-            type="com.github.tatsuyafujisaki.androidplayground.MainViewModel" />
-    </data>
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="something"
+        android:background="@android:color/transparent"
+        android:hint="@string/edit_text_hint"
+        android:inputType="textNoSuggestions"
+        tools:text="@tools:sample/lorem/random" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:layout=".HomeFragment">
+    <Button
+        android:id="@+id/clear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_button_text" />
 
-        <androidx.constraintlayout.helper.widget.Flow
-            android:id="@+id/flow"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:constraint_referenced_ids="text_view,text_input_layout,edit_text,clear_button,navigate_to_sample_fragment_button,web_view"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/navigate_to_sample_fragment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/navigate_to_sample_fragment" />
 
-        <TextView
-            android:id="@+id/text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="This is a test view."
-            tools:text="@tools:sample/lorem" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/name">
 
-        <EditText
-            android:id="@+id/edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autofillHints="something"
-            android:background="@android:color/transparent"
-            android:hint="@string/edit_text_hint"
-            android:inputType="textNoSuggestions"
-            android:text="@={viewModel.liveData}"
-            tools:text="@tools:sample/lorem/random" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/clear_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/clear_button_text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/navigate_to_sample_fragment_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/navigate_to_sample_fragment" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/name">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <WebView
-            android:id="@+id/web_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
