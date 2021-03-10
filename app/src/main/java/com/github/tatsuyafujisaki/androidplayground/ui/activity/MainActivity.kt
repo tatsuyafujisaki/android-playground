@@ -21,11 +21,10 @@ import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.toast
 import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtil.currentFragment
-import com.github.tatsuyafujisaki.androidplayground.util.viewBindings
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    private val binding by viewBindings(ActivityMainBinding::bind)
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     private lateinit var mainActivityComponent: MainActivityComponent
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navHostFragment: NavHostFragment
@@ -33,6 +32,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         mainActivityComponent = (applicationContext as MainApplication)
             .applicationComponent
@@ -40,8 +41,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             .create().apply {
                 inject(this@MainActivity)
             }
-
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
 
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -87,31 +86,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         lifecycleScope.launch {
             Log.d(TAG, "This is a demonstration of lifecycleScope.")
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
