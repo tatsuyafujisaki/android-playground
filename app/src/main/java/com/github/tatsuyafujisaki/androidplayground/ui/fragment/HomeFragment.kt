@@ -22,7 +22,6 @@ import com.github.tatsuyafujisaki.androidplayground.util.WebViewUtil.enableJavaS
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment(), WebViewContainer {
-    private val logTagForView = this::class.java.simpleName + ".view"
     private lateinit var binding: FragmentHomeBinding
     private val mainViewModel: MainViewModel by activityViewModels()
 
