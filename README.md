@@ -220,6 +220,7 @@ class MyCustomView @JvmOverloads constructor(
     android:id="@+id/recycler_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clipToPadding="false"
     android:orientation="horizontal"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:listitem="@layout/item" />
