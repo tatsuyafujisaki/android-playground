@@ -222,7 +222,7 @@ class MyCustomView @JvmOverloads constructor(
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:listitem="@layout/view_holder" />
+    tools:listitem="@layout/item" />
 ```
 
 ```kotlin
