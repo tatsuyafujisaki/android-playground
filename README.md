@@ -360,6 +360,9 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 # Constriant Layout
 [constraint-layout.md](markdown/constraint-layout.md)
 
+# Dagger 2
+[dagger2.md](markdown/dagger2.md)
+
 # Emulator
 [emulator.md](markdown/emulator.md)
 
