@@ -369,6 +369,9 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 # Espresso
 [espresso.md](markdown/espresso.md)
 
+# Firebase
+[firebase.md](markdown/firebase.md)
+
 # Fragment
 [fragment.md](markdown/fragment.md)
 
