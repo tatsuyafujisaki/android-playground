@@ -11,7 +11,9 @@ A|B|Note
 `CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
 `Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
 `fragment.parentFragmentManager`|`fragment.requireActivity().supportFragmentManager`
+`intent.getStringExtra("foo")`|`intent.extras?.getString("foo")`
 `requireViewById(...)`|`findViewById(...)`|in case you are not authorized to use view binding
+
 
 # Predefined colors from Android SDK
 ```kotlin
