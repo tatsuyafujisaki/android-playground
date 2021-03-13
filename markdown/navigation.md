@@ -15,7 +15,7 @@
 * NavHostFragment … a TV
 * NavController … a remote control
 * NavDestination … a television channel
-* NavigationView ... Menu for DrawerLayout, which exists 
+* NavigationView ... Menu for DrawerLayout, which exists
   * is not part of the Navigation component and exists before the Navigation component.
 * NavigationUI … outside a TV
   * e.g. NavigationView, BottomNavBar
@@ -113,7 +113,7 @@ findNavController().navigate(deepLink: Uri)
 <!-- @navigatoin/child_nav -->
 <navigation android:id="@+id/child_nav" … >...</navigation>
 ```
- 
+
 ## `<action>`
 * is represented as an arrow in a visual navigation graph.
 * is a connection from one destination to another.
@@ -137,6 +137,12 @@ findNavController().navigate(deepLink: Uri)
   * `<OriginatingDestination>Directions`.
   * `<ReceivingDestination>Args`.
   * `<NavigationId>Directions.globalAction1`.
+
+# AppCompatActivity.onSupportNavigateUp()
+* > Note: When using a Toolbar, Navigation automatically handles click events for the Navigation button, so you do not need to override onSupportNavigateUp().
+  * https://developer.android.com/guide/navigation/navigation-ui#create_a_toolbar
+* If `Activity.onOptionsItemSelected(...)` is overridden, `AppCompatActivity.onSupportNavigateUp()` will not be called.
+  * https://stackoverflow.com/a/40626742
 
 # Misc
 * "Simulated back stack" and "Synthetic back stack" are the same thing.
