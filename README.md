@@ -363,6 +363,9 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 # Dagger 2
 [dagger2.md](markdown/dagger2.md)
 
+# Deep link
+[deep-link.md](markdown/deep-link.md)
+
 # Emulator
 [emulator.md](markdown/emulator.md)
 
