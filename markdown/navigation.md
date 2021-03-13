@@ -18,6 +18,13 @@
   * e.g. NavigationView, BottomNavBar
   * https://www.youtube.com/watch?v=xITkfPIaStU&t=573s
 
+## NavHostFragment
+* is contained in an Activity.
+* is like a window to swap in and out different fragment destinations.
+* has a NavController.
+* If there are more than two NavHostFragment in a layout, only one NavHostFragment must have "app:defaultNavHost="true"", which intercepts the Back button.
+  * https://developer.android.com/guide/navigation/navigation-getting-started
+
 ## Navigation drawer
 * > Caution: Avoid using a navigation drawer with other primary navigation components, such as a bottom navigation bar.
   * https://material.io/components/navigation-drawer#usage
