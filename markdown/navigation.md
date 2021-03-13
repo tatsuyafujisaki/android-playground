@@ -20,3 +20,13 @@
 ## FragmentTransaction.detach(...)
 * detaches a fragment to the UI.
 * calls onDestroyView() to destroy the view in the fragment.
+
+# Navigation
+## Analogies
+* NavHostFragment … a TV
+* NavController … a remote control
+* NavDestination … a television channel
+* NavigationView ... Menu for DrawerLayout, which exists 
+  * is not part of the Navigation component and exists before the Navigation component.
+* NavigationUI … outside a TV (e.g. NavigationView, BottomNavBar)
+  * https://www.youtube.com/watch?v=xITkfPIaStU&t=573s
