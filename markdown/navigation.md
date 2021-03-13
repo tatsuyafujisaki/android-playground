@@ -60,6 +60,22 @@ findNavController().navigate(deepLink: Uri)
 * is a collection of NavDestination.
 https://developer.android.com/guide/navigation/navigation-getting-started
 
+### Nested graph
+* is a nested `<navigation>`.
+```xml
+<!-- parent graph -->
+<navigation>
+    <include app:graph="@navigation/child_nav" … />
+    <fragment>
+        <action app:destination="@id/child_nav" />
+    </fragment>
+</navigation>
+```
+```xml
+<!-- @navigatoin/child_nav -->
+<navigation android:id="@+id/child_nav" … >...</navigation>
+```
+
 ## Navigation drawer
 * > Caution: Avoid using a navigation drawer with other primary navigation components, such as a bottom navigation bar.
   * https://material.io/components/navigation-drawer#usage
