@@ -22,7 +22,7 @@
   * https://www.youtube.com/watch?v=xITkfPIaStU&t=573s
 
 # NavHostFragment
-* is contained in the layout of an Activity as follows.
+* is configured via a FragmentContainerView in the layout of an Activity as follows.
 ```xml
 <androidx.fragment.app.FragmentContainerView
     android:id="@+id/fragment_container_view"
@@ -58,11 +58,31 @@ findNavController().navigate(deepLink: Uri)
   * You should call `Activity.finish()`.
 
 # NavDestination
-* is either `<fragment>` or `<activity>`.
+* is either `<fragment>`, `<dialog>`, or `<activity>`.
   * https://developer.android.com/codelabs/android-navigation#2
 * If you don't specify a list of top-level destinations, then the only top-level destination is your start destination
   * https://developer.android.com/codelabs/android-navigation#8
 * You move from an originating destination to a receiving destination.
+
+# Navigator
+* There are three navigators.
+  * `<fragment>` (FragmentNavigator)
+  * `<dialog>` (DialogFragmentNavigator)
+  * `<activity>` (ActivityNavigator)
+* can contain three types of XML elements.
+  * `<action>`
+    * `<activity>` cannot contain `<action>` because activities are considered terminal destinations.
+      * https://developer.android.com/guide/navigation/navigation-migrate#create_a_navigation_graph
+  * `<argument>`
+  * `<deepLink>`
+* A template of a navigator
+```xml
+<fragment
+   android:id="@+id/destination1"
+   android:name="com.example.Fragment1"
+   android:label="Page title on a top app bar" or "{argName}" for automatic population. (https://developer.android.com/guide/navigation/navigation-ui)
+   tools:layout="@layout/fragment1" />
+```
 
 # NavGraph
 * is equivalent of `<navigation>` in XML.
@@ -85,7 +105,7 @@ https://developer.android.com/guide/navigation/navigation-getting-started
 <!-- @navigatoin/child_nav -->
 <navigation android:id="@+id/child_nav" … >...</navigation>
 ```
-
+ 
 ## `<action>`
 * is represented as an arrow in a visual navigation graph.
 * is a connection from one destination to another.
