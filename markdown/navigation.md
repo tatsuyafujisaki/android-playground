@@ -19,7 +19,17 @@
   * https://www.youtube.com/watch?v=xITkfPIaStU&t=573s
 
 ## NavHostFragment
-* is contained in an Activity.
+* is contained in the layout of an Activity as follows.
+```xml
+<androidx.fragment.app.FragmentContainerView
+    android:id="@+id/fragment_container_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:navGraph="@navigation/nav_graph"
+    app:defaultNavHost="true"
+</androidx.fragment.app.FragmentContainerView>
+```
 * is like a window to swap in and out different fragment destinations.
 * has a NavController.
 * If there are more than two NavHostFragment in a layout, only one NavHostFragment must have "app:defaultNavHost="true"", which intercepts the Back button.
