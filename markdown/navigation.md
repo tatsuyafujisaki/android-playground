@@ -43,15 +43,13 @@
   * Activity.findNavController(viewId: Int)
 * Sample usages:
 ```kotlin
-findNavController().navigate(R.id.action1 or R.id.destination1 or R.id.nav_graph1)
-```
-* Navigation graph IDs are usable because NavGraph inherits NavDestination.
-  * > When navigating using IDs, we strongly recommend using actions where possible.
-    * https://developer.android.com/guide/navigation/navigation-navigate#id
-https://github.com/android/architecture-components-samples/blob/master/NavigationAdvancedSample/app/src/main/java/com/example/android/navigationadvancedsample/NavigationExtensions.kt
 findNavController().navigate(OriginatingFragment1Directions.myAction1(argKey1 = argValue1))
-Type-safe and preferred approach
+findNavController().navigate(R.id.action1 or R.id.destination1 or R.id.nav_graph1)
 findNavController().navigate(deepLink: Uri)
+```
+  * Navigation graph IDs are usable because NavGraph inherits NavDestination.
+    * > When navigating using IDs, we strongly recommend using actions where possible.
+      * https://developer.android.com/guide/navigation/navigation-navigate#id
 * When `NavController.popBackStack()` returns false, …
   * `NavController.getCurrentDestination()` returns null.
   * You should call `Activity.finish()`.
