@@ -23,11 +23,11 @@
 ```xml
 <androidx.fragment.app.FragmentContainerView
     android:id="@+id/fragment_container_view"
+    android:name="androidx.navigation.fragment.NavHostFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="androidx.navigation.fragment.NavHostFragment"
-    app:navGraph="@navigation/nav_graph"
-    app:defaultNavHost="true" />
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/nav_graph" />
 ```
 * is like a window to swap in and out different fragment destinations.
 * has a NavController.
