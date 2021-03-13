@@ -31,8 +31,8 @@
       android:name="id"
       app:argType="integer" />
 </fragment>
-```xml
+```
 * clears the back stack like explicit deep linking if the implicit Intent was launched with the Intent.FLAG_ACTIVITY_NEW_TASK flag.
-* does NOT clear the back stack unlike explicit deep linking if the implicit Intent was launched WITHOUT the Intent.FLAG_ACTIVITY_NEW_TASK flag.
+* does NOT clear the back stack unlike explicit deep linking unless the implicit Intent was launched with the `Intent.FLAG_ACTIVITY_NEW_TASK` flag.
 `<nav-graph>` in `<activity>` in `AndroidManifest.xml` is required to enable implicit deep linking from outside the app.
   * At compile time, `<nav-graph>` generates `<intent-filter>` elements for all the deep links.
