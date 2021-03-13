@@ -28,5 +28,6 @@
 * NavDestination … a television channel
 * NavigationView ... Menu for DrawerLayout, which exists 
   * is not part of the Navigation component and exists before the Navigation component.
-* NavigationUI … outside a TV (e.g. NavigationView, BottomNavBar)
+* NavigationUI … outside a TV
+  * e.g. NavigationView, BottomNavBar
   * https://www.youtube.com/watch?v=xITkfPIaStU&t=573s
