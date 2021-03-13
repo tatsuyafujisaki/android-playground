@@ -45,6 +45,12 @@ https://developer.android.com/guide/navigation/navigation-getting-started
 * > Caution: Avoid using a navigation drawer with other primary navigation components, such as a bottom navigation bar.
   * https://material.io/components/navigation-drawer#usage
 
+## SafeArgs plugin
+* generates ...
+  * `<OriginatingDestination>Directions`.
+  * `<ReceivingDestination>Args`.
+  * `<NavigationId>Directions.globalAction1`.
+
 ## Terminology
 * "Simulated back stack" and "Synthetic back stack" are the same thing.
 
