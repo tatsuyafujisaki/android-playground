@@ -4,7 +4,7 @@
 * associate a URL with the activity you want to open.
   * https://developer.android.com/codelabs/android-navigation#10
 
-# Explicit deep link
+## Explicit deep link
 * specifies a destination ID.
 * uses a PendingIntent.
 * clears the back stack, and pushes the following destinations in sequence:
@@ -15,7 +15,7 @@
   * the specified destination (goal)
 * is a notification or an app widget, for example.
 
-# Implicit deep link
+## Implicit deep link
 * specifies a URI.
 * A URI without a scheme matches both http and https.
   * e.g. `www.example.com/foo` matches both `https://www.example.com/foo` and `http://www.example.com/foo`.
