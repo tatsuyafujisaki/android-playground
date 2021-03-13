@@ -34,7 +34,7 @@
 * If there are more than two NavHostFragment in a layout, only one NavHostFragment must have "app:defaultNavHost="true"", which intercepts the Back button.
   * https://developer.android.com/guide/navigation/navigation-getting-started
 
-# NavController
+## NavController
 * is in a NavHostFragment.
 * shows different destinations in a NavHostFragment.
 * There are three ways to get a NavController
@@ -53,6 +53,13 @@ findNavController().navigate(deepLink: Uri)
 * When `NavController.popBackStack()` returns false, …
   * `NavController.getCurrentDestination()` returns null.
   * You should call `Activity.finish()`.
+
+## NavDestination
+* is either `<fragment>` or `<activity>`.
+  * https://developer.android.com/codelabs/android-navigation#2
+* If you don't specify a list of top-level destinations, then the only top-level destination is your start destination
+  * https://developer.android.com/codelabs/android-navigation#8
+* You move from an originating destination to a receiving destination.
 
 ## NavGraph
 * is equivalent of `<navigation>` in XML.
