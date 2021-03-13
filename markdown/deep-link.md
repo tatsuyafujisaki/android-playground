@@ -7,6 +7,7 @@
 ## Explicit deep link
 * specifies a destination ID.
 * uses a PendingIntent.
+  * PendingIntent is a wrapper of an Intent, which lets another application run the Intent.
 * clears the back stack, and pushes the following destinations in sequence:
   * the startDestination of the navigation graph
   * parent activity destinations
