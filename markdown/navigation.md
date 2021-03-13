@@ -34,12 +34,33 @@
 * If there are more than two NavHostFragment in a layout, only one NavHostFragment must have "app:defaultNavHost="true"", which intercepts the Back button.
   * https://developer.android.com/guide/navigation/navigation-getting-started
 
+# NavController
+* is in a NavHostFragment.
+* shows different destinations in a NavHostFragment.
+* There are three ways to get a NavController
+  * Fragment.findNavController()
+  * View.findNavController()
+  * Activity.findNavController(viewId: Int)
+* Sample usages:
+```kotlin
+findNavController().navigate(R.id.action1 or R.id.destination1 or R.id.nav_graph1)
+```
+* Navigation graph IDs are usable because NavGraph inherits NavDestination.
+  * > When navigating using IDs, we strongly recommend using actions where possible.
+    * https://developer.android.com/guide/navigation/navigation-navigate#id
+https://github.com/android/architecture-components-samples/blob/master/NavigationAdvancedSample/app/src/main/java/com/example/android/navigationadvancedsample/NavigationExtensions.kt
+findNavController().navigate(OriginatingFragment1Directions.myAction1(argKey1 = argValue1))
+Type-safe and preferred approach
+findNavController().navigate(deepLink: Uri)
+* When `NavController.popBackStack()` returns false, …
+  * `NavController.getCurrentDestination()` returns null.
+  * You should call `Activity.finish()`.
+
 ## NavGraph
 * is equivalent of `<navigation>` in XML.
 * inherits the NavDestination class.
 * is a collection of NavDestination.
 https://developer.android.com/guide/navigation/navigation-getting-started
-
 
 ## Navigation drawer
 * > Caution: Avoid using a navigation drawer with other primary navigation components, such as a bottom navigation bar.
