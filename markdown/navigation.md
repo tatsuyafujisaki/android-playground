@@ -95,7 +95,8 @@ findNavController().navigate(deepLink: Uri)
 * is equivalent of `<navigation>` in XML.
 * inherits the NavDestination class.
 * is a collection of NavDestination.
-https://developer.android.com/guide/navigation/navigation-getting-started
+* > each activity has its own navigation graph.
+  * https://developer.android.com/guide/navigation/navigation-getting-started
 
 ## Nested graph
 * is a nested `<navigation>`.
