@@ -23,6 +23,7 @@
 
 # NavHostFragment
 * is configured via a FragmentContainerView in the layout of an Activity as follows.
+  * https://developer.android.com/guide/navigation/navigation-migrate#create_a_navigation_graph
 ```xml
 <androidx.fragment.app.FragmentContainerView
     android:id="@+id/fragment_container_view"
@@ -32,10 +33,16 @@
     app:defaultNavHost="true"
     app:navGraph="@navigation/nav_graph" />
 ```
-* is like a window to swap in and out different fragment destinations.
 * has a NavController.
+* is like a window to swap in and out different fragment destinations.
+* Activity : FragmentContainerView : NavHostFragment : NavGraph = 1 : 1 : 1
 * If there are more than two NavHostFragment in a layout, only one NavHostFragment must have "app:defaultNavHost="true"", which intercepts the Back button.
   * https://developer.android.com/guide/navigation/navigation-getting-started
+* How to connect NavHostFragment with BottomNavigationView
+```kotlin
+val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.setupWithNavController(navController)
+```
 
 # NavController
 * is in a NavHostFragment.
