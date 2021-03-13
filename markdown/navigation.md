@@ -76,6 +76,20 @@ https://developer.android.com/guide/navigation/navigation-getting-started
 <navigation android:id="@+id/child_nav" … >...</navigation>
 ```
 
+### `<action>`
+* is represented as an arrow in a visual navigation graph.
+* is a connection from one destination to another.
+```xml
+<action
+    android:id="@+id/action1"
+    app:destination="@id/destination1" or "@id/nestedGraph1"
+    app:popUpToInclusive="true" /> <!-- Default is false -->
+```
+
+##### Global action
+* is available from any destination in the navigation graph.
+* can be accessed in a type-safe way as `<NavigationId>Directions.globalAction1`.
+
 ## Navigation drawer
 * > Caution: Avoid using a navigation drawer with other primary navigation components, such as a bottom navigation bar.
   * https://material.io/components/navigation-drawer#usage
