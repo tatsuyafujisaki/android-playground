@@ -128,6 +128,35 @@ findNavController().navigate(deepLink: Uri)
 * is available from any destination in the navigation graph.
 * can be accessed in a type-safe way as `<NavigationId>Directions.globalAction1`.
 
+# BottomNavigationView
+## BottomNavigationView.setOnNavigationItemReselectedListener(...)
+* is called when the currently selected bottom navigation destination is selected again.
+
+## BottomNavigationView.setOnNavigationItemSelectedListener(...)
+* is called when any bottom navigation destination is selected, if `BottomNavigationView.setOnNavigationItemReselectedListener` is NOT set.
+* is called only when a not-currently-selected bottom navigation is selected, if `BottomNavigationView.setOnNavigationItemReselectedListener` is set.
+
+## How BottomNavigationView works
+1. Suppose there are three items in a Bottom Navigation.
+    * A (startDestination), B, C
+2. When you touch A
+    * fragmentManager's fragments == [A]
+    * fragmentManager's backStackEntries == (empty)
+3. When you touch B
+    * If A was selected previously, A will call onDestroyView().
+    * If C was selected previously, C will call onDestroy().
+    * fragmentManager's fragments == [B]
+    * fragmentManager's backStackEntries == [A]
+4. When you touch C
+    * If A was selected previously, A will call onDestroyView().
+    * If B was selected previously, B will call onDestroy().
+    *  fragmentManager's fragments == [C]
+    * fragmentManager's backStackEntries == [A]
+5. When you navigate from C to "C-Detail" for example.
+    * fragmentManager's fragments == [C-Detail]
+    * B will call onDestroyView().
+    * fragmentManager's backStackEntries == [A, C]
+
 # Navigation drawer
 * > Caution: Avoid using a navigation drawer with other primary navigation components, such as a bottom navigation bar.
   * https://material.io/components/navigation-drawer#usage
@@ -143,6 +172,14 @@ findNavController().navigate(deepLink: Uri)
   * https://developer.android.com/guide/navigation/navigation-ui#create_a_toolbar
 * If `Activity.onOptionsItemSelected(...)` is overridden, `AppCompatActivity.onSupportNavigateUp()` will not be called.
   * https://stackoverflow.com/a/40626742
+
+# Animation
+* If you navigate from Fragment A to Fragment B, the following two animations are invoked at the same time, not in sequence.
+  * `app:enterAnim` … How Fragment B appears.
+  * `app:exitAnim` … How Fragment A disappears.
+* If you have moved from Fragment A to Fragment B, and then press the Up button or the Back button, the following two animations are invoked at the same time, not in sequence.
+  * `app:popEnterAnim` … How Fragment A appears.
+  * `app:popExitAnim` … How Fragment B disappears.
 
 # Misc
 * "Simulated back stack" and "Synthetic back stack" are the same thing.
