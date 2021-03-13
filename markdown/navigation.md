@@ -86,7 +86,7 @@ https://developer.android.com/guide/navigation/navigation-getting-started
     app:popUpToInclusive="true" /> <!-- Default is false -->
 ```
 
-##### Global action
+## Global action
 * is available from any destination in the navigation graph.
 * can be accessed in a type-safe way as `<NavigationId>Directions.globalAction1`.
 
