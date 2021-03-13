@@ -1,6 +1,6 @@
 # Up button versus back button
 * Both navigate in reverse-chronological order through the history of where you have been.
-* behave identically except:
+* Both behave identically except:
   * The Up button navigates only within the app.
   * The Up button must not be shown if the user is at an app's start destination.
 * > When your app is launched using a deep link on another app's task, Up transitions users back to your app’s task and through a simulated back stack and not to the app that triggered the deep link. The Back button, however, does take you back to the other app.
@@ -33,6 +33,13 @@
 * has a NavController.
 * If there are more than two NavHostFragment in a layout, only one NavHostFragment must have "app:defaultNavHost="true"", which intercepts the Back button.
   * https://developer.android.com/guide/navigation/navigation-getting-started
+
+## NavGraph
+* is equivalent of `<navigation>` in XML.
+* inherits the NavDestination class.
+* is a collection of NavDestination.
+https://developer.android.com/guide/navigation/navigation-getting-started
+
 
 ## Navigation drawer
 * > Caution: Avoid using a navigation drawer with other primary navigation components, such as a bottom navigation bar.
