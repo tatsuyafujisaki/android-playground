@@ -1,6 +1,8 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.app.Activity
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.core.content.edit
@@ -12,7 +14,13 @@ import androidx.preference.PreferenceManager
 /**
  * Impractical redundant explanatory wrappers
  */
-object SharedPreferenceUtil {
+object SharedPreferencesUtil {
+    /**
+     * @return preferences which are private to the activity
+     */
+    val Activity.preferences: SharedPreferences
+        get() = getPreferences(MODE_PRIVATE)
+
     val Context.sharedPreferences: SharedPreferences
         get() = PreferenceManager.getDefaultSharedPreferences(this)
 
