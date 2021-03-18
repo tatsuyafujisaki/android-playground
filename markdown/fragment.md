@@ -8,7 +8,7 @@
 * onCreateDialog()
   * DialogFragment only
 * onCreateView()
-* onActivityCreated()
+* onViewStateRestored()
 * onStart()
 * onResume()
 * onDismiss()
