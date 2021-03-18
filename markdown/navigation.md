@@ -43,6 +43,9 @@
 val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
 findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.setupWithNavController(navController)
 ```
+* Don't use `<fragment>`. Use `<androidx.fragment.app.FragmentContainerView>`.
+  * > Caution: Avoid using the <fragment> tag to add a fragment using XML, as the <fragment> tag allows a fragment to move beyond the state of its FragmentManager. Instead, always use FragmentContainerView for adding a fragment using XML.
+    * https://developer.android.com/guide/fragments/lifecycle#states
 
 # NavController
 * is in a NavHostFragment.
