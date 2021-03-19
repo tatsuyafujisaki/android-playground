@@ -52,7 +52,7 @@ class HomeFragment : Fragment(), WebViewContainer {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             clearButton.setOnClickListener {
-                mainViewModel.liveData.value = null
+                mainViewModel.setData(null)
             }
 
             navigateToSampleFragmentButton.setOnClickListener(

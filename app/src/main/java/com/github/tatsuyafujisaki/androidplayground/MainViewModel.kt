@@ -10,6 +10,10 @@ class MainViewModel : ViewModel() {
     val liveData: LiveData<String>
         get() = _liveData
 
+    fun setData(s: String?) {
+        _liveData.value = s
+    }
+
     override fun onCleared() {
         super.onCleared()
         Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
