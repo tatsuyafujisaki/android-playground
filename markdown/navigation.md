@@ -197,10 +197,12 @@ is used when you want to pop more than one destination.
 # Task
 * is a stack of activities.
   * Fragments are stacked inside an activity.
-  * Hitting the Back button ...
-     * pops off the top fragment if any fragment transaction exists
-     * pops off the top activity if no fragment transaction exists.
-     * https://www.youtube.com/watch?v=MvIlVsXxXmY
+  * https://www.youtube.com/watch?v=MvIlVsXxXmY
+     * Hitting the Back button ...
+       * pops off the top fragment if any fragment transaction exists
+       * pops off the top activity if no fragment transaction exists.
+  * The following illustraitons are useful:
+    * https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack#3
 * https://developer.android.com/guide/navigation/navigation-principles
   * > The back stack always has the start destination of the app at the bottom of the stack
   * > The top of the stack is the current screen, and the previous destinations in the stack represent the history of where you've been.
