@@ -2,6 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View.OnKeyListener
@@ -16,6 +17,9 @@ import androidx.navigation.findNavController
  * Impractical redundant explanatory wrappers
  */
 object ActivityUtil {
+    fun Activity.canResolveActivity(intent: Intent) =
+        packageManager.resolveActivity(intent, 0) != null
+
     val Activity.inputMethodManager
         get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
