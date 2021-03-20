@@ -66,6 +66,7 @@ findNavController().navigate(deepLink: Uri)
 * When `NavController.popBackStack()` returns false, …
   * `NavController.getCurrentDestination()` returns null.
   * You should call `Activity.finish()`.
+  * https://developer.android.com/guide/navigation/navigation-navigate#back-stack
 
 # NavDestination
 * is either `<fragment>`, `<dialog>`, or `<activity>`.
