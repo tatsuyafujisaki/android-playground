@@ -32,8 +32,10 @@ is an Activity that can get FragmentManager.
 2. Search for `Normal launches for most activities`, and you will find the great table of the list of configuration changes.
 
 # `android:launchMode`
-1. Open https://developer.android.com/guide/topics/manifest/activity-element
-2. Search for `Normal launches for most activities`, and you will find the great table of the differences between `standard`, `singleTop`, `singleTask`, and `singleInstance`.
+* https://developer.android.com/guide/components/activities/tasks-and-back-stack#ManifestForTasks
+* Do the following
+  1. Open https://developer.android.com/guide/topics/manifest/activity-element
+  2. Search for `Normal launches for most activities`, and you will find the great table of the differences between `standard`, `singleTop`, `singleTask`, and `singleInstance`.
 
 ## Examples
 Each of A, B, C, and D below represents an instance of an Activity.
