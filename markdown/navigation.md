@@ -171,8 +171,9 @@ findNavController().navigate(deepLink: Uri)
   * `<NavigationId>Directions.globalAction1`.
 
 # AppCompatActivity.onSupportNavigateUp()
-* Override `onSupportNavigateUp()` if the app bar is used instead of a Toolbar.
+* Override `onSupportNavigateUp()` if the app bar is used instead of a Toolbar. The following URLs show the code snippets of overriding `onSupportNavigateUp()`.
   * https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component#7
+  * https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack#2
 * > Note: When using a Toolbar, Navigation automatically handles click events for the Navigation button, so you do not need to override onSupportNavigateUp().
   * https://developer.android.com/guide/navigation/navigation-ui#create_a_toolbar
 * If `Activity.onOptionsItemSelected(...)` is overridden, `AppCompatActivity.onSupportNavigateUp()` will not be called.
