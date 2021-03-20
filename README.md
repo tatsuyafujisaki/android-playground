@@ -390,6 +390,9 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 # RecyclerView
 [recyclerview.md](markdown/recyclerview.md)
 
+# Resources
+[resources.md](markdown/resources.md)
+
 # ViewModel and LiveData
 [viewmodel-livedata.md](markdown/viewmodel-livedata.md)
 
