@@ -26,3 +26,11 @@
 
 # FragmentActivity
 is an Activity that can get FragmentManager.
+
+# `android:configChanges`
+1. Open https://developer.android.com/guide/topics/manifest/activity-element
+2. Search for `Normal launches for most activities`, and you will find the great table of the list of configuration changes.
+
+# `android:launchMode`
+1. Open https://developer.android.com/guide/topics/manifest/activity-element
+2. Search for `Normal launches for most activities`, and you will find the great table of the differences between `standard`, `singleTop`, `singleTask`, and `singleInstance`.
