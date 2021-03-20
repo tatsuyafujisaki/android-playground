@@ -34,3 +34,40 @@ is an Activity that can get FragmentManager.
 # `android:launchMode`
 1. Open https://developer.android.com/guide/topics/manifest/activity-element
 2. Search for `Normal launches for most activities`, and you will find the great table of the differences between `standard`, `singleTop`, `singleTask`, and `singleInstance`.
+
+## Examples
+Each of A, B, C, and D below represents an instance of an Activity.
+
+### Example of `android:launchMode="standard"` (default)
+Suppose that B is `android:launchMode="standard"`.
+1. Stack
+    * B
+    * A
+2. Start B
+3. Stack
+    * B (New!)
+    * B
+    * A
+4. Start A
+5. Stack
+    * A (New!)
+    * B
+    * B
+    * A
+
+### Example of `android:launchMode="singleTop"`
+Suppose that B is `android:launchMode="singleTop"`.
+1. Stack
+    * B
+    * A
+2. Start B
+3. Stack
+    * B (which is reused with the new intent.)
+    * A
+4. Start A
+5. Stack
+    * A
+    * B
+    * A
+
+When you repeat searching, `singleTop` prevents recreating `SearchActivity` and `SearchResultActivity`.
