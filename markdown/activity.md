@@ -45,12 +45,12 @@ Suppose that B is `android:launchMode="standard"`.
     * A
 2. Start B
 3. Stack
-    * B (New!)
+    * B (new)
     * B
     * A
 4. Start A
 5. Stack
-    * A (New!)
+    * A (new)
     * B
     * B
     * A
@@ -62,11 +62,11 @@ Suppose that B is `android:launchMode="singleTop"`.
     * A
 2. Start B
 3. Stack
-    * B (which is reused with the new intent.)
+    * B (reused with the new intent)
     * A
 4. Start A
 5. Stack
-    * A
+    * A (new)
     * B
     * A
 
