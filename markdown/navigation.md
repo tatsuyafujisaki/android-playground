@@ -124,8 +124,12 @@ findNavController().navigate(deepLink: Uri)
 <action
     android:id="@+id/action1"
     app:destination="@id/destination1" or "@id/nestedGraph1"
+    app:popUpTo="@id/start_fragment"
     app:popUpToInclusive="true" /> <!-- Default is false -->
 ```
+
+### `app:popUpTo`
+is used when you want to pop more than one destination.
 
 # Global action
 * is available from any destination in the navigation graph.
