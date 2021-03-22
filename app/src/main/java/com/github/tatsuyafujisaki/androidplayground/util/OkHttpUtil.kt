@@ -13,7 +13,7 @@ import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
-object OkHttpClientBuilder {
+object OkHttpUtil {
     fun OkHttpClient.Builder.addInterceptors() = apply {
         addInterceptor {
             it.proceed(
