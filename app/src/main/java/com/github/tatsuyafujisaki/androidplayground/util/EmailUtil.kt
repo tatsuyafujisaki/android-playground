@@ -32,7 +32,7 @@ object EmailUtil {
             data = "mailto:".toUri() // filters only email apps.
             putExtra(Intent.EXTRA_EMAIL, to)
             putExtra(Intent.EXTRA_SUBJECT, subject)
-            putExtra(Intent.EXTRA_TEXT, body),
+            putExtra(Intent.EXTRA_TEXT, body)
             putExtra(Intent.EXTRA_STREAM, attachment)
         }
         if (intent.resolveActivity(packageManager) != null) {
