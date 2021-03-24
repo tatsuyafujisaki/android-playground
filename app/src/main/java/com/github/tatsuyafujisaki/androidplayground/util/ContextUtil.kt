@@ -74,13 +74,17 @@ object ContextUtil {
      * as they can be displayed in the context of the UI where the action occurred."
      * quoted from https://material.io/develop/android/components/snackbar
      */
-    fun View.snackbar(text: String) = Snackbar.make(this, text, Snackbar.LENGTH_SHORT).show()
+    fun View.snackbar(@StringRes resId: Int) =
+        Snackbar.make(this, resId, Snackbar.LENGTH_SHORT).show()
 
-    fun Context.toast(text: String) =
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+    fun View.snackbar(text: String) =
+        Snackbar.make(this, text, Snackbar.LENGTH_SHORT).show()
 
     fun Context.toast(@StringRes resId: Int) =
         Toast.makeText(this, resId, Toast.LENGTH_SHORT).show()
+
+    fun Context.toast(text: String) =
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 
     fun <T> Context.createChip(text: String, tag: T): Chip {
         return Chip(this).apply {
