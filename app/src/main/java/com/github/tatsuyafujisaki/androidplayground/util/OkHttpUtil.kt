@@ -34,13 +34,11 @@ object OkHttpUtil {
         }
         if (BuildConfig.DEBUG) {
             // The following interceptor is useful to look into malformed JSON.
-            addInterceptor { chain ->
-                chain
-                    .proceed(chain.request()).apply {
-                        body?.string()?.let {
-                            Log.d(this::class.java.simpleName, it)
-                        }
-                    }
+            addInterceptor {
+                it.proceed(it.request()).apply {
+                    // JSON will be logged with the prefix "D/Response".
+                    Log.d(this::class.java.simpleName, body?.string().toString())
+                }
             }
             /**
              * Logging interceptors must be added after custom interceptors.
@@ -85,5 +83,5 @@ object OkHttpUtil {
     private fun isKeyOfInterest(cookieKey: String?) =
         setOf("SampleCookieKey1", "SampleCookieKey1").contains(cookieKey)
 
-    val HttpUrl.baseUrl get()= HttpUrl.Builder().scheme(scheme).host(host).build()
+    val HttpUrl.baseUrl get() = HttpUrl.Builder().scheme(scheme).host(host).build()
 }
