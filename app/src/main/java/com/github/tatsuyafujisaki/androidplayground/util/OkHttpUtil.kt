@@ -14,6 +14,21 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
 object OkHttpUtil {
+    /**
+     * Add this interpreter only when debugging a raw JSON string in the response body.
+     * Adding this interpreter causes the "java.lang.IllegalStateException: closed" error because ...
+     * > The response body can be consumed only once.
+     * https://square.github.io/okhttp/3.x/okhttp/okhttp3/ResponseBody.html
+     */
+    private fun OkHttpClient.Builder.addLoggingRawJsonInterceptor() {
+        addInterceptor {
+            it.proceed(it.request()).apply {
+                // JSON will be logged with the prefix "D/Response".
+                Log.d(this::class.java.simpleName, body?.string().toString())
+            }
+        }
+    }
+
     fun OkHttpClient.Builder.addInterceptors() = apply {
         addInterceptor {
             it.proceed(
@@ -33,13 +48,7 @@ object OkHttpUtil {
             )
         }
         if (BuildConfig.DEBUG) {
-            // The following interceptor is useful to look into malformed JSON.
-            addInterceptor {
-                it.proceed(it.request()).apply {
-                    // JSON will be logged with the prefix "D/Response".
-                    Log.d(this::class.java.simpleName, body?.string().toString())
-                }
-            }
+            // addLoggingRawJsonInterceptor()
             /**
              * Logging interceptors must be added after custom interceptors.
              * Otherwise, headers added by the custom interceptor will not be logged.
