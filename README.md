@@ -191,6 +191,30 @@ class MyCustomView @JvmOverloads constructor(
 }
 ```
 
+# Navigation
+## How to avoid losing a navigation graph on configuration changes
+```kotlin
+class MyActivity : AppCompatActivity() {
+    private lateinit var navController: NavController
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // ...
+        navController = (supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment)
+            as NavHostFragment).navController
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        navController.restoreState(savedInstanceState.getBundle("navState"))
+    }
+
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+        savedInstanceState.putBundle("navState", navController.saveState())
+    }
+}
+```
+
 # Template
 ## Child in ConstraintLayout
 ```xml
