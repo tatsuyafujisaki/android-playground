@@ -20,7 +20,7 @@ import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBind
 import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.toast
-import com.github.tatsuyafujisaki.androidplayground.util.FragmentUtil.currentFragment
+import com.github.tatsuyafujisaki.androidplayground.util.NavigationUtil.currentFragment
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {

@@ -7,18 +7,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentManager.BackStackEntry
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 
 object FragmentUtil {
     private val FragmentManager.fragmentNames
         get() = fragments.map { it.javaClass.simpleName }
-
-    val FragmentManager.navHostFragments
-        get() = fragments.filterIsInstance<NavHostFragment>()
-
-    val NavHostFragment.currentFragment
-        get() = childFragmentManager.primaryNavigationFragment
 
     private val FragmentManager.backStackEntryNames
         get() = (0 until backStackEntryCount)
@@ -29,9 +21,6 @@ object FragmentUtil {
                  */
                 findFragmentByTag(tag)?.javaClass?.simpleName ?: tag
             }
-
-    val NavController.canNavigateUp
-        get() = graph.startDestination != currentDestination?.id
 
     fun Fragment.clearViewModels() {
         viewModelStore.clear()
@@ -47,12 +36,6 @@ object FragmentUtil {
         parentFragmentManager.log("$fragmentName.parentFragmentManager")
         childFragmentManager.log("$fragmentName.childFragmentManager")
     }
-
-    /**
-     * @id Resource ID of FragmentContainerView where NavHostFragment is set.
-     */
-    fun FragmentManager.getNavHostFragment(@IdRes navHostFragmentId: Int) =
-        findFragmentById(navHostFragmentId) as? NavHostFragment
 
     inline fun <reified F : Fragment> FragmentManager.replaceFragment(
         @IdRes containerViewId: Int,
@@ -70,9 +53,9 @@ object FragmentUtil {
         }
     }
 
-    fun FragmentManager.popBackStack(popFragmentCount: Int) {
+    fun FragmentManager.popBackStack(fragmentCountToPop: Int) {
         popBackStack(
-            getBackStackEntryAt(backStackEntryCount - popFragmentCount).id,
+            getBackStackEntryAt(backStackEntryCount - fragmentCountToPop).id,
             FragmentManager.POP_BACK_STACK_INCLUSIVE
         )
     }
