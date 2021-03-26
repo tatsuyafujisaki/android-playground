@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         navHostFragment = supportFragmentManager.getNavHostFragment(R.id.nav_host_fragment)
+        navController = navHostFragment.navController
 
         // https://developer.android.com/guide/navigation/navigation-custom-back
         onBackPressedDispatcher.addCallback(this) {
@@ -57,8 +58,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-        navController = navHostFragment.navController
 
         binding.bottomNavigationView.setupWithNavController(navController)
         appBarConfiguration = AppBarConfiguration(
