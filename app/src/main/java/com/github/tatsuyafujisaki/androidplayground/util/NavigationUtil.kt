@@ -26,5 +26,5 @@ object NavigationUtil {
      * @id Resource ID of FragmentContainerView where NavHostFragment is set.
      */
     fun FragmentManager.getNavHostFragment(@IdRes navHostFragmentId: Int) =
-        findFragmentById(navHostFragmentId) as? NavHostFragment
+        findFragmentById(navHostFragmentId) as NavHostFragment
 }

@@ -21,6 +21,7 @@ import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.toast
 import com.github.tatsuyafujisaki.androidplayground.util.NavigationUtil.currentFragment
+import com.github.tatsuyafujisaki.androidplayground.util.NavigationUtil.getNavHostFragment
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -42,8 +43,7 @@ class MainActivity : AppCompatActivity() {
                 inject(this@MainActivity)
             }
 
-        navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navHostFragment = supportFragmentManager.getNavHostFragment(R.id.nav_host_fragment)
 
         // https://developer.android.com/guide/navigation/navigation-custom-back
         onBackPressedDispatcher.addCallback(this) {
