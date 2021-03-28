@@ -1,19 +1,20 @@
 buildscript {
     ext {
         kotlinVersion = '1.4.31'
-        navigationVersion = '2.3.3'
+        navigationVersion = '2.3.4'
     }
 
     repositories {
         google()
-        jcenter() // TODO Replace it with mavenCentral().
+        mavenCentral()
+        jcenter()
     }
 
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath 'com.android.tools.build:gradle:4.1.2'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.0'
+        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.2'
         classpath 'com.google.gms:google-services:4.3.5'
     }
 }
@@ -25,7 +26,8 @@ plugins {
 allprojects {
     repositories {
         google()
-        jcenter() // TODO Replace it with mavenCentral().
+        mavenCentral()
+        jcenter()
     }
 }
 
