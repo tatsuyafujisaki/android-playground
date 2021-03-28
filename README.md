@@ -47,10 +47,10 @@ val untitled: String = resources.getString(android.R.string.untitled) // <Untitl
 * (Japanese) https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
 
 # String
-## How to convert a String to a Uri and enrich it
+## How to convert a String to a Uri and enrich it if necessary
 ```kotlin
-val uri: Uri = "example.com"
-    .toUri() // simpler than Uri.parse(String)
+val uri1: Uri = "example.com".toUri() // simpler than Uri.parse(String)
+val uri2: Uri = uri1
     .buildUpon()
     .scheme("https")
     .appendPath("path")
