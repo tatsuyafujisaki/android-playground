@@ -47,9 +47,15 @@ val untitled: String = resources.getString(android.R.string.untitled) // <Untitl
 * (Japanese) https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
 
 # String
-## How to convert a String to a Uri
+## How to convert a String to a Uri and enrich it
 ```kotlin
-val uri: Uri = "https://example.com".toUri() // simpler than Uri.parse(String)
+val uri: Uri = "example.com"
+    .toUri() // simpler than Uri.parse(String)
+    .buildUpon()
+    .scheme("https")
+    .appendPath("path")
+    .appendQueryParameter("key1", "value1")
+    .build() // https:/example.com/path?key1=value1
 ```
 ## How to check if a string contains only digits
 ```kotlin
