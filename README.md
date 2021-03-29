@@ -1,7 +1,7 @@
-# Official style guides and best practices
+# Official style guides
 * https://developer.android.com/kotlin/style-guide
 * https://kotlinlang.org/docs/reference/coding-conventions.html
-* https://developer.android.com/courses/android-basics-kotlin/android-basics-kotlin-vocab
+* https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
 # Use A rather than B for simplicity or clarity
 A|B|Note
