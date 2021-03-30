@@ -3,18 +3,6 @@
 * https://kotlinlang.org/docs/reference/coding-conventions.html
 * https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
-# Use A rather than B for simplicity or clarity
-A|B|Note
---|--|--
-`String.toUri()`|`Uri.parse(...)`
-`bundleOf(...)`|`Bundle().apply { ... }`
-`CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
-`Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
-`fragment.parentFragmentManager`|`fragment.requireActivity().supportFragmentManager`
-`intent.getStringExtra("foo")`|`intent.extras?.getString("foo")`|The same goes for other types.
-`requireViewById(...)`|`findViewById(...)`|in case you are not authorized to use view binding
-
-
 # Predefined colors from Android SDK
 ```kotlin
 val black: Int = ContextCompat.getColor(this, android.R.color.black)
@@ -428,3 +416,14 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 
 # ViewPager
 [viewpager.md](markdown/viewpager.md)
+
+# Use A rather than B for simplicity or clarity
+A|B|Note
+--|--|--
+`String.toUri()`|`Uri.parse(...)`
+`bundleOf(...)`|`Bundle().apply { ... }`
+`CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
+`Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
+`fragment.parentFragmentManager`|`fragment.requireActivity().supportFragmentManager`
+`intent.getStringExtra("foo")`|`intent.extras?.getString("foo")`|The same goes for other types.
+`requireViewById(...)`|`findViewById(...)`|in case you are not authorized to use view binding
