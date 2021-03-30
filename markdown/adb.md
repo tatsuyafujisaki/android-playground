@@ -61,6 +61,3 @@ The following work ONLY if you use an emulator without Google Play Store, which 
 ```shell
 adb shell am broadcast -a com.android.systemui.demo -e command exit
 ```
-
-### References
-https://developer.android.com/studio/debug/dev-options#general
