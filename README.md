@@ -50,6 +50,8 @@ start_emulator() {
 
   exit # closes Zsh.
 }
+
+start_emulator()
 ```
 
 ### How to toggle `Enable demo mode`
