@@ -19,10 +19,13 @@ adb_screenshot() {
 }
 ```
 
-### How to record a video and save it to Desktop
+### How to record a video
 ```shell
 adb shell screenrecord /sdcard/video.mp4 # records a video.
+```
 
+### How to save the recorded video to Desktop
+```shell
 # Use a subshell to restore the current directory in the end.
 (cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4) # saves the video to Desktop.
 ```
