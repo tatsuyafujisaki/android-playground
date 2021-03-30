@@ -55,12 +55,12 @@ val isDigitsOnly: Boolean = "123".isDigitsOnly() // true
 val bundle: Bundle = bundleOf("apple" to 100, "orange" to 200) // simpler than Bundle().apply { putInt("apple", 100) ... }
 ```
 
-# HTML entities
-## How to encode HTML entities
+# How to encode HTML entities
 ```kotlin
 val encoded: String = "<>&'\"".htmlEncode() // &lt;&gt;&amp;&#39;&quot;
 ```
-## How to decode HTML entities
+
+# How to decode HTML entities
 ```kotlin
 val decoded: String = String = Html.fromHtml("&lt;&gt;&amp;&#39;&quot;", Html.FROM_HTML_MODE_COMPACT).toString() // <>&'"
 ```
@@ -111,19 +111,19 @@ gradle tasks --all
 ### Option 1
 Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
 
-shows dependencies, as a list, declared in the project `app`.
+shows dependencies, as a list, declared in the `app` module.
 
 ### Option 2
 ```shell
 ./gradlew app:dependencies
 ```
-shows dependencies, as a tree, declared in the project `app`.
+shows dependencies, as a tree, declared in the `app` module.
 
 ### Option 3
 ```shell
 ./gradlew app:androidDependencies
 ```
-shows dependencies, as a list, declared in the project `app`.
+shows dependencies, as a list, declared in the `app` module.
 
 ## How to run a unit test or an instrumented unit test from Terminal
 ### How to run a local unit test
