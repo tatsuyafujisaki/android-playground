@@ -198,7 +198,7 @@ class MyCustomView @JvmOverloads constructor(
 ```
 
 # Navigation
-## How to avoid losing a navigation graph on configuration changes
+## How to keep navigation states on configuration changes
 ```kotlin
 class MyActivity : AppCompatActivity() {
     private lateinit var navController: NavController
