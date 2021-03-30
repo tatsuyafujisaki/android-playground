@@ -1,4 +1,14 @@
 # Android Debug Bridge (adb)
+## How to show the current activity
+```shell
+adb shell "dumpsys activity activities | grep mResumedActivity
+```
+
+## How to show fragments
+```shell
+adb shell dumpsys activity top | grep 'Added Fragments' -A 5
+```
+
 ## How to kill the emulator
 ```shell
 adb -s emulator-5554 emu kill
