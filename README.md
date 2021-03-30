@@ -86,23 +86,19 @@ R.id.my_menu_item -> {
 }
 ```
 
-## How to show an app's dependencies
-### Option 1
-Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
-
-shows dependencies, as a list, declared in the `app` module.
-
-### Option 2
+## How to show the app module's dependencies as a tree
 ```shell
 ./gradlew app:dependencies
 ```
-shows dependencies, as a tree, declared in the `app` module.
 
-### Option 3
+## How to show the app module's dependencies as a list
+### Option 1
+Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
+
+### Option 2
 ```shell
 ./gradlew app:androidDependencies
 ```
-shows dependencies, as a list, declared in the `app` module.
 
 ## How to run a unit test or an instrumented unit test from Terminal
 ### How to run a local unit test
