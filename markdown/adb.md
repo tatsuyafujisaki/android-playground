@@ -27,15 +27,17 @@ start_emulator() {
 }
 ```
 
-## How to 
-
-## How to take a screenshot
+## How to take a screenshot and save it to Desktop.
 ```shell
-adb exec-out screencap -p > screenshot.png
+adb_screenshot() {
+  filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
+  adb exec-out screencap -p > ${filepath} && open ${filepath}
+}
 ```
 
-## How to shoot a screencast and save it to Desktop.
+## How to make a screencast and save it to Desktop.
 ```shell
+# Use a subshell to restore the current directory in the end.
 (cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4)
 ```
 
