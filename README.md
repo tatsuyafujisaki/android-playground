@@ -86,27 +86,6 @@ R.id.my_menu_item -> {
 }
 ```
 
-# Gradle
-## How to list tasks even if they don't belong to a task group
-```shell
-gradle tasks --all
-```
-
-## How to list all the source sets (subdirectories under the `src` directory)
-```shell
-./gradlew sourceSets
-```
-
-## How to exclude tasks
-```shell
-./gradlew -x <task1-to-exclude> -x <task2-to-exclude> <task>
-```
-
-## How to show tasks a task depends on
-```shell
-./gradlew -m <task>
-```
-
 ## How to show an app's dependencies
 ### Option 1
 Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
