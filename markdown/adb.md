@@ -1,20 +1,37 @@
 # Android Debug Bridge (adb)
-## How to show the current activity
+## Activity/Fragment
+### How to show the current activity
 ```shell
 adb shell "dumpsys activity activities | grep mResumedActivity
 ```
 
-## How to show fragments
+### How to show fragments
 ```shell
 adb shell dumpsys activity top | grep 'Added Fragments' -A 5
 ```
 
-## How to kill the emulator
+## Screenshot/Screencast
+### How to take a screenshot and save it to Desktop
+```shell
+adb_screenshot() {
+  filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
+  adb exec-out screencap -p > ${filepath} && open ${filepath}
+}
+```
+
+### How to make a screencast and save it to Desktop
+```shell
+# Use a subshell to restore the current directory in the end.
+(cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4)
+```
+
+## Emulator
+### How to kill the emulator
 ```shell
 adb -s emulator-5554 emu kill
 ```
 
-## How to start the emulator from Zsh
+### How to start the emulator from Zsh
 ```shell
 start_emulator() {
   adb -s emulator-5554 emu kill # kills the emulator.
@@ -25,20 +42,6 @@ start_emulator() {
 
   exit # closes Zsh.
 }
-```
-
-## How to take a screenshot and save it to Desktop.
-```shell
-adb_screenshot() {
-  filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
-  adb exec-out screencap -p > ${filepath} && open ${filepath}
-}
-```
-
-## How to make a screencast and save it to Desktop.
-```shell
-# Use a subshell to restore the current directory in the end.
-(cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4)
 ```
 
 ## Demo mode
