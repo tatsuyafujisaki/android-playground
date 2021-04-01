@@ -51,7 +51,7 @@ class MyFragmentTest {
         val mockRepository = mockk<SampleRepository>()
 
         val fragmentFactory = FragmentFactoryFactory {
-            SampleFragment.newInstance("foo", "bar", mockRepository)
+            SampleFragment()
         }
 
         val scenario = launchFragmentInContainer<SampleFragment>(
@@ -59,7 +59,7 @@ class MyFragmentTest {
             factory = fragmentFactory
         )
 
-        onView(withId(R.id.sample_text_view))
+        onView(withId(R.id.text_input_layout))
             .check(matches(withText("Sample")))
 
         onView(withId(R.id.sample_button))
