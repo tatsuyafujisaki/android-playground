@@ -197,6 +197,18 @@ Add the following in `proguard-rule.pro`.
 -keepattributes SourceFile,LineNumberTable
 ```
 
+# How to close DrawerLayout when the user taps the Back button
+```kotlin
+/** isOpen and close() require "androidx.drawerlayout:drawerlayout:1.1.0" or higher. */
+override fun onBackPressed() {
+    if(drawerLayout.isOpen) {
+        drawerLayout.close()
+        return
+    }
+    super.onBackPressed()
+}
+```
+
 # OnBackPressedDispatcher
 `OnBackPressedDispatcher.hasEnabledCallbacks()` returns true if both of the following are met.
 
