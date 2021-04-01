@@ -201,7 +201,7 @@ Add the following in `proguard-rule.pro`.
 `OnBackPressedDispatcher.hasEnabledCallbacks()` returns true if both of the following are met.
 
 1. There is at least one callback registered with this dispatcher.
-2. The Activity's lifecycle state is after `onStart()` and before `onStop()`. If you override `onStart()` and/or `onStop()`, it is between `super.onStart()` and `super.onStop()`.
+2. Your Activity is being between `onStart()` and `onStop()` (both inclusive). If you override `onStart()` and/or `onStop()`, it is between `super.onStart()` and `super.onStop()`.
     1. Even if you pass a Fragment to `OnBackPressedDispatcher.addCallback(...)`, the Fragment's lifecycle does nothing to do with `OnBackPressedDispatcher.hasEnabledCallbacks()`.
 
 # How to define a custom view
