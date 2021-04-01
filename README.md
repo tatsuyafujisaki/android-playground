@@ -191,7 +191,7 @@ task clean(type: Delete) {
 }
 ```
 
-# How to find what class causes an error by `minifyenabled true`
+# How to identify the class that acts up by `minifyenabled true`
 Add the following in `proguard-rule.pro`.
 ```
 -keepattributes SourceFile,LineNumberTable
