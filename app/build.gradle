@@ -230,9 +230,7 @@ dependencies {
     // JUnit
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.2'
 
-    def mockkVersion = '1.10.6'
-    testImplementation "io.mockk:mockk:$mockkVersion"
-    androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:3.8.0"
 
     /*
      * For local unit tests
