@@ -31,6 +31,16 @@ object NavigationUtil {
         }
     }
 
+    fun NavController.setGraphWithStartDestinationAndArgs(
+        @NavigationRes graphResId: Int,
+        @IdRes startDestId: Int
+    ) {
+        val graph = navInflater.inflate(graphResId).apply {
+            startDestination = startDestId
+        }
+        setGraph(graph /*, MyReceivingDestinationArgs(arg1, arg2).toBundle() */)
+    }
+
     /**
      * @id Resource ID of FragmentContainerView where NavHostFragment is set.
      */
