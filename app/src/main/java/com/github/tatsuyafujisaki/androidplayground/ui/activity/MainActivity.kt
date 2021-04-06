@@ -21,7 +21,6 @@ import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.toast
 import com.github.tatsuyafujisaki.androidplayground.util.NavigationUtil.currentFragment
-import com.github.tatsuyafujisaki.androidplayground.util.NavigationUtil.getNavHostFragment
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -43,14 +42,14 @@ class MainActivity : AppCompatActivity() {
                 inject(this@MainActivity)
             }
 
-        navHostFragment = supportFragmentManager.getNavHostFragment(R.id.nav_host_fragment)
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
         // https://developer.android.com/guide/navigation/navigation-custom-back
         onBackPressedDispatcher.addCallback(this) {
             Log.d(TAG, "Back button is pressed.")
 
-            (navHostFragment.currentFragment as? WebViewContainer)?.run {
+            (navHostFragment.childFragmentManager.primaryNavigationFragment as? WebViewContainer)?.run {
                 if (canGoBack()) {
                     goBack()
                 } else if (!navController.popBackStack()) {
