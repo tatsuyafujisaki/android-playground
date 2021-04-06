@@ -17,8 +17,17 @@ object NavigationUtil {
         get() = graph.startDestination != currentDestination?.id
 
     fun NavController.setNavGraphIfAbsent(@NavigationRes graphResId: Int) {
-        if(currentDestination == null) {
+        if (currentDestination == null) {
             setGraph(graphResId)
+        }
+    }
+
+    fun NavController.setGraphWithStartDestination(
+        @NavigationRes graphResId: Int,
+        @IdRes startDestId: Int
+    ) {
+        graph = navInflater.inflate(graphResId).apply {
+            startDestination = startDestId
         }
     }
 
