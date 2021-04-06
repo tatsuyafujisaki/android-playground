@@ -56,7 +56,7 @@ findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.setupWithNavCon
   * Activity.findNavController(viewId: Int)
 * Sample usages:
 ```kotlin
-findNavController().navigate(OriginatingFragment1Directions.myAction1(argKey1 = argValue1))
+findNavController().navigate(MyOriginatingFragmentDirections.myAction1(key1 = value1))
 findNavController().navigate(R.id.action1 or R.id.destination1 or R.id.nav_graph1)
 findNavController().navigate(deepLink: Uri)
 ```
