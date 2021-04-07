@@ -34,19 +34,29 @@ adb shell screenrecord /sdcard/video.mp4
 ```
 
 ## Emulator
+## How to list emulators
+```shell
+~/Library/Android/sdk/emulator/emulator -list-avds
+```
+
 ### How to kill the emulator
 ```shell
 adb -s emulator-5554 emu kill
 ```
 
-### How to start the emulator
+### How to start the emulator specifying DNS servers
+```shell
+~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
+```
+
+### How to start the emulator and close the shell
 ```shell
 start_emulator() {
   adb -s emulator-5554 emu kill # kills the emulator.
 
   # "&|" is to keep an emulator running even after Zsh is closed.
   # http://zsh.sourceforge.net/Doc/Release/Shell-Builtin-Commands.html
-  ~/Library/Android/sdk/emulator/emulator -avd $(~/Library/Android/sdk/emulator/emulator -list-avds) &|
+  ~/Library/Android/sdk/emulator/emulator -avd <emulator> &|
 
   exit # closes Zsh.
 }
