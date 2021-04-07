@@ -64,10 +64,17 @@ start_emulator() {
 start_emulator()
 ```
 
+## Enable/Disable
+### How to toggle `Don't keep activities`
+```shell
+adb shell settings put global always_finish_activities 1 # enable
+adb shell settings put global always_finish_activities 0 # disable
+```
+
 ### How to toggle `Enable demo mode`
 ```shell
-adb shell settings put global sysui_demo_allowed 1 // enable
-adb shell settings put global sysui_demo_allowed 0 // disable
+adb shell settings put global sysui_demo_allowed 1 # enable
+adb shell settings put global sysui_demo_allowed 0 # disable
 ```
 
 However, there seems to be no way to toggle `Show demo mode`.
