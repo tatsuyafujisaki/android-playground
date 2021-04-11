@@ -1,6 +1,7 @@
-# Official style guides
+# Official style guides and best practices
 * https://developer.android.com/kotlin/style-guide
 * https://kotlinlang.org/docs/reference/coding-conventions.html
+* https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 * https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
 # Android Debug Bridge (adb)
