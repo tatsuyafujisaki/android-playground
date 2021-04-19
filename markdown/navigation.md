@@ -188,12 +188,24 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
   * https://stackoverflow.com/a/40626742
 
 # Animation
-* If you navigate from Fragment A to Fragment B, the following two animations are invoked at the same time, not in sequence.
-  * `app:enterAnim` … How Fragment B appears.
-  * `app:exitAnim` … How Fragment A disappears.
-* If you have moved from Fragment A to Fragment B, and then press the Up button or the Back button, the following two animations are invoked at the same time, not in sequence.
-  * `app:popEnterAnim` … How Fragment A appears.
-  * `app:popExitAnim` … How Fragment B disappears.
+```xml
+<fragment
+    android:id="@+id/fragment_a"
+    android:name="com.example.FragmentA"
+    tools:layout="@layout/fragment_a">
+    <action
+        android:id="@+id/action_fragment_a_to_fragment_b"
+        app:destination="@id/fragment_b"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+</fragment>
+```
+* `app:enterAnim` … How Fragment A appears when you enter Fragment A not by popping Fragment A from the back stack.
+* `app:exitAnim` … How Fragment A disappears when you enter Fragment A not by popping Fragment A from the back stack.
+* `app:popEnterAnim` … How Fragment A appears when you enter Fragment A by poppoing Fragment A from the back stack.
+* `app:popExitAnim` … How Fragment A disappears when you exit Fragment A by popping Fragment A from the back stack.
 
 # Misc
 * "Simulated back stack" and "Synthetic back stack" are the same thing.
