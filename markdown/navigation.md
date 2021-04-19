@@ -175,6 +175,9 @@ is used when you want to pop more than one destination.
   * `<ReceivingDestination>Args`.
   * `<NavigationId>Directions.globalAction1`.
 
+## How to forcibly generate `<OriginatingDestination>Directions` classes
+Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `build` > (again) `build`
+
 # AppCompatActivity.onSupportNavigateUp()
 * Override `onSupportNavigateUp()` if the app bar is used instead of a Toolbar. The following URLs show the code snippets of overriding `onSupportNavigateUp()`.
   * https://developer.android.com/codelabs/basic-android-kotlin-training-fragments-navigation-component#7
