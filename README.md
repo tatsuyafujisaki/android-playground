@@ -4,6 +4,53 @@
 * https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 * https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
+# Gradle
+## How to show modules the module depends on
+```shell
+# -q is to suppress non-error logs.
+# --configuration is to filter only "implementation".
+# https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
+./gradlew -q <module>:dependencies --configuration implementation | grep '+--- project' | sort
+```
+
+## How to show the app module's dependencies as a tree
+```shell
+./gradlew app:dependencies
+```
+
+## Testing
+### How to run a local unit test
+```shell
+./gradlew test
+```
+
+### How to run an instrumented unit test
+```shell
+./gradlew connectedAndroidTest
+
+# Alternatively
+# https://docs.gradle.org/current/userguide/command_line_interface.html#task_name_abbreviation
+./gradlew cAT
+```
+
+### How to run a local unit test for a build variant and a module
+```shell
+./gradlew <module>:test<build-variant>UnitTest
+```
+
+## How to run an instrumented unit test for a build variant and a module
+```shell
+./gradlew <module>:connected<build-variant>AndroidTest
+```
+
+## Meaning of `task clean` in project-level `build.gradle`
+The following custom task in the project-level `build.gradle` is to delete the project-level `build` directory when clicking the menu bar > `Build` > `Clean Project`.
+```gradle
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+```
+
 # Android Debug Bridge (adb)
 ## Activity/Fragment
 ### How to show the current activity
@@ -160,52 +207,6 @@ No need to use `SpannableString`.
 ```kotlin
 R.id.my_menu_item -> {
     findViewById<TextView>(R.id.my_menu_item)?.setTextColor(Color.RED)
-}
-```
-
-## How to show the app module's dependencies as a tree
-```shell
-./gradlew app:dependencies
-```
-
-## How to show the app module's dependencies as a list
-### Option 1
-Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `Tasks` > `android` > `androidDependencies`
-
-### Option 2
-```shell
-./gradlew app:androidDependencies
-```
-
-## How to run a unit test or an instrumented unit test from Terminal
-### How to run a local unit test
-```shell
-./gradlew test
-```
-
-### How to run an instrumented unit test
-```shell
-./gradlew connectedAndroidTest
-
-# Alternatively (https://docs.gradle.org/current/userguide/command_line_interface.html#task_name_abbreviation)
-./gradlew cAT
-```
-
-### How to run a local unit test for a build variant and a module
-```shell
-./gradlew <module>:test<build-variant>UnitTest
-```
-
-## How to run an instrumented unit test for a build variant and a module
-```shell
-./gradlew <module>:connected<build-variant>AndroidTest
-```
-
-## `task clean` in project-level `build.gradle`
-The following custom task in the project-level `build.gradle` is to delete the project-level `build` directory when clicking the menu bar > `Build` > `Clean Project`.
-```gradle
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
 ```
 
