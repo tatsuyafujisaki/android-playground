@@ -190,22 +190,26 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
 # Animation
 ```xml
 <fragment
-    android:id="@+id/fragment_a"
-    android:name="com.example.FragmentA"
+    android:id="@+id/fragment1"
+    android:name="com.example.Fragment1"
     tools:layout="@layout/fragment_a">
     <action
-        android:id="@+id/action_fragment_a_to_fragment_b"
-        app:destination="@id/fragment_b"
+        android:id="@+id/action_fragment1_to_fragment2"
+        app:destination="@id/fragment2"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"
         app:popExitAnim="@anim/slide_out_right" />
 </fragment>
 ```
-* `app:enterAnim` … How Fragment A appears when you enter Fragment A not by popping Fragment A from the back stack.
-* `app:exitAnim` … How Fragment A disappears when you enter Fragment A not by popping Fragment A from the back stack.
-* `app:popEnterAnim` … How Fragment A appears when you enter Fragment A by poppoing Fragment A from the back stack.
-* `app:popExitAnim` … How Fragment A disappears when you exit Fragment A by popping Fragment A from the back stack.
+* `app:enterAnim` … How Fragment2 appears when you move from Fragment1 to Fragment2.
+  * If `app:enterAnim="@anim/slide_in_right"` is specified, Fragment2 slides in from the left.
+  * If `app:enterAnim=...` is not specified, Fragment2 shows up without animation.
+* `app:exitAnim` … How Fragment1 disappears when you move from Fragment1 to Fragment2.
+  * If `app:exitAnim="@anim/slide_out_left"` is specified, Fragment1 slides out to the right.
+  * If `app:exitAnim=...` is not specified, Fragment1 stays still and Fragment2 shows up over the Fragment1, with the animation `app:enterAnim`.
+* `app:popEnterAnim` … How Fragment1 appears when you move back from Fragment2 to Fragment1, by the pop action.
+* `app:popExitAnim` … How Fragment2 disappears when you move back from Fragment2 to Fragment1, by the pop action.
 
 # Misc
 * "Simulated back stack" and "Synthetic back stack" are the same thing.
