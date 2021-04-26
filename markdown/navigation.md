@@ -1,6 +1,6 @@
 # First ...
 * Refer to [deep-link.md](deep-link.md) for deep linking.
-* Refer to [fragment-manager-fragment-transaction.md](fragment-manager-fragment-transaction.md) for navigations not part of the Navigation component.
+* Refer to [fragment.md](fragment.md) for fragments except the Navigation component.
 
 # Up button versus back button
 * Both navigate in reverse-chronological order through the history of where you have been.

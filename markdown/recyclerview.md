@@ -36,7 +36,8 @@ adapter.registerAdapterDataObserver(
         override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
             binding.recyclerView.scrollToPosition(0)
         }
-    })
+    }
+)
 ```
 
 # RecyclerView.Adapter
