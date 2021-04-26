@@ -20,7 +20,7 @@ object ActivityUtil {
     fun Activity.canResolveActivity(intent: Intent) =
         packageManager.resolveActivity(intent, 0) != null
 
-    val Activity.inputMethodManager
+    private val Activity.inputMethodManager
         get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
     fun Activity.getNavController(@IdRes navHostFragmentId: Int) =

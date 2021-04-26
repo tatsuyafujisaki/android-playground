@@ -42,7 +42,7 @@ object GraphicsUtil {
         }
 
     // https://developer.android.com/topic/performance/graphics/load-bitmap
-    fun Resources.decodeSampledBitmapFromResource(
+    private fun Resources.decodeSampledBitmapFromResource(
         @DrawableRes drawableResId: Int,
         requiredWidth: Int,
         requiredHeight: Int
