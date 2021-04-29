@@ -1,9 +1,11 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.annotation.SuppressLint
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 
 object NavigationUtil {
@@ -46,4 +48,21 @@ object NavigationUtil {
      */
     fun FragmentManager.getNavHostFragment(@IdRes navHostFragmentId: Int) =
         findFragmentById(navHostFragmentId) as NavHostFragment
+
+    /**
+     * For debugging purposes, you can ignore the lint error and list non-NavGraph destinations on the back stack.
+     */
+    @SuppressLint("RestrictedApi")
+    fun NavController.printBackStack() {
+        backStack
+            .map {
+                it.destination
+            }
+            .filterNot {
+                it is NavGraph
+            }
+            .joinToString(" > ") {
+                it.displayName.split('/')[1]
+            }
+    }
 }
