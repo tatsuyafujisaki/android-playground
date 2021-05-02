@@ -5,14 +5,6 @@
 * https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
 # Gradle
-## How to show modules the module depends on
-```shell
-# -q is to suppress non-error logs.
-# --configuration is to filter only "implementation".
-# https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
-./gradlew -q <module>:dependencies --configuration implementation | grep '+--- project' | sort
-```
-
 ## How to show the root project's dependencies as a tree
 ```shell
 ./gradlew dependencies
@@ -21,6 +13,14 @@
 ## How to show the app module's dependencies as a tree
 ```shell
 ./gradlew app:dependencies
+```
+
+## How to show modules the given module depends on
+```shell
+# -q is to suppress non-error logs.
+# --configuration is to filter only "implementation".
+# https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
+./gradlew -q <module>:dependencies --configuration implementation | grep '+--- project' | sort
 ```
 
 ## Testing
