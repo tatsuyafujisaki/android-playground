@@ -13,6 +13,11 @@
 ./gradlew -q <module>:dependencies --configuration implementation | grep '+--- project' | sort
 ```
 
+## How to show the root project's dependencies as a tree
+```shell
+./gradlew dependencies
+```
+
 ## How to show the app module's dependencies as a tree
 ```shell
 ./gradlew app:dependencies
