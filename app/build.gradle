@@ -99,6 +99,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    
+    /*
+     * > Dependency on the standard library added by default
+     * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
+     */
 
     /*
      * org.jetbrains
