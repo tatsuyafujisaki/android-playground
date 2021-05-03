@@ -15,7 +15,7 @@
 ./gradlew app:dependencies
 ```
 
-## How to show modules the given module depends on
+## How to show modules on which the given module depends
 ```shell
 # -q is to suppress non-error logs.
 # --configuration is to filter only "implementation".
