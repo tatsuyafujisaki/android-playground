@@ -26,13 +26,8 @@ android {
          */
         testInstrumentationRunnerArguments clearPackageData: 'true'
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     kotlinOptions {
         jvmTarget = '1.8'
-        // allWarningsAsErrors = true
     }
     buildFeatures {
         viewBinding true
@@ -99,7 +94,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    
+
     /*
      * > Dependency on the standard library added by default
      * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
