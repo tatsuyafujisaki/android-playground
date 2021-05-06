@@ -1,7 +1,10 @@
-# Official style guides and best practices
+# Official style guides
 * https://developer.android.com/kotlin/style-guide
 * https://kotlinlang.org/docs/reference/coding-conventions.html
+
+# Official best practices
 * https://developer.android.com/kotlin/coroutines/coroutines-best-practices
+* https://developer.android.com/training/data-storage/use-cases
 * https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
 # Gradle
