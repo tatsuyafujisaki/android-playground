@@ -23,7 +23,7 @@ https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
 ./gradlew help --task androidDependencies
 ```
 
-## How to show the project `buildSrc`'s dependencies
+## How to show `buildSrc`'s dependencies
 ```shell
 # shows as a tree
 cd buildSrc
