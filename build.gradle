@@ -1,5 +1,6 @@
 buildscript {
     ext {
+        kotlinVersion = '1.5.0'
         navigationVersion = '2.3.5'
     }
 
@@ -10,7 +11,7 @@ buildscript {
 
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath 'com.android.tools.build:gradle:4.2.0'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.2'
         classpath 'com.google.gms:google-services:4.3.5'
@@ -25,6 +26,17 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+    }
+    /*
+     * In case "org.jetbrains.kotlin:kotlin-reflect" is a transitive dependency,
+     * force it to be the same version of the Kotlin Gradle plugin..
+     */
+    configurations.all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == 'org.jetbrains.kotlin') {
+                useVersion kotlinVersion
+            }
+        }
     }
 }
 
