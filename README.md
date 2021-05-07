@@ -30,7 +30,7 @@ https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
 ./gradlew app:dependencies --configuration debugCompileClasspath
 
 # shows as a list
-./gradlew app:androidDependenciesh
+./gradlew app:androidDependencies
 ./gradlew app:dependencies --configuration <buildVariant>CompileClasspath | grep "^+---" | sort
 ./gradlew app:dependencies --configuration debugCompileClasspath | grep "^+---" | sort
 
