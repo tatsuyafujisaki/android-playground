@@ -8,22 +8,39 @@
 * https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
 # Gradle
-## How to show the root project's dependencies as a tree
+## How to show the root project's dependencies
 ```shell
+# shows as a tree
 ./gradlew dependencies
+
+# shows as a list
+./gradlew androidDependencies
+
+# Run the following for more details.
+./gradlew help --task dependencies
+./gradlew help --task androidDependencies
 ```
 
-## How to show the app module's dependencies as a tree
+## How to show the `app` project's dependencies
+https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
+
 ```shell
-./gradlew app:dependencies
+# shows as a tree
+./gradlew app:dependencies --configuration <buildVariant>CompileClasspath
+./gradlew app:dependencies --configuration debugCompileClasspath # for example
+
+# shows as a list
+./gradlew app:androidDependencies --configuration <buildVariant>CompileClasspath
+./gradlew app:androidDependencies --configuration debugCompileClasspath # for example
+
+# for more details
+./gradlew help --task app:dependencies
+./gradlew help --task app:androidDependencies
 ```
 
-## How to show modules on which the given module depends
+## How to show projects on which the `app` project depends
 ```shell
-# -q is to suppress non-error logs.
-# --configuration is to filter only "implementation".
-# https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
-./gradlew -q <module>:dependencies --configuration implementation | grep '+--- project' | sort
+./gradlew app:dependencies --configuration implementation | grep '+--- project' | sort
 ```
 
 ## Testing
@@ -43,12 +60,12 @@
 
 ### How to run a local unit test for a build variant and a module
 ```shell
-./gradlew <module>:test<build-variant>UnitTest
+./gradlew <module>:test<buildVariant>UnitTest
 ```
 
 ## How to run an instrumented unit test for a build variant and a module
 ```shell
-./gradlew <module>:connected<build-variant>AndroidTest
+./gradlew <module>:connected<buildVariant>AndroidTest
 ```
 
 ## Meaning of `task clean` in project-level `build.gradle`
