@@ -8,6 +8,8 @@
 * https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
 # Gradle
+https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
+
 ## How to show the root project's dependencies
 ```shell
 # shows as a tree
@@ -21,9 +23,7 @@
 ./gradlew help --task androidDependencies
 ```
 
-## How to show the `app` project's dependencies
-https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
-
+## How to show the project `app`'s dependencies
 ```shell
 # shows as a tree
 ./gradlew app:dependencies --configuration <buildVariant>CompileClasspath
@@ -39,9 +39,18 @@ https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
 ./gradlew help --task app:androidDependencies
 ```
 
-## How to show projects on which the `app` project depends
+## How to show projects on which the project `app` depends
 ```shell
 ./gradlew app:dependencies --configuration implementation | grep '+--- project' | sort
+```
+
+## How to show where a dependency in the project `app` comes from
+```shell
+./gradlew app:dependencyInsight --configuration <buildVariant>CompileClasspath --dependency <group>:<name>
+./gradlew app:dependencyInsight --configuration debugCompileClasspath --dependency org.jetbrains.kotlin:kotlin-stdlib
+
+# for more details
+./gradlew help --task app:dependencyInsight
 ```
 
 ## Testing
