@@ -27,11 +27,12 @@ https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
 ```shell
 # shows as a tree
 ./gradlew app:dependencies --configuration <buildVariant>CompileClasspath
-./gradlew app:dependencies --configuration debugCompileClasspath # for example
+./gradlew app:dependencies --configuration debugCompileClasspath
 
 # shows as a list
-./gradlew app:androidDependencies --configuration <buildVariant>CompileClasspath
-./gradlew app:androidDependencies --configuration debugCompileClasspath # for example
+./gradlew app:androidDependenciesh
+./gradlew app:dependencies --configuration <buildVariant>CompileClasspath | grep "^+---" | sort
+./gradlew app:dependencies --configuration debugCompileClasspath | grep "^+---" | sort
 
 # for more details
 ./gradlew help --task app:dependencies
