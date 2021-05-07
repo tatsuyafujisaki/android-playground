@@ -46,8 +46,6 @@ android {
         }
     }
     testOptions {
-        execution 'ANDROIDX_TEST_ORCHESTRATOR' // Android Test Orchestrator
-
         unitTests {
             includeAndroidResources true // Robolectric
         }
