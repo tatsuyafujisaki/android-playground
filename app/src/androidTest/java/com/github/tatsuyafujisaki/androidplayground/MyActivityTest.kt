@@ -16,8 +16,9 @@ class MyActivityTest {
     private lateinit var context: Context
     private lateinit var application: Application
 
+    // "activityScenarioRule" comes from androidTestImplementation 'androidx.test.ext:junit-ktx:*'
     @get:Rule
-    val activityScenarioRule = activityScenarioRule<MainActivity>() // androidTestImplementation 'androidx.test.ext:junit-ktx:*'
+    val activityScenarioRule = activityScenarioRule<MainActivity>()
 
     @Before
     fun setUp() {
@@ -28,7 +29,8 @@ class MyActivityTest {
     @Test
     fun testActivity() {
         // Another way of getting an ActivityScenario
-        // val activityScenario = launchActivity<MainActivity>() // androidTestImplementation 'androidx.test:core-ktx:*'
+        // launchActivity comes from androidTestImplementation 'androidx.test:core-ktx:*'
+        // val activityScenario = launchActivity<MainActivity>()
 
         val scenario = activityScenarioRule.scenario
 
