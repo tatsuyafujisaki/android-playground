@@ -5,5 +5,5 @@ For example, FileProvider is a direct subclass of ContentProvider, but not a "kn
 https://developer.android.com/jetpack/androidx/releases/core#declaring_dependencies
 
 # Main-safe
-* means that it is safe to call from a main safe.
+* means that it is safe to call from the main thread.
 * e.g. Suspend functions are main-safe.
