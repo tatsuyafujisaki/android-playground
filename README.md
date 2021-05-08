@@ -495,6 +495,9 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 # Resources
 [resources.md](markdown/resources.md)
 
+# Terminology
+[terminology.md](markdown/terminology.md)
+
 # ViewModel and LiveData
 [viewmodel-livedata.md](markdown/viewmodel-livedata.md)
 
