@@ -128,6 +128,11 @@ adb shell screenrecord /sdcard/video.mp4
 ```
 
 ## Emulator
+## How to show the API version of the emulator
+```shell
+adb shell getprop ro.product.first_api_level
+```
+
 ## How to list emulators
 ```shell
 ~/Library/Android/sdk/emulator/emulator -list-avds
