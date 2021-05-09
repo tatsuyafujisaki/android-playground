@@ -28,5 +28,5 @@ Alternatively, use Device File Explorer of Android Studio.
 ## Settings useful at times
 * `Developer options` > `Show layout bounds`
 
-# OEM unlocking
+## OEM unlocking
 Android emulators don't have the `OEM unlocking` option in `Developer options`.
