@@ -14,7 +14,7 @@
 2. Drop it on an emulator.
 
 ### emulator -> macOS
-Run the following
+Run the following.
 ```shell
 adb pull /sdcard/<path-to-file>
 ```
