@@ -10,5 +10,7 @@
 --|--|--
 contains ...|only the lastest value|all the past values
 callable from|only the main thread|any thread
-when there is no observer|canceled|not canceled
+when there is no active observer (*)|canceled|not canceled
 suitable for|the main thread|except for the main thread
+
+(*) i.e. Activity goes in the stopped state.
