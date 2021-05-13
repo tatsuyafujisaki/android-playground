@@ -178,7 +178,11 @@ adb shell settings put global sysui_demo_allowed 0 # disable
 
 However, there seems to be no way to toggle `Show demo mode`.
 
-# Predefined colors from Android SDK
+# Predefined Color
+## Predefined ColorInt
+https://developer.android.com/reference/kotlin/android/graphics/Color
+
+## Predefined ColorRes from Android SDK
 ```kotlin
 val black: Int = ContextCompat.getColor(this, android.R.color.black)
 val white: Int = ContextCompat.getColor(this, android.R.color.white)
