@@ -4,7 +4,8 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
-    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.0' // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.serialization
+    // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.serialization
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.0'
     id 'com.google.firebase.crashlytics'
 }
 
@@ -117,7 +118,7 @@ dependencies {
      * androidx
      */
 
-    implementation 'androidx.activity:activity-ktx:1.2.2'
+    implementation 'androidx.activity:activity-ktx:1.2.3'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
@@ -207,7 +208,8 @@ dependencies {
 
     // in case you are not authorized to use coroutines.
     implementation 'io.reactivex.rxjava3:rxjava:3.0.12'
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0' // required for io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+    // required for io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 
     /*
      * For both local unit tests and instrumented unit tests
