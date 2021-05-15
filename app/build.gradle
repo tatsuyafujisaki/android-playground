@@ -6,6 +6,7 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.serialization
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.0'
+    id 'dagger.hilt.android.plugin'
     id 'com.google.firebase.crashlytics'
 }
 
@@ -168,15 +169,10 @@ dependencies {
      * com.google.firebase
      */
 
-    implementation platform('com.google.firebase:firebase-bom:27.0.0')
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
 
-    // TODO Use Hilt when it goes out of beta.
-    def daggerVersion = '2.35.1'
-    implementation "com.google.dagger:dagger:$daggerVersion"
-    implementation "com.google.dagger:dagger-android:$daggerVersion"
-    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
 
     /*
      * Third-party

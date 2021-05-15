@@ -13,19 +13,18 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.github.tatsuyafujisaki.androidplayground.MainApplication
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
-import com.github.tatsuyafujisaki.androidplayground.di.MainActivityComponent
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.toast
 import com.github.tatsuyafujisaki.androidplayground.util.NavigationUtil.currentFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mainActivityComponent: MainActivityComponent
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
@@ -34,13 +33,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        mainActivityComponent = (applicationContext as MainApplication)
-            .applicationComponent
-            .mainComponent()
-            .create().apply {
-                inject(this@MainActivity)
-            }
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController

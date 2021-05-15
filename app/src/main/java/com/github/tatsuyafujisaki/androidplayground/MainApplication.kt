@@ -1,5 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground
 
+import android.app.Application
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.flipper.plugins.inspector.DescriptorMapping
@@ -8,17 +9,12 @@ import com.facebook.flipper.plugins.network.BuildConfig
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.facebook.stetho.Stetho
-import com.github.tatsuyafujisaki.androidplayground.di.DaggerApplicationComponent
-import dagger.android.DaggerApplication
+import dagger.hilt.android.HiltAndroidApp
 
-class MainApplication : DaggerApplication() {
-    val applicationComponent = DaggerApplicationComponent.factory().create(this)
-
+@HiltAndroidApp
+class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-
-        instance = this
-
         Stetho.initializeWithDefaults(this)
 
         SoLoader.init(this, false)
@@ -36,11 +32,7 @@ class MainApplication : DaggerApplication() {
         }
     }
 
-    override fun applicationInjector() = DaggerApplicationComponent.factory().create(this)
-
     companion object {
         val networkFlipperPlugin = NetworkFlipperPlugin()
-        lateinit var instance: MainApplication
-            private set
     }
 }
