@@ -176,7 +176,7 @@ adb shell settings put global sysui_demo_allowed 1 # enable
 adb shell settings put global sysui_demo_allowed 0 # disable
 ```
 
-However, there seems to be no way to toggle `Show demo mode`.
+There does not seem to be a way to toggle `Show demo mode`.
 
 # Predefined Color
 ## Predefined ColorInt
