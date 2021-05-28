@@ -164,16 +164,40 @@ start_emulator()
 ```
 
 ## Enable/Disable
+### How to toggle `Show taps`
+```shell
+# On
+adb shell settings put system show_touches 1
+
+# Off
+adb shell settings put system show_touches 0
+
+# Get
+adb shell settings get system show_touches
+```
+
 ### How to toggle `Don't keep activities`
 ```shell
-adb shell settings put global always_finish_activities 1 # enable
-adb shell settings put global always_finish_activities 0 # disable
+# On
+adb shell settings put global always_finish_activities 1
+
+# Off
+adb shell settings put global always_finish_activities 0
+
+# Get
+adb shell settings get global always_finish_activities
 ```
 
 ### How to toggle `Enable demo mode`
 ```shell
-adb shell settings put global sysui_demo_allowed 1 # enable
-adb shell settings put global sysui_demo_allowed 0 # disable
+# On
+adb shell settings put global sysui_demo_allowed 1
+
+# Off
+adb shell settings put global sysui_demo_allowed 0
+
+# Get
+adb shell settings get global sysui_demo_allowed
 ```
 
 There does not seem to be a way to toggle `Show demo mode`.
