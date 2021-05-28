@@ -20,7 +20,7 @@ adb pull /sdcard/<path-to-file>
 ```
 Alternatively, use Device File Explorer of Android Studio.
 
-## Useful settings in a Pixel 4 emulator
+## Recommended settings in a Pixel 4 emulator
 * `System` > `Languages & input` > `Autofill service > None`
 * `Location` > off (if your app does not depend on location.)
 * `Developer options` > `Show taps`
