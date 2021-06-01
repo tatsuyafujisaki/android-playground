@@ -7,6 +7,7 @@ For example:
 * alpha 0.5 = 255 * 0.5 = 0x80
 * alpha 0.0 = 255 * 0.0 = 0x00
 
+# Alpha (in RGB) mapping among float, decimal, and hexadecimal
 Alpha (0.0 ~ 1.0)|Alpha in decimal|Alpha in hexadecimal
 --|--|--
 0.0|0|0x00
