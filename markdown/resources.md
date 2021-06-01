@@ -4,6 +4,6 @@
 
 
 # `<selector>`
-* State lists, i.e. `<selector>`, can be used only for colors or drawables.
+* A state list, i.e. `<selector>`, can be used only for colors or drawables.
   * https://developer.android.com/guide/topics/resources/color-list-resource
   * https://developer.android.com/guide/topics/resources/drawable-resource#StateList
