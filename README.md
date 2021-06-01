@@ -378,16 +378,18 @@ class MyCustomView @JvmOverloads constructor(
 
 ```kotlin
 with(recyclerView) {
-    adapter = myAdapter
+    adapter = myAdapter.apply {
+        registerAdapterDataObserver(
+            object : RecyclerView.AdapterDataObserver() {
+                override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                    scrollToPosition(0) // RecyclerView#scrollToPosition(0)
+                }
+            }
+        )
+    }
     addItemDecoration(DividerItemDecoration(context, (layoutManager as LinearLayoutManager).orientation))
     setHasFixedSize(true) // only if the size is fixed.
     itemAnimator = null
-    registerAdapterDataObserver(
-    object : RecyclerView.AdapterDataObserver() {
-        override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-            scrollToPosition(0) // RecyclerView#scrollToPosition(0)
-        }
-    })
     myLiveData.observe(viewLifecycleOwner) {
         with(adapter as MyAdapter) {
             submitList(it)
