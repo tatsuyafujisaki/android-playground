@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Specify me in android:background="..." of a view. -->
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Specify me in android:background="..." of a view. -->
-<!-- Notice that the background of rounded corners is in color. -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
         <shape android:shape="rectangle">
+            <corners android:topLeftRadius="@dimen/dp16" android:topRightRadius="@dimen/dp16" />
             <solid android:color="@android:color/holo_blue_light" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <corners
-                android:topLeftRadius="@dimen/dp20"
-                android:topRightRadius="@dimen/dp20" />
+            <corners android:topLeftRadius="@dimen/dp16" android:topRightRadius="@dimen/dp16" />
             <solid android:color="@android:color/holo_red_light" />
         </shape>
     </item>
-</layer-list>
+</selector>
