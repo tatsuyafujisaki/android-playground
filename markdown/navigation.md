@@ -67,6 +67,8 @@ findNavController().navigate(deepLink: Uri)
   * `NavController.getCurrentDestination()` returns null.
   * You should call `Activity.finish()`.
   * https://developer.android.com/guide/navigation/navigation-navigate#back-stack
+* https://developer.android.com/guide/navigation/navigation-getting-started#kotlin
+  * > attempting to retrieve the NavController in onCreate() of an Activity via Navigation.findNavController(Activity, @IdRes int) will fail. 
 
 # NavDestination
 * is either `<fragment>`, `<dialog>`, or `<activity>`.
