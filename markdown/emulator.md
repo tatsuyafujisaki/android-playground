@@ -20,14 +20,5 @@ adb pull /sdcard/<path-to-file>
 ```
 Alternatively, use Device File Explorer of Android Studio.
 
-## Recommended settings in a Pixel 4 emulator
-* `Network & internet` > `Private DNS` > `Off`
-* `System` > `Languages & input` > `Autofill service > None`
-* `Location` > off (if your app does not depend on location.)
-* `Developer options` > `Show taps`
-
-## Settings useful at times
-* `Developer options` > `Show layout bounds`
-
 ## OEM unlocking
 Android emulators don't have the `OEM unlocking` option in `Developer options`.
