@@ -398,8 +398,8 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 # Deep link
 [deep-link.md](markdown/deep-link.md)
 
-# Emulator
-[emulator.md](markdown/emulator.md)
+# Android Debug Bridge (adb) and emulator
+[adb-emulator.md](markdown/adb-emulator.md)
 
 # Espresso
 [espresso.md](markdown/espresso.md)
