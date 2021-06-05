@@ -10,7 +10,7 @@ adb shell "dumpsys activity activities | grep mResumedActivity
 adb shell dumpsys activity top | grep 'Added Fragments' -A 5
 ```
 
-## Screenshot/Video
+## Video
 ### How to take a screenshot and save it to desktop
 ```shell
 filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
@@ -27,7 +27,7 @@ adb shell screenrecord /sdcard/video.mp4
 (cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4)
 ```
 
-### How to record a WEBP or GIF
+### How to record a WebM or an animated GIF
 ```shell
 # Start
 adb emu screenrecord start ~/Desktop/output.webm
