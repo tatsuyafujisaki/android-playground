@@ -17,15 +17,24 @@ filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
 adb exec-out screencap -p > ${filepath} && open ${filepath}
 ```
 
-### How to record a video
+### How to record an MP4
 ```shell
+# Start
 adb shell screenrecord /sdcard/video.mp4
+
+# Stop recording by pressing Command+'.'.
+# The following uses a subshell to restore the current directory in the end.
+(cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4)
 ```
 
-### How to save the recorded video to desktop
+### How to record a WEBP or GIF
 ```shell
-# Use a subshell to restore the current directory in the end.
-(cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4)
+# Start
+adb emu screenrecord start ~/Desktop/output.webm
+
+# Stop
+adb emu screenrecord stop
+open ~/Desktop/output.webm
 ```
 
 # Emulator
