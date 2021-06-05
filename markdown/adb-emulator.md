@@ -11,7 +11,7 @@ adb shell dumpsys activity top | grep 'Added Fragments' -A 5
 ```
 
 ## Video
-### How to take a screenshot and save it to desktop
+### How to take a screenshot
 ```shell
 filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
 adb exec-out screencap -p > ${filepath} && open ${filepath}
