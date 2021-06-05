@@ -1,17 +1,16 @@
-# Android Debug Bridge (adb)
-## Activity/Fragment
-### How to show the current activity
+# Activity/Fragment
+## How to show the current activity
 ```shell
 adb shell "dumpsys activity activities | grep mResumedActivity
 ```
 
-### How to show fragments
+## How to show fragments
 ```shell
 adb shell dumpsys activity top | grep 'Added Fragments' -A 5
 ```
 
-## Screenrecord/Screenshot
-### How to record an MP4
+# Screenrecord/Screenshot
+## How to record an MP4
 ```shell
 # Start
 adb shell screenrecord /sdcard/video.mp4
@@ -21,7 +20,7 @@ adb shell screenrecord /sdcard/video.mp4
 (cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4)
 ```
 
-### How to record a WebM or an animated GIF
+## How to record a WebM or an animated GIF
 ```shell
 # Start
 adb emu screenrecord start ~/Desktop/output.webm
@@ -31,33 +30,28 @@ adb emu screenrecord stop
 open ~/Desktop/output.webm
 ```
 
-### How to take a screenshot
+## How to take a screenshot
 ```shell
 filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
 adb exec-out screencap -p > ${filepath} && open ${filepath}
 ```
 
-## How to show the API version of the emulator
-```shell
-adb shell getprop ro.product.first_api_level
-```
-
-## How to list emulators
+# How to list emulators
 ```shell
 ~/Library/Android/sdk/emulator/emulator -list-avds
 ```
 
-### How to kill the emulator
+# How to kill the emulator
 ```shell
 adb -s emulator-5554 emu kill
 ```
 
-### How to start the emulator specifying DNS servers
+# How to start the emulator specifying DNS servers
 ```shell
 ~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
 ```
 
-### How to start the emulator and close the shell
+# How to start the emulator and close the shell
 ```shell
 start_emulator() {
   adb -s emulator-5554 emu kill # kills the emulator.
@@ -72,8 +66,8 @@ start_emulator() {
 start_emulator()
 ```
 
-## Enable/Disable
-### How to toggle `Show taps`
+# Enable/Disable
+## How to toggle `Show taps`
 ```shell
 # On
 adb shell settings put system show_touches 1
@@ -85,7 +79,7 @@ adb shell settings put system show_touches 0
 adb shell settings get system show_touches
 ```
 
-### How to toggle `Don't keep activities`
+## How to toggle `Don't keep activities`
 ```shell
 # On
 adb shell settings put global always_finish_activities 1
@@ -97,7 +91,7 @@ adb shell settings put global always_finish_activities 0
 adb shell settings get global always_finish_activities
 ```
 
-### How to toggle `Enable demo mode`
+## How to toggle `Enable demo mode`
 ```shell
 # On
 adb shell settings put global sysui_demo_allowed 1
@@ -109,7 +103,7 @@ adb shell settings put global sysui_demo_allowed 0
 adb shell settings get global sysui_demo_allowed
 ```
 
-### How to toggle `Show demo mode`
+## How to toggle `Show demo mode`
 ```shell
 # On
 adb shell settings put global sysui_tuner_demo_on 1
@@ -121,27 +115,26 @@ adb shell settings put global sysui_tuner_demo_on 0
 adb shell settings get global sysui_tuner_demo_on
 ```
 
-# Other than adb
-## How to share the clipboard between an emulator and macOS
-### macOS -> emulator
+# How to share the clipboard between an emulator and macOS
+## macOS -> emulator
 1. Copy text on macOS.
 2. Long-tap in a text box of an app on an emulator.
 
-### emulator -> macOS
+## emulator -> macOS
 1. Copy text on an emulator.
 2. Paste in an editor on macOS.
 
-## How to transfer a file or a folder between an emulator and macOS
-### macOS -> emulator
+# How to transfer a file or a folder between an emulator and macOS
+## macOS -> emulator
 1. Drag a file or a folder on macOS.
 2. Drop it on an emulator.
 
-### emulator -> macOS
+## emulator -> macOS
 Run the following.
 ```shell
 adb pull /sdcard/<path-to-file>
 ```
 Alternatively, use Device File Explorer of Android Studio.
 
-## OEM unlocking
+# OEM unlocking
 Android emulators don't have the `OEM unlocking` option in `Developer options`.
