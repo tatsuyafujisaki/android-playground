@@ -1,3 +1,38 @@
+# How to show third-party packages
+```shell
+adb shell pm list package -3 | sort' # -3 is to show only third-party packages.
+```
+
+# How to list emulators
+```shell
+~/Library/Android/sdk/emulator/emulator -list-avds
+```
+
+# How to kill the emulator
+```shell
+adb -s emulator-5554 emu kill
+```
+
+# How to start the emulator specifying DNS servers
+```shell
+~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
+```
+
+# How to start the emulator and close the shell
+```shell
+start_emulator() {
+  adb -s emulator-5554 emu kill # kills the emulator.
+
+  # "&|" is to keep an emulator running even after Zsh is closed.
+  # http://zsh.sourceforge.net/Doc/Release/Shell-Builtin-Commands.html
+  ~/Library/Android/sdk/emulator/emulator -avd <emulator> &|
+
+  exit # closes Zsh.
+}
+
+start_emulator()
+```
+
 # Activity/Fragment
 ## How to show the current activity
 ```shell
@@ -34,36 +69,6 @@ open ~/Desktop/output.webm
 ```shell
 filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
 adb exec-out screencap -p > ${filepath} && open ${filepath}
-```
-
-# How to list emulators
-```shell
-~/Library/Android/sdk/emulator/emulator -list-avds
-```
-
-# How to kill the emulator
-```shell
-adb -s emulator-5554 emu kill
-```
-
-# How to start the emulator specifying DNS servers
-```shell
-~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
-```
-
-# How to start the emulator and close the shell
-```shell
-start_emulator() {
-  adb -s emulator-5554 emu kill # kills the emulator.
-
-  # "&|" is to keep an emulator running even after Zsh is closed.
-  # http://zsh.sourceforge.net/Doc/Release/Shell-Builtin-Commands.html
-  ~/Library/Android/sdk/emulator/emulator -avd <emulator> &|
-
-  exit # closes Zsh.
-}
-
-start_emulator()
 ```
 
 # Enable/Disable
