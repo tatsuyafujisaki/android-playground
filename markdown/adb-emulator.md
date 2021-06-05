@@ -10,13 +10,7 @@ adb shell "dumpsys activity activities | grep mResumedActivity
 adb shell dumpsys activity top | grep 'Added Fragments' -A 5
 ```
 
-## Video
-### How to take a screenshot
-```shell
-filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
-adb exec-out screencap -p > ${filepath} && open ${filepath}
-```
-
+## Screenrecord/Screenshot
 ### How to record an MP4
 ```shell
 # Start
@@ -37,7 +31,12 @@ adb emu screenrecord stop
 open ~/Desktop/output.webm
 ```
 
-# Emulator
+### How to take a screenshot
+```shell
+filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
+adb exec-out screencap -p > ${filepath} && open ${filepath}
+```
+
 ## How to show the API version of the emulator
 ```shell
 adb shell getprop ro.product.first_api_level
