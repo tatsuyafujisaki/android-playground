@@ -121,7 +121,7 @@ adb shell settings put global sysui_tuner_demo_on 0
 adb shell settings get global sysui_tuner_demo_on
 ```
 
-# Emulator
+# Other than adb
 ## How to share the clipboard between an emulator and macOS
 ### macOS -> emulator
 1. Copy text on macOS.
