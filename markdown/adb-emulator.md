@@ -1,6 +1,7 @@
 # How to show third-party packages
 ```shell
-adb shell pm list package -3 | sort' # -3 is to show only third-party packages.
+# -3 is to show only third-party packages.
+adb shell pm list package -3 | sort
 ```
 
 # How to list emulators
