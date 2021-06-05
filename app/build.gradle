@@ -125,7 +125,7 @@ dependencies {
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
     implementation 'androidx.core:core-ktx:1.5.0'
     implementation 'androidx.preference:preference-ktx:1.1.1'
-    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
     def fragmentVersion = '1.3.4'
@@ -152,11 +152,11 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
     testImplementation "androidx.paging:paging-common-ktx:$pagingVersion"
 
-    def cameraXVersion = "1.1.0-alpha04"
+    def cameraXVersion = '1.1.0-alpha05'
     implementation "androidx.camera:camera-camera2:${cameraXVersion}"
     implementation "androidx.camera:camera-lifecycle:${cameraXVersion}"
-    implementation 'androidx.camera:camera-view:1.0.0-alpha24'
-    implementation 'androidx.camera:camera-extensions:1.0.0-alpha24'
+    implementation 'androidx.camera:camera-view:1.0.0-alpha25'
+    implementation 'androidx.camera:camera-extensions:1.0.0-alpha25'
 
     /*
      * com.google.android
@@ -195,7 +195,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-    def flipperVersion = '0.91.2'
+    def flipperVersion = '0.92.0'
     debugImplementation "com.facebook.flipper:flipper:$flipperVersion"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipperVersion"
     releaseImplementation "com.facebook.flipper:flipper-noop:$flipperVersion"
@@ -205,7 +205,7 @@ dependencies {
     implementation 'com.facebook.stetho:stetho-okhttp3:1.6.0'
 
     // in case you are not authorized to use coroutines.
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.12'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.13'
     // required for io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 
