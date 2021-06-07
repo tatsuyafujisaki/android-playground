@@ -1,6 +1,6 @@
-# Meanings of onStart and onResume
-* onStart ... Fragment is visible.
-* onResume ... Fragment has focus.
+# Meanings of STARTED and RESUMED
+* STARTED ... Fragment is visible.
+* RESUMED ... Fragment has focus.
 
 # DialogFragment/Fragment lifecycle
 * onAttach()
