@@ -21,6 +21,8 @@
 * onDestroy()
 * onDetach()
 
+Note that onRestoreInstanceState() does not exist in Fragment(s).
+
 # FragmentContainerView
 is a container to which multiple fragments can be added.
 
