@@ -43,8 +43,6 @@ findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.setupWithNavCon
 * Don't use `<fragment>`. Use `<androidx.fragment.app.FragmentContainerView>`.
   * > Caution: Avoid using the <fragment> tag to add a fragment using XML, as the <fragment> tag allows a fragment to move beyond the state of its FragmentManager. Instead, always use FragmentContainerView for adding a fragment using XML.
     * https://developer.android.com/guide/fragments/lifecycle#states
-* saves and restores NavController's state during configuration changes or system-initiated process death.
- * Look for `onSaveInstanceState` in https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:navigation/navigation-fragment/src/main/java/androidx/navigation/fragment/NavHostFragment.kt
 
 # NavController
 * is in a NavHostFragment.
@@ -74,7 +72,40 @@ findNavController().navigate(deepLink: Uri)
   * https://developer.android.com/codelabs/android-navigation#2
 * If you don't specify a list of top-level destinations, then the only top-level destination is your start destination
   * https://developer.android.com/codelabs/android-navigation#8
-* You move from an originating destination to a receiving destination.
+ 
+# How to save and store NavController's state during a configuration change or a system-initiated process death
+* NavHostFragment automatically saves and restores NavController's state during configuration changes or system-initiated process death even if you programatically set a graph. I verified that.
+  * Look for `onSaveInstanceState` in https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:navigation/navigation-fragment/src/main/java/androidx/navigation/fragment/NavHostFragment.kt
+* However, if you have to manually do that, you can do as follows.
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+    private lateinit var navController: NavController
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // ...
+
+        navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        savedInstanceState.getBundle(NAV_STATE)?.let {
+            navController.restoreState(it)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        navController.saveState()?.let {
+            outState.putBundle(NAV_STATE, it)
+        }
+    }
+
+    companion object {
+        const val NAV_STATE = "nav_state"
+    }
+}
 
 # Navigator
 * There are three navigators.
