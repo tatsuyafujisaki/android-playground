@@ -96,7 +96,7 @@ object ContextUtil {
             isCheckable = true
             isCheckedIconVisible = false
             textAlignment = TEXT_ALIGNMENT_CENTER
-            setTextColor(getColorStateList(context, R.color.chip_text_selector))
+            setTextColor(getColorStateList(context, R.color.checked_state_selector))
         }
     }
 
