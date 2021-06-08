@@ -106,6 +106,7 @@ class MainActivity : AppCompatActivity() {
         const val NAV_STATE = "nav_state"
     }
 }
+```
 
 # Navigator
 * There are three navigators.
