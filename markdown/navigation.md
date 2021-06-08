@@ -22,8 +22,6 @@
   * https://www.youtube.com/watch?v=xITkfPIaStU&t=573s
 
 # NavHostFragment
-* is configured via a FragmentContainerView in the layout of an Activity as follows.
-  * https://developer.android.com/guide/navigation/navigation-migrate#create_a_navigation_graph
 ```xml
 <androidx.fragment.app.FragmentContainerView
     android:id="@+id/fragment_container_view"
