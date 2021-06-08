@@ -35,7 +35,6 @@
 ```
 * has a NavController.
 * is like a window to swap in and out different fragment destinations.
-* Activity : FragmentContainerView : NavHostFragment : NavGraph = 1 : 1 : 1
 * If there are more than two NavHostFragment in a layout, only one NavHostFragment must have "app:defaultNavHost="true"", which intercepts the Back button.
   * https://developer.android.com/guide/navigation/navigation-getting-started
 * How to connect NavHostFragment with BottomNavigationView
@@ -46,6 +45,8 @@ findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.setupWithNavCon
 * Don't use `<fragment>`. Use `<androidx.fragment.app.FragmentContainerView>`.
   * > Caution: Avoid using the <fragment> tag to add a fragment using XML, as the <fragment> tag allows a fragment to move beyond the state of its FragmentManager. Instead, always use FragmentContainerView for adding a fragment using XML.
     * https://developer.android.com/guide/fragments/lifecycle#states
+* saves and restores NavController's state during configuration changes or system-initiated process death.
+ * Look for `onSaveInstanceState` in https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:navigation/navigation-fragment/src/main/java/androidx/navigation/fragment/NavHostFragment.kt
 
 # NavController
 * is in a NavHostFragment.
