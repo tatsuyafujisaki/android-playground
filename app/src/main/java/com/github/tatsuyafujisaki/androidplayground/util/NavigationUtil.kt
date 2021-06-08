@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 import androidx.fragment.app.FragmentManager
@@ -18,8 +19,14 @@ object NavigationUtil {
     val NavController.canNavigateUp
         get() = graph.startDestination != currentDestination?.id
 
-    fun NavController.setNavGraphIfAbsent(@NavigationRes graphResId: Int) {
-        if (currentDestination == null) {
+    fun NavController.setNavGraphIfAbsent(
+        @NavigationRes graphResId: Int,
+        startDestinationArgs: Bundle?
+    ) {
+        if (currentDestination != null) return
+        if (startDestinationArgs != null) {
+            setGraph(graphResId, startDestinationArgs)
+        } else {
             setGraph(graphResId)
         }
     }
@@ -40,7 +47,7 @@ object NavigationUtil {
         val graph = navInflater.inflate(graphResId).apply {
             startDestination = startDestId
         }
-        setGraph(graph /*, MyReceivingDestinationArgs(arg1, arg2).toBundle() */)
+        setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
     }
 
     /**
