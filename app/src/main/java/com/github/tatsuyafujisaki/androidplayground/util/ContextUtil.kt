@@ -90,8 +90,8 @@ object ContextUtil {
         return Chip(this).apply {
             this.text = text
             this.tag = tag
-            chipBackgroundColor = getColorStateList(context, R.color.chip_background_selector)
-            chipStrokeColor = getColorStateList(context, R.color.chip_stroke_selector)
+            chipBackgroundColor = getColorStateList(context, R.color.checked_state_selector)
+            chipStrokeColor = getColorStateList(context, R.color.checked_state_selector)
             chipStrokeWidth = 1f
             isCheckable = true
             isCheckedIconVisible = false
