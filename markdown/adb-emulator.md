@@ -85,18 +85,6 @@ adb shell settings put global development_settings_enabled 0
 adb shell settings get global development_settings_enabled
 ```
 
-## How to toggle `Show taps`
-```shell
-# On
-adb shell settings put system show_touches 1
-
-# Off
-adb shell settings put system show_touches 0
-
-# Get
-adb shell settings get system show_touches
-```
-
 ## How to toggle `Don't keep activities`
 ```shell
 # On
@@ -131,6 +119,18 @@ adb shell settings put global sysui_tuner_demo_on 0
 
 # Get
 adb shell settings get global sysui_tuner_demo_on
+```
+
+## How to toggle `Show taps`
+```shell
+# On
+adb shell settings put system show_touches 1
+
+# Off
+adb shell settings put system show_touches 0
+
+# Get
+adb shell settings get system show_touches
 ```
 
 # How to share the clipboard between an emulator and macOS
