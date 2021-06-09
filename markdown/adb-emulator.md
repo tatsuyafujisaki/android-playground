@@ -72,7 +72,19 @@ filepath=~/Desktop/$(date +%Y%m%d-%H%M%S).png
 adb exec-out screencap -p > ${filepath} && open ${filepath}
 ```
 
-# Enable/Disable
+# Toggle (Enable/Disable)
+## How to toggle `Developer options`
+```shell
+# On
+adb shell settings put global development_settings_enabled 1
+
+# Off
+adb shell settings put global development_settings_enabled 0
+
+# Get
+adb shell settings get global development_settings_enabled
+```
+
 ## How to toggle `Show taps`
 ```shell
 # On
