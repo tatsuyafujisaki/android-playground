@@ -9,19 +9,24 @@ adb shell pm list package -3 | sort
 ~/Library/Android/sdk/emulator/emulator -list-avds
 ```
 
-# How to kill the running emulators
+# How to kill the emulators
 ```shell
 adb emu kill
 ```
 
-# How to start the emulator specifying DNS servers
+# How to start an emulator specifying DNS servers
 ```shell
-~/Library/Android/sdk/emulator/emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
+emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
 ```
 
-# How to start the emulator and close the shell
+# How to start an emulator
 ```shell
-~/Library/Android/sdk/emulator/emulator -avd <emulator> &|
+# Kill running emulators
+adb emu kill
+
+# "&|" is to keep an emulator running even after Zsh is closed.
+# http://zsh.sourceforge.net/Doc/Release/Shell-Builtin-Commands.html
+emulator -avd <emulator> &|
 ```
 
 # Activity/Fragment
