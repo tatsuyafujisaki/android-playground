@@ -6,7 +6,7 @@ adb shell pm list package -3 | sort
 
 # How to list emulators
 ```shell
-~/Library/Android/sdk/emulator/emulator -list-avds
+emulator -list-avds
 ```
 
 # How to kill emulators
