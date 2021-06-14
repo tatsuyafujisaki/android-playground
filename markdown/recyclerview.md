@@ -69,3 +69,24 @@ adapter.registerAdapterDataObserver(
 * `getItemId()` returns the ID of an item bound to the ViewHolder.
 * `getAbsoluteAdapterPosition()` returns a MergeAdapter position.
 * `getLayoutPosition()` returns a layout position.
+
+# How to save and store RecyclerView's state during a configuration change or a system-initiated process death
+```kotlin
+class MyFragment : Fragment() {
+    private lateinit var binding: MyFragmentBinding
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        savedInstanceState?.getParcelable<Parcelable>(LAYOUT_MANAGER_STATE)?.let {
+            binding.recyclerView.layoutManager?.onRestoreInstanceState(it)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putParcelable(LAYOUT_MANAGER_STATE, binding.recyclerView.layoutManager?.onSaveInstanceState())
+    }
+
+    companion object {
+        private const val LAYOUT_MANAGER_STATE = "layout_manager_state"
+    }
+}
+```
