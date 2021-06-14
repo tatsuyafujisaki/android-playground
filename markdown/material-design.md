@@ -67,7 +67,7 @@ An example of a determinate circular progress indicator
   app:trackThickness="10dp" />
 ```
 
-<img src="https://user-images.githubusercontent.com/1838962/121907165-c4614780-cd66-11eb-8ac5-c4b08a636d2d.png" width="320" />
+<img src="https://user-images.githubusercontent.com/1838962/121907165-c4614780-cd66-11eb-8ac5-c4b08a636d2d.png" width="240" />
 
 ## References
 * https://material.io/components/progress-indicators/android
