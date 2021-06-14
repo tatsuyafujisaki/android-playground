@@ -51,6 +51,9 @@ Or if you want to create a style:
 </resources>
 ```
 
+# Inset
+means a margin that increases the area that responds to touch events.
+
 ## References
 * https://material.io/develop/android/theming/typography/
 * https://material.io/design/typography/the-type-system.html
