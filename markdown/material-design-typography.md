@@ -52,7 +52,7 @@ Or if you want to create a style:
 ```
 
 # Inset
-means a margin that increases the area that responds to touch events.
+is a margin that increases the area that responds to touch events.
 
 ## References
 * https://material.io/develop/android/theming/typography/
