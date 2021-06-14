@@ -56,9 +56,6 @@ adapter.registerAdapterDataObserver(
   * This method is available only if `RecyclerView.Adapter.hasStableIds()` is `true`.
 * `setHasStableIds(hasStableIds: Boolean)` takes `true` when each item has an ID.
 
-# ListAdapter
-* inherits `RecyclerView.Adapter`.
-
 # RecyclerView.ViewHolder
 * is created by `RecyclerView.Adapter.onCreateViewHolder(...)` only as many as necessary for screen.
 * contains an item by `RecyclerView.Adapter.onBindViewHolder(...)`.
