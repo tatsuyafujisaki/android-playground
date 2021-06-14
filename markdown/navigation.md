@@ -97,13 +97,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        navController.saveState()?.let {
-            outState.putBundle(NAV_STATE, it)
-        }
+        outState.putBundle(NAV_STATE, navController.saveState())
     }
 
     companion object {
-        const val NAV_STATE = "nav_state"
+        private const val NAV_STATE = "nav_state"
     }
 }
 ```
