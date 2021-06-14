@@ -54,6 +54,26 @@ Or if you want to create a style:
 # Inset
 is a margin that increases the area that responds to touch events.
 
+# CircularProgressIndicator
+An example of a determinate circular progress indicator
+```xml
+<com.google.android.material.progressindicator.CircularProgressIndicator
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:progress="75"
+  app:indicatorColor="#FF0000"
+  app:indicatorSize="100dp"
+  app:trackColor="#D3D3D3"
+  app:trackThickness="10dp" />
+```
+
+<img src="https://user-images.githubusercontent.com/1838962/121907165-c4614780-cd66-11eb-8ac5-c4b08a636d2d.png" width="320" />
+
+## References
+* https://material.io/components/progress-indicators/android
+* https://developer.android.com/reference/com/google/android/material/progressindicator/CircularProgressIndicator
+* https://github.com/material-components/material-components-android
+
 ## References
 * https://material.io/develop/android/theming/typography/
 * https://material.io/design/typography/the-type-system.html
