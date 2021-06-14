@@ -414,7 +414,7 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 [jetpack-compose.md](markdown/jetpack-compose.md)
 
 # Material Design typography
-[material-design-typography.md](markdown/material-design-typography.md)
+[material-design.md](markdown/material-design.md)
 
 # Navigation
 [navigation.md](markdown/navigation.md)
