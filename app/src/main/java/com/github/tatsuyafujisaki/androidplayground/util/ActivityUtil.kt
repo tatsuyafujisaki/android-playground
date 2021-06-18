@@ -25,15 +25,11 @@ object ActivityUtil {
             get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         fun Activity.openKeyboard() {
-            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+            WindowInsetsControllerCompat(window, window.decorView).show(WindowInsetsCompat.Type.ime())
         }
 
-        /**
-         * No need to call [Activity.getCurrentFocus] because even if it is null,
-         * the keyboard can be closed.
-         */
         fun Activity.hideKeyboard() {
-            inputMethodManager.hideSoftInputFromWindow(window.decorView.windowToken, 0)
+            WindowInsetsControllerCompat(window, window.decorView).hide(WindowInsetsCompat.Type.ime())
         }
 
         fun Activity.hideKeyboardOnEnter() = View.OnKeyListener { _, keyCode, _ ->
