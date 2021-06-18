@@ -9,6 +9,9 @@ import android.view.View.OnKeyListener
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.findNavController
@@ -48,5 +51,19 @@ object ActivityUtil {
         lifecycle.addObserver(LifecycleEventObserver { _, event ->
             Log.d(tag, event.toString())
         })
+    }
+
+    fun Activity.hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        with(WindowInsetsControllerCompat(window, window.decorView)) {
+            hide(WindowInsetsCompat.Type.statusBars() or WindowInsetsCompat.Type.navigationBars())
+            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE
+        }
+    }
+
+    fun Activity.showSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+        WindowInsetsControllerCompat(window, window.decorView)
+            .show(WindowInsetsCompat.Type.statusBars() or WindowInsetsCompat.Type.navigationBars())
     }
 }
