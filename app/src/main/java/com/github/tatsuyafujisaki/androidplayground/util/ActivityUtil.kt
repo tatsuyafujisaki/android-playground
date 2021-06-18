@@ -11,6 +11,7 @@ import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleEventObserver
@@ -25,11 +26,11 @@ object ActivityUtil {
             get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
         fun Activity.openKeyboard() {
-            WindowInsetsControllerCompat(window, window.decorView).show(WindowInsetsCompat.Type.ime())
+            WindowInsetsControllerCompat(window, window.decorView).show(Type.ime())
         }
 
         fun Activity.hideKeyboard() {
-            WindowInsetsControllerCompat(window, window.decorView).hide(WindowInsetsCompat.Type.ime())
+            WindowInsetsControllerCompat(window, window.decorView).hide(Type.ime())
         }
 
         fun Activity.hideKeyboardOnEnter() = View.OnKeyListener { _, keyCode, _ ->
