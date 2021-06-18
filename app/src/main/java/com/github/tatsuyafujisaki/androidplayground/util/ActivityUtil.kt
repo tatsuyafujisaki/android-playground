@@ -33,11 +33,13 @@ object ActivityUtil {
     fun ComponentActivity.hasEnabledCallbacks() =
         onBackPressedDispatcher.hasEnabledCallbacks()
 
+    /**
+     * No need to call [Activity.getCurrentFocus] because even if it is null,
+     * the keyboard can be closed.
+     */
     private fun Activity.hideKeyboard() {
-        currentFocus?.windowToken?.let {
-            (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-                .hideSoftInputFromWindow(it, 0)
-        }
+        (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+            .hideSoftInputFromWindow(window.decorView.windowToken, 0)
     }
 
     fun Activity.hideKeyboardOnEnter() = OnKeyListener { v, keyCode, _ ->
