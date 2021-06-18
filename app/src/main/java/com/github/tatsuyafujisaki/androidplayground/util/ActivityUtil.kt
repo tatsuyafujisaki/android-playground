@@ -23,9 +23,6 @@ object ActivityUtil {
     fun Activity.canResolveActivity(intent: Intent) =
         packageManager.resolveActivity(intent, 0) != null
 
-    private val Activity.inputMethodManager
-        get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-
     fun Activity.getNavController(@IdRes navHostFragmentId: Int) =
         findNavController(navHostFragmentId)
 
@@ -36,9 +33,16 @@ object ActivityUtil {
     fun ComponentActivity.hasEnabledCallbacks() =
         onBackPressedDispatcher.hasEnabledCallbacks()
 
+    private fun Activity.hideKeyboard() {
+        currentFocus?.windowToken?.let {
+            (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+                .hideSoftInputFromWindow(it, 0)
+        }
+    }
+
     fun Activity.hideKeyboardOnEnter() = OnKeyListener { v, keyCode, _ ->
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            inputMethodManager.hideSoftInputFromWindow(v.windowToken, 0)
+            hideKeyboard()
             true
         } else {
             false
