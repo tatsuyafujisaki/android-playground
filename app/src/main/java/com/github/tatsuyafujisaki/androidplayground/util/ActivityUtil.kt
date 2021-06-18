@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.KeyEvent
-import android.view.View.OnKeyListener
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
@@ -20,6 +20,32 @@ import androidx.navigation.findNavController
  * Impractical redundant explanatory wrappers
  */
 object ActivityUtil {
+    object Keyboard {
+        private val Activity.inputMethodManager
+            get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+        fun Activity.openKeyboard() {
+            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+        }
+
+        /**
+         * No need to call [Activity.getCurrentFocus] because even if it is null,
+         * the keyboard can be closed.
+         */
+        fun Activity.hideKeyboard() {
+            inputMethodManager.hideSoftInputFromWindow(window.decorView.windowToken, 0)
+        }
+
+        fun Activity.hideKeyboardOnEnter() = View.OnKeyListener { _, keyCode, _ ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                hideKeyboard()
+                true
+            } else {
+                false
+            }
+        }
+    }
+
     fun Activity.canResolveActivity(intent: Intent) =
         packageManager.resolveActivity(intent, 0) != null
 
@@ -32,24 +58,6 @@ object ActivityUtil {
 
     fun ComponentActivity.hasEnabledCallbacks() =
         onBackPressedDispatcher.hasEnabledCallbacks()
-
-    /**
-     * No need to call [Activity.getCurrentFocus] because even if it is null,
-     * the keyboard can be closed.
-     */
-    private fun Activity.hideKeyboard() {
-        (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-            .hideSoftInputFromWindow(window.decorView.windowToken, 0)
-    }
-
-    fun Activity.hideKeyboardOnEnter() = OnKeyListener { v, keyCode, _ ->
-        if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            hideKeyboard()
-            true
-        } else {
-            false
-        }
-    }
 
     fun Activity.getExtraString(key: String) = intent?.extras?.getString(key).orEmpty()
 
