@@ -45,8 +45,8 @@ object ActivityUtil {
         fun Activity.fullscreen() {
             // WindowCompat.setDecorFitsSystemWindows(window, true)
             with(WindowInsetsControllerCompat(window, window.decorView)) {
-                hide(Type.systemBars())
                 systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE
+                hide(Type.systemBars())
             }
         }
 
