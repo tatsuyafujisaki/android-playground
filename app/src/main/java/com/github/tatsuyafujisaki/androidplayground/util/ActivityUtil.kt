@@ -9,7 +9,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
-import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentActivity
@@ -43,8 +42,8 @@ object ActivityUtil {
     }
 
     object Fullscreen {
-        fun Activity.requestFullscreen() {
-            WindowCompat.setDecorFitsSystemWindows(window, true)
+        fun Activity.fullscreen() {
+            // WindowCompat.setDecorFitsSystemWindows(window, true)
             with(WindowInsetsControllerCompat(window, window.decorView)) {
                 hide(Type.systemBars())
                 systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE
@@ -52,7 +51,7 @@ object ActivityUtil {
         }
 
         fun Activity.exitFullscreen() {
-            WindowCompat.setDecorFitsSystemWindows(window, false)
+            // WindowCompat.setDecorFitsSystemWindows(window, false)
             WindowInsetsControllerCompat(window, window.decorView).show(Type.systemBars())
         }
     }
