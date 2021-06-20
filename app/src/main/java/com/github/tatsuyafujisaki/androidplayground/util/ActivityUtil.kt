@@ -10,7 +10,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentActivity
@@ -43,6 +42,21 @@ object ActivityUtil {
         }
     }
 
+    object Fullscreen {
+        fun Activity.requestFullscreen() {
+            WindowCompat.setDecorFitsSystemWindows(window, true)
+            with(WindowInsetsControllerCompat(window, window.decorView)) {
+                hide(Type.systemBars())
+                systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE
+            }
+        }
+
+        fun Activity.exitFullscreen() {
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            WindowInsetsControllerCompat(window, window.decorView).show(Type.systemBars())
+        }
+    }
+
     fun Activity.canResolveActivity(intent: Intent) =
         packageManager.resolveActivity(intent, 0) != null
 
@@ -62,19 +76,5 @@ object ActivityUtil {
         lifecycle.addObserver(LifecycleEventObserver { _, event ->
             Log.d(tag, event.toString())
         })
-    }
-
-    fun Activity.hideSystemUI() {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        with(WindowInsetsControllerCompat(window, window.decorView)) {
-            hide(WindowInsetsCompat.Type.statusBars() or WindowInsetsCompat.Type.navigationBars())
-            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE
-        }
-    }
-
-    fun Activity.showSystemUI() {
-        WindowCompat.setDecorFitsSystemWindows(window, true)
-        WindowInsetsControllerCompat(window, window.decorView)
-            .show(WindowInsetsCompat.Type.statusBars() or WindowInsetsCompat.Type.navigationBars())
     }
 }
