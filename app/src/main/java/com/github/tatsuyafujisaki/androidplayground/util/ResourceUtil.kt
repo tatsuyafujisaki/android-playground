@@ -19,6 +19,6 @@ object ResourceUtil {
      * Prefer [ContextUtil.getDrawable2] for simplicity.
      */
     fun Resources.getDrawable2(@DrawableRes id: Int) = ResourcesCompat.getDrawable(this, id, null)
-    fun Resources.getPixel(@DimenRes id: Int) = getDimensionPixelOffset(id)
+    fun Resources.getPixel(@DimenRes id: Int) = getDimensionPixelSize(id)
     fun Resources.getString2(@StringRes id: Int) = getString(id)
 }
