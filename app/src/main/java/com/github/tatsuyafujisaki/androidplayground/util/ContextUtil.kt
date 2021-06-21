@@ -15,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColorStateList
@@ -28,6 +29,9 @@ import com.google.android.material.snackbar.Snackbar
 import java.io.BufferedReader
 
 object ContextUtil {
+    fun Context.getColor2(@ColorRes id: Int) = ContextCompat.getColor(this, id)
+    fun Context.getDrawable2(@DrawableRes id: Int) = ContextCompat.getDrawable(this, id)
+
     val Context.isInteractive
         get() = (getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
 
