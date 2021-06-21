@@ -21,4 +21,10 @@ object ResourceUtil {
     fun Resources.getDrawable2(@DrawableRes id: Int) = ResourcesCompat.getDrawable(this, id, null)
     fun Resources.getPixel(@DimenRes id: Int) = getDimensionPixelSize(id)
     fun Resources.getString2(@StringRes id: Int) = getString(id)
+
+    /** Converts dp to pixel */
+    val Int.toPx: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+    /** Converts pixel to dp */
+    val Int.toDp: Int get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 }
