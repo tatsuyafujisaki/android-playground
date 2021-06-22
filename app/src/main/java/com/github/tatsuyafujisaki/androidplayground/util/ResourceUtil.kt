@@ -11,10 +11,10 @@ import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.getDrawable
 
 object ResourceUtil {
     /** Converts dp to pixel */
-    val Int.toPx: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+    val Int.toPx get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
     /** Converts pixel to dp */
-    val Int.toDp: Int get() = (this / Resources.getSystem().displayMetrics.density).toInt()
+    val Int.toDp get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 
     /**
      * Prefer [ContextUtil.getColor2] for simplicity.
