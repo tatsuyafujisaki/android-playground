@@ -30,6 +30,7 @@ import com.google.android.material.snackbar.Snackbar
 import java.io.BufferedReader
 
 object ContextUtil {
+    @ColorInt
     fun Context.getColor2(@ColorRes id: Int) = getColor(id)
     fun Context.getDrawable2(@DrawableRes id: Int) = AppCompatResources.getDrawable(this, id)
     fun Context.getDrawable3(@DrawableRes id: Int) = ContextCompat.getDrawable(this, id)
