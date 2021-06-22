@@ -12,20 +12,20 @@ import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.getColor2
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.getDrawable2
 
 object ResourceUtil {
-    /** Converts dp to pixel */
+    /** Converts dp to pixel. */
     val Int.px get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
-    /** Converts pixel to dp */
+    /** Converts pixel to dp. */
     val Int.dp get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 
     /**
-     * Prefer [ContextUtil.getColor2] for simplicity.
+     * Use [ContextUtil.getColor2] for simplicity.
      */
     @ColorInt
     fun Resources.getColor2(@ColorRes id: Int) = getColor(id, null)
 
     /**
-     * Prefer [ContextUtil.getDrawable2] for simplicity.
+     * Use [ContextUtil.getDrawable2] for simplicity.
      */
     fun Resources.getDrawable2(@DrawableRes id: Int) = ResourcesCompat.getDrawable(this, id, null)
 
