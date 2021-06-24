@@ -19,6 +19,22 @@ object NavigationUtil {
     val NavController.canNavigateUp
         get() = graph.startDestination != currentDestination?.id
 
+    /**
+     * For debugging purposes, you can ignore the lint error and list non-NavGraph destinations on the back stack.
+     */
+    @SuppressLint("RestrictedApi")
+    val NavController.breadcrumb
+        get() = backStack
+            .map {
+                it.destination
+            }
+            .filterNot {
+                it is NavGraph
+            }
+            .joinToString(" > ") {
+                it.displayName.split('/')[1]
+            }
+
     fun NavController.setNavGraphIfAbsent(
         @NavigationRes graphResId: Int,
         startDestinationArgs: Bundle?
@@ -55,21 +71,4 @@ object NavigationUtil {
      */
     fun FragmentManager.getNavHostFragment(@IdRes navHostFragmentId: Int) =
         findFragmentById(navHostFragmentId) as NavHostFragment
-
-    /**
-     * For debugging purposes, you can ignore the lint error and list non-NavGraph destinations on the back stack.
-     */
-    @SuppressLint("RestrictedApi")
-    fun NavController.printBackStack() {
-        backStack
-            .map {
-                it.destination
-            }
-            .filterNot {
-                it is NavGraph
-            }
-            .joinToString(" > ") {
-                it.displayName.split('/')[1]
-            }
-    }
 }
