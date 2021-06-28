@@ -12,6 +12,9 @@ plugins {
 
 android {
     compileSdkVersion 30
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         applicationId 'com.github.tatsuyafujisaki.androidplayground'
         minSdkVersion 23
@@ -20,19 +23,17 @@ android {
         versionName '1.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
-    buildFeatures {
-        viewBinding true
-    }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
 
+            // https://bumptech.github.io/glide/doc/download-setup.html#proguard
+            // https://github.com/Kotlin/kotlinx.serialization#android
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
                 'proguard-rules.pro',
-                'glide.pro', // https://bumptech.github.io/glide/doc/download-setup.html#proguard
+                'glide.pro',
                 'kotlin-serialization.pro'
-            // https://github.com/Kotlin/kotlinx.serialization#android
 
             buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
 
@@ -50,16 +51,6 @@ android {
     testOptions {
         unitTests {
             includeAndroidResources true // Robolectric
-        }
-
-        /*
-         * Unless explicitly specified, the following default is used.
-         * https://developer.android.com/reference/tools/gradle-api/com/android/build/api/dsl/LintOptions
-         * https://developer.android.com/studio/write/lint#gradle
-         */
-        lintOptions {
-            // Keep on building even if errors are found. Default is true.
-            abortOnError false
         }
     }
 
@@ -81,23 +72,6 @@ android {
      *     jvmTarget = '1.8'
      * }
      */
-
-    /*
-     * for debugging purposes
-     */
-
-//    productFlavors.all { productFlavor ->
-//        println 'productFlavor: ' + productFlavor.name
-//    }
-//
-//    buildTypes.all { buildType ->
-//        println 'buildType: ' + buildType.name
-//    }
-//
-//    applicationVariants.all { applicationVariant ->
-//        println 'buildVariant: ' + applicationVariant.name
-//        println 'buildVariant (capitalized): ' + applicationVariant.name.capitalize()
-//    }
 }
 
 dependencies {
