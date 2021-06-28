@@ -17,10 +17,9 @@ import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBind
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.toast
 import com.github.tatsuyafujisaki.androidplayground.util.NavigationUtil.currentFragment
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
+// @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration

@@ -63,10 +63,4 @@ object NavigationUtil {
         }
         setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
     }
-
-    /**
-     * @id Resource ID of FragmentContainerView where NavHostFragment is set.
-     */
-    fun FragmentManager.getNavHostFragment(@IdRes navHostFragmentId: Int) =
-        findFragmentById(navHostFragmentId) as NavHostFragment
 }

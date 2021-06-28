@@ -9,9 +9,8 @@ import com.facebook.flipper.plugins.network.BuildConfig
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.soloader.SoLoader
 import com.facebook.stetho.Stetho
-import dagger.hilt.android.HiltAndroidApp
 
-@HiltAndroidApp
+// @HiltAndroidApp
 class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
