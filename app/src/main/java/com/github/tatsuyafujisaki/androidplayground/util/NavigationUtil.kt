@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
@@ -22,7 +21,6 @@ object NavigationUtil {
     /**
      * For debugging purposes, you can ignore the lint error and list non-NavGraph destinations on the back stack.
      */
-    @SuppressLint("RestrictedApi")
     val NavController.breadcrumb
         get() = backStack
             .map {
