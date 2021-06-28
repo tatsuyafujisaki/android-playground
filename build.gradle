@@ -1,6 +1,8 @@
 buildscript {
     ext {
-        kotlinVersion = '1.5.20'
+        // Hilt causes a build error for an app with Kotlin 1.5.20.
+        // https://github.com/google/dagger/issues/2684
+        kotlinVersion = '1.5.10'
         navigationVersion = '2.3.5'
         hiltVersion = '2.37'
     }
@@ -10,8 +12,8 @@ buildscript {
     }
     dependencies {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath 'com.android.tools.build:gradle:4.2.1'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.7.1'
         classpath 'com.google.gms:google-services:4.3.8'
