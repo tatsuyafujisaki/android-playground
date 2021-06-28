@@ -4,5 +4,5 @@
 https://developer.android.com/jetpack/androidx/releases/core#declaring_dependencies
 
 # Main-safe function
-* means that the function is safe to call from the main thread. The function does not block the thread because it runs on the background thread.
+* means that the function is safe to call from the main thread. The function does not block the main thread because it runs on the background thread.
 * For example, suspend functions are main-safe.
