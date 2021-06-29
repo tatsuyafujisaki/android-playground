@@ -2,7 +2,7 @@ buildscript {
     ext {
         // Hilt causes a build error for an app with Kotlin 1.5.20.
         // https://github.com/google/dagger/issues/2684
-        kotlinVersion = '1.5.10'
+        kotlinVersion = '1.5.20'
         navigationVersion = '2.3.5'
         hiltVersion = '2.37'
     }
