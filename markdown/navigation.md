@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
 ```xml
 <action
     android:id="@+id/action1"
-    app:destination="@id/destination1" or "@id/nestedGraph1"
+    app:destination="@id/destination1" or "@id/nested_graph1"
     app:popUpTo="@id/start_fragment"
     app:popUpToInclusive="true" /> <!-- Default is false -->
 ```
