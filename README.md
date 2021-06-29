@@ -389,7 +389,7 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 # Charles
 [charles.md](markdown/charles.md)
 
-# Constriant Layout
+# ConstriantLayout
 [constraint-layout.md](markdown/constraint-layout.md)
 
 # Dagger
