@@ -31,6 +31,10 @@ object ActivityUtil {
             WindowInsetsControllerCompat(window, window.decorView).hide(Type.ime())
         }
 
+        fun Activity.hideKeyboardOldWay() {
+            inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        }
+
         fun Activity.hideKeyboardOnEnter() = View.OnKeyListener { _, keyCode, _ ->
             if (keyCode == KeyEvent.KEYCODE_ENTER) {
                 hideKeyboard()
