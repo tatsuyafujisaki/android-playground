@@ -68,10 +68,19 @@ findNavController().navigate(deepLink: Uri)
   * > attempting to retrieve the NavController in onCreate() of an Activity via Navigation.findNavController(Activity, @IdRes int) will fail. 
 
 # NavDestination
-* is either `<fragment>`, `<dialog>`, or `<activity>`.
+* is either one of them
+  * `<fragment>` (FragmentNavigator)
+  * `<dialog>` (DialogFragmentNavigator)
+  * `<activity>` (ActivityNavigator)
   * https://developer.android.com/codelabs/android-navigation#2
 * If you don't specify a list of top-level destinations, then the only top-level destination is your start destination
   * https://developer.android.com/codelabs/android-navigation#8
+* can contain three types of XML elements.
+  * `<action>`
+    * `<activity>` cannot contain `<action>` because activities are considered terminal destinations.
+      * https://developer.android.com/guide/navigation/navigation-migrate#create_a_navigation_graph
+  * `<argument>`
+  * `<deepLink>` 
  
 # How to save and store NavController's state during a configuration change or a system-initiated process death
 * NavHostFragment automatically saves and restores NavController's state during configuration changes or system-initiated process death even if you programatically set a graph. I verified that.
@@ -105,18 +114,6 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-
-# Navigator
-* There are three navigators.
-  * `<fragment>` (FragmentNavigator)
-  * `<dialog>` (DialogFragmentNavigator)
-  * `<activity>` (ActivityNavigator)
-* can contain three types of XML elements.
-  * `<action>`
-    * `<activity>` cannot contain `<action>` because activities are considered terminal destinations.
-      * https://developer.android.com/guide/navigation/navigation-migrate#create_a_navigation_graph
-  * `<argument>`
-  * `<deepLink>`
 
 # NavGraph
 * is equivalent of `<navigation>` in XML.
