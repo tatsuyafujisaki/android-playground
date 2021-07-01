@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
 * > each activity has its own navigation graph.
   * https://developer.android.com/guide/navigation/navigation-getting-started
 
-## Nested graph
+## Nested graphs
 * is a nested `<navigation>`.
 ```xml
 <!-- parent graph -->
@@ -137,6 +137,7 @@ class MainActivity : AppCompatActivity() {
 <!-- @navigatoin/child_nav -->
 <navigation android:id="@+id/child_nav" … >...</navigation>
 ```
+* Destinations in the outer graph cannot directly navigate to any destination, except the start destination, in the inner graph.
 
 ## `<action>`
 * is represented as an arrow in a visual navigation graph.
