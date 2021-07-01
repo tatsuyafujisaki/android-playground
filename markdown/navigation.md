@@ -117,14 +117,6 @@ class MainActivity : AppCompatActivity() {
       * https://developer.android.com/guide/navigation/navigation-migrate#create_a_navigation_graph
   * `<argument>`
   * `<deepLink>`
-* A template of a navigator
-```xml
-<fragment
-   android:id="@+id/destination1"
-   android:name="com.example.Fragment1"
-   android:label="Page title on a top app bar" or "{argName}" for automatic population. (https://developer.android.com/guide/navigation/navigation-ui)
-   tools:layout="@layout/fragment1" />
-```
 
 # NavGraph
 * is equivalent of `<navigation>` in XML.
@@ -152,13 +144,6 @@ class MainActivity : AppCompatActivity() {
 ## `<action>`
 * is represented as an arrow in a visual navigation graph.
 * is a connection from one destination to another.
-```xml
-<action
-    android:id="@+id/action1"
-    app:destination="@id/destination1" or "@id/nested_graph1"
-    app:popUpTo="@id/start_fragment"
-    app:popUpToInclusive="true" /> <!-- Default is false -->
-```
 
 ### `app:popUpTo`
 is used when you want to pop more than one destination.
@@ -219,20 +204,6 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
   * https://stackoverflow.com/a/40626742
 
 # Animation
-```xml
-<fragment
-    android:id="@+id/fragment1"
-    android:name="com.example.Fragment1"
-    tools:layout="@layout/fragment_a">
-    <action
-        android:id="@+id/action_fragment1_to_fragment2"
-        app:destination="@id/fragment2"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right" />
-</fragment>
-```
 * `app:enterAnim` … How Fragment2 appears when you move from Fragment1 to Fragment2.
   * If `app:enterAnim="@anim/slide_in_right"` is specified, Fragment2 slides in from the left.
   * If `app:enterAnim=...` is not specified, Fragment2 shows up without animation.
@@ -241,6 +212,33 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
   * If `app:exitAnim=...` is not specified, Fragment1 stays still and Fragment2 shows up over the Fragment1, with the animation `app:enterAnim`.
 * `app:popEnterAnim` … How Fragment1 appears when you move back from Fragment2 to Fragment1, by the pop action.
 * `app:popExitAnim` … How Fragment2 disappears when you move back from Fragment2 to Fragment1, by the pop action.
+
+# Template
+```xml
+<fragment
+    android:id="@+id/first_fragment"
+    android:name="com.example.FirstFragment"
+    tools:layout="@layout/fragment_first">
+    <argument
+        android:name="my_data_class"
+        android:defaultValue="@null"
+        app:argType="com.example.MyDataClass"
+        app:nullable="true" />
+    <argument
+        android:name="my_string"
+        android:defaultValue="@null"
+        app:argType="string" />
+    <action
+        android:id="@+id/action_first_fragment_to_second_fragment"
+        app:destination="@id/second_fragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:popUpTo="@id/start_fragment"
+        app:popUpToInclusive="true" />
+</fragment>
+```
 
 # Misc
 * "Simulated back stack" and "Synthetic back stack" are the same thing.
