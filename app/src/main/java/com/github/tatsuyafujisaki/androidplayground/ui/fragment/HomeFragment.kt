@@ -56,7 +56,7 @@ class HomeFragment : Fragment(), WebViewContainer {
             }
 
             navigateToSampleFragmentButton.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_from_home_to_sample)
+                Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_sampleFragment)
             )
 
             mainViewModel.liveData.observe(viewLifecycleOwner) {

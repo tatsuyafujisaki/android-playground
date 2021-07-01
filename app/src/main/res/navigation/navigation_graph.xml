@@ -1,25 +1,25 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/destination_home">
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/destination_home"
+        android:id="@+id/homeFragment"
         android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment"
         android:label="HomeFragment">
         <action
-            android:id="@+id/action_from_home_to_sample"
-            app:destination="@id/destination_sample" />
+            android:id="@+id/action_homeFragment_to_sampleFragment"
+            app:destination="@id/sampleFragment" />
     </fragment>
     <fragment
-        android:id="@+id/destination_explore"
+        android:id="@+id/exploreFragment"
         android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.ExploreFragment"
         android:label="ExploreFragment" />
     <fragment
-        android:id="@+id/destination_account"
+        android:id="@+id/accountFragment"
         android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.HomeFragment"
         android:label="AccountFragment" />
     <fragment
-        android:id="@+id/destination_sample"
+        android:id="@+id/sampleFragment"
         android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleFragment"
         android:label="SampleFragment" />
 </navigation>
