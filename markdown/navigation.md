@@ -213,20 +213,16 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
 # Template
 ```xml
 <fragment
-    android:id="@+id/first_fragment"
+    android:id="@+id/firstFragment"
     android:name="com.example.FirstFragment"
     tools:layout="@layout/fragment_first">
     <argument
-        android:name="my_data_class"
+        android:name="myData"
         android:defaultValue="@null"
-        app:argType="com.example.MyDataClass"
+        app:argType="com.example.MyData"
         app:nullable="true" />
-    <argument
-        android:name="my_string"
-        android:defaultValue="@null"
-        app:argType="string" />
     <action
-        android:id="@+id/action_first_fragment_to_second_fragment"
+        android:id="@+id/action_firstFragment_to_secondFragment"
         app:destination="@id/second_fragment"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
