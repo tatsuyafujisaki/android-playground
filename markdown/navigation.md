@@ -123,21 +123,26 @@ class MainActivity : AppCompatActivity() {
   * https://developer.android.com/guide/navigation/navigation-getting-started
 
 ## Nested graphs
-* is a nested `<navigation>`.
+is a nested `<navigation>`.
 ```xml
-<!-- parent graph -->
-<navigation>
-    <include app:graph="@navigation/child_nav" … />
-    <fragment>
-        <action app:destination="@id/child_nav" />
+<!-- @navigatoin/outer_navigation -->
+<navigation ...>
+    <include app:graph="@navigation/inner_navigation" … />
+    <fragment android:id="@+id/mainFragment" ...>
+        <action
+            android:id="@+id/action_mainFragment_to_innerGraph"
+            app:destination="@id/inner_navigation" />
     </fragment>
 </navigation>
 ```
 ```xml
-<!-- @navigatoin/child_nav -->
-<navigation android:id="@+id/child_nav" … >...</navigation>
+<!-- @navigatoin/inner_navigation -->
+<navigation android:id="@+id/inner_navigation" … >...</navigation>
 ```
-* Destinations in the outer graph cannot directly navigate to any destination, except the start destination, in the inner graph.
+```kotlin
+findNavController().navigate(R.id.action_mainFragment_to_innerGraph)
+```
+Destinations in the outer graph cannot directly navigate to any destination, except the start destination, in the inner graph.
 
 ## `<action>`
 * is represented as an arrow in a visual navigation graph.
