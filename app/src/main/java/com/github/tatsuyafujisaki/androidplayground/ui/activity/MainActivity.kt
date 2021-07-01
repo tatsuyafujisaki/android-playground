@@ -50,9 +50,9 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setupWithNavController(navController)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.destination_home,
-                R.id.destination_explore,
-                R.id.destination_account
+                R.id.mainFragment,
+                R.id.exploreFragment,
+                R.id.accountFragment
             )
         )
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)

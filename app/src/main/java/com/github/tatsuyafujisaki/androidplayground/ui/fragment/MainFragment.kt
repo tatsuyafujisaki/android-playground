@@ -16,12 +16,12 @@ import androidx.navigation.fragment.findNavController
 import com.github.tatsuyafujisaki.androidplayground.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
-import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentHomeBinding
+import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentMainBinding
 import com.github.tatsuyafujisaki.androidplayground.util.WebViewUtil.enableJavaScript
 import kotlinx.coroutines.launch
 
-class HomeFragment : Fragment(), WebViewContainer {
-    private var _binding: FragmentHomeBinding? = null
+class MainFragment : Fragment(), WebViewContainer {
+    private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val mainViewModel: MainViewModel by activityViewModels()
 
@@ -29,7 +29,7 @@ class HomeFragment : Fragment(), WebViewContainer {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
 
         viewLifecycleOwner.lifecycleScope.launch {
             Log.d(TAG, "This is a demonstration of viewLifecycleOwner.lifecycleScope.")
