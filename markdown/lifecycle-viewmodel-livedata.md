@@ -8,11 +8,12 @@
 &nbsp;|LiveData|Flow
 --|--|--
 contains ...|only the lastest value|all the past values
-callable from|only the main thread|any thread
-when there is no active observer (*)|canceled|not canceled
+available from|only the main thread (*1)|any thread
+when there is no active observer (*2)|canceled|not canceled
 suitable for|the main thread|except for the main thread
 
-(*) i.e. when Activity goes STOPPED.
+(*1) `postValue()` moves the write to the main thread.
+(*2) i.e. when Activity goes STOPPED.
 
 # LifecycleCoroutineScope.launchWhenStarted
 * pauses when not STARTED, and cancels when Activity is destroyed.
