@@ -8,11 +8,11 @@
 &nbsp;|LiveData|Flow
 --|--|--
 contains ...|only the lastest value|all the past values
-available from|only the main thread (*1)|any thread
+readable and writable only in|the main thread (*1)|any thread
 when there is no active observer (*2)|canceled|not canceled
 suitable for|the main thread|except for the main thread
 
-* (*1) `postValue()` moves the write to the main thread.
+* (*1) `postValue()` moves the write to the main thread. Moreover, `observe()` can be called only from the main thread.
 * (*2) i.e. when `Activity` goes `STOPPED`.
 
 # LifecycleCoroutineScope.launchWhenStarted
