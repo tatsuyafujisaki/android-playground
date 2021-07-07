@@ -201,6 +201,20 @@ android {
     }
 }
 ```
+```kotlin
+// app/build.gradle.kts
+android {
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            isDebuggable = true
+            signingConfig = signingConfigs.getByName("debug")        
+        }
+    }
+}
+```
+
 ## How to identify the class that acts up by `minifyenabled true`
 Add the following to `proguard-rule.pro`.
 ```shell
