@@ -184,9 +184,24 @@ R.id.my_menu_item -> {
 }
 ```
 
-# How to identify the class that acts up by `minifyenabled true`
-Add the following in `proguard-rule.pro`.
+# Release build
+You can debug a release build only if you set both `minifyenabled false` and `debuggable false`.
+## How to debug a release build
+```gradle
+// app/build.gradle
+android {
+    buildTypes {
+        release {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
 ```
+## How to identify the class that acts up by `minifyenabled true`
+Add the following to `proguard-rule.pro`.
+```shell
 -keepattributes SourceFile,LineNumberTable
 ```
 
