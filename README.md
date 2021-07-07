@@ -192,9 +192,11 @@ You can debug a release build only if you set both `minifyenabled false` and `de
 android {
     buildTypes {
         release {
-            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            
+            debuggable true
+            signingConfig signingConfigs.debug
         }
     }
 }
