@@ -33,7 +33,6 @@ cd buildSrc
 ./gradlew help --task dependencies
 ```
 
-
 ## How to show the project `app`'s dependencies
 ```shell
 # shows as a tree
@@ -185,8 +184,8 @@ R.id.my_menu_item -> {
 ```
 
 # Release build
-You can debug a release build only if you set both `minifyenabled false` and `debuggable false`.
 ## How to debug a release build
+You can debug a release build only if you set both `minifyenabled false` and `debuggable false`.
 ```gradle
 // app/build.gradle
 android {
@@ -201,13 +200,14 @@ android {
     }
 }
 ```
-```kotlin
+```gradle
 // app/build.gradle.kts
 android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+
             isDebuggable = true
             signingConfig = signingConfigs.getByName("debug")        
         }
