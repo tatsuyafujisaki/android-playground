@@ -38,10 +38,10 @@ android {
             buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
 
             /*
-             * Only for debugging purposes
+             * For debugging purposes
              */
-            // debuggable true
-            // signingConfig signingConfigs.debug
+            debuggable true
+            signingConfig signingConfigs.debug
         }
         debug {
             applicationIdSuffix ".debug"
