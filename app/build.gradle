@@ -13,9 +13,6 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildFeatures {
-        viewBinding true
-    }
     defaultConfig {
         applicationId 'com.github.tatsuyafujisaki.androidplayground'
         minSdkVersion 23
@@ -49,20 +46,13 @@ android {
             buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
         }
     }
+    buildFeatures {
+        viewBinding true
+    }
     testOptions {
         unitTests {
-            includeAndroidResources true // Robolectric
-        }
-
-        /*
-         * Unless explicitly specified, the following default is used.
-         * https://developer.android.com/reference/tools/gradle-api/com/android/build/api/dsl/LintOptions
-         * https://developer.android.com/studio/write/lint#gradle
-         */
-        lintOptions {
-            // Enables you to build the app even if there is a lint error. Default is true.
-            // Not recommended in production apps.
-            abortOnError false
+            // http://robolectric.org/getting-started
+            includeAndroidResources true
         }
     }
 
