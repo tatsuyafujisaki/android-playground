@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentExploreBinding
+import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentSecondBinding
 
-class ExploreFragment : Fragment() {
-    private var _binding: FragmentExploreBinding? = null
+class SecondFragment : Fragment() {
+    private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,16 +16,12 @@ class ExploreFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentExploreBinding.inflate(inflater, container, false)
+        _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        private const val TAG = "ExploreFragment"
     }
 }

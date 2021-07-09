@@ -1,25 +1,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation_graph"
-    app:startDestination="@id/mainFragment">
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/main_fragment">
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/main_fragment"
         android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.MainFragment"
-        android:label="MainFragment">
+        android:label="@string/main">
         <action
-            android:id="@+id/action_homeFragment_to_sampleFragment"
-            app:destination="@id/sampleFragment" />
+            android:id="@+id/action_main_fragment_to_third_fragment"
+            app:destination="@id/third_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/exploreFragment"
-        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.ExploreFragment"
-        android:label="ExploreFragment" />
+        android:id="@+id/second_fragment"
+        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.SecondFragment"
+        android:label="@string/second" />
     <fragment
-        android:id="@+id/accountFragment"
-        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.MainFragment"
-        android:label="AccountFragment" />
-    <fragment
-        android:id="@+id/sampleFragment"
-        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.SampleFragment"
-        android:label="SampleFragment" />
+        android:id="@+id/third_fragment"
+        android:name="com.github.tatsuyafujisaki.androidplayground.ui.fragment.ThirdFragment"
+        android:label="@string/third" />
 </navigation>

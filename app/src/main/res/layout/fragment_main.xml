@@ -2,12 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:layout=".MainFragment">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.helper.widget.Flow
-        android:id="@+id/flow"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -21,7 +18,7 @@
         android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is a test view."
+        android:text="@android:string/ok"
         tools:text="@tools:sample/lorem" />
 
     <EditText

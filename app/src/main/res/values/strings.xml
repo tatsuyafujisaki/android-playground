@@ -3,11 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="edit_text_hint">Input something!</string>
     <string name="clear_button_text">Clear</string>
-    <string name="home">Home</string>
-    <string name="explore">Explorer</string>
-    <string name="account">Account</string>
     <string name="name">Name</string>
-    <string name="sample">Sample</string>
+    <string name="main">Main</string>
+    <string name="second">Second</string>
+    <string name="third">Third</string>
     <string name="navigate_to_sample_fragment">Go to SampleFragment</string>
 
     <!-- Fruit -->
