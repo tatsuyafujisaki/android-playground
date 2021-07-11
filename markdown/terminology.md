@@ -1,3 +1,7 @@
+# Gravity
+* `android:gravity` positions the content inside the view.
+* `android:layout_gravity` positions the view against the parent.
+
 # Known direct subclass
 * is a direct subclass in the same library.
 * For example, FileProvider is a direct subclass of ContentProvider, but not a "known" direct subclass of ContentProvider because FileProvider as is part of the AndroidX Core Library, while ContentProvider is not.
