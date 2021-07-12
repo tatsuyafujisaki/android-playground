@@ -362,7 +362,7 @@ Instead, use [MaterialDivider](https://material.io/components/dividers/android) 
 ```xml
 <EditText
     android:id="@+id/edit_text"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:hint="@null"
     android:importantForAutofill="no"
@@ -374,7 +374,7 @@ Instead, use [MaterialDivider](https://material.io/components/dividers/android) 
 ```xml
 <HorizontalScrollView
     android:id="@+id/horizontal_scroll_view"
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:scrollbars="none"
     android:requiresFadingEdge="horizontal"
