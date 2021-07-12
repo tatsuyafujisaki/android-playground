@@ -345,6 +345,18 @@ with(recyclerView) {
     tools:src="@tools:sample/avatars" />
 ```
 
+## Divider
+```xml
+<View
+    android:id="@+id/divider"
+    android:layout_width="0dp"
+    android:layout_height="1dp"
+    android:background="@android:color/darker_gray"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+```
+Instead, use [MaterialDivider](https://material.io/components/dividers/android) when it becomes available.
+
 ## EditText
 `android:hint`, `android:importantForAutofill`, and `android:inputType` are to suppress a warning.
 ```xml
