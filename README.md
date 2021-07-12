@@ -263,18 +263,6 @@ class MyCustomView @JvmOverloads constructor(
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@tools:sample/lorem/random" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
@@ -323,6 +311,38 @@ with(recyclerView) {
         }
     }
 }
+```
+
+## TextView
+```xml
+<!-- "android:gravity" is unnecessary if you don't use app:drawableStartCompat and so on. -->
+<TextView
+    android:id="@+id/text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:gravity="center"
+    android:singleLine="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:drawableStartCompat="@tools:sample/avatars"
+    tools:text="@tools:sample/lorem/random" />
+```
+
+## ImageView
+```xml
+<ImageView
+    android:id="@+id/image_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:contentDescription="@null"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:src="@tools:sample/avatars" />
 ```
 
 ## EditText
