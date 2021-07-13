@@ -1,23 +1,21 @@
 # Material Design typography
 ## TextAppearance from [Material Components for Android](https://material.io/develop/android/docs/getting-started)
-Style|Scalable pixels (sp)
---|--
-@style/TextAppearance.MaterialComponents.Headline1|96sp
-@style/TextAppearance.MaterialComponents.Headline2|60sp
-@style/TextAppearance.MaterialComponents.Headline3|48sp
-@style/TextAppearance.MaterialComponents.Headline4|34sp
-@style/TextAppearance.MaterialComponents.Headline5|24sp
-@style/TextAppearance.MaterialComponents.Headline6|20sp
-@style/TextAppearance.MaterialComponents.Subtitle1|16sp
-@style/TextAppearance.MaterialComponents.Body1|16sp
-@style/TextAppearance.MaterialComponents.Subtitle2|14sp
-@style/TextAppearance.MaterialComponents.Body2|14sp
-@style/TextAppearance.MaterialComponents.Button|14sp
-@style/TextAppearance.MaterialComponents.Chip|14sp
-@style/TextAppearance.Design.Tab|14sp
-@style/TextAppearance.Design.Snackbar.Message|14sp
-@style/TextAppearance.MaterialComponents.Overline|12sp
-@style/TextAppearance.MaterialComponents.Caption|12sp
+Attr|Style|Scalable pixels (sp)
+--|--|--
+?attr/textAppearanceHeadline1|@style/TextAppearance.MaterialComponents.Headline1|96sp
+?attr/textAppearanceHeadline2|@style/TextAppearance.MaterialComponents.Headline2|60sp
+?attr/textAppearanceHeadline3|@style/TextAppearance.MaterialComponents.Headline3|48sp
+?attr/textAppearanceHeadline4|@style/TextAppearance.MaterialComponents.Headline4|34sp
+?attr/textAppearanceHeadline5|@style/TextAppearance.MaterialComponents.Headline5|24sp
+?attr/textAppearanceHeadline6|@style/TextAppearance.MaterialComponents.Headline6|20sp
+?attr/textAppearanceSubtitle1|@style/TextAppearance.MaterialComponents.Subtitle1|16sp
+?attr/textAppearanceBody1|@style/TextAppearance.MaterialComponents.Body1|16sp
+?attr/textAppearanceSubtitle2|@style/TextAppearance.MaterialComponents.Subtitle2|14sp
+?attr/textAppearanceBody2|@style/TextAppearance.MaterialComponents.Body2|14sp
+?attr/textAppearanceButton|@style/TextAppearance.MaterialComponents.Button|14sp
+N/A|@style/TextAppearance.MaterialComponents.Tooltip|14sp
+?attr/textAppearanceOverline|@style/TextAppearance.MaterialComponents.Overline|12sp
+?attr/textAppearanceCaption|@style/TextAppearance.MaterialComponents.Caption|12sp
 
 ## TextAppearance from Android SDK
 Style|Scalable pixels (sp)
