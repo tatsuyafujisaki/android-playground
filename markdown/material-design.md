@@ -35,7 +35,9 @@ Style|Scalable pixels (sp)
 
 ## Usage
 ```xml
-<TextView android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+<TextView android:textAppearance="?attr/textAppearanceHeadline1" />
+<!-- or -->
+<TextView android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1" />
 ```
 
 Or if you want to create a style:
