@@ -46,7 +46,7 @@ Or if you want to create a style:
 <!-- res/values/styles.xml -->
 <resources>
     <style name="MyStyle">
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline1</item>
     </style>
 </resources>
 ```
