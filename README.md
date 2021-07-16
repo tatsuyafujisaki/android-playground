@@ -280,6 +280,7 @@ class MyCustomView @JvmOverloads constructor(
 
 ## RecyclerView
 ```xml
+<!-- android:orientation is unnecessary if you want it vertical. -->
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler_view"
     android:layout_width="match_parent"
