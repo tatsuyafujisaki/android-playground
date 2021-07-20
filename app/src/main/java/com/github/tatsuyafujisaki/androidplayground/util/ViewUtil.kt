@@ -2,7 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.res.Resources
 import android.view.View
-import android.view.View.OnClickListener
 import androidx.annotation.DimenRes
 import androidx.core.view.updatePadding
 
@@ -38,13 +37,13 @@ object ViewUtil {
         )
     }
 
-    fun View.setOnSafeClickListener(delayMillis: Long = 1000L, listener: OnClickListener) {
+    fun View.setOnSafeClickListener(delayMillis: Long = 1000L, onClick: (View) -> Unit) {
         setOnClickListener {
             isClickable = false
             postDelayed({
                 isClickable = true
             }, delayMillis)
-            listener.onClick(it)
+            onClick(it)
         }
     }
 }
