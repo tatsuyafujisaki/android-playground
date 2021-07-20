@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
+import android.graphics.drawable.Drawable
 import android.os.PowerManager
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -35,15 +36,14 @@ import java.io.BufferedReader
  */
 object ContextUtil {
     /**
-     * Simpler than [Resources.getColor].
+     * How to get [ColorInt] from [ColorRes]:
+     * [Context.getColor] (Simpler than [Resources.getColor])
      */
-    @ColorInt
-    fun Context.getColor2(@ColorRes id: Int) = getColor(id)
 
     /**
-     * Simpler than [Resources.getDrawable].
+     * How to get [Drawable] from [DrawableRes]:
+     * [AppCompatResources.getDrawable] (Simpler than [Resources.getDrawable])
      */
-    fun Context.getDrawable2(@DrawableRes id: Int) = AppCompatResources.getDrawable(this, id)
 
     val Context.isInteractive
         get() = (getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
