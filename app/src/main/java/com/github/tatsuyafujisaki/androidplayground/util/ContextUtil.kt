@@ -3,6 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.os.PowerManager
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -29,11 +30,20 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import java.io.BufferedReader
 
+/**
+ * Impractical redundant explanatory wrappers
+ */
 object ContextUtil {
+    /**
+     * Simpler than [Resources.getColor].
+     */
     @ColorInt
     fun Context.getColor2(@ColorRes id: Int) = getColor(id)
+
+    /**
+     * Simpler than [Resources.getDrawable].
+     */
     fun Context.getDrawable2(@DrawableRes id: Int) = AppCompatResources.getDrawable(this, id)
-    fun Context.getDrawable3(@DrawableRes id: Int) = ContextCompat.getDrawable(this, id)
 
     val Context.isInteractive
         get() = (getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive

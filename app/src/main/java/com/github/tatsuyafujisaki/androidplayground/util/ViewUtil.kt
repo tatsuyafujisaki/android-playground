@@ -27,13 +27,13 @@ object ViewUtil {
         rightDp: Int? = null,
         bottomDp: Int? = null
     ) {
-        fun toPx2(dp: Int) = (dp * Resources.getSystem().displayMetrics.density).toInt()
+        fun toPx(dp: Int) = (dp * Resources.getSystem().displayMetrics.density).toInt()
 
         updatePadding(
-            leftDp?.let(::toPx2) ?: paddingLeft,
-            topDp?.let(::toPx2) ?: paddingTop,
-            rightDp?.let(::toPx2) ?: paddingRight,
-            bottomDp?.let(::toPx2) ?: paddingBottom
+            leftDp?.let(::toPx) ?: paddingLeft,
+            topDp?.let(::toPx) ?: paddingTop,
+            rightDp?.let(::toPx) ?: paddingRight,
+            bottomDp?.let(::toPx) ?: paddingBottom
         )
     }
 
