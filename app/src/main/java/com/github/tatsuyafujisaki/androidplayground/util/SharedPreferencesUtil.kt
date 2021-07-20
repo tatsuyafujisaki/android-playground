@@ -2,7 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.app.Activity
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.core.content.edit
@@ -16,21 +15,29 @@ import androidx.preference.PreferenceManager
  */
 object SharedPreferencesUtil {
     /**
-     * @return preferences which are private to the activity
+     * How to get the default [SharedPreferences]:
+     * [PreferenceManager.getDefaultSharedPreferences]
      */
-    val Activity.preferences: SharedPreferences
-        get() = getPreferences(MODE_PRIVATE)
 
-    val Context.sharedPreferences: SharedPreferences
-        get() = PreferenceManager.getDefaultSharedPreferences(this)
+    /**
+     * How to get a named [SharedPreferences]:
+     * [Context.getSharedPreferences]
+     */
 
-    fun Context.sharedPreferences(name: String): SharedPreferences =
-        getSharedPreferences(name, Context.MODE_PRIVATE)
+    /**
+     * How to get a [SharedPreferences], which is private to an activity.
+     * [Activity.getPreferences]
+     */
 
-    fun example(sharedPreferences: SharedPreferences, key: String) {
-        val exists: Boolean = sharedPreferences.contains(key)
-        val map: Map<String, *> = sharedPreferences.all
-    }
+    /**
+     * How to get all the entries in [SharedPreferencesUtil]:
+     * [SharedPreferences.getAll]
+     */
+
+    /**
+     * How to check is a key exists in [SharedPreferencesUtil]:
+     * [SharedPreferences.contains]
+     */
 
     fun SharedPreferences.remove(key: String) {
         edit {
@@ -48,8 +55,8 @@ object SharedPreferencesUtil {
     fun SharedPreferences.getFloat(key: String) = getFloat(key, Float.MIN_VALUE)
     fun SharedPreferences.getInt(key: String) = getInt(key, Int.MIN_VALUE)
     fun SharedPreferences.getLong(key: String) = getLong(key, Long.MIN_VALUE)
-    fun SharedPreferences.getString(key: String) = getString(key, null)
-    fun SharedPreferences.getStringSet(key: String): MutableSet<String>? = getStringSet(key, null)
+    fun SharedPreferences.getString(key: String) = getString(key, "")
+    fun SharedPreferences.getStringSet(key: String): MutableSet<String>? = getStringSet(key, emptySet())
 
     fun SharedPreferences.putBoolean(key: String, value: Boolean) {
         edit {
