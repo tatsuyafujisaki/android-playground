@@ -7,8 +7,10 @@
 * onStart()
 * onRestoreInstanceState() (API 21+)
   * called only if savedInstanceState is not null.
-  * > Most of the time, you restore the activity state in onCreate(). But because onRestoreInstanceState() is called after onStart(), if you ever need to restore some state after onCreate() is called, you can use onRestoreInstanceState().
+  * > Most of the time, you restore the activity state in onCreate(). But because onRestoreInstanceState() is called after onStart(), if you ever need to restore 
+  * some state after onCreate() is called, you can use onRestoreInstanceState().
     * https://developer.android.com/codelabs/basic-android-kotlin-training-activity-lifecycle#4
+* onNewIntent()
 * onResume()
 * onPause()
 * onStop()
