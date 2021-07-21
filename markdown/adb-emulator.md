@@ -128,6 +128,18 @@ adb shell settings put system show_touches 0
 adb shell settings get system show_touches
 ```
 
+# How to slow down the device's animations by a factor of 10
+```shell
+adb shell settings put global window_animation_scale 10
+adb shell settings put global transition_animation_scale 10
+adb shell settings put global animator_duration_scale 10
+
+# Reset
+adb shell settings put global window_animation_scale 1
+adb shell settings put global transition_animation_scale 1
+adb shell settings put global animator_duration_scale 1
+```
+
 # How to share the clipboard between an emulator and macOS
 ## macOS -> emulator
 1. Copy text on macOS.
