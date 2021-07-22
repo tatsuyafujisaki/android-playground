@@ -4,7 +4,7 @@ buildscript {
         // https://github.com/google/dagger/issues/2684
         kotlinVersion = '1.5.20'
         navigationVersion = '2.3.5'
-        hiltVersion = '2.37'
+        hiltVersion = '2.38'
     }
     repositories {
         google()
