@@ -163,3 +163,21 @@ Alternatively, use Device File Explorer of Android Studio.
 
 # OEM unlocking
 Android emulators don't have the `OEM unlocking` option in `Developer options`.
+
+# Recommended settings in an emulator
+## Android Virtual Device (AVD) configuration
+* `Cold boot`
+* `No SD Card`
+* `Enable device frame` > Deselect
+
+## Settings
+* `Network & internet` > `Private DNS` > `Off`
+* `Location` > Off (if the app does not need location.)
+* `System` > `Languages & input`
+  * `On-screen keyboard` > `Google voice typing` > Off 
+  * `Autofill service > None`
+
+## Misc
+* `Quick Settings` > Remove unnecessary items to bring `Airplane mode` to the first six items.
+* Configure Chrome.
+* Configure Gboard.
