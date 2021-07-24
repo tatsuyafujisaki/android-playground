@@ -1,7 +1,14 @@
-# How to show third-party packages
+# Third-party packages
+## How to show third-party packages
 ```shell
 # -3 is to show only third-party packages.
 adb shell pm list package -3 | sort
+```
+
+## How to uninstall third-party packages
+```shell
+# https://stackoverflow.com/a/30390647
+adb shell pm list packages -3 | cut -d: -f2 | tr '\r' ' ' | xargs -n1 -r -t adb uninstall
 ```
 
 # How to list emulators
