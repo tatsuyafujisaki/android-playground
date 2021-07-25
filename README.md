@@ -7,11 +7,6 @@
 * https://developer.android.com/training/data-storage/use-cases
 * https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
-# How to set `ANDROID_SDK_ROOT`
-```shell
-launchctl setenv ANDROID_SDK_ROOT ~/Library/Android/sdk
-```
-
 # Gradle
 https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
 
