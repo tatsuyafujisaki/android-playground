@@ -148,9 +148,6 @@ Destinations in the outer graph cannot directly navigate to any destination, exc
 * is represented as an arrow in a visual navigation graph.
 * is a connection from one destination to another.
 
-### `app:popUpTo`
-is used when you want to pop more than one destination.
-
 # Global action
 * is available from any destination in the navigation graph.
 * can be accessed in a type-safe way as `<NavigationId>Directions.globalAction1`.
