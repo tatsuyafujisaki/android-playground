@@ -130,11 +130,11 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
     testImplementation "androidx.paging:paging-common-ktx:$pagingVersion"
 
-    def cameraXVersion = '1.1.0-alpha06'
+    def cameraXVersion = '1.1.0-alpha07'
     implementation "androidx.camera:camera-camera2:${cameraXVersion}"
     implementation "androidx.camera:camera-lifecycle:${cameraXVersion}"
-    implementation 'androidx.camera:camera-view:1.0.0-alpha26'
-    implementation 'androidx.camera:camera-extensions:1.0.0-alpha26'
+    implementation 'androidx.camera:camera-view:1.0.0-alpha27'
+    implementation 'androidx.camera:camera-extensions:1.0.0-alpha27'
 
     /*
      * com.google.android
