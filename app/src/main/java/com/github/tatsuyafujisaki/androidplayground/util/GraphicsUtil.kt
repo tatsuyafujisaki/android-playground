@@ -15,15 +15,13 @@ import java.lang.Integer.max
 
 object GraphicsUtil {
     @Suppress("DEPRECATION")
-    fun Context.downloadBitmapOrNull(url: String): Bitmap? {
-        return runCatching {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, url.toUri()))
-            } else {
-                MediaStore.Images.Media.getBitmap(contentResolver, url.toUri())
-            }
-        }.getOrNull()
-    }
+    fun Context.downloadBitmapOrNull(url: String) = runCatching {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, url.toUri()))
+        } else {
+            MediaStore.Images.Media.getBitmap(contentResolver, url.toUri())
+        }
+    }.getOrNull()
 
     fun Context.downloadBitmapOrNull2(url: String) = runCatching {
         Glide.with(this)

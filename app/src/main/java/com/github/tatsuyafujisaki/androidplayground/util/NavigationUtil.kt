@@ -63,4 +63,9 @@ object NavigationUtil {
         }
         setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
     }
+
+    fun NavController.hasBackStackEntry(@IdRes destinationId: Int) = runCatching {
+        getBackStackEntry(destinationId)
+        true
+    }.getOrDefault(false)
 }
