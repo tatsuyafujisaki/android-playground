@@ -1,5 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
@@ -89,7 +90,7 @@ object LiveDataUtil {
         mediateNonNull(a, b) { c, d ->
             c + d
         }.observe(lifecycleOwner) {
-            val x = it
+            Log.d(object {}.javaClass.enclosingMethod?.name, it.toString())
         }
 
         a.value = 10

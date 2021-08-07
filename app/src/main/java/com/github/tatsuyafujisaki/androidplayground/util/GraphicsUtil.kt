@@ -14,32 +14,27 @@ import com.bumptech.glide.Glide
 import java.lang.Integer.max
 
 object GraphicsUtil {
-    fun Context.downloadBitmap(url: String): Bitmap? {
-        val uri = url.toUri()
-        return try {
+    @Suppress("DEPRECATION")
+    fun Context.downloadBitmapOrNull(url: String): Bitmap? {
+        return runCatching {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, uri))
+                ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, url.toUri()))
             } else {
-                MediaStore.Images.Media.getBitmap(contentResolver, uri)
+                MediaStore.Images.Media.getBitmap(contentResolver, url.toUri())
             }
-        } catch (_: Exception) {
-            null
-        }
+        }.getOrNull()
     }
 
-    fun Context.downloadBitmap2(url: String) =
-        try {
-            Glide.with(this)
-                .asBitmap()
-                .load(url)
-                // .error(...) or .fallback(...) does not help if URL is broken.
-                // .error(R.drawable.ic_broken_image_black_24dp)
-                // .fallback(R.drawable.ic_broken_image_black_24dp)
-                .submit()
-                .get()
-        } catch (_: Exception) {
-            null
-        }
+    fun Context.downloadBitmapOrNull2(url: String) = runCatching {
+        Glide.with(this)
+            .asBitmap()
+            .load(url)
+            // .error(...) or .fallback(...) does not help if URL is broken.
+            // .error(R.drawable.ic_broken_image_black_24dp)
+            // .fallback(R.drawable.ic_broken_image_black_24dp)
+            .submit()
+            .get()
+    }.getOrNull()
 
     // https://developer.android.com/topic/performance/graphics/load-bitmap
     private fun Resources.decodeSampledBitmapFromResource(

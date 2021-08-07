@@ -74,6 +74,9 @@ android {
      *     jvmTarget = '1.8'
      * }
      */
+    kotlinOptions {
+        allWarningsAsErrors = true
+    }
 }
 
 dependencies {
