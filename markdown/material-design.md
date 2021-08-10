@@ -51,9 +51,6 @@ Or if you want to create a style:
 </resources>
 ```
 
-# Inset
-is a margin that increases the area that responds to touch events.
-
 # CircularProgressIndicator
 An example of a determinate circular progress indicator
 ```xml
@@ -79,3 +76,10 @@ An example of a determinate circular progress indicator
 * https://material.io/design/typography/the-type-system.html
 * https://github.com/material-components/material-components-android
 * https://developer.android.com/guide/topics/ui/look-and-feel/themes#textappearance
+
+# Vocabulary
+## Inset
+is a margin that increases the area that responds to touch events.
+
+## Elevation overlay
+* means that the elevated surface's background is lightened.
