@@ -180,10 +180,11 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
 ## Settings
 * `Network & internet` > `Private DNS` > `Off`
 * `Location` > Off (if the app does not need location.)
-* (Android 12+) `Google` > `Autofill` > `Autofill with Google` > Off
+* `Google`
+  * `Ads` > `Opt out of Ads Personalization`
+  * `Autofill` > `Autofill with Google` > Off
 * `System` > `Languages & input`
   * `On-screen keyboard` > `Google voice typing` > Off 
-  * (Android 11 or before) `Autofill service > None`
 
 ## Misc
 * `Quick Settings` > Remove unnecessary items to bring `Airplane mode` to the first six items.
