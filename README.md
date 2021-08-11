@@ -193,7 +193,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            
+
             debuggable true
             signingConfig signingConfigs.debug
         }
@@ -209,7 +209,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
 
             isDebuggable = true
-            signingConfig = signingConfigs.getByName("debug")        
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 }
@@ -456,6 +456,9 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 
 # Activity
 [activity.md](markdown/activity.md)
+
+# Android Studio
+[android-studio.md](markdown/android-studio.md)
 
 # Build variant / Build type / Flavor dimension
 [build-variant.md](markdown/build-variant.md)
