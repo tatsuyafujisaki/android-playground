@@ -188,7 +188,7 @@ dependencies {
     implementation 'com.facebook.stetho:stetho-okhttp3:1.6.0'
 
     // Migrate to coroutines if you have the decision right to do so.
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.13'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.0'
     // required for io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 
