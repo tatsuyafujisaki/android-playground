@@ -20,9 +20,10 @@ object NavigationUtil {
 
     /**
      * For debugging purposes, you can ignore the lint error and list non-NavGraph destinations on the back stack.
+     * Usage: Timber.d(findNavController().breadcrumb)
      */
     val NavController.breadcrumb
-        get() = backStack
+        get() = "Breadcrumb: " + backStack
             .map {
                 it.destination
             }
