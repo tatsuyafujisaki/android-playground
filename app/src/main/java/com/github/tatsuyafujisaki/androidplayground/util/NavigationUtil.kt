@@ -34,39 +34,45 @@ object NavigationUtil {
                 it.displayName.split('/')[1]
             }
 
-    fun NavController.setNavGraphIfAbsent(
+    fun setNavGraphIfAbsent(
+        navController: NavController,
         @NavigationRes graphResId: Int,
         startDestinationArgs: Bundle?
     ) {
-        if (currentDestination != null) return
+        if (navController.currentDestination != null) return
         if (startDestinationArgs != null) {
-            setGraph(graphResId, startDestinationArgs)
+            navController.setGraph(graphResId, startDestinationArgs)
         } else {
-            setGraph(graphResId)
+            navController.setGraph(graphResId)
         }
     }
 
-    fun NavController.setGraphWithStartDestination(
+    fun setGraphWithStartDestination(
+        navController: NavController,
         @NavigationRes graphResId: Int,
         @IdRes startDestId: Int
     ) {
-        graph = navInflater.inflate(graphResId).apply {
+        navController.graph = navController.navInflater.inflate(graphResId).apply {
             startDestination = startDestId
         }
     }
 
-    fun NavController.setGraphWithStartDestinationAndArgs(
+    fun setGraphWithStartDestinationAndArgs(
+        navController: NavController,
         @NavigationRes graphResId: Int,
         @IdRes startDestId: Int
     ) {
-        val graph = navInflater.inflate(graphResId).apply {
+        val graph = navController.navInflater.inflate(graphResId).apply {
             startDestination = startDestId
         }
-        setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
+        navController.setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
     }
 
-    fun NavController.hasBackStackEntry(@IdRes destinationId: Int) = runCatching {
-        getBackStackEntry(destinationId)
+    fun hasBackStackEntry(
+        navController: NavController,
+        @IdRes destinationId: Int
+    ) = runCatching {
+        navController.getBackStackEntry(destinationId)
         true
     }.getOrDefault(false)
 }
