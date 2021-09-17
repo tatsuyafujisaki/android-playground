@@ -1,4 +1,14 @@
-# Composables
+# How to have Compose in the View system
+* If you want to have Compose at the root level in an Activity, you can use `setContent` in Kotlin and don't need XML.
+https://youtu.be/PjQdFmiDgwk?t=89
+
+* If you want to have Compose NOT at the root level in a Fragment, you can use `<ComposeView>` in XML.
+https://youtu.be/PjQdFmiDgwk?t=103
+
+* If you want to have Compose at the root level in a Fragment, you can use `ComposeView` in Kotlin and don't need XML.
+https://youtu.be/PjQdFmiDgwk?t=147
+
+# Row / Column / Box
 * Row = Horizontal LinearLayout
 * Column = Vertical LinearLayout
 * Box = FrameLayout
