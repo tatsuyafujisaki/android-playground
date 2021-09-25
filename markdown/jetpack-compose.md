@@ -16,6 +16,8 @@
 By state hosting, a stateful compose becomes a stateless compose.
 
 # Misc
+* > Note: Composables with a return type should be named the way you'd name a normal Kotlin function, starting with a lowercase letter.
+  * https://developer.android.com/jetpack/compose/side-effects
 * > Note: By convention, the modifier is specified as the first optional parameter of a function. This enables you to specify a modifier on a composable without having to name all parameters.
   * https://developer.android.com/codelabs/jetpack-compose-layouts#2
 
