@@ -178,7 +178,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-    def flipperVersion = '0.105.0'
+    def flipperVersion = '0.111.0'
     debugImplementation "com.facebook.flipper:flipper:$flipperVersion"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipperVersion"
     releaseImplementation "com.facebook.flipper:flipper-noop:$flipperVersion"
