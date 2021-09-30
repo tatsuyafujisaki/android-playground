@@ -18,6 +18,9 @@ https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html
 # shows as a list
 ./gradlew androidDependencies
 
+# e.g. shows Jetpack Compose dependencies.
+./gradlew androidDependencies | grep compose | sort | uniq
+
 # Run the following for more details.
 ./gradlew help --task dependencies
 ./gradlew help --task androidDependencies
