@@ -25,3 +25,26 @@ By state hosting, a stateful compose becomes a stateless compose.
 ![](https://user-images.githubusercontent.com/1838962/128594836-c9f2f627-4749-46f0-97db-c71d084e4620.png)
 
 https://developer.android.com/codelabs/jetpack-compose-layouts#6
+
+# Template
+```kotlin
+@Composable
+fun Greeting(name: String) {
+    Text(
+        text = "Hello $name!",
+        style = MaterialTheme.typography.h5,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = dimensionResource(R.dimen.material_emphasis_disabled))
+            .wrapContentWidth(Alignment.CenterHorizontally)
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    MaterialTheme {
+        Greeting("World")
+    }
+}
+```
