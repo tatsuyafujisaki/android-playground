@@ -140,13 +140,17 @@ dependencies {
      * Jetpack Compose
      */
 
-    // To use ComponentActivity. Moreover, it includes "androidx.activity:activity-ktx".
+    // To use ComponentActivity.
+    // includes "androidx.activity:activity-ktx".
     implementation 'androidx.activity:activity-compose:1.3.1'
     // Counterintuitively, it does not includes "androidx.compose.material:material".
     implementation 'androidx.compose.material:material-icons-extended:1.0.2'
     // Animations
+    // includes androidx.compose.foundation:foundation-layout.
     implementation 'androidx.compose.animation:animation:1.0.2'
-    // Tooling support (Previews, etc.). It includes "androidx.compose.material:material".
+    // Tooling support (Previews, etc.).
+    // includes "androidx.compose.ui:ui".
+    // includes "androidx.compose.material:material".
     implementation 'androidx.compose.ui:ui-tooling:1.0.2'
     // To use viewModel()
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0'
