@@ -15,6 +15,11 @@
 # Stateful compose / Stateless compose / State hosting
 By state hosting, a stateful compose becomes a stateless compose.
 
+# LaunchedEffect
+LaunchedEffect will be canceled when either of the two is met:
+* LaunchedEffect leaves the composition.
+* LaunchedEffect is recomposed with different keys.
+
 # Misc
 * > Note: Composables with a return type should be named the way you'd name a normal Kotlin function, starting with a lowercase letter.
   * https://developer.android.com/jetpack/compose/side-effects
