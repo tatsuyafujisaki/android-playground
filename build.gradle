@@ -1,7 +1,5 @@
 buildscript {
     ext {
-        // Hilt causes a build error for an app with Kotlin 1.5.20.
-        // https://github.com/google/dagger/issues/2684
         kotlinVersion = '1.5.21'
         navigationVersion = '2.3.5'
         hiltVersion = '2.39.1'
@@ -20,10 +18,6 @@ buildscript {
     }
 }
 
-plugins {
-    id 'org.jlleitschuh.gradle.ktlint' version '10.0.0'
-}
-
 allprojects {
     repositories {
         google()
@@ -39,22 +33,6 @@ allprojects {
                 useVersion kotlinVersion
             }
         }
-    }
-}
-
-subprojects {
-    apply plugin: 'org.jlleitschuh.gradle.ktlint'
-
-    /*
-     * Unless explicitly specified, the following default is used:
-     * https://github.com/JLLeitschuh/ktlint-gradle/blob/master/plugin/src/main/kotlin/org/jlleitschuh/gradle/ktlint/KtlintExtension.kt
-     */
-    ktlint {
-        android = true
-        reporters {
-            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
-        }
-        ignoreFailures = true // prevents the build from failing by warnings from ktlint.
     }
 }
 
