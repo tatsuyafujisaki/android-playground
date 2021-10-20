@@ -153,7 +153,7 @@ dependencies {
     // includes "androidx.compose.material:material".
     implementation 'androidx.compose.ui:ui-tooling:1.0.4'
     // To use viewModel()
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0'
+    // implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
     // To use LiveData.observeAsState()
     implementation 'androidx.compose.runtime:runtime-livedata:1.0.4'
     // To use Observable.subscribeAsState()
