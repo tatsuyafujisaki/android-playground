@@ -89,7 +89,7 @@ dependencies {
      * org.jetbrains
      */
 
-    def coroutinesVersion = '1.5.1'
+    def coroutinesVersion = '1.5.2'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutinesVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
