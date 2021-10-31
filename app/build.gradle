@@ -53,27 +53,13 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion '1.0.4'
     }
-
-    /*
-     * The following has been default since Android Gradle plugin 4.2
-     * https://developer.android.com/studio/releases/gradle-plugin#java-8-default
-     *
-     *  compileOptions {
-     *      sourceCompatibility JavaVersion.VERSION_1_8
-     *      targetCompatibility JavaVersion.VERSION_1_8
-     *  }
-     */
-
-    /*
-     * The following has been default since Kotlin 1.5.
-     * https://kotlinlang.org/docs/whatsnew15.html#new-default-jvm-target-1-8
-     *
-     * kotlinOptions {
-     *     jvmTarget = '1.8'
-     * }
-     */
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
     kotlinOptions {
         allWarningsAsErrors = true
+        jvmTarget = '11'
         useIR = true
     }
 }
