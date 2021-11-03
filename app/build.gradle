@@ -88,7 +88,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
-    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.preference:preference-ktx:1.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
@@ -97,7 +97,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
     debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
 
-    def lifecycleVersion = '2.3.1'
+    def lifecycleVersion = '2.4.0'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
@@ -129,7 +129,7 @@ dependencies {
 
     // To use ComponentActivity.
     // includes "androidx.activity:activity-ktx".
-    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation 'androidx.activity:activity-compose:1.4.0'
     // Counterintuitively, it does not includes "androidx.compose.material:material".
     implementation 'androidx.compose.material:material-icons-extended:1.0.4'
     // Animations
@@ -191,7 +191,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-    def flipperVersion = '0.115.0'
+    def flipperVersion = '0.117.0'
     debugImplementation "com.facebook.flipper:flipper:$flipperVersion"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipperVersion"
     releaseImplementation "com.facebook.flipper:flipper-noop:$flipperVersion"
