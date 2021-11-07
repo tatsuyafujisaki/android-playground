@@ -51,7 +51,7 @@ android {
         viewBinding true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.0.4'
+        kotlinCompilerExtensionVersion '1.0.5'
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
