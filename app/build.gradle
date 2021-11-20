@@ -195,7 +195,7 @@ dependencies {
     debugImplementation "com.facebook.flipper:flipper:$flipperVersion"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipperVersion"
     releaseImplementation "com.facebook.flipper:flipper-noop:$flipperVersion"
-    debugImplementation 'com.facebook.soloader:soloader:0.10.1'
+    debugImplementation 'com.facebook.soloader:soloader:0.10.3'
 
     // Stetho
     implementation 'com.facebook.stetho:stetho-okhttp3:1.6.0'
