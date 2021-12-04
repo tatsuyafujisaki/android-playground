@@ -1,12 +1,13 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.content.Context
 import android.os.Build
 import android.util.Log
 import android.webkit.CookieManager
+import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
-import com.facebook.stetho.okhttp3.StethoInterceptor
+import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.github.tatsuyafujisaki.androidplayground.BuildConfig
-import com.github.tatsuyafujisaki.androidplayground.MainApplication
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
@@ -29,7 +30,7 @@ object OkHttpUtil {
         }
     }
 
-    fun OkHttpClient.Builder.addInterceptors() = apply {
+    fun OkHttpClient.Builder.addInterceptors(context: Context) = apply {
         addInterceptor {
             it.proceed(
                 it
@@ -53,11 +54,16 @@ object OkHttpUtil {
              * Logging interceptors must be added after custom interceptors.
              * Otherwise, headers added by the custom interceptor will not be logged.
              */
-            addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.NONE
-            })
-            addNetworkInterceptor(StethoInterceptor())
-            addNetworkInterceptor(FlipperOkhttpInterceptor(MainApplication.networkFlipperPlugin))
+            addInterceptor(
+                HttpLoggingInterceptor().apply {
+                    level = HttpLoggingInterceptor.Level.NONE
+                }
+            )
+            addNetworkInterceptor(
+                FlipperOkhttpInterceptor(
+                    AndroidFlipperClient.getInstance(context).getPlugin(NetworkFlipperPlugin.ID)
+                )
+            )
         }
     }
 

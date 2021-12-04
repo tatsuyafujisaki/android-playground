@@ -3,8 +3,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
 
 object LifecycleUtil {
     fun Lifecycle.onStateChanged() {
@@ -27,41 +25,6 @@ object LifecycleUtil {
                     }
                     Lifecycle.Event.ON_ANY -> {
                     }
-                }
-            }
-        )
-    }
-
-    @Deprecated("Use onStateChanged() because it is simpler and have access to source (LifecycleOwner).")
-    fun Lifecycle.onStateChangedDeprecated() {
-        addObserver(
-            object : LifecycleObserver {
-                @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-                fun onCreate() {
-                }
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_START)
-                fun onStart() {
-                }
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-                fun onResume() {
-                }
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-                fun onPause() {
-                }
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-                fun onStop() {
-                }
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                fun onDestroy() {
-                }
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
-                fun onAny() {
                 }
             }
         )

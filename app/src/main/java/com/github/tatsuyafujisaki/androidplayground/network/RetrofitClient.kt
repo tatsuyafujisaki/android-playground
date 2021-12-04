@@ -1,5 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.network
 
+import android.content.Context
 import com.github.tatsuyafujisaki.androidplayground.BuildConfig
 import com.github.tatsuyafujisaki.androidplayground.util.OkHttpUtil.addCookieJar
 import com.github.tatsuyafujisaki.androidplayground.util.OkHttpUtil.addInterceptors
@@ -10,17 +11,16 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitClient {
-    private val okHttpClient =
-        OkHttpClient
-            .Builder()
-            .addInterceptors()
-            .addCookieJar()
-            .build()
-
-    val googleApiService: GoogleApiService =
+    fun getGoogleApiService(context: Context): GoogleApiService =
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
-            .client(okHttpClient)
+            .client(
+                OkHttpClient
+                    .Builder()
+                    .addInterceptors(context)
+                    .addCookieJar()
+                    .build()
+            )
             .addConverterFactory(
                 MoshiConverterFactory.create(
                     Moshi.Builder().add(KotlinJsonAdapterFactory()).build()

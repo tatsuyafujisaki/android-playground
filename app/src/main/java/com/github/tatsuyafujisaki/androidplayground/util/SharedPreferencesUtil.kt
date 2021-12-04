@@ -5,9 +5,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.core.content.edit
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.preference.PreferenceManager
 
 /**
@@ -96,17 +95,17 @@ object SharedPreferencesUtil {
 
     class SharedPreferencesObserver(
         private val sharedPreferences: SharedPreferences
-    ) : LifecycleObserver {
-        @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-        fun registerSomething() {
+    ) : DefaultLifecycleObserver {
+        override fun onCreate(owner: LifecycleOwner) {
+            super.onCreate(owner)
             sharedPreferences
                 .registerOnSharedPreferenceChangeListener { _, key ->
                     Log.d(this::class.java.simpleName, key)
                 }
         }
 
-        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-        fun unregisterSomething() {
+        override fun onDestroy(owner: LifecycleOwner) {
+            super.onDestroy(owner)
             sharedPreferences
                 .unregisterOnSharedPreferenceChangeListener { _, key ->
                     Log.d(this::class.java.simpleName, key)
