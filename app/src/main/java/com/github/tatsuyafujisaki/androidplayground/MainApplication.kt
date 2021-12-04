@@ -8,15 +8,13 @@ import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.flipper.plugins.network.BuildConfig
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.soloader.SoLoader
-import com.facebook.stetho.Stetho
 
 // @HiltAndroidApp
 class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        Stetho.initializeWithDefaults(this)
-
         SoLoader.init(this, false)
+        
         if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(this)) {
             with(AndroidFlipperClient.getInstance(this)) {
                 addPlugin(
