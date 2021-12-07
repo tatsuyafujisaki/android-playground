@@ -331,6 +331,7 @@ with(recyclerView) {
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
+    tools:drawableEndCompat="@tools:sample/avatars"
     tools:drawableStartCompat="@tools:sample/avatars"
     tools:text="@tools:sample/lorem/random" />
 ```
