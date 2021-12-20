@@ -152,8 +152,10 @@ dependencies {
      * com.google.accompanist
      */
 
-    implementation 'com.google.accompanist:accompanist-flowlayout:0.20.3'
-    implementation 'com.google.accompanist:accompanist-placeholder-material:0.20.3'
+    def accompanistVersion = '0.20.3'
+    implementation "com.google.accompanist:accompanist-flowlayout:$accompanistVersion"
+    implementation "com.google.accompanist:accompanist-placeholder-material:$accompanistVersion"
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanistVersion"
 
     /*
      * com.google.android
