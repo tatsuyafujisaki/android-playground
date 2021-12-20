@@ -152,6 +152,7 @@ dependencies {
      * com.google.accompanist
      */
 
+    implementation 'com.google.accompanist:accompanist-flowlayout:0.20.3'
     implementation 'com.google.accompanist:accompanist-placeholder-material:0.20.3'
 
     /*
