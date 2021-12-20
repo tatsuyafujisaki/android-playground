@@ -99,6 +99,7 @@ dependencies {
 
     def lifecycleVersion = '2.4.0'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
@@ -136,11 +137,8 @@ dependencies {
     // includes androidx.compose.foundation:foundation-layout.
     implementation 'androidx.compose.animation:animation:1.0.5'
     // Tooling support (Previews, etc.).
-    // includes "androidx.compose.ui:ui".
-    // includes "androidx.compose.material:material".
+    implementation 'androidx.compose.material:material:1.0.5'
     implementation 'androidx.compose.ui:ui-tooling:1.0.5'
-    // To use viewModel()
-    // implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
     // To use LiveData.observeAsState()
     implementation 'androidx.compose.runtime:runtime-livedata:1.0.5'
     // To use Observable.subscribeAsState()
@@ -149,6 +147,12 @@ dependencies {
     implementation 'com.google.android.material:compose-theme-adapter:1.1.1'
     // UI Tests
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.0.5'
+
+    /*
+     * com.google.accompanist
+     */
+
+    implementation 'com.google.accompanist:accompanist-placeholder-material:0.20.3'
 
     /*
      * com.google.android
@@ -206,7 +210,7 @@ dependencies {
      * For both local unit tests and instrumented unit tests
      */
 
-    def androidxTestVersion = '1.4.1'
+    def androidxTestVersion = '1.4.0'
     androidTestImplementation "androidx.test.ext:truth:$androidxTestVersion"
     androidTestImplementation "androidx.test:core-ktx:$androidxTestVersion"
     androidTestImplementation "androidx.test:rules:$androidxTestVersion"
