@@ -144,7 +144,7 @@ dependencies {
     // To use Observable.subscribeAsState()
     implementation 'androidx.compose.runtime:runtime-rxjava3:1.0.5'
     // To use a MDC theme
-    implementation 'com.google.android.material:compose-theme-adapter:1.1.1'
+    implementation 'com.google.android.material:compose-theme-adapter:1.1.2'
     // UI Tests
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.0.5'
 
@@ -196,7 +196,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-    def flipperVersion = '0.125.0'
+    def flipperVersion = '0.127.0'
     debugImplementation "com.facebook.flipper:flipper:$flipperVersion"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipperVersion"
     releaseImplementation "com.facebook.flipper:flipper-noop:$flipperVersion"
