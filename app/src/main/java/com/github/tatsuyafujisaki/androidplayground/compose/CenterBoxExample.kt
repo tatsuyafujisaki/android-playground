@@ -3,6 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.compose
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,32 +14,31 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ColumnSample(
+fun CenterBoxExample(
     height: Dp = 100.dp,
-    verticalArrangement: Arrangement.Vertical = Arrangement.Center,
-    horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
+    contentAlignment: Alignment = Alignment.Center,
     background: Color = Color.White,
     onClick: (() -> Unit)? = null,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(height)
-            .background(background)
-            .clickable(enabled = onClick != null, onClick = onClick ?: {}),
-        verticalArrangement = verticalArrangement,
-        horizontalAlignment = horizontalAlignment,
-        content = content
-    )
+    Column(Modifier.fillMaxWidth()) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(height)
+                .background(background)
+                .clickable(enabled = onClick != null, onClick = onClick ?: {}),
+            contentAlignment = contentAlignment,
+            content = content
+        )
+        Divider(color = Color.Red)
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun Preview() {
-    ColumnSample {
-        Text("Bacon")
-        Text("Lettuce")
-        Text("Tomato")
+    CenterBoxExample {
+        Text("Sample")
     }
 }
