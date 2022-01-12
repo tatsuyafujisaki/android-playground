@@ -37,8 +37,8 @@ fun ColumnSample(
 @Composable
 private fun Preview() {
     ColumnSample {
-        Text("bacon")
-        Text("lettuce")
-        Text("tomato")
+        Text("Bacon")
+        Text("Lettuce")
+        Text("Tomato")
     }
 }
