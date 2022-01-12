@@ -36,16 +36,9 @@ fun ColumnSample(
 @Preview(showBackground = true)
 @Composable
 private fun Preview() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Red),
-        contentAlignment = Alignment.CenterStart
-    ) {
-        ColumnSample {
-            Text("bacon")
-            Text("lettuce")
-            Text("tomato")
-        }
+    ColumnSample {
+        Text("bacon")
+        Text("lettuce")
+        Text("tomato")
     }
 }
