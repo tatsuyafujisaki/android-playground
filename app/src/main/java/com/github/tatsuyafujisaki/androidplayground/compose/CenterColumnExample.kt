@@ -15,8 +15,6 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun CenterColumnExample(
     height: Dp = 100.dp,
-    verticalArrangement: Arrangement.Vertical = Arrangement.Center,
-    horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
     background: Color = Color.White,
     onClick: (() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit
@@ -27,8 +25,8 @@ fun CenterColumnExample(
             .height(height)
             .background(background)
             .clickable(enabled = onClick != null, onClick = onClick ?: {}),
-        verticalArrangement = verticalArrangement,
-        horizontalAlignment = horizontalAlignment,
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
         content = content
     )
 }

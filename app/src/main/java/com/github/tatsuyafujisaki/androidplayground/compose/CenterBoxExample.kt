@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun CenterBoxExample(
     height: Dp = 100.dp,
-    contentAlignment: Alignment = Alignment.Center,
     background: Color = Color.White,
     onClick: (() -> Unit)? = null,
     content: @Composable BoxScope.() -> Unit
@@ -28,7 +27,7 @@ fun CenterBoxExample(
                 .height(height)
                 .background(background)
                 .clickable(enabled = onClick != null, onClick = onClick ?: {}),
-            contentAlignment = contentAlignment,
+            contentAlignment = Alignment.Center,
             content = content
         )
         Divider(color = Color.Red)
