@@ -5,11 +5,8 @@ import androidx.annotation.DimenRes
 import androidx.fragment.app.Fragment
 
 object ResourceUtil {
-    /** Converts dp to pixel. */
-    val Int.px get() = (this * Resources.getSystem().displayMetrics.density).toInt()
-
-    /** Converts pixel to dp. */
-    val Int.dp get() = (this / Resources.getSystem().displayMetrics.density).toInt()
+    fun dpToPixel(dp: Int) = (dp * Resources.getSystem().displayMetrics.density).toInt()
+    fun pixelToDp(pixel: Int) = (pixel / Resources.getSystem().displayMetrics.density).toInt()
 
     /**
      * How to get the number of pixels from [DimenRes]:
