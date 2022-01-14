@@ -215,7 +215,7 @@ dependencies {
      * For both local unit tests and instrumented unit tests
      */
 
-    def androidxTestVersion = '1.4.1'
+    def androidxTestVersion = '1.4.0'
     androidTestImplementation "androidx.test.ext:truth:$androidxTestVersion"
     androidTestImplementation "androidx.test:core-ktx:$androidxTestVersion"
     androidTestImplementation "androidx.test:rules:$androidxTestVersion"
