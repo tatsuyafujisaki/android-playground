@@ -143,6 +143,8 @@ dependencies {
     implementation 'androidx.compose.runtime:runtime-livedata:1.0.5'
     // To use Observable.subscribeAsState()
     implementation 'androidx.compose.runtime:runtime-rxjava3:1.0.5'
+    // To use ConstraintLayout
+    implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.0'
     // To use a MDC theme
     implementation 'com.google.android.material:compose-theme-adapter:1.1.2'
     // UI Tests
