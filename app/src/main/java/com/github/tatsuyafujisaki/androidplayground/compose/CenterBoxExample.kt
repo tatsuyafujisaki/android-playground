@@ -23,6 +23,7 @@ fun CenterBoxExample(
     Column(Modifier.fillMaxWidth()) {
         Box(
             modifier = Modifier
+                .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
                 .fillMaxWidth()
                 .height(height)
                 .background(background)
