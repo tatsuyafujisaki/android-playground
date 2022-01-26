@@ -5,6 +5,7 @@ buildscript {
         hiltVersion = '2.40.5'
     }
     repositories {
+        gradlePluginPortal()
         google()
         mavenCentral()
     }
