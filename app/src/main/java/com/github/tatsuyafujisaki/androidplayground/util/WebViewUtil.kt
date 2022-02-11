@@ -1,29 +1,19 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
-import android.webkit.WebResourceError
-import android.webkit.WebResourceRequest
+import android.util.Log
 import android.webkit.WebView
 import android.webkit.WebViewClient
 
 object WebViewUtil {
-    val customizedWebViewClient = object : WebViewClient() {
-        override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-            return super.shouldOverrideUrlLoading(view, request)
-        }
+    private const val TAG = "WebViewUtil"
 
-        override fun onPageStarted(view: WebView, url: String, favicon: Bitmap) {
-        }
-
+    fun createWebViewClient() = object : WebViewClient() {
         override fun onPageFinished(view: WebView, url: String) {
-        }
-
-        override fun onReceivedError(
-            view: WebView,
-            request: WebResourceRequest,
-            error: WebResourceError
-        ) {
+            view.evaluateJavascript("document.documentElement.outerHTML") {
+                val html = it.replace("\\u003C", "<")
+                Log.d(TAG, html)
+            }
         }
     }
 
