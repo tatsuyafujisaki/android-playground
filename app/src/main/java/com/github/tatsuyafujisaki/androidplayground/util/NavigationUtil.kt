@@ -16,14 +16,14 @@ object NavigationUtil {
         get() = childFragmentManager.primaryNavigationFragment
 
     val NavController.canNavigateUp
-        get() = graph.startDestination != currentDestination?.id
+        get() = graph.startDestinationId != currentDestination?.id
 
     /**
      * For debugging purposes, you can ignore the lint error and list non-NavGraph destinations on the back stack.
      * Usage: Timber.d(findNavController().breadcrumb)
      */
     val NavController.breadcrumb
-        get() = "Breadcrumb: " + backStack
+        get() = "Breadcrumb: " + backQueue
             .map {
                 it.destination
             }
@@ -53,7 +53,7 @@ object NavigationUtil {
         @IdRes startDestId: Int
     ) {
         navController.graph = navController.navInflater.inflate(graphResId).apply {
-            startDestination = startDestId
+            setStartDestination(startDestId)
         }
     }
 
@@ -63,7 +63,7 @@ object NavigationUtil {
         @IdRes startDestId: Int
     ) {
         val graph = navController.navInflater.inflate(graphResId).apply {
-            startDestination = startDestId
+            setStartDestination(startDestId)
         }
         navController.setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
     }
