@@ -65,7 +65,7 @@ object NavigationUtil {
         val graph = navController.navInflater.inflate(graphResId).apply {
             setStartDestination(startDestId)
         }
-        navController.setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
+        // navController.setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
     }
 
     fun hasBackStackEntry(
