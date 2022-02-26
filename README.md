@@ -445,19 +445,6 @@ val cookie4: String = cookieManager.getCookie(url4) // a = 1; b = 2; d = 4; e = 
 val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 5!
 ```
 
-# Misc
-## Density / dpi / dp / px
-* density [(# of 160px) / inch] = dpi / 160
-* dp [(1 / 160) inch] = px * (160 / dpi) = px / density
-
-## How a lancher icon's density bucket (mdpi, hdpi,  xhdpi, ...) is chosen
-> Android will select the resource at the closest larger density bucket and then scale down.
-
-https://developer.android.com/codelabs/basic-android-kotlin-training-change-app-icon#2
-
-## Round image
-Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but neither of them can draw a border around it.
-
 # Activity
 [activity.md](markdown/activity.md)
 
@@ -496,6 +483,9 @@ Both `RoundedBitmapDrawable` and `ImageFilterView` can draw a round image but ne
 
 # Material Design
 [material-design.md](markdown/material-design.md)
+
+# Misc
+[misc.md](markdown/misc.md)
 
 # Navigation
 [navigation.md](markdown/navigation.md)
