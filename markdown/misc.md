@@ -12,5 +12,5 @@ Use either `RoundedBitmapDrawable` or `ImageFilterView`. Note that neither of th
 
 # How to view a DataStore file
 ```shell
-protoc --decode_raw < sample.preferences_pb
+protoc --decode_raw < input.preferences_pb
 ```
