@@ -6,7 +6,6 @@ import android.content.Intent
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
-import android.view.Window
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
@@ -48,12 +47,17 @@ object ActivityUtil {
     }
 
     object Fullscreen {
-        fun fullscreen(window: Window) {
-            ViewCompat.getWindowInsetsController(window.decorView)?.show(Type.systemBars())
+        fun fullscreen(activity: Activity) {
+            ViewCompat.getWindowInsetsController(activity.window.decorView)?.show(Type.systemBars())
         }
 
-        fun exitFullscreen(window: Window) {
-            ViewCompat.getWindowInsetsController(window.decorView)?.hide(Type.systemBars())
+        fun exitFullscreen(activity: Activity) {
+            ViewCompat.getWindowInsetsController(activity.window.decorView)?.run {
+                // Prevent only touching from showing the system bars.
+                systemBarsBehavior =
+                    WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                hide(Type.systemBars())
+            }
         }
     }
 
