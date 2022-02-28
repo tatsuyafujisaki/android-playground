@@ -6,9 +6,11 @@ import android.content.Intent
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
+import android.view.Window
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.FragmentActivity
@@ -46,17 +48,12 @@ object ActivityUtil {
     }
 
     object Fullscreen {
-        fun Activity.fullscreen() {
-            // WindowCompat.setDecorFitsSystemWindows(window, true)
-            with(WindowInsetsControllerCompat(window, window.decorView)) {
-                systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE
-                hide(Type.systemBars())
-            }
+        fun fullscreen(window: Window) {
+            ViewCompat.getWindowInsetsController(window.decorView)?.show(Type.systemBars())
         }
 
-        fun Activity.exitFullscreen() {
-            // WindowCompat.setDecorFitsSystemWindows(window, false)
-            WindowInsetsControllerCompat(window, window.decorView).show(Type.systemBars())
+        fun exitFullscreen(window: Window) {
+            ViewCompat.getWindowInsetsController(window.decorView)?.hide(Type.systemBars())
         }
     }
 
