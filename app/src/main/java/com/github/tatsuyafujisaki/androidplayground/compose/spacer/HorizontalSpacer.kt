@@ -18,7 +18,7 @@ fun HorizontalSpacer(height: Dp) {
 private fun PreviewHorizontalSpacer() {
     Column {
         Text("Hello")
-        HorizontalSpacer(100.dp)
+        HorizontalSpacer(8.dp)
         Text("World")
     }
 }

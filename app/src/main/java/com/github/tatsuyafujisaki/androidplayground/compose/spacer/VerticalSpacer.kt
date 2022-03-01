@@ -18,7 +18,7 @@ fun VerticalSpacer(width: Dp) {
 private fun PreviewVerticalSpacer() {
     Row {
         Text("Hello")
-        VerticalSpacer(100.dp)
+        VerticalSpacer(8.dp)
         Text("World")
     }
 }

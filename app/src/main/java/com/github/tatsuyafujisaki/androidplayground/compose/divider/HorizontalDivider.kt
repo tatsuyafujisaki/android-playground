@@ -25,7 +25,7 @@ private fun PreviewHorizontalSpacer() {
         Text("Hello")
         HorizontalDivider(
             color = Color.Yellow,
-            thickness = 100.dp
+            thickness = 10.dp
         )
         Text("World")
     }
