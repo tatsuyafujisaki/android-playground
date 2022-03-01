@@ -13,6 +13,9 @@ fun VerticalDivider(
     width: Dp,
     color: Color
 ) {
+    // Divider's "thickness" cannot be used for a vertical divider
+    // because "thickness" is always interpreted as the height.
+    // Moreover, the width of Divider is infinite unless specified.
     Divider(
         modifier = Modifier
             .width(width)
