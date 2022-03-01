@@ -10,12 +10,12 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun VerticalDivider(
-    color: Color,
-    thickness: Dp
+    width: Dp,
+    color: Color
 ) {
     Divider(
         modifier = Modifier
-            .width(thickness)
+            .width(width)
             .fillMaxHeight(),
         color = color
     )
@@ -27,8 +27,8 @@ private fun PreviewVerticalDivider() {
     Row(Modifier.height(IntrinsicSize.Min)) {
         Text("Hello")
         VerticalDivider(
-            color = Color.Yellow,
-            thickness = 10.dp
+            width = 10.dp,
+            color = Color.Yellow
         )
         Text("World")
     }
