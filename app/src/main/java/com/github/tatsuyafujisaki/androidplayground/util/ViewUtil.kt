@@ -1,11 +1,14 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.res.Resources
+import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.DimenRes
 import androidx.core.view.updatePadding
 
 object ViewUtil {
+    private const val TAG = "ViewUtil"
+
     fun updatePaddingByRes(
         view: View,
         resources: Resources,
@@ -39,13 +42,32 @@ object ViewUtil {
         )
     }
 
-    fun View.setOnSafeClickListener(delayMillis: Long = 1000L, onClick: (View) -> Unit) {
+    fun View.setOnDownUpListener(
+        onActionDown: () -> Unit,
+        onActionUp: () -> Unit
+    ) {
+        setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> onActionDown()
+                MotionEvent.ACTION_UP -> {
+                    onActionUp()
+                    // performClick() calls a callback registered with setOnClickListener().
+                    // Without performClick(), a callback registered with setOnClickListener() will never be called
+                    // because setOnTouchListener() consumes clicking.
+                    v.performClick()
+                }
+            }
+            true
+        }
+    }
+
+    fun View.setOnSafeClickListener(delayMillis: Long = 1000L, onClick: () -> Unit) {
         setOnClickListener {
             isClickable = false
             postDelayed({
                 isClickable = true
             }, delayMillis)
-            onClick(it)
+            onClick()
         }
     }
 }
