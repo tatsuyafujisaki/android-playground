@@ -6,22 +6,24 @@ import androidx.annotation.DimenRes
 import androidx.core.view.updatePadding
 
 object ViewUtil {
-    fun View.updatePaddingByRes(
+    fun updatePaddingByRes(
+        view: View,
         resources: Resources,
         @DimenRes leftId: Int? = null,
         @DimenRes topId: Int? = null,
         @DimenRes rightId: Int? = null,
         @DimenRes bottomId: Int? = null
     ) {
-        updatePadding(
-            leftId?.let(resources::getDimensionPixelSize) ?: paddingLeft,
-            topId?.let(resources::getDimensionPixelSize) ?: paddingTop,
-            rightId?.let(resources::getDimensionPixelSize) ?: paddingRight,
-            bottomId?.let(resources::getDimensionPixelSize) ?: paddingBottom
+        view.updatePadding(
+            leftId?.let(resources::getDimensionPixelSize) ?: view.paddingLeft,
+            topId?.let(resources::getDimensionPixelSize) ?: view.paddingTop,
+            rightId?.let(resources::getDimensionPixelSize) ?: view.paddingRight,
+            bottomId?.let(resources::getDimensionPixelSize) ?: view.paddingBottom
         )
     }
 
-    fun View.updatePaddingInDp(
+    fun updatePaddingInDp(
+        view: View,
         leftDp: Int? = null,
         topDp: Int? = null,
         rightDp: Int? = null,
@@ -29,11 +31,11 @@ object ViewUtil {
     ) {
         fun toPx(dp: Int) = (dp * Resources.getSystem().displayMetrics.density).toInt()
 
-        updatePadding(
-            leftDp?.let(::toPx) ?: paddingLeft,
-            topDp?.let(::toPx) ?: paddingTop,
-            rightDp?.let(::toPx) ?: paddingRight,
-            bottomDp?.let(::toPx) ?: paddingBottom
+        view.updatePadding(
+            leftDp?.let(::toPx) ?: view.paddingLeft,
+            topDp?.let(::toPx) ?: view.paddingTop,
+            rightDp?.let(::toPx) ?: view.paddingRight,
+            bottomDp?.let(::toPx) ?: view.paddingBottom
         )
     }
 
