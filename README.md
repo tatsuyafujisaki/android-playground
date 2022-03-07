@@ -259,6 +259,19 @@ class MyCustomView @JvmOverloads constructor(
 ```
 
 # Template
+## ViewModel and LiveData
+```kotolin
+class MyViewModel : ViewModel() {
+    private val _something = MutableLiveData<Something>()
+    val something: LiveData<Something>
+        get() = _something
+
+    fun setSomething(something: Something) {
+        _something.value = something
+    }
+}
+```
+
 ## ConstraintLayout
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
