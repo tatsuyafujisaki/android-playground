@@ -282,6 +282,15 @@ class MyViewModel : ViewModel() {
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
+A view in a ConstraintLayout
+```xml
+<View
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+```
+
 ## LinearLayout
 ```xml
 <LinearLayout
@@ -340,10 +349,6 @@ with(recyclerView) {
     android:ellipsize="end"
     android:gravity="center"
     android:singleLine="true"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
     tools:drawableEndCompat="@tools:sample/avatars"
     tools:drawableStartCompat="@tools:sample/avatars"
     tools:text="@tools:sample/lorem/random" />
