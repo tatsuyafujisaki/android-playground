@@ -7,8 +7,7 @@ plugins {
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.serialization
     id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlinVersion"
     id 'dagger.hilt.android.plugin'
-    id 'com.google.gms.google-services' // This must be above ...
-    id 'com.google.firebase.crashlytics' // ... this file. Otherwise an error will occur.
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -115,7 +114,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     androidTestImplementation "androidx.navigation:navigation-testing:$navigationVersion"
 
-    def pagingVersion = '3.1.0'
+    def pagingVersion = '3.1.1'
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
     testImplementation "androidx.paging:paging-common-ktx:$pagingVersion"
 
