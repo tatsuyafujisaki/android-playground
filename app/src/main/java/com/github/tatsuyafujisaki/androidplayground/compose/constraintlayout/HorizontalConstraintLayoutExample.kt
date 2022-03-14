@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.compose
+package com.github.tatsuyafujisaki.androidplayground.compose.constraintlayout
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,9 +13,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 @Preview(showBackground = true)
 @Composable
 fun HorizontalConstraintLayoutExample() {
-    ConstraintLayout(
-        Modifier.fillMaxSize()
-    ) {
+    ConstraintLayout(Modifier.fillMaxSize()) {
         val (text1, text2) = createRefs()
 
         Text(
