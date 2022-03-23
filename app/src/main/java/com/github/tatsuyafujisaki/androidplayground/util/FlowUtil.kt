@@ -5,9 +5,9 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flow
 
 object FlowUtil {
-    fun <T> buildFlow(x: T, interval: Long = 1000) = flow {
+    fun <T> buildFlow(interval: Long = 1000, emitter: () -> T) = flow {
         while (true) {
-            emit(x)
+            emit(emitter())
             delay(interval)
         }
     }.distinctUntilChanged()
