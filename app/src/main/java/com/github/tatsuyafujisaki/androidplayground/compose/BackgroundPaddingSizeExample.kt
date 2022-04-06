@@ -66,5 +66,6 @@ fun BackgroundPaddingSizeExample() {
                 .padding(padding)
                 .background(Red)
         )
+        MyDivider()
     }
 }
