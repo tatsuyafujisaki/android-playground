@@ -12,7 +12,6 @@ import androidx.annotation.IdRes
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.findNavController
 
@@ -31,7 +30,7 @@ object ActivityUtil {
             ).show(Type.ime())
         }
 
-        fun hideKeyboard(activity: Activity) {
+        private fun hideKeyboard(activity: Activity) {
             WindowInsetsControllerCompat(
                 activity.window,
                 activity.window.decorView
@@ -70,24 +69,24 @@ object ActivityUtil {
         }
     }
 
-    fun Activity.canResolveActivity(intent: Intent) =
-        packageManager.resolveActivity(intent, 0) != null
+    fun canResolveActivity(activity: Activity, intent: Intent) =
+        activity.packageManager.resolveActivity(intent, 0) != null
 
-    fun Activity.getNavController(@IdRes navHostFragmentId: Int) =
-        findNavController(navHostFragmentId)
+    fun getNavController(activity: Activity, @IdRes navHostFragmentId: Int) =
+        activity.findNavController(navHostFragmentId)
 
-    fun FragmentActivity.clearViewModels() {
-        viewModelStore.clear()
+    fun hasEnabledCallbacks(activity: ComponentActivity) {
+        activity.onBackPressedDispatcher.hasEnabledCallbacks()
     }
 
-    fun ComponentActivity.hasEnabledCallbacks() =
-        onBackPressedDispatcher.hasEnabledCallbacks()
+    fun getExtraString(activity: Activity, key: String) =
+        activity.intent?.extras?.getString(key).orEmpty()
 
-    fun Activity.getExtraString(key: String) = intent?.extras?.getString(key).orEmpty()
-
-    fun ComponentActivity.logStateChanged(tag: String) {
-        lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            Log.d(tag, event.toString())
-        })
+    fun logStateChanged(activity: Activity., tag: String) {
+        activity.lifecycle.addObserver(
+            LifecycleEventObserver { _, event ->
+                Log.d(tag, event.toString())
+            }
+        )
     }
 }
