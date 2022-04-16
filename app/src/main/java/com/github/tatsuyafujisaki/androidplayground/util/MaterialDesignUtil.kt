@@ -5,9 +5,6 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
 object MaterialDesignUtil {
-    val ChipGroup.chips
-        get() = children.filterIsInstance<Chip>()
-
-    fun ChipGroup.getChip(id: Int) =
-        children.filterIsInstance<Chip>().firstOrNull { it.id == id }
+    fun getChip(cg: ChipGroup, id: Int) = cg.children.filterIsInstance<Chip>().find { it.id == id }
+    fun getChips(cg: ChipGroup) = cg.children.filterIsInstance<Chip>()
 }
