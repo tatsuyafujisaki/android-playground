@@ -21,27 +21,36 @@ import androidx.navigation.findNavController
  */
 object ActivityUtil {
     object Keyboard {
-        private val Activity.inputMethodManager
-            get() = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        fun getInputMethodManager(activity: Activity) =
+            activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-        fun Activity.openKeyboard() {
-            WindowInsetsControllerCompat(window, window.decorView).show(Type.ime())
+        fun openKeyboard(activity: Activity) {
+            WindowInsetsControllerCompat(
+                activity.window,
+                activity.window.decorView
+            ).show(Type.ime())
         }
 
-        fun Activity.hideKeyboard() {
-            WindowInsetsControllerCompat(window, window.decorView).hide(Type.ime())
+        fun hideKeyboard(activity: Activity) {
+            WindowInsetsControllerCompat(
+                activity.window,
+                activity.window.decorView
+            ).hide(Type.ime())
         }
 
-        fun Activity.hideKeyboardOldWay() {
-            inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        fun hideKeyboardOldWay(activity: Activity) {
+            (activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+                .hideSoftInputFromWindow(activity.currentFocus?.windowToken, 0)
         }
 
-        fun Activity.hideKeyboardOnEnter() = View.OnKeyListener { _, keyCode, _ ->
-            if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                hideKeyboard()
-                true
-            } else {
-                false
+        fun hideKeyboardOnEnter(activity: Activity) {
+            View.OnKeyListener { _, keyCode, _ ->
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    hideKeyboard(activity)
+                    true
+                } else {
+                    false
+                }
             }
         }
     }
