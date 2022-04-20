@@ -45,17 +45,32 @@ object ContextUtil {
      * [AppCompatResources.getDrawable] (Simpler than [Resources.getDrawable])
      */
 
-    val Context.isInteractive
-        get() = (getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
+    fun isInteractive(context: Context) =
+        (context.getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
 
-    fun Context.readAsset(fileName: String) =
-        assets
+    fun readAsset(context: Context, fileName: String) =
+        context
+            .assets
             .open(fileName)
             .bufferedReader()
             .use(BufferedReader::readText)
 
-    fun Context.openInBrowser(url: String) =
-        startActivity(this, Intent(Intent.ACTION_VIEW, url.toUri()), null)
+    fun openInBrowser(context: Context, url: String) {
+        startActivity(context, Intent(Intent.ACTION_VIEW, url.toUri()), null)
+    }
+
+    /**
+     * https://developer.android.com/distribute/marketing-tools/linking-to-google-play#android-app
+     */
+    fun openGooglePlay(context: Context) {
+        context.startActivity(
+            Intent(Intent.ACTION_VIEW).apply {
+                data =
+                    ("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID).toUri()
+                setPackage("com.android.vending")
+            }
+        )
+    }
 
     // Usage: logScreenInfo(resources.displayMetrics)
     fun DisplayMetrics.logScreenInfo() {
@@ -80,8 +95,14 @@ object ContextUtil {
         Log.d(tag, "densityQualifier: $densityQualifier")
         Log.d(tag, "widthPixels: $widthPixels")
         Log.d(tag, "heightPixels: $heightPixels")
-        Log.d(tag, "widthInDp [(1 / 160) inch] (= px / density): " + "${(widthPixels / density).toInt()}")
-        Log.d(tag, "heightInDp [(1 / 160) inch] (= px / density): " + "${(heightPixels / density).toInt()}")
+        Log.d(
+            tag,
+            "widthInDp [(1 / 160) inch] (= px / density): " + "${(widthPixels / density).toInt()}"
+        )
+        Log.d(
+            tag,
+            "heightInDp [(1 / 160) inch] (= px / density): " + "${(heightPixels / density).toInt()}"
+        )
     }
 
     /**
@@ -135,15 +156,5 @@ object ContextUtil {
 
     fun MenuItem.color3(fragment: Fragment, @ColorInt color: Int) {
         fragment.view?.findViewById<TextView>(itemId)?.setTextColor(color)
-    }
-
-    /**
-     * https://developer.android.com/distribute/marketing-tools/linking-to-google-play#android-app
-     */
-    fun Context.openGooglePlay() {
-        Intent(Intent.ACTION_VIEW).apply {
-            data = ("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID).toUri()
-            setPackage("com.android.vending")
-        }.let(::startActivity)
     }
 }
