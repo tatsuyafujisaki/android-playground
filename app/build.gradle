@@ -53,6 +53,9 @@ android {
         kotlinCompilerExtensionVersion '1.1.1'
     }
     compileOptions {
+        // https://developer.android.com/studio/write/java8-support
+        coreLibraryDesugaringEnabled true
+
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
