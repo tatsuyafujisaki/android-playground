@@ -23,7 +23,7 @@ adb emu kill
 
 # How to start an emulator specifying DNS servers
 ```shell
-emulator -avd <emulator> -dns-server 1.1.1.1,1.0.0.1
+emulator -avd <android-virtual-device> -dns-server 1.1.1.1,1.0.0.1
 ```
 
 # How to start an emulator
@@ -33,7 +33,7 @@ adb emu kill
 
 # "&|" is to keep an emulator running even after Zsh is closed.
 # http://zsh.sourceforge.net/Doc/Release/Shell-Builtin-Commands.html
-emulator -avd <emulator> &|
+emulator -avd <android-virtual-device> &|
 ```
 
 # Activity/Fragment
