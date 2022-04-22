@@ -188,6 +188,7 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
     * `Gestures` > `System navigation` > `Gesture navigation`
     * `On-screen keyboard` > `Google voice typing` > Off
     * `Spell checker` > Off
+  * `Privacy` > `Personalize using app data` > Off
 
 ## Misc
 * `Quick Settings` > Remove unnecessary items to bring `Airplane mode` to the first six items.
