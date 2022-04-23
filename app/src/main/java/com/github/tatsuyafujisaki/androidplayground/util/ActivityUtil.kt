@@ -82,7 +82,7 @@ object ActivityUtil {
     fun getExtraString(activity: Activity, key: String) =
         activity.intent?.extras?.getString(key).orEmpty()
 
-    fun logStateChanged(activity: Activity., tag: String) {
+    fun logStateChanged(activity: ComponentActivity, tag: String) {
         activity.lifecycle.addObserver(
             LifecycleEventObserver { _, event ->
                 Log.d(tag, event.toString())
