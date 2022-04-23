@@ -3,21 +3,12 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
-import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 
 object NavigationUtil {
-    val FragmentManager.navHostFragments
-        get() = fragments.filterIsInstance<NavHostFragment>()
-
-    val NavHostFragment.currentFragment
-        get() = childFragmentManager.primaryNavigationFragment
-
-    val NavController.canNavigateUp
-        get() = graph.startDestinationId != currentDestination?.id
-
     /**
      * For debugging purposes, you can ignore the lint error and list non-NavGraph destinations on the back stack.
      * Usage: Timber.d(findNavController().breadcrumb)
@@ -33,6 +24,19 @@ object NavigationUtil {
             .joinToString(" > ") {
                 it.displayName.split('/')[1]
             }
+
+    /**
+     * A [FragmentActivity] can contain 0, 1, or more than 1 [NavHostFragment].
+     */
+    fun getNavHostFragments(activity: FragmentActivity) =
+        activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>().firstOrNull()
+
+    fun getCurrentFragment(navHostFragment: NavHostFragment) =
+        navHostFragment.childFragmentManager.primaryNavigationFragment
+
+    fun canNavigateUp(navController: NavController) = with(navController) {
+        graph.startDestinationId != currentDestination?.id
+    }
 
     fun setNavGraphIfAbsent(
         navController: NavController,
