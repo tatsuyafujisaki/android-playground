@@ -34,7 +34,7 @@ object NavigationUtil {
     private fun getCurrentFragment(navHostFragment: NavHostFragment) =
         navHostFragment.childFragmentManager.primaryNavigationFragment
 
-    fun getViewPager2Fragment(navHostFragment: NavHostFragment) =
+    private fun getViewPager2Fragment(navHostFragment: NavHostFragment) =
         getCurrentFragment(navHostFragment)
 
     /**
