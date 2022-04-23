@@ -29,7 +29,7 @@ object NavigationUtil {
      * A [FragmentActivity] can contain 0, 1, or more than 1 [NavHostFragment].
      */
     fun getNavHostFragments(activity: FragmentActivity) =
-        activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>().firstOrNull()
+        activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>()
 
     fun getCurrentFragment(navHostFragment: NavHostFragment) =
         navHostFragment.childFragmentManager.primaryNavigationFragment
