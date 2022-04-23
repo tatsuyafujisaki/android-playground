@@ -31,8 +31,19 @@ object NavigationUtil {
     fun getNavHostFragments(activity: FragmentActivity) =
         activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>()
 
-    fun getCurrentFragment(navHostFragment: NavHostFragment) =
+    private fun getCurrentFragment(navHostFragment: NavHostFragment) =
         navHostFragment.childFragmentManager.primaryNavigationFragment
+
+    fun getViewPager2Fragment(navHostFragment: NavHostFragment) =
+        getCurrentFragment(navHostFragment)
+
+    /**
+     * Don't replace ".fragments?.first()" with ".primaryNavigationFragment"
+     * because ".primaryNavigationFragment" is null
+     * even though ".fragments" contains multiple fragments.
+     */
+    fun getFragmentInViewPager2(navHostFragment: NavHostFragment) =
+        getViewPager2Fragment(navHostFragment)?.childFragmentManager?.fragments?.first()
 
     fun canNavigateUp(navController: NavController) = with(navController) {
         graph.startDestinationId != currentDestination?.id
