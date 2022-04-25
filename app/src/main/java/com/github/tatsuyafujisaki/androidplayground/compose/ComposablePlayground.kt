@@ -10,7 +10,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.placeholder.material.placeholder
 
-class BooleanProvider : PreviewParameterProvider<Boolean> {
+internal class BooleanProvider : PreviewParameterProvider<Boolean> {
     override val values = sequenceOf(false, true)
 }
 
