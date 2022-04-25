@@ -31,7 +31,7 @@ object NavigationUtil {
     fun getNavHostFragments(activity: FragmentActivity) =
         activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>()
 
-    private fun getCurrentFragment(navHostFragment: NavHostFragment) =
+    fun getCurrentFragment(navHostFragment: NavHostFragment) =
         navHostFragment.childFragmentManager.primaryNavigationFragment
 
     private fun getViewPager2Fragment(navHostFragment: NavHostFragment) =
