@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -69,10 +70,13 @@ class MainFragment : Fragment(), WebViewContainer {
                     view: WebView?,
                     request: WebResourceRequest?
                 ): Boolean {
+                    Log.d(TAG, request.toString())
+
                     if (true) {
                         view?.loadUrl("https://example.com")
                         return true
                     }
+
                     return super.shouldOverrideUrlLoading(view, request)
                 }
 
@@ -82,6 +86,15 @@ class MainFragment : Fragment(), WebViewContainer {
                         val html = it.replace("\\u003C", "<")
                         Log.d(TAG, html)
                     }
+                }
+
+                override fun onReceivedError(
+                    view: WebView?,
+                    request: WebResourceRequest?,
+                    error: WebResourceError?
+                ) {
+                    Log.d(TAG, error.toString())
+                    super.onReceivedError(view, request, error)
                 }
             }
 
