@@ -87,6 +87,9 @@ class MainFragment : Fragment(), WebViewContainer {
                     isError = false
                 }
 
+                /**
+                 * This function can be called even after [onReceivedError] is called.
+                 */
                 override fun onPageFinished(view: WebView, url: String) {
                     if (!isError) Log.d(TAG, "Successfully page finished.")
 
