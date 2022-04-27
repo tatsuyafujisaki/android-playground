@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -66,6 +67,8 @@ class MainFragment : Fragment(), WebViewContainer {
 
             webView.settings.javaScriptEnabled = true
             webView.webViewClient = object : WebViewClient() {
+                var isError = false
+
                 override fun shouldOverrideUrlLoading(
                     view: WebView?,
                     request: WebResourceRequest?
@@ -73,14 +76,20 @@ class MainFragment : Fragment(), WebViewContainer {
                     Log.d(TAG, request.toString())
 
                     if (true) {
-                        view?.loadUrl("https://example.com")
+                        view?.loadUrl("http://example.com")
                         return true
                     }
 
                     return super.shouldOverrideUrlLoading(view, request)
                 }
 
+                override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                    isError = false
+                }
+
                 override fun onPageFinished(view: WebView, url: String) {
+                    if (!isError) Log.d(TAG, "Successfully page finished.")
+
                     // Print the whole HTML.
                     view.evaluateJavascript("document.documentElement.outerHTML") {
                         val html = it.replace("\\u003C", "<")
@@ -94,6 +103,7 @@ class MainFragment : Fragment(), WebViewContainer {
                     error: WebResourceError?
                 ) {
                     Log.d(TAG, error.toString())
+                    isError = true
                     super.onReceivedError(view, request, error)
                 }
             }
