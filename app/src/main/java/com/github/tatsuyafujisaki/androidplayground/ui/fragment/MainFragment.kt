@@ -1,10 +1,12 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.addCallback
@@ -17,7 +19,6 @@ import com.github.tatsuyafujisaki.androidplayground.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentMainBinding
-import com.github.tatsuyafujisaki.androidplayground.util.WebViewUtil.enableJavaScript
 import kotlinx.coroutines.launch
 
 class MainFragment : Fragment(), WebViewContainer {
@@ -46,6 +47,7 @@ class MainFragment : Fragment(), WebViewContainer {
         return binding.root
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
@@ -61,18 +63,29 @@ class MainFragment : Fragment(), WebViewContainer {
                 editText.setText(it)
             }
 
-            with(webView) {
-                enableJavaScript()
-                webViewClient = object : WebViewClient() {
-                    // Enable page transitions inside the WebView instead of opening a browser.
-                    override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                        view.loadUrl(url)
+            webView.settings.javaScriptEnabled = true
+            webView.webViewClient = object : WebViewClient() {
+                override fun shouldOverrideUrlLoading(
+                    view: WebView?,
+                    request: WebResourceRequest?
+                ): Boolean {
+                    if (true) {
+                        view?.loadUrl("https://example.com")
                         return true
                     }
+                    return super.shouldOverrideUrlLoading(view, request)
                 }
 
-                loadUrl("https://www.google.com/")
+                override fun onPageFinished(view: WebView, url: String) {
+                    // Print the whole HTML.
+                    view.evaluateJavascript("document.documentElement.outerHTML") {
+                        val html = it.replace("\\u003C", "<")
+                        Log.d(TAG, html)
+                    }
+                }
             }
+
+            webView.loadUrl("https://www.google.com")
         }
     }
 
