@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 
-class OnBackPressedCallback(fragment: Fragment, callback: () -> Unit) {
+class BackPressedCallback(fragment: Fragment, callback: () -> Unit) {
     private val onBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             callback()
