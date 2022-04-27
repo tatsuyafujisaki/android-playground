@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -35,15 +35,13 @@ class MainFragment : Fragment(), WebViewContainer {
             Log.d(TAG, "This is a demonstration of viewLifecycleOwner.lifecycleScope.")
         }
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
-                if (!findNavController().popBackStack()) {
-                    // Finish the Activity if it has nothing in the back stack.
-                    requireActivity().finish()
-                }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            Log.d(TAG, object {}.javaClass.enclosingMethod!!.name)
+            if (!findNavController().popBackStack()) {
+                // Finish the Activity if it has nothing in the back stack.
+                requireActivity().finish()
             }
-        })
+        }
 
         return binding.root
     }
