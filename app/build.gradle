@@ -170,7 +170,7 @@ dependencies {
      * com.google.android
      */
 
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.6.0'
     implementation 'com.google.android.play:core-ktx:1.8.1'
 
     /**
@@ -201,7 +201,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // CookieJar
 
-    def glideVersion = '4.13.1'
+    def glideVersion = '4.13.2'
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
@@ -242,7 +242,7 @@ dependencies {
      * https://developer.android.com/training/testing/unit-testing/local-unit-tests#setup
      */
 
-    testImplementation 'org.robolectric:robolectric:4.7.3'
+    testImplementation 'org.robolectric:robolectric:4.8.1'
 
     /*
      * For instrumented unit tests
