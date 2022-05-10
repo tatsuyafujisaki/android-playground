@@ -191,6 +191,5 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
   * `Privacy` > `Personalize using app data` > Off
 
 ## Misc
-* `Quick Settings` > Remove unnecessary items to bring `Airplane mode` to the first six items.
 * Configure Chrome.
 * Configure Gboard.
