@@ -146,10 +146,11 @@ dependencies {
     implementation 'androidx.compose.runtime:runtime-livedata:1.1.1'
     // To use ConstraintLayout
     implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.0'
-    // To use a MDC theme
-    implementation 'com.google.android.material:compose-theme-adapter:1.1.8'
     // UI Tests
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.1.1'
+
+    // To use Mdc3Theme. (https://github.com/material-components/material-components-android-compose-theme-adapter)
+    // implementation 'com.google.android.material:compose-theme-adapter-3:*'
 
     /**
      * com.android
