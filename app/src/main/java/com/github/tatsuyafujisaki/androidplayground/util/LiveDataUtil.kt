@@ -3,6 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.LiveDataReactiveStreams
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -99,9 +100,18 @@ object LiveDataUtil {
         b.value = 100
     }
 
-    fun <T : Any> LiveData<T>.toObservable(owner: LifecycleOwner): Observable<T> =
+    /**
+     * Converts LiveData to Observable using LiveDataReactiveStreams in androidx.lifecycle:lifecycle-reactivestreams-ktx.
+     */
+    fun <T : Any> toObservable1(owner: LifecycleOwner, liveData: LiveData<T>): Observable<T> =
+        Observable.fromPublisher(LiveDataReactiveStreams.toPublisher(owner, liveData))
+
+    /**
+     * Converts LiveData to Observable without using LiveDataReactiveStreams.
+     */
+    fun <T : Any> toObservable2(owner: LifecycleOwner, liveData: LiveData<T>): Observable<T> =
         PublishSubject.create<T>().apply {
-            observe(owner) {
+            liveData.observe(owner) {
                 onNext(it)
             }
         }
