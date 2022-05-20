@@ -6,12 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
-    private val _liveData = MutableLiveData("")
-    val liveData: LiveData<String>
-        get() = _liveData
+    private val _something = MutableLiveData("")
+    val something: LiveData<String>
+        get() = _something
 
-    fun setData(s: String?) {
-        _liveData.value = s
+    fun setSomething(something: String) {
+        _something.value = something
     }
 
     override fun onCleared() {

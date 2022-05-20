@@ -54,14 +54,14 @@ class MainFragment : Fragment(), WebViewContainer {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             clearButton.setOnClickListener {
-                mainViewModel.setData(null)
+                mainViewModel.setSomething("")
             }
 
             navigateToSampleFragmentButton.setOnClickListener(
                 Navigation.createNavigateOnClickListener(R.id.action_main_fragment_to_third_fragment)
             )
 
-            mainViewModel.liveData.observe(viewLifecycleOwner) {
+            mainViewModel.something.observe(viewLifecycleOwner) {
                 editText.setText(it)
             }
 
