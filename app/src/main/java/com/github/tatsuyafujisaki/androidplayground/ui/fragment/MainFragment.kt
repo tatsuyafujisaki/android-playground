@@ -21,12 +21,13 @@ import com.github.tatsuyafujisaki.androidplayground.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentMainBinding
+import kotlin.random.Random
 import kotlinx.coroutines.launch
 
 class MainFragment : Fragment(), WebViewContainer {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private val mainViewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,14 +55,14 @@ class MainFragment : Fragment(), WebViewContainer {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             button1.setOnClickListener {
-                mainViewModel.setSomething("")
+                viewModel.setSomething(Random.nextInt().toString())
             }
 
             navigateToSampleFragmentButton.setOnClickListener(
                 Navigation.createNavigateOnClickListener(R.id.action_main_fragment_to_third_fragment)
             )
 
-            mainViewModel.something.observe(viewLifecycleOwner) {
+            viewModel.something.observe(viewLifecycleOwner) {
                 editText.setText(it)
             }
 
