@@ -8,7 +8,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:constraint_referenced_ids="text_view,text_input_layout,edit_text,clear_button,navigate_to_sample_fragment_button,web_view"
+        app:constraint_referenced_ids="text_view,text_input_layout,edit_text,button1,navigate_to_sample_fragment_button,web_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         tools:text="@tools:sample/lorem/random" />
 
     <Button
-        android:id="@+id/clear_button"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clear_button_text" />

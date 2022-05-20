@@ -53,7 +53,7 @@ class MainFragment : Fragment(), WebViewContainer {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-            clearButton.setOnClickListener {
+            button1.setOnClickListener {
                 mainViewModel.setSomething("")
             }
 
