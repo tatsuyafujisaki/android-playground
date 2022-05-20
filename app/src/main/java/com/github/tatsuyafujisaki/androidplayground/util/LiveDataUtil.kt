@@ -9,6 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.map
 import androidx.lifecycle.switchMap
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
 
 object LiveDataUtil {
     fun <T> MutableLiveData<T>.notifyObserver() {
@@ -96,4 +98,11 @@ object LiveDataUtil {
         a.value = 10
         b.value = 100
     }
+
+    fun <T : Any> LiveData<T>.toObservable(owner: LifecycleOwner): Observable<T> =
+        PublishSubject.create<T>().apply {
+            observe(owner) {
+                onNext(it)
+            }
+        }
 }
