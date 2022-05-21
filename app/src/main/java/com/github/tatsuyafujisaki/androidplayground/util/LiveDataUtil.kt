@@ -114,5 +114,5 @@ object LiveDataUtil {
             observe(owner) {
                 onNext(it)
             }
-        }
+        }.hide()
 }
