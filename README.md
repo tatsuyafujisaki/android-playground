@@ -295,12 +295,12 @@ A view in a ConstraintLayout
 ### How to programmatically update constraints
 ```kotlin
 myContentLayout.updateLayoutParams<ConstraintLayout.LayoutParams> {
-    height = ConstraintLayout.LayoutParams.WRAP_CONTENT
-    height = ConstraintLayout.LayoutParams.MATCH_CONSTRAINT // equivalent to 0dp
-    height = ConstraintLayout.LayoutParams.MATCH_PARENT
+    height = ConstraintSet.WRAP_CONTENT
+    height = ConstraintSet.MATCH_CONSTRAINT // equivalent to 0dp
+    height = ViewGroup.LayoutParams.MATCH_PARENT
 
-    topToTop  = ConstraintLayout.LayoutParams.UNSET
-    topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+    topToTop  = ConstraintSet.UNSET
+    topToTop = ConstraintSet.PARENT_ID
     topToBottom = myToolbar.id
 }
 ```
