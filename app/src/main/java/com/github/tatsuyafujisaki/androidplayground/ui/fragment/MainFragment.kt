@@ -91,11 +91,10 @@ class MainFragment : Fragment(), WebViewContainer {
                 /**
                  * This function can be called even after [onReceivedError] is called.
                  */
-                override fun onPageFinished(view: WebView, url: String) {
+                override fun onPageFinished(view: WebView?, url: String?) {
                     if (!isError) Log.d(TAG, "Successfully page finished.")
 
-                    // Print the whole HTML.
-                    view.evaluateJavascript("document.documentElement.outerHTML") {
+                    view?.evaluateJavascript("document.documentElement.outerHTML") {
                         val html = it.replace("\\u003C", "<")
                         Log.d(TAG, html)
                     }
