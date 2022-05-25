@@ -56,16 +56,15 @@ object ActivityUtil {
 
     object Fullscreen {
         fun fullscreen(activity: Activity) {
-            ViewCompat.getWindowInsetsController(activity.window.decorView)?.show(Type.systemBars())
+            ViewCompat.getWindowInsetsController(activity.window.decorView)?.run {
+                // Prevent only touching from showing the system bars.
+                systemBarsBehavior = indowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                hide(Type.systemBars())
+            }
         }
 
         fun exitFullscreen(activity: Activity) {
-            ViewCompat.getWindowInsetsController(activity.window.decorView)?.run {
-                // Prevent only touching from showing the system bars.
-                systemBarsBehavior =
-                    WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-                hide(Type.systemBars())
-            }
+            ViewCompat.getWindowInsetsController(activity.window.decorView)?.show(Type.systemBars())
         }
     }
 
