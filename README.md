@@ -301,7 +301,7 @@ myContentLayout.updateLayoutParams<ConstraintLayout.LayoutParams> {
 
     topToTop  = ConstraintSet.UNSET
     topToTop = ConstraintSet.PARENT_ID
-    topToBottom = myToolbar.id
+    topToBottom = myToolbar.id // safer than R.id.my_toolbar
 }
 ```
 
