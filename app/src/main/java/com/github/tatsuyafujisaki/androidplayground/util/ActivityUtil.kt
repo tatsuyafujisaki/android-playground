@@ -55,6 +55,9 @@ object ActivityUtil {
     }
 
     object Fullscreen {
+        /**
+         * [d.android.com](https://developer.android.com/training/system-ui/immersive)
+         */
         fun fullscreen(activity: Activity) {
             ViewCompat.getWindowInsetsController(activity.window.decorView)?.run {
                 // Prevent only touching from showing the system bars.
