@@ -283,6 +283,7 @@ xmlns:tools="http://schemas.android.com/tools"
 ## ConstraintLayout
 ```xml
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraint_layout"
     android:layout_width="0dp"
     android:layout_height="0dp"
     app:layout_constraintBottom_toBottomOf="parent"
