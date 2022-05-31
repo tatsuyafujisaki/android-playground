@@ -498,7 +498,7 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 # Deep link
 [deep-link.md](markdown/deep-link.md)
 
-# Android Debug Bridge (adb) and emulators
+# `adb` and `emulator` commands
 [adb-emulator.md](markdown/adb-emulator.md)
 
 # Espresso
