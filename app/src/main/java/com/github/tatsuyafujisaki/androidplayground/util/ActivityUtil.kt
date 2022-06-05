@@ -61,7 +61,8 @@ object ActivityUtil {
         fun fullscreen(activity: Activity) {
             ViewCompat.getWindowInsetsController(activity.window.decorView)?.run {
                 // Prevent only touching from showing the system bars.
-                systemBarsBehavior = indowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                systemBarsBehavior = WindowInsetsControllerCompat
+                    .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
                 hide(Type.systemBars())
             }
         }
