@@ -190,7 +190,3 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
     * On-screen keyboard > Google voice typing > Off
     * Spell checker > Off
   * Privacy > Personalize using app data > Off
-
-## Misc
-* Configure Chrome.
-* Configure Gboard.
