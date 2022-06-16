@@ -342,6 +342,9 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 # ViewPager
 [viewpager.md](markdown/viewpager.md)
 
+# UI template
+[ui-template.md](markdown/ui-template.md)
+
 # Use A rather than B for simplicity or clarity
 A|B|Note
 --|--|--
