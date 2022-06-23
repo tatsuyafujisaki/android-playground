@@ -45,13 +45,6 @@ android {
             buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
         }
     }
-    buildFeatures {
-        compose true
-        viewBinding true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion composeVersion
-    }
     compileOptions {
         // https://developer.android.com/studio/write/java8-support
         coreLibraryDesugaringEnabled true
@@ -62,6 +55,13 @@ android {
     kotlinOptions {
         // allWarningsAsErrors = true
         jvmTarget = '11'
+    }
+    buildFeatures {
+        compose true
+        viewBinding true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion composeVersion
     }
 }
 
