@@ -106,7 +106,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
-    kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
 
     def roomVersion = '2.4.2'
     implementation "androidx.room:room-ktx:$roomVersion"
