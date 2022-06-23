@@ -4,7 +4,6 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
-    // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.serialization
     id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlin_version"
     id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'

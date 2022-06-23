@@ -1,10 +1,10 @@
 buildscript {
     ext {
-        accompanist_version = '0.20.3'
+        accompanist_version = '0.23.1'
         androidx_test_version = '1.4.0'
         camerax_version = '1.2.0-alpha02'
         compose_version = '1.1.1'
-        coroutines_version = '1.6.2'
+        coroutines_version = '1.6.3'
         espresso_version = '3.4.0'
         flipper_version = '0.150.0'
         fragment_version = '1.4.1'
@@ -13,7 +13,7 @@ buildscript {
         kotlin_version = '1.6.10'
         lifecycle_version = '2.4.1'
         navigation_version = '2.4.2'
-        okhttp_version = '4.9.1'
+        okhttp_version = '4.10.0'
         paging_version = '3.1.1'
         room_version = '2.4.2'
         truth_version = '1.1.3'
