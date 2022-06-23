@@ -144,7 +144,7 @@ dependencies {
     implementation "androidx.compose.animation:animation:$composeVersion"
     // Tooling support (Previews, etc.).
     implementation "androidx.compose.material:material:$composeVersion"
-    implementation "androidx.compose.ui:ui-tooling:$composeVersion"
+    debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
     // To use LiveData.observeAsState()
     implementation "androidx.compose.runtime:runtime-livedata:$composeVersion"
     // To use ConstraintLayout
