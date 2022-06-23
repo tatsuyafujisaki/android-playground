@@ -5,7 +5,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.serialization
-    id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlinVersion"
+    id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlin_version"
     id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
 }
@@ -61,7 +61,7 @@ android {
         viewBinding true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion composeVersion
+        kotlinCompilerExtensionVersion compose_version
     }
 }
 
@@ -73,14 +73,9 @@ dependencies {
      * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
      */
 
-    /**
-     * org.jetbrains
-     */
-
-    def coroutinesVersion = '1.6.2'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutinesVersion"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
 
     /**
      * androidx
@@ -96,27 +91,23 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
-    def fragmentVersion = '1.4.1'
-    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
-    debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
 
-    def lifecycleVersion = '2.4.1'
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycleVersion"
-    kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
-    def roomVersion = '2.4.2'
-    implementation "androidx.room:room-ktx:$roomVersion"
-    testImplementation "androidx.room:room-testing:$roomVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
-    // androidx.navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
-    androidTestImplementation "androidx.navigation:navigation-testing:$navigationVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$navigation_version"
 
     def pagingVersion = '3.1.1'
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
@@ -138,20 +129,20 @@ dependencies {
     // includes "androidx.activity:activity-ktx".
     implementation 'androidx.activity:activity-compose:1.4.0'
     // Counterintuitively, it does not includes "androidx.compose.material:material".
-    implementation "androidx.compose.material:material-icons-extended:$composeVersion"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
     // Animations
     // includes androidx.compose.foundation:foundation-layout.
-    implementation "androidx.compose.animation:animation:$composeVersion"
+    implementation "androidx.compose.animation:animation:$compose_version"
     // Tooling support (Previews, etc.).
-    implementation "androidx.compose.material:material:$composeVersion"
-    debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
+    implementation "androidx.compose.material:material:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation 'androidx.compose.ui:ui-tooling-preview:1.1.1'
     // To use LiveData.observeAsState()
-    implementation "androidx.compose.runtime:runtime-livedata:$composeVersion"
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
     // To use ConstraintLayout
     implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.1'
     // UI Tests
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
     // To use Mdc3Theme. (https://github.com/material-components/material-components-android-compose-theme-adapter)
     // implementation 'com.google.android.material:compose-theme-adapter-3:*'
@@ -188,12 +179,12 @@ dependencies {
      * com.google.dagger
      */
 
-    implementation "com.google.dagger:hilt-android:$hiltVersion"
-    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hiltVersion"
-    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    testImplementation "com.google.dagger:hilt-android-testing:$hiltVersion"
-    kaptTest "com.google.dagger:hilt-compiler:$hiltVersion"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+    testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptTest "com.google.dagger:hilt-compiler:$hilt_version"
 
     /*
      * Third-party

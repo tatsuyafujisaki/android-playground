@@ -1,9 +1,13 @@
 buildscript {
     ext {
-        kotlinVersion = '1.6.10'
-        composeVersion = '1.1.1'
-        navigationVersion = '2.4.2'
-        hiltVersion = '2.42'
+        compose_version = '1.1.1'
+        coroutines_version = '1.6.2'
+        fragment_version = '1.4.1'
+        hilt_version = '2.42'
+        kotlin_version = '1.6.10'
+        lifecycle_version = '2.4.1'
+        navigation_version = '2.4.2'
+        room_version = '2.4.2'
     }
     repositories {
         gradlePluginPortal()
@@ -11,9 +15,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
-        classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.android.tools.build:gradle:7.2.1'
         classpath 'com.google.gms:google-services:4.3.10'
     }
@@ -31,7 +35,7 @@ allprojects {
     configurations.all {
         resolutionStrategy.eachDependency {
             if (requested.group == 'org.jetbrains.kotlin') {
-                useVersion kotlinVersion
+                useVersion kotlin_version
             }
         }
     }
