@@ -88,6 +88,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:truth:$androidx_test_version"
     androidTestImplementation "com.google.truth:truth:$truth_version"
     debugImplementation 'com.facebook.soloader:soloader:0.10.3'
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipper_version"
