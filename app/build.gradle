@@ -74,8 +74,9 @@ dependencies {
 
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espresso_version"
-    androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espresso_version"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:$espresso_version") {
+        exclude group: "org.checkerframework", module: "checker"
+    }
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"

@@ -64,7 +64,7 @@ fun <T> DropdownMenu(
 fun PreviewDropdownMenu() {
     DropdownMenu(
         options = listOf("Bacon", "Lettuce", "Tomato"),
-        selectedValue = "Lettuce",
+        selectedValue = "Bacon",
         onClick = {}
     )
 }
