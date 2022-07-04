@@ -41,6 +41,7 @@ fun ComposableExoPlayer(
 
     DisposableEffect(lifecycleOwner) {
         onDispose {
+            // Stop the audio of the video when you leave the screen.
             styledPlayerView.player?.release()
         }
     }
@@ -49,5 +50,5 @@ fun ComposableExoPlayer(
 @Preview
 @Composable
 private fun PreviewComposableExoPlayer() {
-    ComposableExoPlayer("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+    ComposableExoPlayer(uri = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
 }
