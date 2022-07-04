@@ -90,7 +90,7 @@ dependencies {
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
     debugImplementation "com.facebook.flipper:flipper:$flipper_version"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipper_version"
-    debugImplementation 'com.facebook.soloader:soloader:+'
+    debugImplementation 'com.facebook.soloader:soloader:0.10.4'
     // implementation "androidx.camera:camera-camera2:${camerax_version}"
     // implementation "androidx.camera:camera-extensions:${camerax_version}"
     // implementation "androidx.camera:camera-lifecycle:${camerax_version}"
