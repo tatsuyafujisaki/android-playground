@@ -2,12 +2,12 @@ buildscript {
     ext {
         accompanist_version = '0.23.1'
         androidx_test_version = '1.4.0'
-        camerax_version = '1.2.0-alpha02'
+        camerax_version = '+'
         compose_version = '1.1.1'
         coroutines_version = '1.6.3'
         espresso_version = '3.4.0'
-        flipper_version = '0.150.0'
-        fragment_version = '1.4.1'
+        flipper_version = '+'
+        fragment_version = '1.5.0'
         glide_version = '4.13.2'
         hilt_version = '2.42'
         kotlin_version = '1.6.10'
@@ -28,7 +28,7 @@ buildscript {
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.android.tools.build:gradle:7.2.1'
-        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.gms:google-services:4.3.13'
     }
 }
 
