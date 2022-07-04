@@ -58,7 +58,7 @@ android {
         viewBinding true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion '1.2.0'
     }
 }
 
@@ -70,7 +70,7 @@ dependencies {
      * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
      */
 
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.1.1'
     androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espresso_version"
     androidTestImplementation("androidx.test.espresso:espresso-contrib:$espresso_version") {
         exclude group: "org.checkerframework", module: "checker"
@@ -85,8 +85,8 @@ dependencies {
     androidTestImplementation "androidx.test:runner:$androidx_test_version"
     androidTestImplementation "com.google.truth:truth:$truth_version"
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation 'androidx.compose.ui:ui-test-manifest:1.1.1'
+    debugImplementation 'androidx.compose.ui:ui-tooling:1.1.1'
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
     debugImplementation "com.facebook.flipper:flipper:$flipper_version"
     debugImplementation "com.facebook.flipper:flipper-network-plugin:$flipper_version"
@@ -97,10 +97,10 @@ dependencies {
     // implementation "androidx.camera:camera-mlkit-vision:${camerax_version}"
     // implementation "androidx.camera:camera-video:${camerax_version}"
     // implementation "androidx.camera:camera-view:${camerax_version}"
-    implementation "androidx.compose.animation:animation:$compose_version"
-    implementation "androidx.compose.material:material-icons-extended:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+    implementation 'androidx.compose.animation:animation:1.1.1'
+    implementation 'androidx.compose.material:material-icons-extended:1.1.1'
+    implementation "androidx.compose.material:material:1.1.1"
+    implementation 'androidx.compose.runtime:runtime-livedata:1.1.1'
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"

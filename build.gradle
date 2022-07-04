@@ -3,7 +3,6 @@ buildscript {
         accompanist_version = '0.23.1'
         androidx_test_version = '1.4.0'
         camerax_version = '+'
-        compose_version = '1.2.0'
         coroutines_version = '1.6.3'
         espresso_version = '3.4.0'
         flipper_version = '0.152.0'
