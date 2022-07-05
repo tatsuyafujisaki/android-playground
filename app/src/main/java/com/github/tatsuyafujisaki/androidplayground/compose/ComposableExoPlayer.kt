@@ -3,6 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.compose
 import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -13,6 +14,7 @@ import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.ui.StyledPlayerView
+import kotlinx.coroutines.delay
 
 private fun Player.autoPlay() {
     playWhenReady = true
@@ -22,7 +24,9 @@ private fun Player.autoPlay() {
 @Composable
 fun ComposableExoPlayer(
     lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
-    uri: String
+    uri: String,
+    positionMs: Long,
+    onPositionChange: (Long) -> Unit
 ) {
     lateinit var styledPlayerView: StyledPlayerView
 
@@ -31,6 +35,7 @@ fun ComposableExoPlayer(
             StyledPlayerView(it).apply {
                 styledPlayerView = this
                 player = ExoPlayer.Builder(it).build().apply {
+                    seekTo(positionMs)
                     setMediaItem(MediaItem.fromUri(uri))
                     autoPlay()
                 }
@@ -38,6 +43,13 @@ fun ComposableExoPlayer(
         },
         modifier = Modifier.background(Color.Black)
     )
+
+    LaunchedEffect(Unit) {
+        while (true) {
+            onPositionChange(styledPlayerView.player?.currentPosition ?: 0)
+            delay(1000)
+        }
+    }
 
     DisposableEffect(lifecycleOwner) {
         onDispose {
