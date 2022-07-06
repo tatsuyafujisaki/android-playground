@@ -44,7 +44,7 @@ fun ComposableExoPlayer(
         modifier = Modifier.background(Color.Black)
     )
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(uri) {
         while (true) {
             onPositionChange(styledPlayerView.player?.currentPosition ?: 0)
             delay(1000)
