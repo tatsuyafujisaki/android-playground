@@ -1,6 +1,8 @@
 package com.github.tatsuyafujisaki.androidplayground.compose
 
-import androidx.compose.material.*
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,7 +29,7 @@ fun AlertDialogExample(
     if (isVisible) {
         AlertDialog(
             onDismissRequest = {
-                // ダイアログの外側か戻るボタンがタップされた。
+                // You clicked outside the dialog or the back button.
                 if (canDismiss) {
                     onDismiss()
                     isVisible = false
@@ -72,8 +74,8 @@ fun AlertDialogExample(
 @Composable
 private fun PreviewNFrameAlertDialog() {
     AlertDialogExample(
-        title = "タイトル",
-        text = "テキスト",
-        dismissButtonText = "キャンセル"
+        title = "Title",
+        text = "Text",
+        dismissButtonText = stringResource(android.R.string.cancel)
     )
 }
