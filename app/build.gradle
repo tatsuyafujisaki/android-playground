@@ -98,7 +98,8 @@ dependencies {
     // implementation "androidx.camera:camera-video:${camerax_version}"
     // implementation "androidx.camera:camera-view:${camerax_version}"
     implementation 'androidx.compose.animation:animation:1.1.1'
-    implementation 'androidx.compose.material:material-icons-extended:1.1.1'
+    implementation 'androidx.compose.material:material-icons:1.1.1'
+    // implementation 'androidx.compose.material:material-icons-extended:+'
     implementation "androidx.compose.material:material:1.1.1"
     implementation 'androidx.compose.runtime:runtime-livedata:1.1.1'
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
