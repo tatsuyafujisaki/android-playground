@@ -17,31 +17,31 @@ import androidx.constraintlayout.compose.Dimension
 fun BarrierExample() {
     ConstraintLayout {
         val (
-            title,
-            subtitle,
+            text1,
+            text2,
             icon
         ) = createRefs()
 
-        val titleAndSubtitleEndBarrier = createEndBarrier(title, subtitle)
+        val titleAndSubtitleEndBarrier = createEndBarrier(text1, text2)
 
         Text(
-            text = "Title",
+            text = "Apple",
             modifier = Modifier
                 .background(Color.Red)
-                .constrainAs(title) {
+                .constrainAs(text1) {
                     start.linkTo(parent.start)
                     top.linkTo(parent.top)
-                    bottom.linkTo(subtitle.top)
+                    bottom.linkTo(text2.top)
                 }
         )
 
         Text(
-            text = "Subtitle",
+            text = "Orange",
             modifier = Modifier
                 .background(Color.Red)
-                .constrainAs(subtitle) {
+                .constrainAs(text2) {
                     start.linkTo(parent.start)
-                    top.linkTo(title.bottom)
+                    top.linkTo(text1.bottom)
                     bottom.linkTo(parent.bottom)
                 }
         )
