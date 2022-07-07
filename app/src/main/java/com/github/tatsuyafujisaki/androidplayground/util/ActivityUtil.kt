@@ -6,10 +6,11 @@ import android.content.Intent
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
+import android.view.Window
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
-import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.LifecycleEventObserver
@@ -58,8 +59,8 @@ object ActivityUtil {
         /**
          * [d.android.com](https://developer.android.com/training/system-ui/immersive)
          */
-        fun fullscreen(activity: Activity) {
-            ViewCompat.getWindowInsetsController(activity.window.decorView)?.run {
+        fun fullscreen(window: Window) {
+            with(WindowCompat.getInsetsController(window, window.decorView)) {
                 // Prevent only touching from showing the system bars.
                 systemBarsBehavior = WindowInsetsControllerCompat
                     .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
@@ -67,8 +68,8 @@ object ActivityUtil {
             }
         }
 
-        fun exitFullscreen(activity: Activity) {
-            ViewCompat.getWindowInsetsController(activity.window.decorView)?.show(Type.systemBars())
+        fun exitFullscreen(window: Window) {
+            WindowCompat.getInsetsController(window, window.decorView).show(Type.systemBars())
         }
     }
 
