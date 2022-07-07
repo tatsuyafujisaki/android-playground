@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AlertDialogExample(
+fun MyAlertDialog(
     text: String,
     title: String? = null,
     confirmButtonText: String = stringResource(android.R.string.ok),
@@ -72,8 +72,8 @@ fun AlertDialogExample(
 
 @Preview
 @Composable
-private fun PreviewNFrameAlertDialog() {
-    AlertDialogExample(
+private fun PreviewMyAlertDialog() {
+    MyAlertDialog(
         title = "Title",
         text = "Text",
         dismissButtonText = stringResource(android.R.string.cancel)
