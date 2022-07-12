@@ -348,9 +348,10 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 # Use A rather than B for simplicity or clarity
 A|B|Note
 --|--|--
+`Activity.resources`<br>`Fragment.resources`<br>`View.resources`|`Activity.context.resources`<br>`Fragment.requireContext().resources`<br>`View.context.resources`
 `String.toUri()`|`Uri.parse(...)`
 `bundleOf(...)`|`Bundle().apply { ... }`
 `CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
 `Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
-`intent.getStringExtra("foo")`|`intent.extras?.getString("foo")`|The same goes for other types.
+`Intent.getStringExtra("foo")`|`Intent.extras?.getString("foo")`|The same goes for other types.
 `requireViewById(...)`|`findViewById(...)`|in case you are not authorized to use view binding
