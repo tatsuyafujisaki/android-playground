@@ -99,40 +99,11 @@ task clean(type: Delete) {
 }
 ```
 
-# Predefined Color
-## Predefined ColorInt
-https://developer.android.com/reference/kotlin/android/graphics/Color
-
-## Predefined ColorRes from Android SDK
-```kotlin
-val black: Int = ContextCompat.getColor(this, android.R.color.black)
-val white: Int = ContextCompat.getColor(this, android.R.color.white)
-val transparent: Int = ContextCompat.getColor(this, android.R.color.transparent)
-```
-```xml
-<TextView android:textColor="@android:color/black" />
-<TextView android:textColor="@android:color/white" />
-<TextView android:textColor="@android:color/transparent" />
-```
-
+# Predefined ColorRes from Android SDK
 https://developer.android.com/reference/kotlin/android/R.color
 
 # Predefined string resources from Android SDK
-```kotlin
-val ok: String = resources.getString(android.R.string.ok) // OK
-val cancel: String = resources.getString(android.R.string.cancel) // Cancel
-val unknown: String = resources.getString(android.R.string.unknownName) // Unknown
-val untitled: String = resources.getString(android.R.string.untitled) // <Untitled>
-```
-```xml
-<TextView android:text="@android:string/ok" /> <!-- OK -->
-<TextView android:text="@android:string/cancel" /> <!-- Cancel -->
-<TextView android:text="@android:string/unknownName" /> <!-- Unknown -->
-<TextView android:text="@android:string/untitled" /> <!-- <Untitled> -->
-```
-
-* https://developer.android.com/reference/kotlin/android/R.string
-* (Japanese) https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/res/res/values-ja/strings.xml
+https://developer.android.com/reference/kotlin/android/R.string
 
 # String
 ## How to convert a String to a Uri and enrich it if necessary
