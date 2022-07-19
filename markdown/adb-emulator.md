@@ -77,62 +77,62 @@ adb exec-out screencap -p > ${filepath} && open ${filepath}
 # Toggle (Enable/Disable)
 ## How to toggle `Developer options`
 ```shell
-# On
-adb shell settings put global development_settings_enabled 1
-
-# Off
-adb shell settings put global development_settings_enabled 0
-
 # Get
 adb shell settings get global development_settings_enabled
+
+# Enable
+adb shell settings put global development_settings_enabled 1
+
+# Disable
+adb shell settings put global development_settings_enabled 0
 ```
 
 ## How to toggle `Don't keep activities`
 ```shell
-# On
-adb shell settings put global always_finish_activities 1
-
-# Off
-adb shell settings put global always_finish_activities 0
-
 # Get
 adb shell settings get global always_finish_activities
+
+# Enable
+adb shell settings put global always_finish_activities 1
+
+# Disable
+adb shell settings put global always_finish_activities 0
 ```
 
 ## How to toggle `Enable demo mode`
 ```shell
-# On
-adb shell settings put global sysui_demo_allowed 1
-
-# Off
-adb shell settings put global sysui_demo_allowed 0
-
 # Get
 adb shell settings get global sysui_demo_allowed
+
+# Enable
+adb shell settings put global sysui_demo_allowed 1
+
+# Disable
+adb shell settings put global sysui_demo_allowed 0
 ```
 
 ## How to toggle `Show demo mode`
 ```shell
-# On
-adb shell settings put global sysui_tuner_demo_on 1
-
-# Off
-adb shell settings put global sysui_tuner_demo_on 0
-
 # Get
 adb shell settings get global sysui_tuner_demo_on
+
+# Enable
+adb shell settings put global sysui_tuner_demo_on 1
+
+# Disable
+adb shell settings put global sysui_tuner_demo_on 0
 ```
 
 ## How to toggle `Show taps`
 ```shell
-# On
-adb shell settings put system show_touches 1
-
-# Off
-adb shell settings put system show_touches 0
-
 # Get
 adb shell settings get system show_touches
+
+# Enable
+adb shell settings put system show_touches 1
+
+# Disable
+adb shell settings put system show_touches 0
 ```
 
 # How to slow down the device's animations by a factor of 10
