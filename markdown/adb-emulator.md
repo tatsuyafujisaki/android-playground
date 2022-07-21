@@ -178,7 +178,6 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
 * Enable device frame > Deselect
 
 ## Settings
-* Network & internet > Private DNS > Off
 * Display > Auto-rotate screen > On
 * Location > Off
 * Google
@@ -188,5 +187,4 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
   * Languages & input
     * Gestures > System navigation > Gesture navigation
     * On-screen keyboard > Google voice typing > Off
-    * Spell checker > Off
   * Privacy > Personalize using app data > Off
