@@ -23,7 +23,7 @@ adb emu kill
 
 # How to start an emulator specifying DNS servers
 ```shell
-emulator @<android-virtual-device> -dns-server 1.1.1.1,1.0.0.1
+emulator @<android-virtual-device> -dns-server 1.1.1.1,1.0.0.1,2606:4700:4700::1111,2606:4700:4700::1001
 ```
 
 # How to start an emulator
