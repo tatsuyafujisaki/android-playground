@@ -175,8 +175,8 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
 ## Android Virtual Device (AVD) configuration
 - `Cold boot`
 - `No SD Card`
-- Internal Storage > 2 GB
-- `Enable device frame` > clear
+- `Internal Storage` > 2GB
+- `Enable Device Frame` > clear
 
 ## Settings
 - `Display` > `Auto-rotate screen`
