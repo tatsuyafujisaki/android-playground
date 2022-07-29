@@ -178,10 +178,10 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
 * Enable device frame > Deselect
 
 ## Settings
-* Display > Auto-rotate screen > On
-* Location > Off
-* Google
-  * Ads > Opt out of Ads Personalization
-  * Autofill > Autofill with Google > Off
-* Privacy > Personalize using app data > Off
-* System > Languages & input > On-screen keyboard > Google voice typing > Off
+* `Display` > `Auto-rotate screen`
+* `Location` > off
+* `Google`
+  * `Ads` > `Opt out of Ads Personalization`
+  * `Autofill` > `Autofill with Google` > off
+* `Privacy` > `Personalize using app data` > off
+* `System` > `Languages & input > On-screen keyboard > Google voice typing` > off
