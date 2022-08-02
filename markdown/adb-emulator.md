@@ -179,6 +179,7 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
 - `Enable Device Frame` > clear
 
 ## Settings
+- `Connected devices` > `Connection preferences` > `Bluetooth` > `Off`
 - `Display` > `Auto-rotate screen`
 - `Location` > clear
 - `Google` > `Ads` > `Opt out of Ads Personalization`
