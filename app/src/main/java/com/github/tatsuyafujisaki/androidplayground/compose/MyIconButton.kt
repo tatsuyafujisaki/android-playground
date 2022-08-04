@@ -5,11 +5,18 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun MyIconButton(onClick: () -> Unit) {
-    IconButton(onClick = onClick) {
+fun MyIconButton(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
+) {
+    IconButton(
+        onClick = onClick,
+        modifier = modifier
+    ) {
         Icon(
             imageVector = Icons.Default.Favorite,
             contentDescription = null
