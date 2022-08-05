@@ -6,11 +6,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun MyIconButton(
+fun IconButtonExample(
     modifier: Modifier = Modifier,
+    imageVector: ImageVector,
     onClick: () -> Unit
 ) {
     IconButton(
@@ -18,7 +20,7 @@ fun MyIconButton(
         modifier = modifier
     ) {
         Icon(
-            imageVector = Icons.Default.Favorite,
+            imageVector = imageVector,
             contentDescription = null
         )
     }
@@ -26,6 +28,6 @@ fun MyIconButton(
 
 @Preview
 @Composable
-private fun PreviewMyIconButton() {
-    MyIconButton {}
+private fun PreviewIconButtonExample() {
+    IconButtonExample(imageVector = Icons.Default.Favorite) {}
 }
