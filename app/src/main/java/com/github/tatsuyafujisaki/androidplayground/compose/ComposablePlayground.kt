@@ -6,13 +6,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
+import com.github.tatsuyafujisaki.androidplayground.compose.preview.BooleanProvider
 import com.google.accompanist.placeholder.material.placeholder
-
-internal class BooleanProvider : PreviewParameterProvider<Boolean> {
-    override val values = sequenceOf(true, false)
-}
 
 @Composable
 fun ComposablePlayground(visible: Boolean) {
