@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 
 @Composable
-fun MyImage(
+fun ImageExample(
     modifier: Modifier = Modifier,
     @DrawableRes id: Int
 ) {
