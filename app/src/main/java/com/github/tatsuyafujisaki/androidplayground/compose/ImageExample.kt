@@ -23,5 +23,5 @@ fun ImageExample(
 @Preview
 @Composable
 private fun PreviewImageExample() {
-    ImageExample(R.drawable.) {}
+    ImageExample(id = R.drawable.baseline_home_24)
 }

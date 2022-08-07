@@ -12,9 +12,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import com.github.tatsuyafujisaki.androidplayground.compose.preview.BooleanProvider
 
 @Composable
-fun OutlineButtonExample(
+fun OutlinedButtonExample(
     enabled: Boolean,
     onClick: () -> Unit
 ) {
@@ -41,5 +42,5 @@ fun OutlineButtonExample(
 private fun PreviewOutlineButtonExample(
     @PreviewParameter(BooleanProvider::class) enabled: Boolean
 ) {
-    OutlineButtonExample(enabled) {}
+    OutlinedButtonExample(enabled) {}
 }
