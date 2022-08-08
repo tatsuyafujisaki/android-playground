@@ -176,12 +176,12 @@ Android emulators don't have the `OEM unlocking` option in `Developer options`.
 - `Cold boot`
 - `No SD Card`
 - `Internal Storage` > 2GB
-- `Enable Device Frame` > clear
+- `Enable Device Frame` > Clear
 
 ## Settings
 - `Connected devices` > `Connection preferences` > `Bluetooth` > `Off`
 - `Display` > `Auto-rotate screen`
-- `Location` > clear
+- `Location` > Clear
 - `Google` > `Ads` > `Opt out of Ads Personalization`
-- `Privacy` > `Personalize using app data` > clear
-- `System` > `Languages & input` > `On-screen keyboard` > `Google voice typing` > clear
+- `Privacy` > `Personalize using app data` > Clear
+- `System` > `Languages & input` > `On-screen keyboard` > `Google voice typing` > Clear
