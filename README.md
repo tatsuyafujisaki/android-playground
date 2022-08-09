@@ -316,7 +316,7 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 # UI template
 [ui-template.md](markdown/ui-template.md)
 
-# Use A rather than B for simplicity or clarity
+# Use A rather than B for simplicity
 A|B|Note
 --|--|--
 `Activity.resources`<br>`Fragment.resources`<br>`View.resources`|`Activity.context.resources`<br>`Fragment.requireContext().resources`<br>`View.context.resources`
