@@ -13,13 +13,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
-private fun <T> T.applyIf(condition: Boolean, block: T.() -> T) = if (condition) block() else this
-
 @Composable
 fun OnlineCircularImageExample(
     modifier: Modifier = Modifier,
     url: String,
-    border: Pair<Dp, Color>? = null
+    border: Pair<Dp, Color>? = null,
+    contentScale: ContentScale = ContentScale.Fit
 ) {
     val circleShapeModifier = modifier.clip(CircleShape)
 
@@ -31,7 +30,7 @@ fun OnlineCircularImageExample(
         } else {
             circleShapeModifier
         },
-        contentScale = ContentScale.Crop
+        contentScale = contentScale
     )
 }
 

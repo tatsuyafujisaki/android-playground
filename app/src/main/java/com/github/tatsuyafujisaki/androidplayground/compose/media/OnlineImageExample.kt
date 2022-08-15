@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -14,7 +15,8 @@ import coil.compose.AsyncImage
 fun OnlineImageExample(
     modifier: Modifier = Modifier,
     url: String,
-    border: Pair<Dp, Color>? = null
+    border: Pair<Dp, Color>? = null,
+    contentScale: ContentScale = ContentScale.Fit
 ) {
     AsyncImage(
         model = url,
@@ -23,7 +25,8 @@ fun OnlineImageExample(
             modifier.border(border.first, border.second)
         } else {
             modifier
-        }
+        },
+        contentScale = contentScale
     )
 }
 
