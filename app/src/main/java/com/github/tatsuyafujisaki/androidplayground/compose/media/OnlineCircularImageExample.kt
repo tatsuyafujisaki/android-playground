@@ -13,18 +13,22 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
+private fun <T> T.applyIf(condition: Boolean, block: T.() -> T) = if (condition) block() else this
+
 @Composable
 fun OnlineCircularImageExample(
     modifier: Modifier = Modifier,
     url: String,
-    border: Pair<Dp, Color>
+    border: Pair<Dp, Color>? = null
 ) {
     AsyncImage(
         model = url,
         contentDescription = null,
         modifier = modifier
             .clip(CircleShape)
-            .border(border.first, border.second, CircleShape),
+            .applyIf(border != null) {
+                border(border!!.first, border.second, CircleShape)
+            },
         contentScale = ContentScale.Crop
     )
 }
@@ -32,6 +36,15 @@ fun OnlineCircularImageExample(
 @Preview
 @Composable
 private fun PreviewOnlineCircularImageExample() {
+    OnlineCircularImageExample(
+        modifier = Modifier.size(200.dp),
+        url = "https://2.bp.blogspot.com/-3J8MukWVApM/XLAcyuflY4I/AAAAAAABSTA/3IxtQnJKJH48h42rvdg2tGrQEvsc4QxrQCLcBGAs/s800/bg_ocean_suiheisen.jpg"
+    )
+}
+
+@Preview
+@Composable
+private fun PreviewOnlineCircularBorderedImageExample() {
     OnlineCircularImageExample(
         modifier = Modifier.size(200.dp),
         url = "https://2.bp.blogspot.com/-3J8MukWVApM/XLAcyuflY4I/AAAAAAABSTA/3IxtQnJKJH48h42rvdg2tGrQEvsc4QxrQCLcBGAs/s800/bg_ocean_suiheisen.jpg",
