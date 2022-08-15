@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.compose
+package com.github.tatsuyafujisaki.androidplayground.compose.media
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
