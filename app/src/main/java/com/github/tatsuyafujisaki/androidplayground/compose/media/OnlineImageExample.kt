@@ -6,11 +6,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.github.tatsuyafujisaki.androidplayground.compose.preview.BooleanProvider
 
 @Composable
 fun OnlineImageExample(
@@ -30,25 +28,40 @@ fun OnlineImageExample(
 
 @Preview
 @Composable
-private fun PreviewOnlineImageExample(
-    @PreviewParameter(BooleanProvider::class) isCircle: Boolean
-) {
+private fun PreviewOnlineImageExample() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
-        url = "https://developer.android.com/static/images/brand/Android_Robot.png",
-        isCircle = isCircle
+        url = "https://developer.android.com/static/images/brand/Android_Robot.png"
     )
 }
 
 @Preview
 @Composable
-private fun PreviewOnlineBorderedImageExample(
-    @PreviewParameter(BooleanProvider::class) isCircle: Boolean
-) {
+private fun PreviewOnlineCircularImageExample() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
         url = "https://developer.android.com/static/images/brand/Android_Robot.png",
-        isCircle = isCircle,
+        isCircle = true
+    )
+}
+
+@Preview
+@Composable
+private fun PreviewOnlineBorderedImageExample() {
+    OnlineImageExample(
+        modifier = Modifier.size(200.dp),
+        url = "https://developer.android.com/static/images/brand/Android_Robot.png",
+        border = 8.dp to Color.Red
+    )
+}
+
+@Preview
+@Composable
+private fun PreviewOnlineCircularBorderedImageExample() {
+    OnlineImageExample(
+        modifier = Modifier.size(200.dp),
+        url = "https://developer.android.com/static/images/brand/Android_Robot.png",
+        isCircle = true,
         border = 8.dp to Color.Red
     )
 }
