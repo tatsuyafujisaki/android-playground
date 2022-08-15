@@ -21,14 +21,16 @@ fun OnlineCircularImageExample(
     url: String,
     border: Pair<Dp, Color>? = null
 ) {
+    val circleShapeModifier = modifier.clip(CircleShape)
+
     AsyncImage(
         model = url,
         contentDescription = null,
-        modifier = modifier
-            .clip(CircleShape)
-            .applyIf(border != null) {
-                border(border!!.first, border.second, CircleShape)
-            },
+        modifier = if (border != null) {
+            circleShapeModifier.border(border.first, border.second, CircleShape)
+        } else {
+            circleShapeModifier
+        },
         contentScale = ContentScale.Crop
     )
 }

@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.compose.media
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,12 +14,16 @@ import coil.compose.AsyncImage
 fun OnlineImageExample(
     modifier: Modifier = Modifier,
     url: String,
-    border: Pair<Dp, Color>
+    border: Pair<Dp, Color>? = null
 ) {
     AsyncImage(
         model = url,
         contentDescription = null,
-        modifier = modifier.border(border.first, border.second)
+        modifier = if (border != null) {
+            modifier.border(border.first, border.second)
+        } else {
+            modifier
+        }
     )
 }
 
@@ -26,6 +31,16 @@ fun OnlineImageExample(
 @Composable
 private fun PreviewOnlineImageExample() {
     OnlineImageExample(
+        modifier = Modifier.size(200.dp),
+        url = "https://developer.android.com/static/images/brand/Android_Robot.png"
+    )
+}
+
+@Preview
+@Composable
+private fun PreviewOnlineBorderedImageExample() {
+    OnlineImageExample(
+        modifier = Modifier.size(200.dp),
         url = "https://developer.android.com/static/images/brand/Android_Robot.png",
         border = 8.dp to Color.Red
     )
