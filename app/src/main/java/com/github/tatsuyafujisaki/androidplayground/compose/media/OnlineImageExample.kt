@@ -22,7 +22,7 @@ fun OnlineImageExample(
     border: Pair<Dp, Color>? = null,
     contentScale: ContentScale = ContentScale.Fit
 ) {
-    val m = modifier.clip(CircleShape)
+    val m = if (isCircle) modifier.clip(CircleShape) else modifier
 
     AsyncImage(
         model = url,
