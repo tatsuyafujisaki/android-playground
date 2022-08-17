@@ -10,13 +10,16 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 
+/**
+ * @param contentScale clip(CircleShape) with ContentScale.Fit on an image whose aspect ratio is not 1:1 produces an imperfect circle.
+ */
 @Composable
 fun OnlineImageExample(
     modifier: Modifier = Modifier,
     url: String,
     isCircle: Boolean = false,
     border: Pair<Dp, Color>? = null,
-    contentScale: ContentScale = ContentScale.Fit
+    contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit
 ) {
     AsyncImage(
         model = url,
@@ -26,12 +29,14 @@ fun OnlineImageExample(
     )
 }
 
+private const val url = "https://images.unsplash.com/photo-1558240077-e33b10a16a64"
+
 @Preview
 @Composable
 private fun PreviewOnlineImageExample() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
-        url = "https://developer.android.com/static/images/brand/Android_Robot.png"
+        url = url
     )
 }
 
@@ -40,8 +45,9 @@ private fun PreviewOnlineImageExample() {
 private fun PreviewOnlineCircularImageExample() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
-        url = "https://developer.android.com/static/images/brand/Android_Robot.png",
-        isCircle = true
+        url = url,
+        isCircle = true,
+        contentScale = ContentScale.Fit
     )
 }
 
@@ -50,7 +56,7 @@ private fun PreviewOnlineCircularImageExample() {
 private fun PreviewOnlineBorderedImageExample() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
-        url = "https://developer.android.com/static/images/brand/Android_Robot.png",
+        url = url,
         border = 8.dp to Color.Red
     )
 }
@@ -60,7 +66,7 @@ private fun PreviewOnlineBorderedImageExample() {
 private fun PreviewOnlineCircularBorderedImageExample() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
-        url = "https://developer.android.com/static/images/brand/Android_Robot.png",
+        url = url,
         isCircle = true,
         border = 8.dp to Color.Red
     )
