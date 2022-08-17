@@ -15,13 +15,16 @@ import androidx.compose.ui.unit.dp
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.compose.preview.BooleanProvider
 
+/**
+ * @param contentScale clip(CircleShape) with ContentScale.Fit on an image whose aspect ratio is not 1:1 produces an imperfect circle.
+ */
 @Composable
 fun ImageExample(
     modifier: Modifier = Modifier,
     @DrawableRes id: Int,
     isCircle: Boolean = false,
     border: Pair<Dp, Color>? = null,
-    contentScale: ContentScale = ContentScale.Fit
+    contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit
 ) {
     Image(
         painter = painterResource(id = id),
@@ -47,7 +50,6 @@ private fun PreviewImageExample(
 @Composable
 private fun PreviewImageBorderedExample(
     @PreviewParameter(BooleanProvider::class) isCircle: Boolean
-
 ) {
     ImageExample(
         modifier = Modifier.size(200.dp),
