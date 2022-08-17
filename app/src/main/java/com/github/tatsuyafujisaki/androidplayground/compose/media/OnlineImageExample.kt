@@ -46,8 +46,7 @@ private fun PreviewOnlineCircularImageExample() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
         url = url,
-        isCircle = true,
-        contentScale = ContentScale.Fit
+        isCircle = true
     )
 }
 
