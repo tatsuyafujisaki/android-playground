@@ -135,16 +135,9 @@ adb shell settings put system show_touches 1
 adb shell settings put system show_touches 0
 ```
 
-# How to slow down the device's animations by a factor of 10
-```shell
-adb shell settings put global window_animation_scale 10
-adb shell settings put global transition_animation_scale 10
-adb shell settings put global animator_duration_scale 10
-
-# Reset
-adb shell settings put global window_animation_scale 1
-adb shell settings put global transition_animation_scale 1
-adb shell settings put global animator_duration_scale 1
+# How to set the location
+```
+adb emu geo fix <longitude> <latitude>
 ```
 
 # How to share the clipboard between an emulator and macOS
