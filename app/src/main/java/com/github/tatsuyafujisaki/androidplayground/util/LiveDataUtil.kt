@@ -107,7 +107,7 @@ object LiveDataUtil {
         Observable.fromPublisher(LiveDataReactiveStreams.toPublisher(owner, this))
 
     /**
-     * Converts LiveData to Observable without using LiveDataReactiveStreams.
+     * Converts LiveData to Observable without LiveDataReactiveStreams in androidx.lifecycle:lifecycle-reactivestreams-ktx.
      */
     fun <T : Any> LiveData<T>.toObservable2(owner: LifecycleOwner): Observable<T> =
         PublishSubject.create<T>().apply {
