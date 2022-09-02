@@ -88,6 +88,5 @@ object NavigationUtil {
         @IdRes destinationId: Int
     ) = runCatching {
         navController.getBackStackEntry(destinationId)
-        true
-    }.getOrDefault(false)
+    }.isSuccess
 }
