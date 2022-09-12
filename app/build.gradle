@@ -136,17 +136,16 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'com.google.android.play:core-ktx:1.8.1'
-    implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
+    implementation 'com.squareup.moshi:moshi-kotlin:1.14.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation 'io.coil-kt:coil-compose:2.2.0'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
-    implementation platform('com.google.firebase:firebase-bom:30.3.2')
+    implementation platform('com.google.firebase:firebase-bom:30.4.1')
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     kapt "androidx.room:room-compiler:$room_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
-    releaseImplementation "com.facebook.flipper:flipper-noop:$flipper_version"
     testImplementation "androidx.paging:paging-common-ktx:$paging_version"
     testImplementation "androidx.room:room-testing:$room_version"
     testImplementation "androidx.test.ext:truth:$androidx_test_version"
@@ -154,5 +153,5 @@ dependencies {
     testImplementation "com.google.truth:truth:$truth_version"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
     testImplementation 'org.mockito.kotlin:mockito-kotlin:4.0.0'
-    testImplementation 'org.robolectric:robolectric:4.8.1'
+    testImplementation 'org.robolectric:robolectric:4.8.2'
 }
