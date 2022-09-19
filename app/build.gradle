@@ -28,7 +28,7 @@ android {
             // https://github.com/Kotlin/kotlinx.serialization#android
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro", "glide.pro", "kotlin-serialization.pro")
 
-            buildConfigField("String", "BASE_URL", "https://www.googleapis.com")
+            buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")
 
             /*
              * For debugging purposes
@@ -38,7 +38,7 @@ android {
         }
         debug {
             applicationIdSuffix ".debug"
-            buildConfigField("String", "BASE_URL", "https://www.googleapis.com")
+            buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")
         }
     }
     compileOptions {
