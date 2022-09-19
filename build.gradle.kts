@@ -13,9 +13,25 @@ buildscript {
     }
 }
 
+plugins {
+    id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
+}
+
 allprojects {
     repositories {
         google()
         mavenCentral()
+    }
+}
+
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+
+    repositories {
+        mavenCentral()
+    }
+
+    configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+        android.set(true)
     }
 }
