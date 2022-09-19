@@ -10,19 +10,19 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk = 33
     defaultConfig {
-        applicationId 'com.github.tatsuyafujisaki.androidplayground'
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName '1.0'
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        applicationId = "com.github.tatsuyafujisaki.androidplayground"
+        minSdk = 24
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled = true
+            shrinkResources = true
 
             // https://bumptech.github.io/glide/doc/download-setup.html#proguard
             // https://github.com/Kotlin/kotlinx.serialization#android
@@ -31,7 +31,7 @@ android {
                     'glide.pro',
                     'kotlin-serialization.pro'
 
-            buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
+            buildConfigField "String", "BASE_URL", "https://www.googleapis.com"
 
             /*
              * For debugging purposes
@@ -41,25 +41,25 @@ android {
         }
         debug {
             applicationIdSuffix ".debug"
-            buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
+            buildConfigField "String", "BASE_URL", "https://www.googleapis.com"
         }
     }
     compileOptions {
-        coreLibraryDesugaringEnabled true
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        coreLibraryDesugaringEnabled = true
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         // allWarningsAsErrors = true
-        jvmTarget = '11'
+        jvmTarget = "11"
     }
     buildFeatures {
-        compose true
-        viewBinding true
+        compose = true
+        viewBinding = true
     }
     composeOptions {
         // https://developer.android.com/jetpack/androidx/releases/compose-compiler
-        kotlinCompilerExtensionVersion '1.3.1'
+        kotlinCompilerExtensionVersion = "1.3.1"
     }
 }
 
