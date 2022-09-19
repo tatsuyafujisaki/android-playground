@@ -31,6 +31,7 @@ subprojects {
         mavenCentral()
     }
 
+    // https://github.com/JLLeitschuh/ktlint-gradle/blob/master/plugin/src/main/kotlin/org/jlleitschuh/gradle/ktlint/KtlintExtension.kt
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
         android.set(true)
     }
