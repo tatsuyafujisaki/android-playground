@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                     if (canGoBack()) {
                         goBack()
                     } else {
-                        onBackPressed()
+                        navController.navigateUp()
                     }
                     return true
                 } ?: navController.navigateUp()
