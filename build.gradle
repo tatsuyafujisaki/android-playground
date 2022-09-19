@@ -9,7 +9,7 @@ buildscript {
         fragment_version = '1.5.2'
         glide_version = '4.13.2'
         hilt_version = '2.43.2'
-        kotlin_version = '1.7.0'
+        kotlin_version = '1.7.10'
         lifecycle_version = '2.5.1'
         navigation_version = '2.5.2'
         okhttp_version = '4.10.0'
