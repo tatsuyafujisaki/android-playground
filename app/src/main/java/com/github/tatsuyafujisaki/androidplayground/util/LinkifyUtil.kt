@@ -8,19 +8,9 @@ import android.widget.TextView
  */
 object LinkifyUtil {
     /**
-     * Equivalent to android:autoLink="all" in XML
-     */
-    fun TextView.addLink1() {
-        autoLinkMask = Linkify.ALL
-
-        // Alternatively
-        Linkify.addLinks(this, Linkify.ALL)
-    }
-
-    /**
      * Equivalent to android:autoLink="email|phone|web" in XML
      */
-    fun TextView.addLink2() {
+    fun TextView.addLink() {
         autoLinkMask = Linkify.WEB_URLS or Linkify.EMAIL_ADDRESSES or Linkify.PHONE_NUMBERS
 
         // Alternatively

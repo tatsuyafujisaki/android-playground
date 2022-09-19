@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
     defaultConfig {
         applicationId 'com.github.tatsuyafujisaki.androidplayground'
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -27,9 +27,9 @@ android {
             // https://bumptech.github.io/glide/doc/download-setup.html#proguard
             // https://github.com/Kotlin/kotlinx.serialization#android
             proguardFiles getDefaultProguardFile('proguard-android.txt'),
-                'proguard-rules.pro',
-                'glide.pro',
-                'kotlin-serialization.pro'
+                    'proguard-rules.pro',
+                    'glide.pro',
+                    'kotlin-serialization.pro'
 
             buildConfigField 'String', 'BASE_URL', '"https://www.googleapis.com"'
 
@@ -123,12 +123,12 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version"
     implementation 'androidx.activity:activity-compose:1.5.1'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.compose.ui:ui-tooling-preview:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.datastore:datastore-preferences:1.0.0'
     implementation 'androidx.datastore:datastore:1.0.0'
     implementation 'androidx.preference:preference-ktx:1.2.0'
@@ -138,10 +138,10 @@ dependencies {
     implementation 'com.google.android.play:core-ktx:1.8.1'
     implementation 'com.squareup.moshi:moshi-kotlin:1.14.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
-    implementation 'io.coil-kt:coil-compose:2.2.0'
+    implementation 'io.coil-kt:coil-compose:2.2.1'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
-    implementation platform('com.google.firebase:firebase-bom:30.4.1')
+    implementation platform('com.google.firebase:firebase-bom:30.5.0')
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     kapt "androidx.room:room-compiler:$room_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
