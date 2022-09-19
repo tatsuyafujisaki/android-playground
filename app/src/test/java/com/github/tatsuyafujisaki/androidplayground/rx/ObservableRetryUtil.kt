@@ -22,7 +22,6 @@ object ObservableRetryUtil {
         }
     }
 
-
     fun <T : Any> errorOnceSingle(t: T): Single<T> = Single.create(
         object : SingleOnSubscribe<T> {
             private var firstTime = true

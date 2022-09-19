@@ -5,6 +5,7 @@ plugins {
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
     id("org.jetbrains.kotlin.plugin.serialization") version Versions.kotlin
+    id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
 }
