@@ -70,7 +70,8 @@ dependencies {
 
     /**
      * > Dependency on the standard library added by default
-     * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default*/
+     * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
+     */
 
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.2.1")
     androidTestImplementation("androidx.test.espresso.idling:idling-concurrent:${Versions.espresso}")
