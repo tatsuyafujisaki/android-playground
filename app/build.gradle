@@ -64,7 +64,8 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.0'
+    // https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
 
     /**
      * > Dependency on the standard library added by default
