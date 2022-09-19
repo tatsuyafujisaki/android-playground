@@ -27,8 +27,7 @@ import kotlinx.coroutines.launch
 class MainFragment :
     Fragment(),
     WebViewContainer {
-    private var _binding: FragmentMainBinding? =
-        null
+    private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MainViewModel by activityViewModels()
 
