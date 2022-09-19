@@ -4,7 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.10"
+    id("org.jetbrains.kotlin.plugin.serialization") version Versions.kotlin
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
 }
