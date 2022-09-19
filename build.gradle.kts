@@ -26,8 +26,8 @@ allprojects {
         disabledRules.set(setOf("max-line-length"))
     }
 
-    repositories {
-        google()
-        mavenCentral()
-    }
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
 }
