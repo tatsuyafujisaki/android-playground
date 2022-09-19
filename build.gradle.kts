@@ -22,14 +22,7 @@ allprojects {
         google()
         mavenCentral()
     }
-}
-
-subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
-
-    repositories {
-        mavenCentral()
-    }
 
     // https://github.com/JLLeitschuh/ktlint-gradle/blob/master/plugin/src/main/kotlin/org/jlleitschuh/gradle/ktlint/KtlintExtension.kt
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {

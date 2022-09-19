@@ -16,13 +16,7 @@ import androidx.constraintlayout.compose.Dimension
 @Composable
 fun VerticalConstraintLayoutExample() {
     ConstraintLayout(Modifier.fillMaxSize()) {
-        val (slider1,
-            slider2,
-            text1,
-            text2,
-            text3,
-            text4
-        ) = createRefs()
+        val (slider1, slider2, text1, text2, text3, text4) = createRefs()
 
         // "width = Dimension.fillToConstraints" is NOT set.
         Slider(
