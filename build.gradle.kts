@@ -18,15 +18,15 @@ plugins {
 }
 
 allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
     // https://github.com/JLLeitschuh/ktlint-gradle/blob/master/plugin/src/main/kotlin/org/jlleitschuh/gradle/ktlint/KtlintExtension.kt
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
         android.set(true)
         disabledRules.set(setOf("max-line-length"))
+    }
+
+    repositories {
+        mavenCentral()
     }
 }
