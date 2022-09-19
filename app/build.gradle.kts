@@ -109,7 +109,7 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer:2.18.1")
     implementation("com.google.dagger:hilt-android:${Versions.hilt}")
     implementation("com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}")
-    implementation("com.squareup.okhttp3:okhttp-urlconnection:${Versions.okhttp}")// CookieJar
+    implementation("com.squareup.okhttp3:okhttp-urlconnection:${Versions.okhttp}") // CookieJar
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.coroutines}")
     implementation("androidx.activity:activity-compose:1.5.1")
