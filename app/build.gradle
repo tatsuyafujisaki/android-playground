@@ -26,10 +26,7 @@ android {
 
             // https://bumptech.github.io/glide/doc/download-setup.html#proguard
             // https://github.com/Kotlin/kotlinx.serialization#android
-            proguardFiles getDefaultProguardFile("proguard-android.txt"),
-                    "proguard-rules.pro",
-                    "glide.pro",
-                    "kotlin-serialization.pro"
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro", "glide.pro", "kotlin-serialization.pro")
 
             buildConfigField "String", "BASE_URL", "https://www.googleapis.com"
 
