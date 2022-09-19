@@ -4,9 +4,6 @@ import android.content.Context
 import android.os.Build
 import android.util.Log
 import android.webkit.CookieManager
-import com.facebook.flipper.android.AndroidFlipperClient
-import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
-import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.github.tatsuyafujisaki.androidplayground.BuildConfig
 import okhttp3.Cookie
 import okhttp3.CookieJar
@@ -58,11 +55,6 @@ object OkHttpUtil {
                 HttpLoggingInterceptor().apply {
                     level = HttpLoggingInterceptor.Level.NONE
                 }
-            )
-            addNetworkInterceptor(
-                FlipperOkhttpInterceptor(
-                    AndroidFlipperClient.getInstance(context).getPlugin(NetworkFlipperPlugin.ID)
-                )
             )
         }
     }

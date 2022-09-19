@@ -2,7 +2,6 @@ buildscript {
     ext {
         accompanist_version = '0.23.1'
         androidx_test_version = '1.4.0'
-        camerax_version = '+'
         coroutines_version = '1.6.4'
         espresso_version = '3.4.0'
         flipper_version = '0.164.0'
