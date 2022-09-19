@@ -1,0 +1,16 @@
+object Versions {
+    const val accompanist = "0.23.1"
+    const val androidxTest = "1.4.0"
+    const val coroutines = "1.6.4"
+    const val espresso = "3.4.0"
+    const val fragment = "1.5.2"
+    const val glide = "4.13.2"
+    const val hilt = "2.43.2"
+    const val kotlin = "1.7.10"
+    const val lifecycle = "2.5.1"
+    const val navigation = "2.5.2"
+    const val okhttp = "4.10.0"
+    const val paging = "3.1.1"
+    const val room = "2.4.3"
+    const val truth = "1.1.3"
+}
