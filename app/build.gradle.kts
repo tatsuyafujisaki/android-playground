@@ -4,7 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.10"
+    id("org.jetbrains.kotlin.plugin.serialization") version libs.versions.kotlin
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
 }
@@ -79,6 +79,7 @@ dependencies {
     androidTestImplementation(libs.espresso.idling.resource)
     androidTestImplementation(libs.espresso.intents)
     androidTestImplementation(libs.espresso.web)
+    androidTestImplementation(libs.hilt.android.testing)
     androidTestImplementation(libs.idling.concurrent)
     androidTestImplementation(libs.junit.ktx)
     androidTestImplementation(libs.rules)
@@ -138,11 +139,18 @@ dependencies {
     kapt(libs.hilt.compiler)
     kapt(libs.lifecycle.common.java8)
     kapt(libs.room.compiler)
+    kaptAndroidTest(libs.hilt.compiler)
+    kaptTest(libs.hilt.compiler)
     testImplementation(libs.androidx.truth)
+    testImplementation(libs.hilt.android.testing)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.robolectric)
     testImplementation(libs.room.testing)
     testImplementation(libs.test.core.ktx)
     testImplementation(libs.truth)
+}
+
+kapt {
+    correctErrorTypes = true
 }
