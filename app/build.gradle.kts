@@ -90,7 +90,7 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
     implementation(libs.accompanist.flowlayout)
-    implementation(libs.accompanist.placeholder)
+    implementation(libs.accompanist.placeholder.material)
     implementation(libs.accompanist.swiperefresh)
     implementation(libs.activity.compose)
     implementation(libs.animation)
