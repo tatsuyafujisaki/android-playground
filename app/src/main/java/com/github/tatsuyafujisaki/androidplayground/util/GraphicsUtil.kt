@@ -56,7 +56,8 @@ object GraphicsUtil {
         var inSampleSize = 1
         // Calculate the largest inSampleSize value that is a power of 2 and keeps both height and width larger than the requested height and width.
         while (requiredWidth * inSampleSize <= originalImageWidth &&
-            requiredHeight * inSampleSize <= originalImageHeight) {
+            requiredHeight * inSampleSize <= originalImageHeight
+        ) {
             inSampleSize *= 2
         }
         return max(1, inSampleSize / 2)

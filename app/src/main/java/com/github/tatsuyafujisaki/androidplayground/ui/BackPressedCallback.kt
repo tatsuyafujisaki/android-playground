@@ -16,10 +16,11 @@ class BackPressedCallback(fragment: Fragment, callback: () -> Unit) {
         fragment.lifecycle.addObserver(
             LifecycleEventObserver { _, event ->
                 when (event) {
-                    Lifecycle.Event.ON_START -> fragment
-                        .requireActivity()
-                        .onBackPressedDispatcher
-                        .addCallback(fragment.viewLifecycleOwner, onBackPressedCallback)
+                    Lifecycle.Event.ON_START ->
+                        fragment
+                            .requireActivity()
+                            .onBackPressedDispatcher
+                            .addCallback(fragment.viewLifecycleOwner, onBackPressedCallback)
                     Lifecycle.Event.ON_STOP -> onBackPressedCallback.remove()
                     else -> {}
                 }

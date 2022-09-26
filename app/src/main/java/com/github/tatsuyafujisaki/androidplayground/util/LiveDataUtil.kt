@@ -19,12 +19,15 @@ object LiveDataUtil {
     }
 
     fun <T> LiveData<T>.observeOnce(owner: LifecycleOwner, onChanged: (T) -> Unit) {
-        observe(owner, object : Observer<T> {
-            override fun onChanged(t: T) {
-                onChanged(t)
-                removeObserver(this)
+        observe(
+            owner,
+            object : Observer<T> {
+                override fun onChanged(t: T) {
+                    onChanged(t)
+                    removeObserver(this)
+                }
             }
-        })
+        )
     }
 
     /**
