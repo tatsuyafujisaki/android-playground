@@ -124,3 +124,7 @@ ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.re
 ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
 ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
+
+[plugins]
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.0.0" }
+
