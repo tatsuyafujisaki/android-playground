@@ -25,9 +25,4 @@ allprojects {
         android.set(true)
         disabledRules.set(setOf("max-line-length"))
     }
-
-//    repositories {
-//        google()
-//        mavenCentral()
-//    }
 }
