@@ -10,6 +10,7 @@ plugins {
 }
 
 android {
+    namespace = "com.github.tatsuyafujisaki.androidplayground"
     compileSdk = libs.versions.compile.sdk.get().toInt()
     defaultConfig {
         applicationId = "com.github.tatsuyafujisaki.androidplayground"
