@@ -1,4 +1,5 @@
 # Modifier
+> Composables that accept a Modifier as a parameter to be applied to the whole component represented by the composable function should name the parameter modifier and assign the parameter a default value of Modifier. It should appear as the first optional parameter in the parameter list
 - https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier
 - https://twitter.github.io/compose-rules/rules/#modifiers-should-have-default-parameters
 
