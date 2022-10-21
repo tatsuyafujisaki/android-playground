@@ -164,6 +164,13 @@ Alternatively, use Device File Explorer of Android Studio.
 # OEM unlocking
 Android emulators don't have the `OEM unlocking` option in `Developer options`.
 
+# "OPPO Reno7 A" does not support recording the screen.
+- `adb shell ls /system/bin` shows the list of the available commands, which does not include `screenrecord`.
+- `adb shell screenrecord` shows the following error.
+```
+/system/bin/sh: screenrecord: inaccessible or not found
+```
+
 # Recommended settings in an emulator
 ## Android Virtual Device (AVD) configuration
 - `Cold boot`
