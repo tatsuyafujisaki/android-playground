@@ -6,8 +6,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 
 object LifecycleUtil {
-    fun onStateChanged(fragment: Fragment) {
-        fragment.lifecycle.addObserver(
+    fun onEvent(fragment: Fragment) {
+        fragment.viewLifecycleOwner.lifecycle
+        fragment.viewLifecycleOwner.lifecycle.addObserver(
             LifecycleEventObserver { source, event ->
                 Log.d(source::class.java.simpleName, event.name)
 
@@ -27,22 +28,6 @@ object LifecycleUtil {
                     Lifecycle.Event.ON_ANY -> {
                     }
                 }
-            }
-        )
-    }
-
-    fun logLifecycle(fragment: Fragment) {
-        // Lifecycle of Fragment's view
-        fragment.viewLifecycleOwner.lifecycle.addObserver(
-            LifecycleEventObserver { source, event ->
-                Log.d(source::class.java.simpleName, event.name)
-            }
-        )
-
-        // Lifecycle of Fragment
-        fragment.lifecycle.addObserver(
-            LifecycleEventObserver { source, event ->
-                Log.d(source::class.java.simpleName, event.name)
             }
         )
     }
