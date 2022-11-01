@@ -21,7 +21,7 @@ LaunchedEffect will be canceled when either of the two is met:
 * LaunchedEffect is recomposed with different keys.
 
 # Difference between `assertExists()` and `assertIsDisplayed()`
-&nbsp;|`assertExists()`|`assertIsNotDisplayed()`
+&nbsp;|`assertExists()`|`assertIsDisplayed()`
 --|--|--
 Modifier.size(0.dp)|true|false
 Modifier.size(1.dp)|true|true
