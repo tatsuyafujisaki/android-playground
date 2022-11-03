@@ -7,35 +7,17 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:constraint_referenced_ids="text_input_layout,button1,navigate_to_sample_fragment_button,web_view"
+        app:constraint_referenced_ids="navigate_to_sample_fragment_button,web_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/clear_button_text" />
-
-    <Button
         android:id="@+id/navigate_to_sample_fragment_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/navigate_to_sample_fragment" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/name">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <WebView
         android:id="@+id/web_view"

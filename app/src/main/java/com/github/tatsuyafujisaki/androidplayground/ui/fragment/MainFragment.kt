@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
-import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
@@ -21,7 +20,6 @@ import com.github.tatsuyafujisaki.androidplayground.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.WebViewContainer
 import com.github.tatsuyafujisaki.androidplayground.databinding.FragmentMainBinding
-import kotlin.random.Random
 import kotlinx.coroutines.launch
 
 class MainFragment :
@@ -66,35 +64,23 @@ class MainFragment :
         return binding.root
     }
 
-    @SuppressLint(
-        "SetJavaScriptEnabled"
-    )
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?
     ) {
         super.onViewCreated(
-            view,
-            savedInstanceState
+            view, savedInstanceState
         )
         with(
             binding
         ) {
-            button1.setOnClickListener {
-                viewModel.setSomething(
-                    Random.nextInt()
-                        .toString()
-                )
-            }
-
             navigateToSampleFragmentButton.setOnClickListener(
                 Navigation.createNavigateOnClickListener(
                     R.id.action_main_fragment_to_third_fragment
                 )
             )
 
-            webView.settings.javaScriptEnabled =
-                true
+            webView.settings.javaScriptEnabled = true
             webView.webViewClient =
                 object :
                     WebViewClient() {
