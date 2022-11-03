@@ -192,8 +192,6 @@ shares scrolling information between its children.
 ```kotlin
 class MyViewModel : ViewModel() {
     private val _something = MutableLiveData<Something>()    
-    // Google codelabs tend to use a getter as below but it is redundant.
-    // val something: LiveData<Something> get() = _something
     val something: LiveData<Something> = _something
 
     fun setSomething(something: Something) {
@@ -201,4 +199,3 @@ class MyViewModel : ViewModel() {
     }
 }
 ```
-
