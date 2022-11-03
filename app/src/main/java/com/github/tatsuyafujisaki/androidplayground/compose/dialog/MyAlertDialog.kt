@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.DialogProperties
 
 @Composable
 fun MyAlertDialog(
@@ -20,7 +21,7 @@ fun MyAlertDialog(
     title: String? = null,
     confirmButtonText: String = stringResource(android.R.string.ok),
     dismissButtonText: String? = null,
-    canDismiss: Boolean = true,
+    dismissOnBackPressOrClickOutside: Boolean = true,
     onConfirmButtonClick: () -> Unit = {},
     onDismiss: () -> Unit = {}
 ) {
@@ -29,11 +30,8 @@ fun MyAlertDialog(
     if (isVisible) {
         AlertDialog(
             onDismissRequest = {
-                // You clicked outside the dialog or the back button.
-                if (canDismiss) {
-                    onDismiss()
-                    isVisible = false
-                }
+                onDismiss()
+                isVisible = false
             },
             confirmButton = {
                 TextButton(
@@ -65,7 +63,11 @@ fun MyAlertDialog(
             },
             text = {
                 Text(text)
-            }
+            },
+            properties = DialogProperties(
+                dismissOnBackPress = dismissOnBackPressOrClickOutside,
+                dismissOnClickOutside = dismissOnBackPressOrClickOutside
+            )
         )
     }
 }
