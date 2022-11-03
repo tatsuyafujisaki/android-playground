@@ -17,6 +17,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 
 @OptIn(ExperimentalComposeUiApi::class)
+@Preview
 @Composable
 fun MyFullscreenDialog(
     dismissOnBackPressOrClickOutside: Boolean = true, onDismiss: () -> Unit = {}
@@ -44,10 +45,4 @@ fun MyFullscreenDialog(
             }
         }
     }
-}
-
-@Preview
-@Composable
-private fun PreviewMyFullscreenDialog() {
-    MyFullscreenDialog()
 }
