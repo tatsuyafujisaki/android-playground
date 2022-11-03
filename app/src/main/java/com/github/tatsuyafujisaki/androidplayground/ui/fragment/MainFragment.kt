@@ -93,14 +93,6 @@ class MainFragment :
                 )
             )
 
-            viewModel.something.observe(
-                viewLifecycleOwner
-            ) {
-                editText.setText(
-                    it
-                )
-            }
-
             webView.settings.javaScriptEnabled =
                 true
             webView.webViewClient =
