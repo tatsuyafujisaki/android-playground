@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.compose
+package com.github.tatsuyafujisaki.androidplayground.compose.dialog
 
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Text
