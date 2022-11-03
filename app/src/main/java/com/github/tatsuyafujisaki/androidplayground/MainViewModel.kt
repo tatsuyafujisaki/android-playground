@@ -7,8 +7,7 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
     private val _something = MutableLiveData("")
-    val something: LiveData<String>
-        get() = _something
+    val something: LiveData<String> = _something
 
     fun setSomething(something: String) {
         _something.value = something
