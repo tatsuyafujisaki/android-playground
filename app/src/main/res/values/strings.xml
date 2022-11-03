@@ -4,7 +4,6 @@
     <string name="main">Main</string>
     <string name="second">Second</string>
     <string name="third">Third</string>
-    <string name="navigate_to_sample_fragment">Go to SampleFragment</string>
 
     <!-- Fruit -->
     <string name="apple">Apple!</string>
