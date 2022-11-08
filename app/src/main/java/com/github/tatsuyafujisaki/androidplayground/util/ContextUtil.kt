@@ -48,7 +48,11 @@ object ContextUtil {
     fun isInteractive(context: Context) =
         (context.getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
 
-    fun readAsset(context: Context, fileName: String) =
+    /**
+     * Read a text file in the "assets" directory.
+     * cf. [ResourcesUtil.readResourceAsText]
+     */
+    fun readAssetAsText(context: Context, fileName: String) =
         context
             .assets
             .open(fileName)
