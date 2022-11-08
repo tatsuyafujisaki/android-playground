@@ -12,7 +12,7 @@ object ResourcesUtil {
      * cf. [ContextUtil.readAssetAsText]
      */
     fun readResourceAsText(name: String) =
-        object {}.javaClass.classLoader?.getResource(name)?.readText().orEmpty()
+        object {}.javaClass.classLoader!!.getResource(name).readText()
 
     object OrientationUtil {
         fun isPortrait(resources: Resources) =
