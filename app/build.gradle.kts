@@ -63,6 +63,11 @@ android {
         // https://developer.android.com/jetpack/androidx/releases/compose-compiler
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
