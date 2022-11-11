@@ -138,6 +138,7 @@ dependencies {
     implementation(libs.runtime.livedata)
     implementation(libs.rxandroid)
     implementation(libs.rxjava)
+    implementation(libs.timber)
     implementation(libs.ui.tooling.preview)
     implementation(libs.viewpager2)
     implementation(platform(libs.firebase.bom))

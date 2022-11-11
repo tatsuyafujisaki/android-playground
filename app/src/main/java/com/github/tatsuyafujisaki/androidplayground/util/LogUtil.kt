@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
-import android.util.Log
+import android.webkit.WebResourceError
+import timber.log.Timber
 
 object LogUtil {
     /**
@@ -8,6 +9,10 @@ object LogUtil {
      * Output: [[key1, value1], [key1, value2]]
      */
     fun log(vararg xs: Any) {
-        Log.d("Here!", xs.toList().chunked(2).toString())
+        Timber.d(xs.toList().chunked(2).toString())
+    }
+
+    fun log(error: WebResourceError) {
+        Timber.d("errorCode: " + error.errorCode + ", description: " + error.description)
     }
 }
