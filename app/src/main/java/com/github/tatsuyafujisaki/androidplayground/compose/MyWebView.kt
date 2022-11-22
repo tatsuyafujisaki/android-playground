@@ -52,7 +52,7 @@ fun MyWebView(
         AndroidView(
             modifier = Modifier
                 .padding(paddingValues)
-                .fillMaxHeight(),
+                .fillMaxSize(),
             factory = {
                 WebView(it).apply {
                     layoutParams = ViewGroup.LayoutParams(
