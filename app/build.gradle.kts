@@ -98,7 +98,7 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     implementation(libs.accompanist.flowlayout)
     implementation(libs.accompanist.placeholder.material)
-    implementation(libs.accompanist.swiperefresh)
+    implementation(libs.accompanist.webview)
     implementation(libs.activity.compose)
     implementation(libs.animation)
     implementation(libs.appcompat)
