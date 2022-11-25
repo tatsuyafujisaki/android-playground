@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.compose
+package com.github.tatsuyafujisaki.androidplayground.compose.webview
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
