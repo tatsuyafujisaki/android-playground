@@ -16,7 +16,8 @@ import com.google.accompanist.web.*
 fun MyAccompanistWebView(
     url: String,
     navigator: WebViewNavigator = rememberWebViewNavigator(),
-    client: AccompanistWebViewClient = remember { AccompanistWebViewClient() }
+    client: AccompanistWebViewClient = remember { AccompanistWebViewClient() },
+    onClick: (() -> Unit)? = null
 ) {
     val state = rememberWebViewState(url)
 
@@ -24,8 +25,14 @@ fun MyAccompanistWebView(
         state = state,
         modifier = Modifier.fillMaxSize(),
         navigator = navigator,
-        onCreated = {
-            it.settings.javaScriptEnabled = true
+        onCreated = { webView ->
+            webView.settings.javaScriptEnabled = true
+            onClick?.let {
+                webView.setOnTouchListener { v, _ ->
+                    it.invoke()
+                    v.performClick()
+                }
+            }
         },
         client = client
     )
