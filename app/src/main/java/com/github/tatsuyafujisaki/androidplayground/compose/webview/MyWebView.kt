@@ -60,7 +60,11 @@ fun MyWebView(
                     )
                     settings.javaScriptEnabled = true
                     webViewClient = object : WebViewClient() {
-                        override fun onPageFinished(view: WebView?, url: String?) {
+                        override fun doUpdateVisitedHistory(
+                            view: WebView?,
+                            url: String?,
+                            isReload: Boolean
+                        ) {
                             canGoBack = canGoBack()
                             canGoForward = canGoForward()
                         }
