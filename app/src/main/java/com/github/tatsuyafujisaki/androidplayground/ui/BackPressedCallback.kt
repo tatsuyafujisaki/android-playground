@@ -1,30 +1,24 @@
 package com.github.tatsuyafujisaki.androidplayground.ui
 
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.launch
 
-class BackPressedCallback(fragment: Fragment, callback: () -> Unit) {
-    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            callback()
-        }
-    }
-
+class BackPressedCallback(fragment: Fragment, onBackPressed: (OnBackPressedCallback) -> Unit) {
     init {
-        fragment.lifecycle.addObserver(
-            LifecycleEventObserver { _, event ->
-                when (event) {
-                    Lifecycle.Event.ON_START ->
-                        fragment
-                            .requireActivity()
-                            .onBackPressedDispatcher
-                            .addCallback(fragment.viewLifecycleOwner, onBackPressedCallback)
-                    Lifecycle.Event.ON_STOP -> onBackPressedCallback.remove()
-                    else -> {}
-                }
+        fragment.lifecycleScope.launch {
+            fragment.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                fragment
+                    .requireActivity()
+                    .onBackPressedDispatcher
+                    .addCallback(fragment.viewLifecycleOwner) {
+                        onBackPressed()
+                    }
             }
-        )
+        }
     }
 }
