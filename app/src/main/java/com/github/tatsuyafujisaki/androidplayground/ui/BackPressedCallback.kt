@@ -15,8 +15,9 @@ class BackPressedCallback(fragment: Fragment, onBackPressed: (OnBackPressedCallb
                 fragment
                     .requireActivity()
                     .onBackPressedDispatcher
+                    // Even if the same callback is added more than once, it will not be duplicate.
                     .addCallback(fragment.viewLifecycleOwner) {
-                        onBackPressed()
+                        onBackPressed(this)
                     }
             }
         }
