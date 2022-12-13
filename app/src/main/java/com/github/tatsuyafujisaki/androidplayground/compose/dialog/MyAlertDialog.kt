@@ -10,7 +10,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.window.DialogProperties
 
 @Composable
 fun MyAlertDialog(
@@ -18,62 +17,52 @@ fun MyAlertDialog(
     title: String? = null,
     confirmButtonText: String = stringResource(android.R.string.ok),
     dismissButtonText: String? = null,
-    dismissOnBackPressOrClickOutside: Boolean = true,
     onConfirmButtonClick: () -> Unit = {},
-    onDismiss: () -> Unit = {}
+    onDismissRequest: () -> Unit = {}
 ) {
-    var isVisible by remember { mutableStateOf(true) }
-
-    if (isVisible) {
-        AlertDialog(
-            onDismissRequest = {
-                onDismiss()
-                isVisible = false
-            },
-            confirmButton = {
+    AlertDialog(
+        onDismissRequest = { onDismissRequest() },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onConfirmButtonClick()
+                    onDismissRequest()
+                }
+            ) {
+                Text(confirmButtonText)
+            }
+        },
+        dismissButton = dismissButtonText?.let {
+            {
                 TextButton(
-                    onClick = {
-                        onConfirmButtonClick()
-                        isVisible = false
-                    }
+                    onClick = { onDismissRequest() }
                 ) {
-                    Text(confirmButtonText)
-                }
-            },
-            dismissButton = dismissButtonText?.let {
-                {
-                    TextButton(
-                        onClick = {
-                            onDismiss()
-                            isVisible = false
-                        }
-                    ) {
-                        Text(it)
-                    }
-                }
-            },
-            title = title?.let {
-                {
                     Text(it)
                 }
-            },
-            text = {
-                Text(text)
-            },
-            properties = DialogProperties(
-                dismissOnBackPress = dismissOnBackPressOrClickOutside,
-                dismissOnClickOutside = dismissOnBackPressOrClickOutside
-            )
-        )
-    }
+            }
+        },
+        title = title?.let {
+            {
+                Text(it)
+            }
+        },
+        text = {
+            Text(text)
+        }
+    )
 }
 
 @Preview
 @Composable
-private fun PreviewMyAlertDialog() {
-    MyAlertDialog(
-        title = "Title",
-        text = "Text",
-        dismissButtonText = stringResource(android.R.string.cancel)
-    )
+private fun MyAlertDialogPreview() {
+    var isVisible by remember { mutableStateOf(true) }
+
+    if (isVisible) {
+        MyAlertDialog(
+            title = "Title",
+            text = "Text",
+            dismissButtonText = stringResource(android.R.string.cancel),
+            onDismissRequest = { isVisible = false }
+        )
+    }
 }
