@@ -1,6 +1,5 @@
-package com.github.tatsuyafujisaki.androidplayground.compose
+package com.github.tatsuyafujisaki.androidplayground.compose.column
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,23 +12,18 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun CenterColumnExample(
-    height: Dp = 100.dp,
-    background: Color = Color.White,
-    onClick: (() -> Unit)? = null,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
+    onClick: (() -> Unit)? = null
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(height)
-            .background(background)
+            .height(100.dp)
             .verticalScroll(rememberScrollState())
             .clickable(enabled = onClick != null, onClick = onClick ?: {}),
         verticalArrangement = Arrangement.Center,
@@ -41,9 +35,11 @@ fun CenterColumnExample(
 @Preview(showBackground = true)
 @Composable
 private fun Preview() {
-    CenterColumnExample {
-        Text("Bacon")
-        Text("Lettuce")
-        Text("Tomato")
-    }
+    CenterColumnExample(
+        content = {
+            Text("Bacon")
+            Text("Lettuce")
+            Text("Tomato")
+        }
+    )
 }
