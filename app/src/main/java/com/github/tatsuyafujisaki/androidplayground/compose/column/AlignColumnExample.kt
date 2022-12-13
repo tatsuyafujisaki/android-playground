@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CenterColumnExample(
+fun AlignColumnExample(
     content: @Composable ColumnScope.() -> Unit,
     onClick: (() -> Unit)? = null
 ) {
@@ -34,12 +34,12 @@ fun CenterColumnExample(
 
 @Preview(showBackground = true)
 @Composable
-private fun CenterColumnExamplePreview() {
+private fun AlignColumnExamplePreview() {
     CenterColumnExample(
         content = {
-            Text("Bacon")
+            Text("Bacon", modifier = Modifier.align(Alignment.Start))
             Text("Lettuce")
-            Text("Tomato")
+            Text("Tomato", modifier = Modifier.align(Alignment.End))
         }
     )
 }
