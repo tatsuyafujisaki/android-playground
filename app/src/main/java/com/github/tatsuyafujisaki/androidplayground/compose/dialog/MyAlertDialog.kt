@@ -8,20 +8,22 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun MyAlertDialog(
+    onDismissRequest: () -> Unit,
     text: String,
+    modifier: Modifier = Modifier,
     title: String? = null,
     confirmButtonText: String = stringResource(android.R.string.ok),
     dismissButtonText: String? = null,
-    onConfirmButtonClick: () -> Unit = {},
-    onDismissRequest: () -> Unit = {}
+    onConfirmButtonClick: () -> Unit = {}
 ) {
     AlertDialog(
-        onDismissRequest = { onDismissRequest() },
+        onDismissRequest = onDismissRequest,
         confirmButton = {
             TextButton(
                 onClick = {
@@ -32,11 +34,10 @@ fun MyAlertDialog(
                 Text(confirmButtonText)
             }
         },
+        modifier = modifier,
         dismissButton = dismissButtonText?.let {
             {
-                TextButton(
-                    onClick = { onDismissRequest() }
-                ) {
+                TextButton(onClick = onDismissRequest) {
                     Text(it)
                 }
             }
