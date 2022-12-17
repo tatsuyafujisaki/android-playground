@@ -44,7 +44,7 @@ fun MyAccompanistWebView(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewMyAccompanistWebView() {
+private fun MyAccompanistWebViewPreview() {
     MyAccompanistWebView(
         url = "https://example.com"
     )

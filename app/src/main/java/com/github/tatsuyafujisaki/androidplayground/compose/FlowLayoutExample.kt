@@ -31,7 +31,7 @@ fun SampleContent() {
 
 @Preview
 @Composable
-fun PreviewFlowRow() {
+fun FlowRowPreview() {
     FlowRow {
         SampleContent()
     }
@@ -39,7 +39,7 @@ fun PreviewFlowRow() {
 
 @Preview
 @Composable
-fun PreviewFlowColumn() {
+fun FlowColumnPreview() {
     FlowColumn {
         SampleContent()
     }

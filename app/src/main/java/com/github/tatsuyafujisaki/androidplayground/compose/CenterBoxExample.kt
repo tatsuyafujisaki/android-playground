@@ -42,7 +42,7 @@ fun CenterBoxExample(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewCenterBoxExample() {
+private fun CenterBoxExamplePreview() {
     CenterBoxExample {
         Text("Sample")
     }

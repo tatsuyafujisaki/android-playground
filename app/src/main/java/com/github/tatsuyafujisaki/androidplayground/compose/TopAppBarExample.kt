@@ -20,6 +20,6 @@ fun TopAppBarExample() {
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewTopAppBarExample() {
+private fun TopAppBarExamplePreview() {
     TopAppBarExample()
 }

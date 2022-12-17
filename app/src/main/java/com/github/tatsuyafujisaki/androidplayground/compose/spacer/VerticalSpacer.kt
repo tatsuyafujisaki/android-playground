@@ -15,7 +15,7 @@ fun VerticalSpacer(height: Dp) {
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewVerticalSpacer() {
+private fun VerticalSpacerPreview() {
     Row {
         Text("Hello")
         VerticalSpacer(8.dp)

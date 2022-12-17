@@ -30,6 +30,6 @@ fun MyIconButton(
 
 @Preview
 @Composable
-private fun PreviewMyIconButton() {
+private fun MyIconButtonPreview() {
     MyIconButton(id = R.drawable.ic_android_robot) {}
 }

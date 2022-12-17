@@ -35,7 +35,7 @@ fun CenterRowExample(
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview() {
+private fun CenterRowExamplePreview() {
     CenterRowExample {
         Text("Bacon")
         Text("Lettuce")

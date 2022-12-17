@@ -30,7 +30,7 @@ fun VerticalDivider(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewVerticalDivider() {
+private fun VerticalDividerPreview() {
     Row(Modifier.height(IntrinsicSize.Min)) {
         Text("Hello")
         VerticalDivider(

@@ -28,6 +28,6 @@ fun IconButtonExample(
 
 @Preview
 @Composable
-private fun PreviewIconButtonExample() {
+private fun IconButtonExamplePreview() {
     IconButtonExample(imageVector = Icons.Default.Favorite) {}
 }

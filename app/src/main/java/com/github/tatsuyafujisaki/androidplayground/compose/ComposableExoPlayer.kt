@@ -61,7 +61,7 @@ fun ComposableExoPlayer(
 
 @Preview
 @Composable
-private fun PreviewComposableExoPlayer() {
+private fun ComposableExoPlayerPreview() {
     ComposableExoPlayer(
         uri = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         positionMs = 0,

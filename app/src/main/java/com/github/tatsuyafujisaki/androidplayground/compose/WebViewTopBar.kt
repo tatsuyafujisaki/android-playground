@@ -75,7 +75,7 @@ fun WebViewTopBar(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewWebViewTopBar() {
+private fun WebViewTopBarPreview() {
     WebViewTopBar(
         title = "Title",
         canGoBack = true,

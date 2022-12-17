@@ -107,7 +107,7 @@ fun MyWebView(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewMyWebView() {
+private fun MyWebViewPreview() {
     MyWebView(
         title = "Title",
         url = "https://example.com",

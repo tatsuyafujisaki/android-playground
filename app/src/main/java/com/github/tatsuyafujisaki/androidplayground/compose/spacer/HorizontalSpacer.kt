@@ -15,7 +15,7 @@ fun HorizontalSpacer(width: Dp) {
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewHorizontalSpacer() {
+private fun HorizontalSpacerPreview() {
     Column {
         Text("Hello")
         HorizontalSpacer(8.dp)

@@ -44,7 +44,7 @@ fun SliderExample(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewSliderExample() {
+fun SliderExamplePreview() {
     SliderExample(
         maxValue = 3f,
         onValueChange = {

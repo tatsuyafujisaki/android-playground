@@ -61,7 +61,7 @@ fun <T> DropdownMenu(
 
 @Preview
 @Composable
-fun PreviewDropdownMenu() {
+fun DropdownMenuPreview() {
     DropdownMenu(
         options = listOf("Bacon", "Lettuce", "Tomato"),
         selectedValue = "Bacon",

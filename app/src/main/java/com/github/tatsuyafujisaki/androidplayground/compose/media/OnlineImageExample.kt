@@ -33,7 +33,7 @@ private const val url = "https://images.unsplash.com/photo-1558240077-e33b10a16a
 
 @Preview
 @Composable
-private fun PreviewOnlineImageExample() {
+private fun OnlineImageExamplePreview() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
         url = url
@@ -42,7 +42,7 @@ private fun PreviewOnlineImageExample() {
 
 @Preview
 @Composable
-private fun PreviewOnlineCircularImageExample() {
+private fun OnlineCircularImageExamplePreview() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
         url = url,
@@ -52,7 +52,7 @@ private fun PreviewOnlineCircularImageExample() {
 
 @Preview
 @Composable
-private fun PreviewOnlineBorderedImageExample() {
+private fun OnlineBorderedImageExamplePreview() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
         url = url,
@@ -62,7 +62,7 @@ private fun PreviewOnlineBorderedImageExample() {
 
 @Preview
 @Composable
-private fun PreviewOnlineCircularBorderedImageExample() {
+private fun OnlineCircularBorderedImageExamplePreview() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
         url = url,

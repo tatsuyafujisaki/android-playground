@@ -36,7 +36,7 @@ fun ImageExample(
 
 @Preview
 @Composable
-private fun PreviewImageExample(
+private fun ImageExamplePreview(
     @PreviewParameter(BooleanProvider::class) isCircle: Boolean
 ) {
     ImageExample(
@@ -48,7 +48,7 @@ private fun PreviewImageExample(
 
 @Preview
 @Composable
-private fun PreviewImageBorderedExample(
+private fun ImageBorderedExamplePreview(
     @PreviewParameter(BooleanProvider::class) isCircle: Boolean
 ) {
     ImageExample(
