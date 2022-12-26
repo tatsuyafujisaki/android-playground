@@ -20,8 +20,8 @@ Modifier.size(1.dp)|true|true
 Modifier.alpha(0.dp)|true|true
 The nodes exists below the screen and you need to scroll down to show it|true|false
 
-# Best practices
-Benefits of specifying a `key` in `items` of `LazyColumn`
+# Specify a `key` in `items` of `LazyColumn`
+Benefits of specifying a `key` in `items` of `LazyColumn` are below.
 - You can keep the scroll position when the Activity is recreated, or even when you scroll away and scroll back.
 - Jetpack Compose avoids unnecessarily recomposing the entire list when an item is removed.
 - https://developer.android.com/jetpack/compose/lists#item-keys
