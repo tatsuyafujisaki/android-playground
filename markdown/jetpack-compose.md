@@ -12,14 +12,6 @@
   * https://youtu.be/PjQdFmiDgwk?t=147
   * If you use multiple `ComposeView`, don't forget to assign a unique ID to each `ComposeView`.
 
-# Stateful compose / Stateless compose / State hosting
-By state hosting, a stateful compose becomes a stateless compose.
-
-# LaunchedEffect
-LaunchedEffect will be canceled when either of the two is met:
-* LaunchedEffect leaves the composition.
-* LaunchedEffect is recomposed with different keys.
-
 # Difference between `assertExists()` and `assertIsDisplayed()`
 &nbsp;|`assertExists()`|`assertIsDisplayed()`
 --|--|--
@@ -27,6 +19,13 @@ Modifier.size(0.dp)|true|false
 Modifier.size(1.dp)|true|true
 Modifier.alpha(0.dp)|true|true
 The nodes exists below the screen and you need to scroll down to show it|true|false
+
+# Best practices
+Benefits of specifying a `key` in `items` of `LazyColumn`
+- You can keep the scroll position when the Activity is recreated, or even when you scroll away and scroll back.
+- Jetpack Compose avoids unnecessarily recomposing the entire list when an item is removed.
+- https://developer.android.com/jetpack/compose/lists#item-keys
+- https://youtu.be/PMMY23F0CFg?t=2061
 
 # Illustration of `Modifier.firstBaselineToTop(...)`
 ![](https://user-images.githubusercontent.com/1838962/128594836-c9f2f627-4749-46f0-97db-c71d084e4620.png)
