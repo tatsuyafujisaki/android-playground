@@ -4,7 +4,7 @@
 - https://twitter.github.io/compose-rules/rules/#modifiers-should-have-default-parameters
 
 # Content padding
-- is a padding for each item instead a padding for an entire list.
+- is a padding for each item instead of a padding for an entire list.
 - https://developer.android.com/jetpack/compose/lists
 - https://youtu.be/1ANt65eoNhQ?t=166
 
