@@ -3,6 +3,11 @@
 - https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier
 - https://twitter.github.io/compose-rules/rules/#modifiers-should-have-default-parameters
 
+# Content padding
+- is a padding for each item instead a padding for an entire list.
+- https://developer.android.com/jetpack/compose/lists
+- https://youtu.be/1ANt65eoNhQ?t=166
+
 # How to integarate Compose with the view-based UI
 * If you want to have Compose at the root level in an Activity, you can use `setContent` in Kotlin and don't need XML.
   * https://youtu.be/PjQdFmiDgwk?t=89
