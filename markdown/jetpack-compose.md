@@ -3,6 +3,10 @@
 - https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier
 - https://twitter.github.io/compose-rules/rules/#modifiers-should-have-default-parameters
 
+> Note: It is a best practice to pass a modifier to every composable and set it to a default value.
+
+- https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list#3
+
 # Content padding
 - is a padding for an entire list. The padding also scrolls along with the content.
 - https://developer.android.com/jetpack/compose/lists
