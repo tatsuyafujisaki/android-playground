@@ -387,7 +387,7 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 
 [ui-template.md](markdown/ui-template.md)
 
-# Use A rather than B for simplicity
+# Use A rather than B for simplicity (except for Jetpack Compose)
 
 A|B|Note
 --|--|--
