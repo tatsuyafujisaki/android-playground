@@ -40,3 +40,7 @@ Benefits of specifying a `key` in `items` of `LazyColumn` are below.
 ![](https://user-images.githubusercontent.com/1838962/128594836-c9f2f627-4749-46f0-97db-c71d084e4620.png)
 
 https://developer.android.com/codelabs/jetpack-compose-layouts#6
+
+# Use A rather than B for simplicity
+- https://developer.android.com/jetpack/compose/lists#content-spacing
+    - Use content spacing between items rather than each item having padding.
