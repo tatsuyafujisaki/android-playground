@@ -7,6 +7,10 @@
 
 - https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list#3
 
+> In Compose, it is best practice to pass a modifier parameter to composable functions.
+
+- https://developer.android.com/codelabs/basic-android-kotlin-compose-material-theming#3
+
 # Content padding
 - is a padding for an entire list. The padding also scrolls along with the content.
 - https://developer.android.com/jetpack/compose/lists
