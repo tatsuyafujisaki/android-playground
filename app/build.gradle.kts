@@ -118,6 +118,7 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.datastore.preferences)
     implementation(libs.exoplayer)
+    implementation(libs.firebase.messaging)
     implementation(libs.fragment.ktx)
     implementation(libs.glide)
     implementation(libs.hilt.android)
