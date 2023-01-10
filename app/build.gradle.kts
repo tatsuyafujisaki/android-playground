@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
+    @Suppress("DSL_SCOPE_VIOLATION") // https://youtrack.jetbrains.com/issue/KTIJ-19369
     id("org.jetbrains.kotlin.plugin.serialization") version libs.versions.kotlin
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
