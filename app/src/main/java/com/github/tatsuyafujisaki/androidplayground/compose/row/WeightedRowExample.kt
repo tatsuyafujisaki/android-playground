@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun WeightedRowExample(
     onClick: (() -> Unit)? = null
@@ -34,7 +34,8 @@ fun WeightedRowExample(
         Spacer(
             Modifier
                 .weight(1f)
-                .background(Color.Red))
+                .background(Color.Red)
+        )
         Icon(
             imageVector = Icons.Default.Favorite,
             contentDescription = null
