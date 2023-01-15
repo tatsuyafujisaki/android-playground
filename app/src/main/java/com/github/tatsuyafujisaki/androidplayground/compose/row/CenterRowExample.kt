@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.compose
+package com.github.tatsuyafujisaki.androidplayground.compose.row
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
