@@ -17,70 +17,50 @@ object OkHttpUtil {
      * > The response body can be consumed only once.
      * https://square.github.io/okhttp/3.x/okhttp/okhttp3/ResponseBody.html
      */
-    private fun OkHttpClient.Builder.addLoggingRawJsonInterceptor() {
-        addInterceptor {
-            it.proceed(it.request()).apply {
-                // JSON will be logged with the prefix "D/Response".
-                Log.d(this::class.java.simpleName, body?.string().toString())
-            }
+    private fun OkHttpClient.Builder.addLoggingRawJsonInterceptor() = addInterceptor {
+        it.proceed(it.request()).apply {
+            // JSON will be logged with the prefix "D/Response".
+            Log.d(this::class.java.simpleName, body?.string().toString())
         }
     }
 
-    fun OkHttpClient.Builder.addInterceptors() = apply {
-        addInterceptor {
-            it.proceed(
-                it
-                    .request()
-                    .newBuilder()
-                    // Each header added by an interceptor can be overwritten
-                    // by passing the same header when calling an API.
-                    .addHeader("X-BuildManufacturer", Build.MANUFACTURER)
-                    .addHeader("X-Brand", Build.BRAND)
-                    .addHeader("X-Product", Build.PRODUCT)
-                    .addHeader("X-BuildModel", Build.MODEL)
-                    // Android OS version
-                    .addHeader("X-BuildVersionRelease", Build.VERSION.RELEASE)
-                    .addHeader("X-VersionName", BuildConfig.VERSION_NAME)
-                    .build()
-            )
-        }
-        if (BuildConfig.DEBUG) {
-            // addLoggingRawJsonInterceptor()
-            /**
-             * Logging interceptors must be added after custom interceptors.
-             * Otherwise, headers added by the custom interceptor will not be logged.
-             */
-            addInterceptor(
-                HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.NONE
-                }
-            )
-        }
-    }
+    fun OkHttpClient.Builder.addInterceptors() = addInterceptor {
+        it.proceed(
+            it.request().newBuilder()
+                // Each header added by an interceptor can be overwritten
+                // by passing the same header when calling an API.
+                .addHeader("X-BuildManufacturer", Build.MANUFACTURER)
+                .addHeader("X-Brand", Build.BRAND).addHeader("X-Product", Build.PRODUCT)
+                .addHeader("X-BuildModel", Build.MODEL)
+                // Android OS version
+                .addHeader("X-BuildVersionRelease", Build.VERSION.RELEASE)
+                .addHeader("X-VersionName", BuildConfig.VERSION_NAME).build()
+        )
+    }.addLoggingRawJsonInterceptor()
+        /**
+         * Logging interceptors must be added after custom interceptors.
+         * Otherwise, headers added by the custom interceptor will not be logged.
+         */
+        .addInterceptor(HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.NONE
+        })
 
     fun OkHttpClient.Builder.addCookieJar() = apply {
         cookieJar(object : CookieJar {
             // Set cookies in CookieManger to HTTP requests
             override fun loadForRequest(url: HttpUrl): List<Cookie> =
-                CookieManager
-                    .getInstance()
-                    .getCookie(url.toString())
-                    ?.split(';')
-                    ?.filter {
-                        isKeyOfInterest(it.split('=').firstOrNull()?.trim())
-                    }
-                    ?.mapNotNull {
-                        Cookie.parse(url.baseUrl, it.trim() /* key=value */)
-                    }.orEmpty()
+                CookieManager.getInstance().getCookie(url.toString())?.split(';')?.filter {
+                    isKeyOfInterest(it.split('=').firstOrNull()?.trim())
+                }?.mapNotNull {
+                    Cookie.parse(url.baseUrl, it.trim() /* key=value */)
+                }.orEmpty()
 
             // Save cookies in HTTP responses to CookieManger
             override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
                 cookies.filter {
                     isKeyOfInterest(it.name)
                 }.forEach {
-                    CookieManager
-                        .getInstance()
-                        .setCookie(url.host, "${it.name}=${it.value}")
+                    CookieManager.getInstance().setCookie(url.host, "${it.name}=${it.value}")
                 }
             }
         })
