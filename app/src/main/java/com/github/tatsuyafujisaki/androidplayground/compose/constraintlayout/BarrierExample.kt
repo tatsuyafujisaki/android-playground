@@ -1,8 +1,8 @@
 package com.github.tatsuyafujisaki.androidplayground.compose.constraintlayout
 
 import androidx.compose.foundation.background
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable

@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
-import android.content.Context
 import android.os.Build
 import android.util.Log
 import android.webkit.CookieManager
@@ -27,7 +26,7 @@ object OkHttpUtil {
         }
     }
 
-    fun OkHttpClient.Builder.addInterceptors(context: Context) = apply {
+    fun OkHttpClient.Builder.addInterceptors() = apply {
         addInterceptor {
             it.proceed(
                 it
