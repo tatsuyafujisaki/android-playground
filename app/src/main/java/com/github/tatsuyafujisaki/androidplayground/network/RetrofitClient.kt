@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.network
 
-import android.content.Context
 import com.github.tatsuyafujisaki.androidplayground.BuildConfig
 import com.github.tatsuyafujisaki.androidplayground.util.OkHttpUtil.addCookieJar
 import com.github.tatsuyafujisaki.androidplayground.util.OkHttpUtil.addInterceptors
@@ -11,13 +10,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitClient {
-    fun getGoogleApiService(context: Context): GoogleApiService =
+    fun getGoogleApiService(): GoogleApiService =
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(
                 OkHttpClient
                     .Builder()
-                    .addInterceptors(context)
+                    .addInterceptors()
                     .addCookieJar()
                     .build()
             )

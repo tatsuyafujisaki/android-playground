@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {
             lifecycleScope.launch {
                 runCatching {
-                    RetrofitClient.getGoogleApiService(this@MainActivity)
+                    RetrofitClient.getGoogleApiService()
                         .getBooks("The Little Prince")
                 }.fold({
                     this@MainActivity.toast(it.toString())
