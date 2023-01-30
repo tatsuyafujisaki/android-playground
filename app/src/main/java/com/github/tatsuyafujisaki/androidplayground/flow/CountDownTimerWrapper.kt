@@ -5,32 +5,26 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 
 class CountDownTimerWrapper(
-    total: Long,
-    interval: Long,
-    onFinish: () -> Unit
+    total: Long, interval: Long, onFinish: () -> Unit
 ) {
     private lateinit var countDownTimer: CountDownTimer
 
     val flow = callbackFlow {
-        countDownTimer =
-            object : CountDownTimer(total, interval) {
-                override fun onTick(millisUntilFinished: Long) {
-                    trySend(millisUntilFinished)
-                }
-
-                override fun onFinish() {
-                    onFinish()
-                }
+        countDownTimer = object : CountDownTimer(total, interval) {
+            override fun onTick(millisUntilFinished: Long) {
+                trySend(millisUntilFinished)
             }
-        awaitClose {}
+
+            override fun onFinish() {
+                onFinish()
+            }
+        }
+
+        awaitClose { countDownTimer.cancel() }
     }
 
     fun start() {
         countDownTimer.start()
-    }
-
-    fun cancel() {
-        countDownTimer.cancel()
     }
 }
 
