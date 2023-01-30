@@ -38,16 +38,19 @@ class CountDownTimerWrapper(
 /*
     override fun onCreateView(...): View {
         val countDownTimerWrapper = CountDownTimerWrapper(3_000, 1_000) {
-        println("onFinish")
-    }
-
-    lifecycleScope.launch {
-        countDownTimerWrapper.flow.collect {
-            println("collect: ${it.inWholeSeconds}")
+            println("onFinish")
         }
-    }
 
-    lifecycleScope.launch {
-        countDownTimerWrapper.start()
+        lifecycleScope.launch {
+            countDownTimerWrapper.flow.collect {
+                println("collect: ${it.inWholeSeconds}")
+            }
+        }
+
+        lifecycleScope.launch {
+            countDownTimerWrapper.start()
+        }
+
+        // ...
     }
  */
