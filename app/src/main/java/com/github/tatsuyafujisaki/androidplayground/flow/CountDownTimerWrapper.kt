@@ -4,9 +4,7 @@ import android.os.CountDownTimer
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 
-class CountDownTimerWrapper(
-    total: Long, interval: Long, onFinish: () -> Unit
-) {
+class CountDownTimerWrapper(total: Long, interval: Long, onFinish: () -> Unit) {
     private lateinit var countDownTimer: CountDownTimer
 
     val flow = callbackFlow {
