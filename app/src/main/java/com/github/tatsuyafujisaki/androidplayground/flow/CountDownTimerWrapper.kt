@@ -2,16 +2,14 @@ package com.github.tatsuyafujisaki.androidplayground.flow
 
 import android.os.CountDownTimer
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.launch
 
 class CountDownTimerWrapper(
     millisInFuture: Long,
-    countDownInterval: Long
+    countDownInterval: Long,
+    onFinish: () -> Unit
 ) {
-    lateinit var countDownTimer: CountDownTimer
+    private lateinit var countDownTimer: CountDownTimer
 
     val flow = callbackFlow {
         countDownTimer =
@@ -21,7 +19,7 @@ class CountDownTimerWrapper(
                 }
 
                 override fun onFinish() {
-                    println("onFinish")
+                    onFinish()
                 }
             }
         awaitClose {}
@@ -36,15 +34,20 @@ class CountDownTimerWrapper(
     }
 }
 
-private suspend fun main() = coroutineScope {
-    val countDownTimerWrapper = CountDownTimerWrapper(3_000, 1_000)
+// Usage:
+/*
+    override fun onCreateView(...): View {
+        val countDownTimerWrapper = CountDownTimerWrapper(3_000, 1_000) {
+        println("onFinish")
+    }
 
-    launch {
+    lifecycleScope.launch {
         countDownTimerWrapper.flow.collect {
-            println("collect: $it")
+            println("collect: ${it.inWholeSeconds}")
         }
     }
 
-    delay(1_000)
-    countDownTimerWrapper.start()
-}
+    lifecycleScope.launch {
+        countDownTimerWrapper.start()
+    }
+ */
