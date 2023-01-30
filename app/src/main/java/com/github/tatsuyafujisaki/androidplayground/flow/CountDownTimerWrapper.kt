@@ -5,15 +5,15 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 
 class CountDownTimerWrapper(
-    millisInFuture: Long,
-    countDownInterval: Long,
+    total: Long,
+    interval: Long,
     onFinish: () -> Unit
 ) {
     private lateinit var countDownTimer: CountDownTimer
 
     val flow = callbackFlow {
         countDownTimer =
-            object : CountDownTimer(millisInFuture, countDownInterval) {
+            object : CountDownTimer(total, interval) {
                 override fun onTick(millisUntilFinished: Long) {
                     trySend(millisUntilFinished)
                 }
