@@ -2,6 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,18 +25,20 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ) = ComposeView(requireContext()).apply {
-        setViewCompositionStrategy(DisposeOnViewTreeLifecycleDestroyed)
-        setContent {
-            MaterialTheme {
-                Scaffold {
-                    Box(
-                        modifier = Modifier
-                            .padding(it)
-                            .fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text("Hello Compose!")
+    ): View {
+        return ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                MaterialTheme {
+                    Scaffold {
+                        Box(
+                            modifier = Modifier
+                                .padding(it)
+                                .fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text("Hello Compose!")
+                        }
                     }
                 }
             }
