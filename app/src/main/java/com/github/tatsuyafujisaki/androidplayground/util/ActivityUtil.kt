@@ -24,7 +24,7 @@ object ActivityUtil {
         fun getInputMethodManager(activity: Activity) =
             activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-        fun openKeyboard(activity: Activity) {
+        fun showKeyboard(activity: Activity) {
             WindowInsetsControllerCompat(
                 activity.window,
                 activity.window.decorView
