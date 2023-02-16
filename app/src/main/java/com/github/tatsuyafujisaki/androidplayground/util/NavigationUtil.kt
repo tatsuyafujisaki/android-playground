@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 import androidx.fragment.app.FragmentActivity
@@ -9,12 +10,8 @@ import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 
 object NavigationUtil {
-    /**
-     * For debugging purposes, you can ignore the lint error and list non-NavGraph destinations on the back stack.
-     * Usage: Log.d(tag, findNavController().breadcrumb)
-     */
-    val NavController.breadcrumb
-        get() = "Breadcrumb: " + backQueue
+    fun printBreadcrumb(navController: NavController) {
+        Log.d("👀 Breadcrumb", navController.backQueue
             .map {
                 it.destination
             }
@@ -24,6 +21,8 @@ object NavigationUtil {
             .joinToString(" > ") {
                 it.displayName.split('/')[1]
             }
+        )
+    }
 
     /**
      * A [FragmentActivity] can contain 0, 1, or more than 1 [NavHostFragment].
