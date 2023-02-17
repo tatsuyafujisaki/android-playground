@@ -17,24 +17,6 @@
 
 # shows as a list
 ./gradlew androidDependencies
-
-# e.g. shows Jetpack Compose dependencies.
-./gradlew androidDependencies | grep compose | sort | uniq
-
-# Run the following for more details.
-./gradlew help --task dependencies
-./gradlew help --task androidDependencies
-```
-
-## How to show `buildSrc`'s dependencies
-
-```shell
-# shows as a tree
-cd buildSrc
-../gradlew dependencies
-
-# Run the following for more details.
-./gradlew help --task dependencies
 ```
 
 ## How to show the project `app`'s dependencies
@@ -68,6 +50,16 @@ cd buildSrc
 
 # for more details
 ./gradlew help --task app:dependencyInsight
+```
+
+## How to build your app with all the build variants
+```shell
+./gradlew build
+```
+
+## How to install your app with all the build variants
+```shell
+./gradlew install
 ```
 
 ## Testing
