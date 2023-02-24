@@ -1,9 +1,10 @@
-# Official style guides
+# Style guides
 - https://developer.android.com/kotlin/style-guide
 - https://kotlinlang.org/docs/reference/coding-conventions.html
+- https://developer.android.com/topic/architecture/data-layer#naming-conventions
 - https://twitter.github.io/compose-rules/
 
-# Official best practices
+# Best practices
 - https://developer.android.com/jetpack/compose/performance/bestpractices
 - https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 - https://developer.android.com/training/data-storage/use-cases
