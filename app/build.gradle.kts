@@ -72,33 +72,17 @@ android {
 }
 
 dependencies {
+    /**
+     * > Dependency on the standard library added by default
+     * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
+     */
+
     // https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     // https://developer.android.com/jetpack/compose/setup#setup-compose
     // https://developer.android.com/jetpack/compose/setup#bom-version-mapping
     implementation(platform(libs.compose.bom))
-    androidTestImplementation(platform(libs.compose.bom))
-
-    /**
-     * > Dependency on the standard library added by default
-     * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
-     */
-
-    androidTestImplementation(libs.androidx.truth)
-    androidTestImplementation(libs.espresso.contrib)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(libs.espresso.idling.resource)
-    androidTestImplementation(libs.espresso.intents)
-    androidTestImplementation(libs.espresso.web)
-    androidTestImplementation(libs.hilt.android.testing)
-    androidTestImplementation(libs.idling.concurrent)
-    androidTestImplementation(libs.junit.ktx)
-    androidTestImplementation(libs.rules)
-    androidTestImplementation(libs.runner)
-    androidTestImplementation(libs.test.core.ktx)
-    androidTestImplementation(libs.truth)
-    androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.fragment.testing)
     debugImplementation(libs.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
@@ -153,6 +137,7 @@ dependencies {
     kapt(libs.room.compiler)
     kaptAndroidTest(libs.hilt.compiler)
     kaptTest(libs.hilt.compiler)
+    testImplementation(kotlin("test"))
     testImplementation(libs.androidx.truth)
     testImplementation(libs.hilt.android.testing)
     testImplementation(libs.kotlinx.coroutines.test)
@@ -161,6 +146,22 @@ dependencies {
     testImplementation(libs.room.testing)
     testImplementation(libs.test.core.ktx)
     testImplementation(libs.truth)
+    androidTestImplementation(kotlin("test"))
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.androidx.truth)
+    androidTestImplementation(libs.espresso.contrib)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.espresso.idling.resource)
+    androidTestImplementation(libs.espresso.intents)
+    androidTestImplementation(libs.espresso.web)
+    androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.idling.concurrent)
+    androidTestImplementation(libs.junit.ktx)
+    androidTestImplementation(libs.rules)
+    androidTestImplementation(libs.runner)
+    androidTestImplementation(libs.test.core.ktx)
+    androidTestImplementation(libs.truth)
+    androidTestImplementation(libs.ui.test.junit4)
 }
 
 kapt {
