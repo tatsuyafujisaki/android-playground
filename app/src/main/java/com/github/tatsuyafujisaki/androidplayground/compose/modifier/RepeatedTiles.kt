@@ -27,7 +27,9 @@ private fun Modifier.repeatedTiles(): Modifier = composed {
     val shaderBrush = remember(imageBitmap) {
         ShaderBrush(
             ImageShader(
-                image = imageBitmap, tileModeX = TileMode.Repeated, tileModeY = TileMode.Repeated
+                image = imageBitmap,
+                tileModeX = TileMode.Repeated,
+                tileModeY = TileMode.Repeated
             )
         )
     }
@@ -50,7 +52,8 @@ private fun RepeatedTileBoxPreview() {
     Box(
         modifier = Modifier
             .repeatedTiles()
-            .fillMaxSize(), contentAlignment = Alignment.Center
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
         Text(text = "Hello", color = Color.White)
     }
