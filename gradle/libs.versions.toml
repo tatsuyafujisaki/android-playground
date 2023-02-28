@@ -1,7 +1,7 @@
 [versions]
 accompanist = "0.28.0"
 activity-compose = "1.6.1"
-android-gradle-plugin = "7.4.1"
+android-gradle-plugin = "7.4.2"
 androidx-truth = "1.5.0"
 appcompat = "1.6.1"
 coil-compose = "2.2.2"
