@@ -2,8 +2,8 @@ package com.github.tatsuyafujisaki.androidplayground
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
-import com.google.common.truth.Truth.assertThat
-import org.junit.Test
+import kotlin.test.Test
+import kotlin.test.assertNotNull
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
@@ -13,6 +13,6 @@ class RobolectricTest {
 
     @Test
     fun test() {
-        assertThat(true).isTrue()
+        assertNotNull(context)
     }
 }
