@@ -24,6 +24,7 @@ hilt = "2.45"
 junit = "1.1.5"
 kotlin = "1.8.10"
 kotlinx-serialization = "1.5.0"
+ksp = "1.8.10-1.0.9"
 ktlint = "11.0.0"
 lifecycle = "2.6.0"
 material = "1.8.0"
@@ -123,4 +124,5 @@ ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 
 [plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }

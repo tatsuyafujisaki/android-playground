@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
+    id("com.google.devtools.ksp")
     id("kotlin-android")
-    id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
     @Suppress("DSL_SCOPE_VIOLATION") // https://youtrack.jetbrains.com/issue/KTIJ-19369
@@ -128,12 +128,12 @@ dependencies {
     implementation(libs.ui.tooling)
     implementation(libs.viewpager2)
     implementation(platform(libs.firebase.bom))
-    kapt(libs.glide.compiler)
-    kapt(libs.hilt.compiler)
-    kapt(libs.lifecycle.common.java8)
-    kapt(libs.room.compiler)
-    kaptAndroidTest(libs.hilt.compiler)
-    kaptTest(libs.hilt.compiler)
+    ksp(libs.glide.compiler)
+    ksp(libs.hilt.compiler)
+    ksp(libs.lifecycle.common.java8)
+    ksp(libs.room.compiler)
+    kspAndroidTest(libs.hilt.compiler)
+    kspTest(libs.hilt.compiler)
     testImplementation(kotlin("test"))
     testImplementation(libs.hilt.android.testing)
     testImplementation(libs.kotlinx.coroutines.test)
@@ -155,8 +155,4 @@ dependencies {
     androidTestImplementation(libs.runner)
     androidTestImplementation(libs.test.core.ktx)
     androidTestImplementation(libs.ui.test.junit4)
-}
-
-kapt {
-    correctErrorTypes = true
 }
