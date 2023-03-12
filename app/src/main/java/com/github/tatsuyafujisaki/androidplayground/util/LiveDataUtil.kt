@@ -3,13 +3,12 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataReactiveStreams
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.map
 import androidx.lifecycle.switchMap
+import androidx.lifecycle.toPublisher
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
 
@@ -22,8 +21,8 @@ object LiveDataUtil {
         observe(
             owner,
             object : Observer<T> {
-                override fun onChanged(t: T) {
-                    onChanged(t)
+                override fun onChanged(value: T) {
+                    onChanged(value)
                     removeObserver(this)
                 }
             }
@@ -35,8 +34,8 @@ object LiveDataUtil {
      */
     fun <T> LiveData<T>.observeOnce(onChanged: (T) -> Unit) {
         observeForever(object : Observer<T> {
-            override fun onChanged(t: T) {
-                onChanged(t)
+            override fun onChanged(value: T) {
+                onChanged(value)
                 removeObserver(this)
             }
         })
@@ -107,7 +106,7 @@ object LiveDataUtil {
      * Converts LiveData to Observable using LiveDataReactiveStreams in androidx.lifecycle:lifecycle-reactivestreams-ktx.
      */
     fun <T : Any> LiveData<T>.toObservable1(owner: LifecycleOwner): Observable<T> =
-        Observable.fromPublisher(LiveDataReactiveStreams.toPublisher(owner, this))
+        Observable.fromPublisher(toPublisher(owner))
 
     /**
      * Converts LiveData to Observable without LiveDataReactiveStreams in androidx.lifecycle:lifecycle-reactivestreams-ktx.
