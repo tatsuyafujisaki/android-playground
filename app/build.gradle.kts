@@ -48,7 +48,6 @@ android {
         }
     }
     compileOptions {
-        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -76,9 +75,6 @@ dependencies {
      * > Dependency on the standard library added by default
      * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
      */
-
-    // https://github.com/google/desugar_jdk_libs/blob/master/CHANGELOG.md
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     // https://developer.android.com/jetpack/compose/setup#setup-compose
     // https://developer.android.com/jetpack/compose/setup#bom-version-mapping

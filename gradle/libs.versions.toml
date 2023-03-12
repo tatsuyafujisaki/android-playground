@@ -14,7 +14,6 @@ coordinatorlayout = "1.2.0"
 core-ktx = "1.9.0"
 coroutines = "1.6.4"
 datastore = "1.0.0"
-desugar-jdk-libs = "2.0.2"
 espresso = "3.5.1"
 exoplayer = "2.18.4"
 firebase-bom = "31.2.3"
@@ -63,7 +62,6 @@ coordinatorlayout = { module = "androidx.coordinatorlayout:coordinatorlayout", v
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
-desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
 espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "espresso" }
 espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
 espresso-idling-resource = { module = "androidx.test.espresso:espresso-idling-resource", version.ref = "espresso" }
