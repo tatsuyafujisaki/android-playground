@@ -103,6 +103,7 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.play.services)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.reactivestreams.ktx)
     implementation(libs.lifecycle.viewmodel.compose)
