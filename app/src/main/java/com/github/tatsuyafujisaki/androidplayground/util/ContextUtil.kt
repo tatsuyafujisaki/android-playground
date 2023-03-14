@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.os.PowerManager
+import android.provider.Settings
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.util.DisplayMetrics
@@ -35,6 +36,13 @@ import java.io.BufferedReader
  * Impractical redundant explanatory wrappers
  */
 object ContextUtil {
+    object AutoRotation {
+        fun isAutoRotatable(context: Context) = Settings.System.getInt(
+            context.contentResolver,
+            Settings.System.ACCELEROMETER_ROTATION
+        ) == 1
+    }
+
     /**
      * How to get [ColorInt] from [ColorRes]:
      * [Context.getColor] (Simpler than [Resources.getColor])
