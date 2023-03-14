@@ -3,8 +3,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
-import android.graphics.drawable.Drawable
 import android.os.PowerManager
 import android.provider.Settings
 import android.text.SpannableString
@@ -18,9 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.ContextCompat.startActivity
@@ -42,16 +38,6 @@ object ContextUtil {
             Settings.System.ACCELEROMETER_ROTATION
         ) == 1
     }
-
-    /**
-     * How to get [ColorInt] from [ColorRes]:
-     * [Context.getColor] (Simpler than [Resources.getColor])
-     */
-
-    /**
-     * How to get [Drawable] from [DrawableRes]:
-     * [AppCompatResources.getDrawable] (Simpler than [Resources.getDrawable])
-     */
 
     fun isInteractive(context: Context) =
         (context.getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
