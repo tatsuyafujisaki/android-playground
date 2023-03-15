@@ -17,7 +17,7 @@ fun GradientSpacerPreview() {
     Spacer(
         Modifier
             .fillMaxWidth()
-            .height(10.dp)
+            .height(100.dp)
             .background(Brush.verticalGradient(listOf(Color.Red, Color.Transparent)))
     )
 }
