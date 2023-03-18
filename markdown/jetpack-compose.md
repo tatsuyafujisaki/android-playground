@@ -16,15 +16,6 @@
 - https://developer.android.com/jetpack/compose/lists
 - https://youtu.be/1ANt65eoNhQ?t=166
 
-# How to integarate Compose with the view-based UI
-* If you want to have Compose at the root level in an Activity, you can use `setContent` in Kotlin and don't need XML.
-  * https://youtu.be/PjQdFmiDgwk?t=89
-* If you want to have Compose NOT at the root level in a Fragment, you can use `<ComposeView>` in XML.
-  * https://youtu.be/PjQdFmiDgwk?t=103
-* If you want to have Compose at the root level in a Fragment, you can use `ComposeView` in Kotlin and don't need XML.
-  * https://youtu.be/PjQdFmiDgwk?t=147
-  * If you use multiple `ComposeView`, don't forget to assign a unique ID to each `ComposeView`.
-
 # LazyColumn
 Google recommends specifying a `key` in `items` in LazyColumn. The benefits are listed below.
 - You can keep the scroll position when the Activity is recreated, or even when you scroll away and scroll back.
@@ -32,7 +23,8 @@ Google recommends specifying a `key` in `items` in LazyColumn. The benefits are 
 - https://developer.android.com/jetpack/compose/lists#item-keys
 - https://youtu.be/PMMY23F0CFg?t=2061
 
-# Difference between `assertExists()` and `assertIsDisplayed()`
+# Unit test
+## Difference between `assertExists()` and `assertIsDisplayed()`
 &nbsp;|`assertExists()`|`assertIsDisplayed()`
 --|--|--
 Modifier.size(0.dp)|true|false
