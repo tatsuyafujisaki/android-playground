@@ -23,6 +23,52 @@ Google recommends specifying a `key` in `items` in LazyColumn. The benefits are 
 - https://developer.android.com/jetpack/compose/lists#item-keys
 - https://youtu.be/PMMY23F0CFg?t=2061
 
+# Pager in Compose
+## How to apply scroll effects
+Here is the explanation of the code snippet inside the following URL.
+
+```kotlin
+val pagerState = rememberPagerState()
+HorizontalPager(pageCount = 4, state = pagerState) { page ->
+    Card(
+        Modifier
+            .size(200.dp)
+            .graphicsLayer {
+                // Calculate the absolute offset for the current page from the
+                // scroll position. We use the absolute value which allows us to mirror
+                // any effects for both directions
+                val pageOffset = (
+                    (pagerState.currentPage - page) + pagerState
+                        .currentPageOffsetFraction
+                    ).absoluteValue
+
+                // We animate the alpha, between 50% and 100%
+                alpha = lerp(
+                    start = 0.5f,
+                    stop = 1f,
+                    fraction = 1f - pageOffset.coerceIn(0f, 1f)
+                )
+            }
+    ) {
+        // Card content
+    }
+}
+```
+
+- [PagerState.currentPage](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#currentPage())
+  - is the page that sits closest to the snapped position.
+  - may or may not be the current page.
+- [PagerState.currentPageOffsetFraction](https://developer.android.com/reference/kotlin/androidx/compose/foundation/pager/PagerState#currentPageOffsetFraction())
+  - indicates how far the current page is to the snapped position.
+    - is between -0.0 and -0.5 if the current page has space in the left.
+    - is between 0.0 and 0.5 if the current page has space in the right.
+    - never goes beyond -0.5 or 0.5, because if it does, the page is too far from the snapped position to be called the current page.
+- `page` in `pageContent` of `HorizontalPager`
+  - is the page being processed.
+  - may or may not be the current page.
+
+https://developer.android.com/jetpack/compose/layouts/pager#scroll-effects
+
 # Unit test
 ## Difference between `assertExists()` and `assertIsDisplayed()`
 &nbsp;|`assertExists()`|`assertIsDisplayed()`
