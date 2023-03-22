@@ -16,7 +16,7 @@ import com.google.accompanist.web.rememberWebViewState
 @Preview
 @Composable
 fun HorizontalPagerPreview() {
-    val urls = listOf("https://news.google.com", "https://youtube.com")
+    val urls = listOf("https://en.wikipedia.org", "https://youtube.com")
     val pagerState = rememberPagerState()
 
     HorizontalPager(
