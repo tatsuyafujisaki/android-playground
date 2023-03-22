@@ -18,6 +18,11 @@ fun GradientSpacerPreview() {
         Modifier
             .fillMaxWidth()
             .height(100.dp)
-            .background(Brush.verticalGradient(listOf(Color.Red, Color.Transparent)))
+            .background(
+                Brush.verticalGradient(
+                    // Flag of Ukraine
+                    listOf(Color.Blue, Color.Yellow)
+                )
+            )
     )
 }
