@@ -3,10 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.core.content.edit
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
 import androidx.preference.PreferenceManager
 
 /**
@@ -55,7 +52,8 @@ object SharedPreferencesUtil {
     fun SharedPreferences.getInt(key: String) = getInt(key, Int.MIN_VALUE)
     fun SharedPreferences.getLong(key: String) = getLong(key, Long.MIN_VALUE)
     fun SharedPreferences.getString(key: String) = getString(key, "")
-    fun SharedPreferences.getStringSet(key: String): MutableSet<String>? = getStringSet(key, emptySet())
+    fun SharedPreferences.getStringSet(key: String): MutableSet<String>? =
+        getStringSet(key, emptySet())
 
     fun SharedPreferences.putBoolean(key: String, value: Boolean) {
         edit {
@@ -90,26 +88,6 @@ object SharedPreferencesUtil {
     fun SharedPreferences.putStringSet(key: String, value: Set<String>) {
         edit {
             putStringSet(key, value)
-        }
-    }
-
-    class SharedPreferencesObserver(
-        private val sharedPreferences: SharedPreferences
-    ) : DefaultLifecycleObserver {
-        override fun onCreate(owner: LifecycleOwner) {
-            super.onCreate(owner)
-            sharedPreferences
-                .registerOnSharedPreferenceChangeListener { _, key ->
-                    Log.d(this::class.java.simpleName, key)
-                }
-        }
-
-        override fun onDestroy(owner: LifecycleOwner) {
-            super.onDestroy(owner)
-            sharedPreferences
-                .unregisterOnSharedPreferenceChangeListener { _, key ->
-                    Log.d(this::class.java.simpleName, key)
-                }
         }
     }
 }
