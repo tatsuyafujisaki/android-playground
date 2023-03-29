@@ -144,6 +144,7 @@ dependencies {
     testImplementation(libs.test.core.ktx)
     androidTestImplementation(kotlin("test"))
     androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.junit)
     androidTestImplementation(libs.espresso.contrib)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.espresso.idling.resource)
