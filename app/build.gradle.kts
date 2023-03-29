@@ -111,7 +111,6 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.viewmodel.savedstate)
     implementation(libs.logging.interceptor)
-    implementation(libs.material)
     implementation(libs.material.icons.extended)
     implementation(libs.material3)
     implementation(libs.moshi.kotlin)
