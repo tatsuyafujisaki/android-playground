@@ -9,20 +9,19 @@ import androidx.annotation.ColorInt
 import androidx.core.text.htmlEncode
 
 object StringUtil {
+    fun isValidEmailAddress(emailAddress: String) =
+        Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
+
+    fun isValidPhoneNumber(phoneNumber: String) =
+        Patterns.PHONE.matcher(phoneNumber).matches()
+
     /**
      * Decodes HTML entities. For encoding HTML entities, use [htmlEncode].
      */
-    val String.decoded
-        get() = Html.fromHtml(this, Html.FROM_HTML_MODE_COMPACT).toString()
+    fun decode(source: String) = Html.fromHtml(source, Html.FROM_HTML_MODE_COMPACT).toString()
 
-    val String.isValidEmailAddress
-        get() = Patterns.EMAIL_ADDRESS.matcher(this).matches()
-
-    val String.isValidPhoneNumber
-        get() = Patterns.PHONE.matcher(this).matches()
-
-    fun String.color(@ColorInt color: Int) =
-        SpannableString(this).apply {
+    fun getColoredSpannableString(source: String, @ColorInt color: Int) =
+        SpannableString(source).apply {
             setSpan(
                 ForegroundColorSpan(color),
                 0,
