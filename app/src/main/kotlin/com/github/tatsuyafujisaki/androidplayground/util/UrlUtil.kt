@@ -8,15 +8,10 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
  * Impractical redundant explanatory wrappers
  */
 object UrlUtil {
-    val String.httpUrl
-        get() = toHttpUrlOrNull()
-
-    val HttpUrl.pathlessUrl
-        get() = HttpUrl.Builder().scheme(scheme).host(host).build()
-
-    val String.host
-        get() = toUri().host
-
-    val String.domain
-        get() = toHttpUrlOrNull()?.topPrivateDomain()
+    fun clearQuery(url: String) = url.toUri().buildUpon().clearQuery().build().toString()
+    fun getHttpUrl(url: String) = url.toHttpUrlOrNull()
+    fun getDomain(url: String) = url.toHttpUrlOrNull()?.topPrivateDomain()
+    fun getPathlessUrl(url: String): HttpUrl? = url.toHttpUrlOrNull()?.run {
+        HttpUrl.Builder().scheme(scheme).host(host).build()
+    }
 }
