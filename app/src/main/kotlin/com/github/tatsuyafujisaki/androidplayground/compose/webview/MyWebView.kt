@@ -81,7 +81,7 @@ fun MyWebView(
                 when {
                     isBackClicked -> {
                         isBackClicked = false
-                        if (canGoBack) it.goBack() else onBack()
+                        if (it.canGoBack()) it.goBack() else onBack()
                     }
                     isReloadClicked -> {
                         isReloadClicked = false
