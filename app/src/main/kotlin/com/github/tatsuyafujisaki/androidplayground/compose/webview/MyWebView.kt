@@ -37,42 +37,46 @@ fun MyWebView(
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            WebViewTopBar(title = title,
+            WebViewTopBar(
+                title = title,
                 canGoBack = canGoBack,
                 canGoForward = canGoForward,
                 onNavigationIconClick = onBack,
                 onBackClick = { isBackClicked = true },
                 onReloadClick = { isReloadClicked = true },
-                onForwardClick = { isForwardClicked = true })
+                onForwardClick = { isForwardClicked = true }
+            )
         }
     ) { paddingValues ->
-        AndroidView(modifier = Modifier
-            .padding(paddingValues)
-            .fillMaxSize(), factory = {
-            WebView(it).apply {
-                layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-                )
-                settings.javaScriptEnabled = true
-                webViewClient = object : WebViewClient() {
-                    override fun doUpdateVisitedHistory(
-                        view: WebView?,
-                        url: String?,
-                        isReload: Boolean
-                    ) {
-                        canGoBack = canGoBack()
-                        canGoForward = canGoForward()
+        AndroidView(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            factory = {
+                WebView(it).apply {
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT
+                    )
+                    settings.javaScriptEnabled = true
+                    webViewClient = object : WebViewClient() {
+                        override fun doUpdateVisitedHistory(
+                            view: WebView?,
+                            url: String?,
+                            isReload: Boolean
+                        ) {
+                            canGoBack = view?.canGoBack() ?: false
+                            canGoForward = view?.canGoForward() ?: false
+                        }
+                    }
+                    onClick?.let {
+                        setOnTouchListener { v, _ ->
+                            it.invoke()
+                            v.performClick()
+                        }
                     }
                 }
-                onClick?.let {
-                    setOnTouchListener { v, _ ->
-                        it.invoke()
-                        v.performClick()
-                    }
-                }
-            }
-        },
+            },
             update = {
                 when {
                     isBackClicked -> {
