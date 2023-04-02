@@ -94,7 +94,7 @@ fun MyWebView(
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun MyWebViewPreview() {
     MyWebView(
