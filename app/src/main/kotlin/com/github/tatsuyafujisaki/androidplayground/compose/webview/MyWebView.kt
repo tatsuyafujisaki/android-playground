@@ -102,7 +102,7 @@ fun MyWebView(
 private fun MyWebViewPreview() {
     MyWebView(
         title = "Title",
-        url = "https://example.com",
+        url = "https://google.com",
         onBack = {},
     )
 }
