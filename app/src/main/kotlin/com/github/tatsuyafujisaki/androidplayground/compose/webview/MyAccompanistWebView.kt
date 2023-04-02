@@ -14,6 +14,8 @@ import com.google.accompanist.web.rememberWebViewState
 
 /**
  * @param navigator is defined outside [MyAccompanistWebView] in case the toolbar uses it.
+ *
+ * <a href="https://github.com/google/accompanist/issues/1150">Accompanist WebView cannot call JavaScript functions.</a>
  */
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
