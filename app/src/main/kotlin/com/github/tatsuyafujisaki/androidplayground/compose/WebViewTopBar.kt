@@ -51,14 +51,14 @@ fun WebViewTopBar(
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = null,
-                    tint = if (canGoBack) Color.White else Color.Gray
+                    tint = if (canGoBack) Color.Black else Color.Gray
                 )
             }
             IconButton(onReloadClick) {
                 Icon(
                     imageVector = Icons.Default.Refresh,
                     contentDescription = null,
-                    tint = Color.White
+                    tint = Color.Black
                 )
             }
             IconButton(
@@ -68,7 +68,7 @@ fun WebViewTopBar(
                 Icon(
                     imageVector = Icons.Default.ArrowForward,
                     contentDescription = null,
-                    tint = if (canGoForward) Color.White else Color.Gray
+                    tint = if (canGoForward) Color.Black else Color.Gray
                 )
             }
         }

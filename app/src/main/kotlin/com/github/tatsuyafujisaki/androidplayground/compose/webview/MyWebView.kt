@@ -51,12 +51,15 @@ fun MyWebView(
             .fillMaxSize(), factory = {
             WebView(it).apply {
                 layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
                 )
                 settings.javaScriptEnabled = true
                 webViewClient = object : WebViewClient() {
                     override fun doUpdateVisitedHistory(
-                        view: WebView?, url: String?, isReload: Boolean
+                        view: WebView?,
+                        url: String?,
+                        isReload: Boolean
                     ) {
                         canGoBack = canGoBack()
                         canGoForward = canGoForward()
