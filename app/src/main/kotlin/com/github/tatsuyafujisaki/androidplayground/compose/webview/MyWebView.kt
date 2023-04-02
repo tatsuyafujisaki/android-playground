@@ -25,7 +25,7 @@ import com.github.tatsuyafujisaki.androidplayground.compose.WebViewTopBar
 fun MyWebView(
     title: String,
     url: String,
-    popOrFinish: () -> Unit,
+    onBack: () -> Unit,
     onClick: (() -> Unit)? = null
 ) {
     var canGoBack by remember { mutableStateOf(false) }
@@ -40,7 +40,7 @@ fun MyWebView(
             WebViewTopBar(title = title,
                 canGoBack = canGoBack,
                 canGoForward = canGoForward,
-                onNavigationIconClick = popOrFinish,
+                onNavigationIconClick = onBack,
                 onBackClick = { isBackClicked = true },
                 onReloadClick = { isReloadClicked = true },
                 onForwardClick = { isForwardClicked = true })
@@ -74,7 +74,7 @@ fun MyWebView(
                 when {
                     isBackClicked -> {
                         isBackClicked = false
-                        if (canGoBack) it.goBack() else popOrFinish()
+                        if (canGoBack) it.goBack() else onBack()
                     }
                     isReloadClicked -> {
                         isReloadClicked = false
@@ -100,6 +100,6 @@ private fun MyWebViewPreview() {
     MyWebView(
         title = "Title",
         url = "https://example.com",
-        popOrFinish = {},
+        onBack = {},
     )
 }
