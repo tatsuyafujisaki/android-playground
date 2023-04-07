@@ -63,7 +63,7 @@ adb shell screenrecord /sdcard/video.mp4
 ## How to record a WebM
 Replace `.mp4` with `.webm` in the example above.
 
-## How to record a WebM or an animated GIF
+## How to record a WebM or an animated GIF on the Android Emulator
 ```shell
 # Start
 adb emu screenrecord start ~/Desktop/output.webm
