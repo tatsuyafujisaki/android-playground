@@ -60,6 +60,9 @@ adb shell screenrecord /sdcard/video.mp4
 (cd ~/Desktop && adb pull /sdcard/video.mp4 && adb shell rm /sdcard/video.mp4 && open video.mp4)
 ```
 
+## How to record a WebM
+Replace `.mp4` with `.webm` in the example above.
+
 ## How to record a WebM or an animated GIF
 ```shell
 # Start
