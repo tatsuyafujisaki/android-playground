@@ -1,11 +1,11 @@
 plugins {
+    kotlin("android") // equivalent to id("kotlin-android") https://kotlinlang.org/docs/multiplatform-mobile-understand-project-structure.html#android-application
+    @Suppress("DSL_SCOPE_VIOLATION") // https://youtrack.jetbrains.com/issue/KTIJ-19369
+    kotlin("plugin.serialization") version libs.versions.kotlin // equivalent to id("org.jetbrains.kotlin.plugin.serialization")
     id("com.android.application")
     id("com.google.devtools.ksp")
-    id("kotlin-android")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
-    @Suppress("DSL_SCOPE_VIOLATION") // https://youtrack.jetbrains.com/issue/KTIJ-19369
-    id("org.jetbrains.kotlin.plugin.serialization") version libs.versions.kotlin
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
 }
