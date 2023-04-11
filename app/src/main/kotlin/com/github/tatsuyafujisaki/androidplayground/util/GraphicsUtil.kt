@@ -41,19 +41,6 @@ object GraphicsUtil {
         }.getOrNull()
     }
 
-    // https://developer.android.com/topic/performance/graphics/load-bitmap
-    private fun Resources.decodeSampledBitmapFromResource(
-        @DrawableRes drawableResId: Int,
-        requiredWidth: Int,
-        requiredHeight: Int
-    ) = with(BitmapFactory.Options()) {
-        inJustDecodeBounds = true
-        BitmapFactory.decodeResource(this@decodeSampledBitmapFromResource, drawableResId, this)
-        inSampleSize = calculateInSampleSize(outWidth, outHeight, requiredWidth, requiredHeight)
-        inJustDecodeBounds = false
-        BitmapFactory.decodeResource(this@decodeSampledBitmapFromResource, drawableResId, this)
-    }
-
     private fun calculateInSampleSize(
         originalImageWidth: Int,
         originalImageHeight: Int,
@@ -70,9 +57,8 @@ object GraphicsUtil {
         return max(1, inSampleSize / 2)
     }
 
-    fun Bitmap.rotateClockwise(degrees: Float): Bitmap =
-        Bitmap.createBitmap(
-            this, 0, 0, width, height,
-            Matrix().apply { postRotate(degrees) }, true
-        )
+    fun rotateClockwise(bitmap: Bitmap, degrees: Float) = Bitmap.createBitmap(
+        bitmap, 0, 0, bitmap.width, bitmap.height,
+        Matrix().apply { postRotate(degrees) }, true
+    )
 }
