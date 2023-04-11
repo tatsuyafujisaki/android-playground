@@ -11,28 +11,35 @@ import android.provider.MediaStore
 import androidx.annotation.DrawableRes
 import androidx.core.net.toUri
 import com.bumptech.glide.Glide
+import com.github.tatsuyafujisaki.androidplayground.R
 import java.lang.Integer.max
 
 object GraphicsUtil {
-    @Suppress("DEPRECATION")
-    fun Context.downloadBitmapOrNull(url: String) = runCatching {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, url.toUri()))
-        } else {
-            MediaStore.Images.Media.getBitmap(contentResolver, url.toUri())
-        }
-    }.getOrNull()
+    object GlideUtil {
+        fun downloadBitmapOrNull(context: Context, url: String) = runCatching {
+            Glide.with(context)
+                .asBitmap()
+                .load(url)
+                // .error(...) or .fallback(...) does not help if URL is broken.
+                .fallback(R.drawable.ic_broken_image_black_24dp)
+                .error(R.drawable.ic_broken_image_black_24dp)
+                .submit()
+                .get()
+        }.getOrNull()
+    }
 
-    fun Context.downloadBitmapOrNull2(url: String) = runCatching {
-        Glide.with(this)
-            .asBitmap()
-            .load(url)
-            // .error(...) or .fallback(...) does not help if URL is broken.
-            // .error(R.drawable.ic_broken_image_black_24dp)
-            // .fallback(R.drawable.ic_broken_image_black_24dp)
-            .submit()
-            .get()
-    }.getOrNull()
+    fun downloadBitmapOrNull(context: Context, url: String): Bitmap? {
+        val contentResolver = context.contentResolver
+        val uri = url.toUri()
+
+        return runCatching {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, uri))
+            } else {
+                MediaStore.Images.Media.getBitmap(contentResolver, uri)
+            }
+        }.getOrNull()
+    }
 
     // https://developer.android.com/topic/performance/graphics/load-bitmap
     private fun Resources.decodeSampledBitmapFromResource(
