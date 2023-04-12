@@ -5,7 +5,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import okhttp3.HttpUrl
 
-enum class NetworkType {
+enum class MyNetworkType {
     WIFI,
     CELLULAR,
     UNKNOWN
@@ -21,16 +21,16 @@ object NetworkUtil {
             } ?: false
         }
 
-    fun getNetworkType(context: Context): NetworkType {
+    fun getNetworkType(context: Context): MyNetworkType {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val capabilities =
             connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
 
         return when {
-            capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true -> NetworkType.WIFI
-            capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) == true -> NetworkType.CELLULAR
-            else -> NetworkType.UNKNOWN
+            capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true -> MyNetworkType.WIFI
+            capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) == true -> MyNetworkType.CELLULAR
+            else -> MyNetworkType.UNKNOWN
         }
     }
 
