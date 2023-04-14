@@ -73,9 +73,6 @@ object ActivityUtil {
         }
     }
 
-    fun canResolveActivity(activity: Activity, intent: Intent) =
-        activity.packageManager.resolveActivity(intent, 0) != null
-
     fun getNavController(activity: Activity, @IdRes navHostFragmentId: Int) =
         activity.findNavController(navHostFragmentId)
 
