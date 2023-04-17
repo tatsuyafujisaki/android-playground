@@ -60,6 +60,7 @@ android {
         jvmTarget = "17"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
         viewBinding = true
     }
