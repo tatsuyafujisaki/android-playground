@@ -7,6 +7,7 @@
 # Best practices
 - https://developer.android.com/jetpack/compose/performance/bestpractices
 - https://developer.android.com/kotlin/coroutines/coroutines-best-practices
+- https://developer.android.com/topic/architecture/recommendations
 - https://developer.android.com/training/data-storage/use-cases
 - https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
