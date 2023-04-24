@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
@@ -70,6 +71,16 @@ object ActivityUtil {
 
         fun exitFullscreen(window: Window) {
             WindowCompat.getInsetsController(window, window.decorView).show(Type.systemBars())
+        }
+    }
+
+    object ScreenAwake {
+        fun keepScreenOn(activity: Activity) {
+            activity.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
+
+        fun stopKeepingScreenOn(activity: Activity) {
+            activity.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
     }
 
