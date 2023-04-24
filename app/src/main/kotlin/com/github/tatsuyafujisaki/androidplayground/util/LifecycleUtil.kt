@@ -6,8 +6,57 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.launch
 
 object LifecycleUtil {
+    object RepeatOnLifecycle {
+        private fun launchWithStartAndCompletion(
+            lifecycleOwner: LifecycleOwner,
+            lifecycleState: Lifecycle.State,
+            onStart: suspend () -> Unit,
+            onCompletion: suspend () -> Unit
+        ) = lifecycleOwner.lifecycleScope.launch {
+            lifecycleOwner.repeatOnLifecycle(lifecycleState) {
+                MutableSharedFlow<Nothing>() // Use SharedFlow, which never completes, unless the CoroutineScope is canceled.
+                    .onStart { onStart() }
+                    .onCompletion { onCompletion() }
+                    .launchIn(this)
+            }
+        }
+
+        fun launchWithResumeAndPause(
+            lifecycleOwner: LifecycleOwner,
+            onResume: suspend () -> Unit,
+            onPause: suspend () -> Unit
+        ) {
+            launchWithStartAndCompletion(
+                lifecycleOwner = lifecycleOwner,
+                lifecycleState = Lifecycle.State.RESUMED,
+                onStart = onResume,
+                onCompletion = onPause
+            )
+        }
+
+        fun launchWithStartAndStop(
+            lifecycleOwner: LifecycleOwner,
+            onStart: suspend () -> Unit,
+            onStop: suspend () -> Unit
+        ) {
+            launchWithStartAndCompletion(
+                lifecycleOwner = lifecycleOwner,
+                lifecycleState = Lifecycle.State.STARTED,
+                onStart = onStart,
+                onCompletion = onStop
+            )
+        }
+    }
+
     private val observer1 = object : DefaultLifecycleObserver {
         override fun onCreate(owner: LifecycleOwner) {}
         override fun onStart(owner: LifecycleOwner) {}
