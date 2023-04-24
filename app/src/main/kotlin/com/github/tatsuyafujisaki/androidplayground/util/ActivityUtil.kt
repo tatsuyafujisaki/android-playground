@@ -57,7 +57,7 @@ object ActivityUtil {
 
     object Fullscreen {
         /**
-         * [d.android.com](https://developer.android.com/training/system-ui/immersive)
+         * <a href="https://developer.android.com/develop/ui/views/layout/immersive">Hide system bars for immersive mode</a>
          */
         fun fullscreen(window: Window) {
             with(WindowCompat.getInsetsController(window, window.decorView)) {
