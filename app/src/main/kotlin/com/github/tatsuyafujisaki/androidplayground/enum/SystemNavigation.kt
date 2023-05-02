@@ -3,6 +3,9 @@ package com.github.tatsuyafujisaki.androidplayground.enum
 import android.annotation.SuppressLint
 import android.content.res.Resources
 
+/**
+ * <a href="https://stackoverflow.com/a/60733427">How to detect full screen gesture mode in android 10</a>
+ */
 enum class SystemNavigation {
     THREE_BUTTON,
     TWO_BUTTON,
