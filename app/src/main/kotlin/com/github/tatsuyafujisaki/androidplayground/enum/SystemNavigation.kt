@@ -1,24 +1,17 @@
 package com.github.tatsuyafujisaki.androidplayground.enum
 
-import android.annotation.SuppressLint
-import android.content.res.Resources
+import android.content.Context
+import android.provider.Settings
 
-/**
- * <a href="https://stackoverflow.com/a/60733427">How to detect full screen gesture mode in android 10</a>
- */
 enum class SystemNavigation {
     THREE_BUTTON,
     TWO_BUTTON,
-    GESTURE,
-    UNKNOWN;
+    GESTURE;
 
     companion object {
-        @SuppressLint("DiscouragedApi")
-        fun from(resources: Resources): SystemNavigation {
-            val resourceId =
-                resources.getIdentifier("config_navBarInteractionMode", "integer", "android")
-            val mode = runCatching { resources.getInteger(resourceId) }.getOrDefault(-1)
-            return values().getOrElse(mode) { UNKNOWN }
+        fun from(context: Context): SystemNavigation? {
+            val mode = Settings.Secure.getInt(context.contentResolver, "navigation_mode", -1)
+            return values().getOrNull(mode)
         }
     }
 }
