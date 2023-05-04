@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview(showBackground = true)
 @Composable
-private fun HorizontalSpacerPreview() {
+private fun HorizontalSpacerExample() {
     Column {
         Text("Hello")
         Spacer(Modifier.width(8.dp))

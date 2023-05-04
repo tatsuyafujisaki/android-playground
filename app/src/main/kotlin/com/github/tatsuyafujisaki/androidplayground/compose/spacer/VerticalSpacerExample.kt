@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview(showBackground = true)
 @Composable
-private fun VerticalSpacerPreview() {
+private fun VerticalSpacerExample() {
     Row {
         Text("Hello")
         Spacer(Modifier.height(8.dp))

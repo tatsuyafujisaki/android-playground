@@ -13,13 +13,13 @@ import com.google.accompanist.web.rememberWebViewNavigator
 import com.google.accompanist.web.rememberWebViewState
 
 /**
- * @param navigator is defined outside [MyAccompanistWebView] in case the toolbar uses it.
+ * @param navigator is defined outside [AccompanistWebViewExample] in case the toolbar uses it.
  *
  * <a href="https://github.com/google/accompanist/issues/1150">Accompanist WebView cannot call JavaScript functions.</a>
  */
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun MyAccompanistWebView(
+fun AccompanistWebViewExample(
     url: String,
     navigator: WebViewNavigator = rememberWebViewNavigator(),
     client: AccompanistWebViewClient = remember { AccompanistWebViewClient() },
@@ -46,8 +46,8 @@ fun MyAccompanistWebView(
 
 @Preview(showBackground = true)
 @Composable
-private fun MyAccompanistWebViewPreview() {
-    MyAccompanistWebView(
+private fun AccompanistWebViewExamplePreview() {
+    AccompanistWebViewExample(
         url = "https://example.com"
     )
 }

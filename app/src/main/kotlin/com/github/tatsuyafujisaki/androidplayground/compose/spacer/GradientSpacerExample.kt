@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun GradientSpacerPreview() {
+fun GradientSpacerExample() {
     Spacer(
         Modifier
             .fillMaxWidth()

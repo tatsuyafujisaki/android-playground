@@ -20,7 +20,7 @@ fun HorizontalDivider(
 
 @Preview(showBackground = true)
 @Composable
-private fun HorizontalSpacerPreview() {
+private fun HorizontalSpacerExample() {
     Column {
         Text("Hello")
         HorizontalDivider(
