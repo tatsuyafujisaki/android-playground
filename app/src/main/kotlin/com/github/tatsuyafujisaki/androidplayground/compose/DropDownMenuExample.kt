@@ -1,5 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.compose
 
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -15,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun <T> DropdownMenu(
+fun <T> DropdownMenuExample(
     options: Iterable<T>,
     selectedValue: String,
     onClick: (T) -> Unit
@@ -60,8 +61,8 @@ fun <T> DropdownMenu(
 
 @Preview
 @Composable
-fun DropdownMenuPreview() {
-    DropdownMenu(
+fun DropdownMenuExamplePreview() {
+    DropdownMenuExample(
         options = listOf("Bacon", "Lettuce", "Tomato"),
         selectedValue = "Bacon",
         onClick = {}
