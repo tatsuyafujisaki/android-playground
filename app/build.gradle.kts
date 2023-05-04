@@ -118,6 +118,7 @@ dependencies {
     implementation(libs.material.icons.extended)
     implementation(libs.material3)
     implementation(libs.moshi.kotlin)
+    implementation(libs.navigation.compose)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(libs.okhttp.urlconnection)
