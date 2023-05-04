@@ -15,7 +15,7 @@ import com.google.accompanist.flowlayout.FlowColumn
 import com.google.accompanist.flowlayout.FlowRow
 
 @Composable
-fun SampleContent() {
+private fun SampleContent() {
     repeat(30) {
         Box(
             modifier = Modifier

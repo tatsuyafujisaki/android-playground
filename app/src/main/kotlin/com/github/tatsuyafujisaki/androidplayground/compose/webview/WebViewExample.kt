@@ -22,7 +22,7 @@ import com.github.tatsuyafujisaki.androidplayground.compose.WebViewTopBar
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun MyWebView(
+fun WebViewExample(
     title: String,
     url: String,
     onBack: () -> Unit,
@@ -83,10 +83,12 @@ fun MyWebView(
                         isBackClicked = false
                         if (it.canGoBack()) it.goBack() else onBack()
                     }
+
                     isReloadClicked -> {
                         isReloadClicked = false
                         it.reload()
                     }
+
                     isForwardClicked -> {
                         isForwardClicked = false
                         it.goForward()
@@ -103,8 +105,8 @@ fun MyWebView(
 
 @Preview
 @Composable
-private fun MyWebViewPreview() {
-    MyWebView(
+private fun WebViewExamplePreview() {
+    WebViewExample(
         title = "Title",
         url = "https://news.google.com",
         onBack = {},

@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.compose
 
-import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
