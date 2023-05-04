@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun MyAlertDialog(
+fun AlertDialogExample(
     onDismissRequest: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -55,11 +55,11 @@ fun MyAlertDialog(
 
 @Preview
 @Composable
-private fun MyAlertDialogPreview() {
+private fun AlertDialogExamplePreview() {
     var isVisible by remember { mutableStateOf(true) }
 
     if (isVisible) {
-        MyAlertDialog(
+        AlertDialogExample(
             title = "Title",
             text = "Text",
             dismissButtonText = stringResource(android.R.string.cancel),
