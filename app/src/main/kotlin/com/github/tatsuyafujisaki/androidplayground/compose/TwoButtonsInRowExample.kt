@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-private fun MyButton(
+private fun MyTextButton(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -28,12 +28,12 @@ private fun MyButton(
 @Composable
 fun TwoButtonsInRowPreview() {
     Row(modifier = Modifier.fillMaxWidth()) {
-        MyButton(
+        MyTextButton(
             modifier = Modifier.weight(1f),
             text = "a"
         )
         Spacer(Modifier.width(8.dp))
-        MyButton(
+        MyTextButton(
             modifier = Modifier.weight(1f),
             text = "b"
         )
