@@ -26,7 +26,7 @@ private fun MyTextButton(
 
 @Preview
 @Composable
-fun TwoButtonsInRowPreview() {
+fun TwoButtonsInRow() {
     Row(modifier = Modifier.fillMaxWidth()) {
         MyTextButton(
             modifier = Modifier.weight(1f),
