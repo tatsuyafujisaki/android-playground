@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HorizontalDivider(
+fun HorizontalDividerExample(
     color: Color,
     thickness: Dp
 ) {
@@ -20,10 +20,10 @@ fun HorizontalDivider(
 
 @Preview(showBackground = true)
 @Composable
-private fun HorizontalSpacerExample() {
+private fun HorizontalDividerPreview() {
     Column {
         Text("Hello")
-        HorizontalDivider(
+        HorizontalDividerExample(
             color = Color.Yellow,
             thickness = 10.dp
         )

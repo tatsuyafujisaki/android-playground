@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun VerticalDivider(
+fun VerticalDividerExample(
     width: Dp,
     color: Color
 ) {
@@ -30,10 +30,10 @@ fun VerticalDivider(
 
 @Preview(showBackground = true)
 @Composable
-private fun VerticalDividerPreview() {
+private fun VerticalDividerExamplePreview() {
     Row(Modifier.height(IntrinsicSize.Min)) {
         Text("Hello")
-        VerticalDivider(
+        VerticalDividerExample(
             width = 10.dp,
             color = Color.Yellow
         )

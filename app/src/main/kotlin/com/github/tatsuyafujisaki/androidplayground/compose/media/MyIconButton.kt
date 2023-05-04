@@ -10,9 +10,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.github.tatsuyafujisaki.androidplayground.R
 
 @Composable
-fun MyIconButton(
-    modifier: Modifier = Modifier,
+fun IconButtonExample(
     @DrawableRes id: Int,
+    modifier: Modifier = Modifier,
     enabled: Boolean = true,
     onClick: () -> Unit
 ) {
@@ -30,6 +30,6 @@ fun MyIconButton(
 
 @Preview
 @Composable
-private fun MyIconButtonPreview() {
-    MyIconButton(id = R.drawable.ic_android_robot) {}
+private fun IconButtonExamplePreview() {
+    IconButtonExample(id = R.drawable.ic_android_robot) {}
 }

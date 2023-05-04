@@ -15,7 +15,7 @@ import com.google.accompanist.web.rememberWebViewState
 @SuppressLint("SetJavaScriptEnabled")
 @Preview
 @Composable
-fun HorizontalPagerPreview() {
+fun HorizontalPagerExample() {
     val urls = listOf("https://en.wikipedia.org", "https://youtube.com")
     val pagerState = rememberPagerState()
 

@@ -20,8 +20,8 @@ import com.github.tatsuyafujisaki.androidplayground.compose.preview.BooleanProvi
  */
 @Composable
 fun ImageExample(
-    modifier: Modifier = Modifier,
     @DrawableRes id: Int,
+    modifier: Modifier = Modifier,
     isCircle: Boolean = false,
     border: Pair<Dp, Color>? = null,
     contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit
@@ -40,8 +40,8 @@ private fun ImageExamplePreview(
     @PreviewParameter(BooleanProvider::class) isCircle: Boolean
 ) {
     ImageExample(
-        modifier = Modifier.size(200.dp),
         id = R.drawable.ic_android_robot,
+        modifier = Modifier.size(200.dp),
         isCircle = isCircle
     )
 }
@@ -52,8 +52,8 @@ private fun ImageBorderedExamplePreview(
     @PreviewParameter(BooleanProvider::class) isCircle: Boolean
 ) {
     ImageExample(
-        modifier = Modifier.size(200.dp),
         id = R.drawable.ic_android_robot,
+        modifier = Modifier.size(200.dp),
         isCircle = isCircle,
         border = 8.dp to Color.Red
     )
