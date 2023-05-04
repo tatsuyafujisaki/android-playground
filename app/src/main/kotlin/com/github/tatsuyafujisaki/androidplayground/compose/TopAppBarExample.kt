@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true)
 @Composable
 fun TopAppBarExample() {
     TopAppBar(
@@ -18,10 +19,4 @@ fun TopAppBarExample() {
             Text("Action2")
         }
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun TopAppBarExamplePreview() {
-    TopAppBarExample()
 }
