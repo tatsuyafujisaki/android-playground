@@ -1,14 +1,11 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.graphics.Matrix
 import android.os.Build
 import android.provider.MediaStore
-import androidx.annotation.DrawableRes
 import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.github.tatsuyafujisaki.androidplayground.R
