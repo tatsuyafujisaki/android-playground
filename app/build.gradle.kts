@@ -28,12 +28,10 @@ android {
         getByName("release") {
             isMinifyEnabled = true
 
-            // https://bumptech.github.io/glide/doc/download-setup.html#proguard
             // https://github.com/Kotlin/kotlinx.serialization#android
             proguardFiles(
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro",
-                "glide.pro",
                 "kotlin-serialization.pro"
             )
 
@@ -104,7 +102,6 @@ dependencies {
     implementation(libs.firebase.messaging)
     implementation(libs.foundation)
     implementation(libs.fragment.ktx)
-    implementation(libs.glide)
     implementation(libs.hilt.android)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.play.services)
@@ -133,7 +130,6 @@ dependencies {
     implementation(libs.ui.tooling)
     implementation(libs.viewpager2)
     implementation(platform(libs.firebase.bom))
-    ksp(libs.glide.compiler)
     ksp(libs.hilt.compiler)
     ksp(libs.lifecycle.compiler)
     ksp(libs.room.compiler)

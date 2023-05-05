@@ -7,24 +7,9 @@ import android.graphics.Matrix
 import android.os.Build
 import android.provider.MediaStore
 import androidx.core.net.toUri
-import com.bumptech.glide.Glide
-import com.github.tatsuyafujisaki.androidplayground.R
 import java.lang.Integer.max
 
 object GraphicsUtil {
-    object GlideUtil {
-        fun downloadBitmapOrNull(context: Context, url: String) = runCatching {
-            Glide.with(context)
-                .asBitmap()
-                .load(url)
-                // .error(...) or .fallback(...) does not help if URL is broken.
-                .fallback(R.drawable.ic_broken_image_black_24dp)
-                .error(R.drawable.ic_broken_image_black_24dp)
-                .submit()
-                .get()
-        }.getOrNull()
-    }
-
     fun downloadBitmapOrNull(context: Context, url: String): Bitmap? {
         val contentResolver = context.contentResolver
         val uri = url.toUri()
