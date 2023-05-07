@@ -17,10 +17,6 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.LifecycleOwner
 import com.github.tatsuyafujisaki.androidplayground.MainViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,31 +43,5 @@ class MainFragment : Fragment() {
                 }
             }
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewLifecycleOwner.lifecycle.addObserver(
-            object : DefaultLifecycleObserver {
-                override fun onCreate(owner: LifecycleOwner) {}
-                override fun onStart(owner: LifecycleOwner) {}
-                override fun onResume(owner: LifecycleOwner) {}
-                override fun onPause(owner: LifecycleOwner) {}
-                override fun onStop(owner: LifecycleOwner) {}
-                override fun onDestroy(owner: LifecycleOwner) {}
-            }
-        )
-        viewLifecycleOwner.lifecycle.addObserver(
-            LifecycleEventObserver { source, event ->
-                when (event) {
-                    Lifecycle.Event.ON_CREATE -> {}
-                    Lifecycle.Event.ON_START -> {}
-                    Lifecycle.Event.ON_RESUME -> {}
-                    Lifecycle.Event.ON_PAUSE -> {}
-                    Lifecycle.Event.ON_STOP -> {}
-                    Lifecycle.Event.ON_DESTROY -> {}
-                    Lifecycle.Event.ON_ANY -> {}
-                }
-            }
-        )
     }
 }
