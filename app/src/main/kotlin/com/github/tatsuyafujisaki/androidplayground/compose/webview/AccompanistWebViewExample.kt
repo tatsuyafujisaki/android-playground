@@ -25,6 +25,10 @@ fun AccompanistWebViewExample(
     client: AccompanistWebViewClient = remember { AccompanistWebViewClient() },
     onClick: (() -> Unit)? = null
 ) {
+    // The Accompanist WebView treats an empty or blank string as a valid URL and shows an blank page instead of an error page.
+    // If url is "" and then turns to "example.com", you will see the blank page when you press the Back button.
+    if (url.isBlank()) return
+
     val state = rememberWebViewState(url)
 
     WebView(
@@ -44,7 +48,7 @@ fun AccompanistWebViewExample(
     )
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun AccompanistWebViewExamplePreview() {
     AccompanistWebViewExample(
