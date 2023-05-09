@@ -30,20 +30,7 @@ object LifecycleUtil {
             }
         }
 
-        fun launchWithResumeAndPause(
-            lifecycleOwner: LifecycleOwner,
-            onResume: suspend () -> Unit,
-            onPause: suspend () -> Unit
-        ) {
-            launchWithStartAndCompletion(
-                lifecycleOwner = lifecycleOwner,
-                lifecycleState = Lifecycle.State.RESUMED,
-                onStart = onResume,
-                onCompletion = onPause
-            )
-        }
-
-        fun launchWithStartAndStop(
+        fun launchBetweenStartAndStop(
             lifecycleOwner: LifecycleOwner,
             onStart: suspend () -> Unit,
             onStop: suspend () -> Unit
@@ -53,6 +40,19 @@ object LifecycleUtil {
                 lifecycleState = Lifecycle.State.STARTED,
                 onStart = onStart,
                 onCompletion = onStop
+            )
+        }
+
+        fun launchBetweenResumeAndPause(
+            lifecycleOwner: LifecycleOwner,
+            onResume: suspend () -> Unit,
+            onPause: suspend () -> Unit
+        ) {
+            launchWithStartAndCompletion(
+                lifecycleOwner = lifecycleOwner,
+                lifecycleState = Lifecycle.State.RESUMED,
+                onStart = onResume,
+                onCompletion = onPause
             )
         }
     }
