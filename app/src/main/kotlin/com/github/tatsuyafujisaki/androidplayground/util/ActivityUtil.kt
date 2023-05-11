@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
+import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
@@ -55,14 +56,16 @@ object ActivityUtil {
     }
 
     object SystemBars {
-        fun showSystemBars(activity: Activity) {
-            val window = activity.window
+        fun toggleSystemBars(window: Window, isVisible: Boolean) {
+            if (isVisible) showSystemBars(window) else hideSystemBars(window)
+        }
+
+        private fun showSystemBars(window: Window) {
             WindowCompat.getInsetsController(window, window.decorView).show(Type.systemBars())
         }
 
         // https://developer.android.com/develop/ui/views/layout/immersive
-        fun hideSystemBars(activity: Activity) {
-            val window = activity.window
+        private fun hideSystemBars(window: Window) {
             with(WindowCompat.getInsetsController(window, window.decorView)) {
                 systemBarsBehavior = WindowInsetsControllerCompat
                     .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
