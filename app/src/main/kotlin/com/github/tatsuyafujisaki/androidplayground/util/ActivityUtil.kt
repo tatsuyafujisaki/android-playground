@@ -54,7 +54,7 @@ object ActivityUtil {
         }
     }
 
-    object Fullscreen {
+    object SystemBars {
         fun showSystemBars(activity: Activity) {
             val window = activity.window
             WindowCompat.getInsetsController(window, window.decorView).show(Type.systemBars())
