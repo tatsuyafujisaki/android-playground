@@ -37,9 +37,9 @@ object ActivityUtil {
 
         fun hideKeyboardOldWay(activity: Activity) {
             (activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(
-                    activity.currentFocus?.windowToken,
-                    0
-                )
+                activity.currentFocus?.windowToken,
+                0
+            )
         }
 
         fun hideKeyboardOnEnter(activity: Activity) {
@@ -55,22 +55,19 @@ object ActivityUtil {
     }
 
     object Fullscreen {
-        /**
-         * <a href="https://developer.android.com/develop/ui/views/layout/immersive">Hide system bars for immersive mode</a>
-         */
-        fun fullscreen(activity: Activity) {
-            val window = activity.window
-            with(WindowCompat.getInsetsController(window, window.decorView)) {
-                // Prevent only touching from showing the system bars.
-                systemBarsBehavior =
-                    WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-                hide(Type.systemBars())
-            }
-        }
-
-        fun exitFullscreen(activity: Activity) {
+        fun showSystemBars(activity: Activity) {
             val window = activity.window
             WindowCompat.getInsetsController(window, window.decorView).show(Type.systemBars())
+        }
+
+        // https://developer.android.com/develop/ui/views/layout/immersive
+        fun hideSystemBars(activity: Activity) {
+            val window = activity.window
+            with(WindowCompat.getInsetsController(window, window.decorView)) {
+                systemBarsBehavior = WindowInsetsControllerCompat
+                    .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                hide(Type.systemBars())
+            }
         }
     }
 
