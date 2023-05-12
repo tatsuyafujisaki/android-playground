@@ -9,7 +9,7 @@ enum class SystemNavigation {
     GESTURE;
 
     companion object {
-        fun from(context: Context) = values().getOrNull(
+        fun create(context: Context) = values().getOrNull(
             Settings.Secure.getInt(context.contentResolver, "navigation_mode", -1)
         )
     }
