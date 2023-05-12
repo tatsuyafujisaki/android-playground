@@ -1,4 +1,5 @@
-# DialogFragment/Fragment lifecycle
+# DialogFragment/Fragment
+## DialogFragment/Fragment lifecycle
 * onAttach()
 * onCreate()
 * onCreateDialog()
@@ -12,12 +13,17 @@
 * onPause()
 * onSaveInstanceState()
 * onStop()
-  * When going to sleep, up to onStop() is called, but onDestroyView() is not.
 * onDestroyView()
 * onDestroy()
 * onDetach()
 
 Note that onRestoreInstanceState() does not exist in Fragment(s).
+
+## DialogFragment listener
+- DialogFragment.dialog.setOnShowListener()
+
+## Fragment listener
+- onConfigurationChanged()
 
 # FragmentContainerView
 is a container to which multiple fragments can be added.
