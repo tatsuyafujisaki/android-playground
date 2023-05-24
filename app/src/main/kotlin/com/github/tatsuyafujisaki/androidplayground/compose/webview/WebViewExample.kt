@@ -13,11 +13,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import com.github.tatsuyafujisaki.androidplayground.compose.WebViewTopBar
 
+@OptIn(ExperimentalComposeUiApi::class)
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun WebViewExample(
@@ -50,6 +52,7 @@ fun WebViewExample(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
+            onReset = { println("onReset") },
             factory = {
                 WebView(it).apply {
                     layoutParams = ViewGroup.LayoutParams(
@@ -93,7 +96,8 @@ fun WebViewExample(
                     }
                 }
                 it.loadUrl(url)
-            }
+            },
+            onRelease = { println("onRelease") }
         )
     }
     BackHandler {
