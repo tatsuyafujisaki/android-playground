@@ -5,6 +5,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.NavigateBefore
+import androidx.compose.material.icons.filled.NavigateNext
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -16,17 +18,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import com.google.accompanist.web.WebViewNavigator
+import com.google.accompanist.web.rememberWebViewNavigator
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WebViewTopBar(
     title: String,
-    canGoBack: Boolean,
-    canGoForward: Boolean,
-    onNavigationIconClick: () -> Unit,
-    onBackClick: () -> Unit,
-    onReloadClick: () -> Unit,
-    onForwardClick: () -> Unit
+    navigator: WebViewNavigator = rememberWebViewNavigator(),
+    onNavigationIconClick: () -> Unit
 ) {
     TopAppBar(
         title = {
@@ -45,16 +45,16 @@ fun WebViewTopBar(
         },
         actions = {
             IconButton(
-                onClick = onBackClick,
-                enabled = canGoBack
+                onClick = navigator::navigateBack,
+                enabled = navigator.canGoBack
             ) {
                 Icon(
-                    imageVector = Icons.Default.ArrowBack,
+                    imageVector = Icons.Default.NavigateBefore,
                     contentDescription = null,
-                    tint = if (canGoBack) Color.Black else Color.Gray
+                    tint = if (navigator.canGoBack) Color.Black else Color.Gray
                 )
             }
-            IconButton(onReloadClick) {
+            IconButton(navigator::reload) {
                 Icon(
                     imageVector = Icons.Default.Refresh,
                     contentDescription = null,
@@ -62,13 +62,13 @@ fun WebViewTopBar(
                 )
             }
             IconButton(
-                onClick = onForwardClick,
-                enabled = canGoForward
+                onClick = navigator::navigateForward,
+                enabled = navigator.canGoForward
             ) {
                 Icon(
-                    imageVector = Icons.Default.ArrowForward,
+                    imageVector = Icons.Default.NavigateNext,
                     contentDescription = null,
-                    tint = if (canGoForward) Color.Black else Color.Gray
+                    tint = if (navigator.canGoForward) Color.Black else Color.Gray
                 )
             }
         }
@@ -79,12 +79,8 @@ fun WebViewTopBar(
 @Composable
 private fun WebViewTopBarPreview() {
     WebViewTopBar(
-        title = "Title",
-        canGoBack = true,
-        canGoForward = false,
-        onNavigationIconClick = {},
-        onBackClick = {},
-        onReloadClick = {},
-        onForwardClick = {}
+        title = "Title".repeat(5),
+        navigator = rememberWebViewNavigator(),
+        onNavigationIconClick = {}
     )
 }
