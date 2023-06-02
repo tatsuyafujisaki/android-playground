@@ -15,9 +15,9 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun AlertDialogExample(
     onDismissRequest: () -> Unit,
-    text: String,
     modifier: Modifier = Modifier,
     title: String? = null,
+    text: String? = null,
     confirmButtonText: String = stringResource(android.R.string.ok),
     dismissButtonText: String? = null,
     onConfirmButtonClick: () -> Unit = {}
@@ -47,8 +47,10 @@ fun AlertDialogExample(
                 Text(it)
             }
         },
-        text = {
-            Text(text)
+        text = text?.let {
+            {
+                Text(it)
+            }
         }
     )
 }
