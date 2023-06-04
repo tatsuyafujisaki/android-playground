@@ -1,10 +1,10 @@
 package com.github.tatsuyafujisaki.androidplayground.compose.constraintlayout
 
 import androidx.compose.foundation.background
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -47,7 +47,7 @@ fun BarrierExample() {
         )
 
         Icon(
-            imageVector = Icons.Filled.Favorite,
+            imageVector = Icons.Default.Favorite,
             contentDescription = null,
             modifier = Modifier
                 .background(Color.Blue)

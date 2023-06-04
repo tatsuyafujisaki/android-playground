@@ -2,8 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.compose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.NavigateBefore
 import androidx.compose.material.icons.filled.NavigateNext
@@ -38,7 +36,7 @@ fun WebViewTopBar(
         },
         navigationIcon = {
             Icon(
-                imageVector = Icons.Filled.Close,
+                imageVector = Icons.Default.Close,
                 contentDescription = null,
                 modifier = Modifier.clickable(onClick = onNavigationIconClick)
             )
