@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.compose
+package com.github.tatsuyafujisaki.androidplayground.compose.webview
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.Icons
@@ -21,7 +21,7 @@ import com.google.accompanist.web.rememberWebViewNavigator
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun WebViewTopBar(
+fun AccompanistWebViewTopBar(
     title: String,
     navigator: WebViewNavigator = rememberWebViewNavigator(),
     onNavigationIconClick: () -> Unit
@@ -75,8 +75,8 @@ fun WebViewTopBar(
 
 @Preview(showBackground = true)
 @Composable
-private fun WebViewTopBarPreview() {
-    WebViewTopBar(
+private fun AccompanistWebViewTopBarPreview() {
+    AccompanistWebViewTopBar(
         title = "Title".repeat(5),
         navigator = rememberWebViewNavigator(),
         onNavigationIconClick = {}
