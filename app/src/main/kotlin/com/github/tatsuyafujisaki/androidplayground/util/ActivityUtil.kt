@@ -1,13 +1,11 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.app.Activity
-import android.content.Context
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.IdRes
 import androidx.core.view.WindowCompat
@@ -21,9 +19,6 @@ import androidx.navigation.findNavController
  */
 object ActivityUtil {
     object Keyboard {
-        fun getInputMethodManager(activity: Activity) =
-            activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-
         fun showKeyboard(activity: Activity) {
             WindowInsetsControllerCompat(
                 activity.window, activity.window.decorView

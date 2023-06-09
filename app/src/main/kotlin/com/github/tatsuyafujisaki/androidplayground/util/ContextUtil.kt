@@ -3,7 +3,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.PowerManager
 import android.provider.Settings
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -38,9 +37,6 @@ object ContextUtil {
             Settings.System.ACCELEROMETER_ROTATION
         ) == 1
     }
-
-    fun isInteractive(context: Context) =
-        (context.getSystemService(Context.POWER_SERVICE) as PowerManager).isInteractive
 
     /**
      * Read a text file in the "assets" directory.
