@@ -36,13 +36,6 @@ object ActivityUtil {
             ).hide(Type.ime())
         }
 
-        fun hideKeyboardOldWay(activity: Activity) {
-            (activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(
-                activity.currentFocus?.windowToken,
-                0
-            )
-        }
-
         fun hideKeyboardOnEnter(activity: Activity) {
             View.OnKeyListener { _, keyCode, _ ->
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
