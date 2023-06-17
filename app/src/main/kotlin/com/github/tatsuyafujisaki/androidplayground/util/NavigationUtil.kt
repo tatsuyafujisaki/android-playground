@@ -11,7 +11,9 @@ import androidx.navigation.fragment.NavHostFragment
 
 object NavigationUtil {
     fun printBreadcrumb(navController: NavController) {
-        Log.d("👀Breadcrumb", navController.backQueue
+        Log.d("👀Breadcrumb", navController
+            .currentBackStack
+            .value
             .map {
                 it.destination
             }
