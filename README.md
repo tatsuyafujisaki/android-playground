@@ -1,7 +1,6 @@
 # Style guides
 - https://developer.android.com/kotlin/style-guide
 - https://kotlinlang.org/docs/reference/coding-conventions.html
-- https://developer.android.com/topic/architecture/data-layer#naming-conventions
 - https://twitter.github.io/compose-rules/
 
 # Best practices
