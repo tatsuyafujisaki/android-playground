@@ -24,6 +24,10 @@ class MyActivityViewModel : ViewModel() {
     /**
      * Call setOrientation(resources.configuration.orientation) in [Activity.onCreate]
      */
+    @Deprecated(
+        message = "This function is not recommended for production use. because [Activity.onCreate] is not always called when you change the orientation from or to the reverse portrait.",
+        replaceWith = ReplaceWith("setOrientation4")
+    )
     fun setOrientation2(orientation: Int) {
         _orientation2.value = when (orientation) {
             Configuration.ORIENTATION_PORTRAIT -> Orientation2.PORTRAIT
