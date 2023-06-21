@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.activity
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
@@ -9,14 +10,16 @@ import androidx.navigation.ui.setupWithNavController
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
+import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
 import com.github.tatsuyafujisaki.androidplayground.util.ContextUtil.toast
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+    private val navController get() = navHostFragment.navController
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navHostFragment: NavHostFragment
-    private val navController get() = navHostFragment.navController
+    private val viewModel: MyActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

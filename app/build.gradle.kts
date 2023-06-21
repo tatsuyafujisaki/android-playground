@@ -87,6 +87,7 @@ dependencies {
     implementation(libs.accompanist.flowlayout)
     implementation(libs.accompanist.placeholder.material)
     implementation(libs.accompanist.webview)
+    implementation(libs.activity)
     implementation(libs.activity.compose)
     implementation(libs.animation)
     implementation(libs.appcompat)

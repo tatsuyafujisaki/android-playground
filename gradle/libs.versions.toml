@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.30.0"
-activity-compose = "1.7.2" # https://developer.android.com/jetpack/androidx/releases/activity
+activity = "1.7.2" # https://developer.android.com/jetpack/androidx/releases/activity
 android-gradle-plugin = "8.0.2"
 appcompat = "1.6.1"
 coil-compose = "2.4.0" # https://github.com/coil-kt/coil/releases
@@ -49,7 +49,8 @@ viewpager2 = "1.0.0"
 accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
 accompanist-placeholder-material = { module = "com.google.accompanist:accompanist-placeholder-material", version.ref = "accompanist" }
 accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+activity = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
 android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
 animation = { module = "androidx.compose.animation:animation" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
