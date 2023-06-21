@@ -1,8 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.activity
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
@@ -46,24 +44,6 @@ class MainActivity : AppCompatActivity() {
                     this@MainActivity.toast(it.toString())
                 })
             }
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_options, menu)
-        return true
-    }
-
-    /**
-     * You must call [AppCompatActivity.setSupportActionBar] in [AppCompatActivity.onCreate]
-     * to make tapping the Up button call [AppCompatActivity.onOptionsItemSelected]
-     * even when there is no other menu item.
-     */
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> navController.navigateUp()
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
         }
     }
 }
