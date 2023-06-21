@@ -8,11 +8,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class MyActivityViewModel : ViewModel() {
+    private val _orientation = MutableStateFlow(-1)
+    val orientation: StateFlow<Int> = _orientation.asStateFlow()
+
     private val _stateFlow = MutableStateFlow("")
     val stateFlow: StateFlow<String> = _stateFlow.asStateFlow()
 
     private val _myLiveData = MutableLiveData("")
     val myLiveData: LiveData<String> = _myLiveData
+
+    fun setOrientation(orientation: Int) {
+        _orientation.value = orientation
+    }
 
     fun setMyStateFlow(something: String) {
         _stateFlow.value = something
