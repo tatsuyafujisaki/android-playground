@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground
+package com.github.tatsuyafujisaki.androidplayground.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

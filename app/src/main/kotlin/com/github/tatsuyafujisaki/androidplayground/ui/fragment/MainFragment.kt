@@ -16,7 +16,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.github.tatsuyafujisaki.androidplayground.MainViewModel
+import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
     private val viewModel: MainViewModel by viewModels()
