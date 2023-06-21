@@ -393,4 +393,5 @@ A|B|Note
 `CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
 `Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
 `Intent.getStringExtra("foo")`|`Intent.extras?.getString("foo")`|The same goes for other types.
+`view` in `fun onViewCreated(view: View)`|`requireView()` in `fun onViewCreated(view: View)`
 `requireViewById(...)`|`findViewById(...)`|in case you are not authorized to use view binding
