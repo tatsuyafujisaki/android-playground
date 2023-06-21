@@ -48,5 +48,7 @@ class MainActivity : AppCompatActivity() {
                 })
             }
         }
+
+        viewModel.setOrientation(resources.configuration.orientation)
     }
 }
