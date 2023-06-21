@@ -3,9 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.data
 import androidx.annotation.IntRange
 
 /**
- * @IntRange must be fully qualified or Kotlin confuses it with [kotlin.ranges.IntRange].
- * On a separate note, you cannot validate "lower <= upper" with @IntRange
- * because @IntRange can take only compile-time constants.
+ * NB: You cannot validate "lower <= upper" with [IntRange] because [IntRange] can only take compile-time constants.
  */
 data class IntRangeExample(
     @IntRange(from = MIN, to = MAX) val lower: Int,
