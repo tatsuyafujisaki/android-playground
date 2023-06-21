@@ -7,9 +7,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.tatsuyafujisaki.androidplayground.data.enum.Orientation2
 import com.github.tatsuyafujisaki.androidplayground.data.enum.Orientation4
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.mapNotNull
 
 class MyActivityViewModel : ViewModel() {
     private val _orientation2 = MutableStateFlow(Orientation2.PORTRAIT)
@@ -18,6 +20,13 @@ class MyActivityViewModel : ViewModel() {
     private val _orientation4 = MutableStateFlow(Orientation4.PORTRAIT)
     val orientation4: StateFlow<Orientation4> = _orientation4.asStateFlow()
 
+    val orientation2b: Flow<Orientation2> = orientation4.mapNotNull {
+        when (it) {
+            Orientation4.PORTRAIT, Orientation4.REVERSE_PORTRAIT -> Orientation2.PORTRAIT
+            Orientation4.LANDSCAPE, Orientation4.REVERSE_LANDSCAPE -> Orientation2.LANDSCAPE
+        }
+    }
+
     private val _myLiveData = MutableLiveData("")
     val myLiveData: LiveData<String> = _myLiveData
 
@@ -25,7 +34,7 @@ class MyActivityViewModel : ViewModel() {
      * Call setOrientation(resources.configuration.orientation) in [Activity.onCreate]
      */
     @Deprecated(
-        message = "This function is not recommended for production use. because [Activity.onCreate] is not always called when you change the orientation from or to the reverse portrait.",
+        message = "Not recommended for production use because [Activity.onCreate] is not always called when you change the orientation from or to the reverse portrait.",
         replaceWith = ReplaceWith("setOrientation4")
     )
     fun setOrientation2(orientation: Int) {
