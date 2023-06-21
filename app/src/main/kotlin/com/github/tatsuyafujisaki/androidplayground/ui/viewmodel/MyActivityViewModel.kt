@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import android.app.Activity
 
 class MyActivityViewModel : ViewModel() {
     private val _orientation = MutableStateFlow(-1)
@@ -17,6 +18,9 @@ class MyActivityViewModel : ViewModel() {
     private val _myLiveData = MutableLiveData("")
     val myLiveData: LiveData<String> = _myLiveData
 
+    /**
+     * Call setOrientation(resources.configuration.orientation) in [Activity.onCreate]
+     */
     fun setOrientation(orientation: Int) {
         _orientation.value = orientation
     }
