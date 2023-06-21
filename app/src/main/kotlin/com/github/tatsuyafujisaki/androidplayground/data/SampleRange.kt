@@ -1,4 +1,6 @@
-package com.github.tatsuyafujisaki.androidplayground.dataclass
+package com.github.tatsuyafujisaki.androidplayground.data
+
+import androidx.annotation.IntRange
 
 /**
  * @IntRange must be fully qualified or Kotlin confuses it with [kotlin.ranges.IntRange].
@@ -6,8 +8,8 @@ package com.github.tatsuyafujisaki.androidplayground.dataclass
  * because @IntRange can take only compile-time constants.
  */
 data class SampleRange(
-    @androidx.annotation.IntRange(from = MIN, to = MAX) val lower: Int,
-    @androidx.annotation.IntRange(from = MIN, to = MAX) val upper: Int
+    @IntRange(from = MIN, to = MAX) val lower: Int,
+    @IntRange(from = MIN, to = MAX) val upper: Int
 ) {
     init {
         require(lower <= upper)

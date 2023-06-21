@@ -1,6 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.network
 
-import com.github.tatsuyafujisaki.androidplayground.dataclass.BookList
+import com.github.tatsuyafujisaki.androidplayground.data.BookList
 import retrofit2.http.GET
 import retrofit2.http.Query
 
