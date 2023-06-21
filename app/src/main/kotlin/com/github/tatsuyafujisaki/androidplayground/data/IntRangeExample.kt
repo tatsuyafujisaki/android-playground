@@ -14,7 +14,7 @@ data class IntRangeExample(
     }
 
     companion object {
-        const val MIN = 0L
+        const val MIN = -100L
         const val MAX = 100L
     }
 }
