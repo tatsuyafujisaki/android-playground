@@ -35,6 +35,15 @@ class MyActivityViewModel : ViewModel() {
         }
     }
 
+    /**
+     * Call the following in [Activity.onCreate]
+     *
+     * object : OrientationEventListener(this) {
+     *     override fun onOrientationChanged(orientation: Int) {
+     *         viewModel.setOrientation4(orientation)
+     *     }
+     * }.enable()
+     */
     fun setOrientation4(orientation: Int) {
         _orientation4.value = when (orientation) {
             0 -> Orientation4.PORTRAIT
