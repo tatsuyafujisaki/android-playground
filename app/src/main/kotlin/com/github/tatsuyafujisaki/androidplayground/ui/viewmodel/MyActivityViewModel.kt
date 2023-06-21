@@ -1,16 +1,18 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.viewmodel
 
+import android.app.Activity
+import android.content.res.Configuration
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.github.tatsuyafujisaki.androidplayground.data.enum.Orientation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import android.app.Activity
 
 class MyActivityViewModel : ViewModel() {
-    private val _orientation = MutableStateFlow(-1)
-    val orientation: StateFlow<Int> = _orientation.asStateFlow()
+    private val _orientation = MutableStateFlow(Orientation.PORTRAIT)
+    val orientation: StateFlow<Orientation> = _orientation.asStateFlow()
 
     private val _stateFlow = MutableStateFlow("")
     val stateFlow: StateFlow<String> = _stateFlow.asStateFlow()
@@ -22,7 +24,11 @@ class MyActivityViewModel : ViewModel() {
      * Call setOrientation(resources.configuration.orientation) in [Activity.onCreate]
      */
     fun setOrientation(orientation: Int) {
-        _orientation.value = orientation
+        _orientation.value = if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Orientation.LANDSCAPE
+        } else {
+            Orientation.PORTRAIT
+        }
     }
 
     fun setMyStateFlow(something: String) {

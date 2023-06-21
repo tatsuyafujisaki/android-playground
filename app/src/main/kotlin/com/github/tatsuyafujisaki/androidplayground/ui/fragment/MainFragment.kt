@@ -1,7 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
-import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,11 +50,11 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         activityViewModel.orientation.asLiveData().observe(viewLifecycleOwner) {
-            when (it) {
-                Configuration.ORIENTATION_PORTRAIT -> println("👀ORIENTATION_PORTRAIT")
-                Configuration.ORIENTATION_LANDSCAPE -> println("👀ORIENTATION_LANDSCAPE")
-                else -> println("👀Unknown orientation")
-            }
+            Log.d(TAG, it.toString())
         }
+    }
+
+    companion object {
+        private const val TAG = "MainFragment"
     }
 }
