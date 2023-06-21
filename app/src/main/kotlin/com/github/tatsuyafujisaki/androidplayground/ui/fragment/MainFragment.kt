@@ -49,7 +49,10 @@ class MainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        activityViewModel.orientation.asLiveData().observe(viewLifecycleOwner) {
+        activityViewModel.orientation2.asLiveData().observe(viewLifecycleOwner) {
+            Log.d(TAG, it.toString())
+        }
+        activityViewModel.orientation4.asLiveData().observe(viewLifecycleOwner) {
             Log.d(TAG, it.toString())
         }
     }

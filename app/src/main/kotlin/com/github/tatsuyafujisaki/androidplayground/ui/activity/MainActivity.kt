@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.activity
 
 import android.os.Bundle
+import android.view.OrientationEventListener
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         setSupportActionBar(binding.toolbar)
 
-        viewModel.setOrientation(resources.configuration.orientation)
+        viewModel.setOrientation2(resources.configuration.orientation)
+
+        object : OrientationEventListener(this) {
+            override fun onOrientationChanged(orientation: Int) {
+                viewModel.setOrientation4(orientation)
+            }
+        }.enable()
     }
 }
