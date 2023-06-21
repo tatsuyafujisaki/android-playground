@@ -18,9 +18,6 @@ class MyActivityViewModel : ViewModel() {
     private val _orientation4 = MutableStateFlow(Orientation4.PORTRAIT)
     val orientation4: StateFlow<Orientation4> = _orientation4.asStateFlow()
 
-    private val _stateFlow = MutableStateFlow("")
-    val stateFlow: StateFlow<String> = _stateFlow.asStateFlow()
-
     private val _myLiveData = MutableLiveData("")
     val myLiveData: LiveData<String> = _myLiveData
 
@@ -52,10 +49,6 @@ class MyActivityViewModel : ViewModel() {
             270 -> Orientation4.REVERSE_LANDSCAPE
             else -> error("Unknown orientation: $orientation")
         }
-    }
-
-    fun setMyStateFlow(something: String) {
-        _stateFlow.value = something
     }
 
     fun setMyLiveData(something: String) {
