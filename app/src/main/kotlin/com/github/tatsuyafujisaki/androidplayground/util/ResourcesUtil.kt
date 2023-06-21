@@ -1,7 +1,9 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.content.Context
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.view.OrientationEventListener
 
 object ResourcesUtil {
     fun dpToPixel(dp: Int) = (dp * Resources.getSystem().displayMetrics.density).toInt()
@@ -20,5 +22,13 @@ object ResourcesUtil {
 
         fun isLandscape(resources: Resources) =
             resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+        fun enableOrientationEventListener(context: Context, onOrientationChanged: (Int) -> Unit) {
+            object : OrientationEventListener(context) {
+                override fun onOrientationChanged(orientation: Int) {
+                    onOrientationChanged(orientation)
+                }
+            }.enable()
+        }
     }
 }

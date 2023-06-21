@@ -1,7 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.activity
 
 import android.os.Bundle
-import android.view.OrientationEventListener
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -10,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
+import com.github.tatsuyafujisaki.androidplayground.util.ResourcesUtil.OrientationUtil
 
 class MainActivity : AppCompatActivity() {
     private val navController get() = navHostFragment.navController
@@ -33,13 +33,9 @@ class MainActivity : AppCompatActivity() {
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         setSupportActionBar(binding.toolbar)
 
-        viewModel.setOrientation2(resources.configuration.orientation)
-
-        object : OrientationEventListener(this) {
-            override fun onOrientationChanged(orientation: Int) {
-                viewModel.setOrientation4(orientation)
-            }
-        }.enable()
+        OrientationUtil.enableOrientationEventListener(this) {
+            viewModel.setOrientation4(it)
+        }
     }
 
     companion object {
