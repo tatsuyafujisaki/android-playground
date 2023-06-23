@@ -1,6 +1,6 @@
 # Style guides
 - https://developer.android.com/kotlin/style-guide
-- https://kotlinlang.org/docs/reference/coding-conventions.html
+- https://kotlinlang.org/docs/coding-conventions.html
 - https://twitter.github.io/compose-rules/
 
 # Best practices
