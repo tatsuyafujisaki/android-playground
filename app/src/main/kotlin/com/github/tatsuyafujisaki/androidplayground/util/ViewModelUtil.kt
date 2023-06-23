@@ -17,7 +17,7 @@ object ViewModelUtil {
             }
         }
 
-    @Deprecated(message = "factory for view model version older than 2.5.0")
+    @Deprecated(message = "for view model version older than 2.5.0")
     fun <V : ViewModel, T> createViewModelProviderFactory(
         create: (T) -> V
     ): (T) -> ViewModelProvider.Factory = {
