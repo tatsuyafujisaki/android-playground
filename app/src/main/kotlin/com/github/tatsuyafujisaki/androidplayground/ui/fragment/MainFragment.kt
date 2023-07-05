@@ -41,7 +41,7 @@ class MainFragment : Fragment() {
                             .fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text("Hello Compose!")
+                        Text(text="Hello Compose!")
                     }
                 }
             }

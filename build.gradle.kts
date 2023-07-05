@@ -10,6 +10,7 @@ buildscript {
         classpath(libs.hilt.android.gradle.plugin)
         classpath(libs.kotlin.gradle.plugin)
         classpath(libs.navigation.safe.args.gradle.plugin)
+        classpath(libs.oss.licenses.plugin)
     }
 }
 
