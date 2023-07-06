@@ -9,7 +9,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
-    id("dagger.hilt.android.plugin")
+    id(libs.plugins.hilt.get().pluginId)
     id(with(libs.google.services.get()) { "$group.$name" })
     id(with(libs.oss.licenses.plugin.get()) { "$group.$name" })
 }
