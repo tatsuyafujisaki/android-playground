@@ -10,7 +10,7 @@ plugins {
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
-    id(libs.plugins.google.services.get().pluginId)
+    id(with(libs.google.services.get()) { "$group.$name" })
     id(libs.plugins.oss.licenses.plugin.get().pluginId)
 }
 
