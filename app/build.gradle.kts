@@ -11,7 +11,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
-    id("com.google.android.gms.oss-licenses-plugin")
+    id(libs.plugins.oss.licenses.plugin.get().pluginId)
 }
 
 android {
