@@ -6,8 +6,8 @@ plugins {
     id(libs.plugins.ksp.get().pluginId)
     id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
     id(libs.plugins.hilt.get().pluginId)
-    id(with(libs.google.services.get()) { "$group.$name" })
-    id(with(libs.oss.licenses.plugin.get()) { "$group.$name" })
+    id(libs.plugins.google.services.get().pluginId)
+    id(libs.plugins.oss.licenses.plugin.get().pluginId)
 }
 
 android {

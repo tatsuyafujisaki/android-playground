@@ -1,10 +1,12 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -21,6 +23,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 class MainFragment : Fragment() {
     private val activityViewModel: MyActivityViewModel by activityViewModels()
@@ -29,7 +32,7 @@ class MainFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ) = ComposeView(requireContext()).apply {
         setViewCompositionStrategy(DisposeOnViewTreeLifecycleDestroyed)
         setContent {
@@ -41,7 +44,17 @@ class MainFragment : Fragment() {
                             .fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = "Hello Compose!")
+                        Text(
+                            text = "Hello Compose!",
+                            modifier = Modifier.clickable {
+                                startActivity(
+                                    Intent(
+                                        requireContext(),
+                                        OssLicensesMenuActivity::class.java
+                                    )
+                                )
+                            }
+                        )
                     }
                 }
             }
