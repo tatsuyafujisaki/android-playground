@@ -126,6 +126,7 @@ ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 
 [plugins]
+google-services = { id = "com.google.gms.google-services" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 oss-licenses-plugin = { id = "com.google.android.gms.oss-licenses-plugin" }
