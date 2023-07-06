@@ -1,14 +1,12 @@
 plugins {
-    // equivalent to kotlin("android")
-    // https://kotlinlang.org/docs/multiplatform-mobile-understand-project-structure.html#android-application
-    id("kotlin-android")
+    id(libs.plugins.com.android.application.get().pluginId)
+    id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.kotlin.parcelize.get().pluginId)
     // equivalent to id("org.jetbrains.kotlin.plugin.serialization")
     // https://kotlinlang.org/docs/serialization.html#example-json-serialization
     kotlin("plugin.serialization") version libs.versions.kotlin
-    id("com.android.application")
-    id("com.google.devtools.ksp")
-    id("kotlin-parcelize")
-    id("androidx.navigation.safeargs.kotlin")
+    id(libs.plugins.ksp.get().pluginId)
+    id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
     id(libs.plugins.hilt.get().pluginId)
     id(with(libs.google.services.get()) { "$group.$name" })
     id(with(libs.oss.licenses.plugin.get()) { "$group.$name" })
