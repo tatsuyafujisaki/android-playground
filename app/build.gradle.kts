@@ -121,9 +121,9 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(libs.okhttp.urlconnection)
-    // implementation(libs.oss.licenses.plugin) makes the build fail.
     implementation(libs.paging.runtime)
     implementation(libs.play.core.ktx)
+    implementation(libs.play.services.oss.licenses)
     implementation(libs.preference.ktx)
     implementation(libs.recyclerview)
     implementation(libs.room.ktx)
