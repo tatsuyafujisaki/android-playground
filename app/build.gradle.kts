@@ -2,9 +2,7 @@ plugins {
     id(libs.plugins.com.android.application.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
     id(libs.plugins.kotlin.parcelize.get().pluginId)
-    // equivalent to id("org.jetbrains.kotlin.plugin.serialization")
-    // https://kotlinlang.org/docs/serialization.html#example-json-serialization
-    kotlin("plugin.serialization") version libs.versions.kotlin
+    alias(libs.plugins.kotlin.serialization)
     id(libs.plugins.ksp.get().pluginId)
     id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
     id(libs.plugins.hilt.get().pluginId)
