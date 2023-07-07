@@ -22,6 +22,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")
+        }
         getByName("release") {
             isMinifyEnabled = true
 
@@ -42,10 +46,6 @@ android {
              */
             isDebuggable = true
             signingConfig = signingConfigs.getByName("debug")
-        }
-        getByName("debug") {
-            applicationIdSuffix = ".debug"
-            buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")
         }
     }
     compileOptions {
