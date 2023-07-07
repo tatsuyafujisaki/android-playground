@@ -6,21 +6,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
+import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.MainScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
@@ -37,25 +30,13 @@ class MainFragment : Fragment() {
         setViewCompositionStrategy(DisposeOnViewTreeLifecycleDestroyed)
         setContent {
             MaterialTheme {
-                Scaffold {
-                    Box(
-                        modifier = Modifier
-                            .padding(it)
-                            .fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "Hello Compose!",
-                            modifier = Modifier.clickable {
-                                startActivity(
-                                    Intent(
-                                        requireContext(),
-                                        OssLicensesMenuActivity::class.java
-                                    )
-                                )
-                            }
+                MainScreen {
+                    startActivity(
+                        Intent(
+                            this@MainFragment.requireContext(),
+                            OssLicensesMenuActivity::class.java
                         )
-                    }
+                    )
                 }
             }
         }
