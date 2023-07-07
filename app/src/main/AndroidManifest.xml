@@ -34,9 +34,9 @@
             android:exported="true" />
         <activity
             android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
         <activity
             android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
     </application>
 </manifest>

@@ -1,7 +1,8 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.app.Activity
-import android.util.Log
+import android.content.Context
+import android.content.Intent
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
@@ -11,8 +12,8 @@ import androidx.annotation.IdRes
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.findNavController
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 /**
  * Impractical redundant explanatory wrappers
@@ -62,6 +63,13 @@ object ActivityUtil {
         }
     }
 
+    object OssLicenses {
+        fun startOssLicensesMenuActivity(context: Context, title: String = "") {
+            if (title.isNotBlank()) OssLicensesMenuActivity.setActivityTitle(title)
+            context.startActivity(Intent(context, OssLicensesMenuActivity::class.java))
+        }
+    }
+
     fun keepScreenOn(activity: Activity, on: Boolean) {
         val window = activity.window
         if (on) {
@@ -80,10 +88,4 @@ object ActivityUtil {
 
     fun getExtraString(activity: Activity, key: String) =
         activity.intent?.extras?.getString(key).orEmpty()
-
-    fun logStateChanged(activity: ComponentActivity, tag: String) {
-        activity.lifecycle.addObserver(LifecycleEventObserver { _, event ->
-            Log.d(tag, event.toString())
-        })
-    }
 }

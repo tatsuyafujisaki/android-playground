@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,7 +15,7 @@ import androidx.lifecycle.asLiveData
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.MainScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import com.github.tatsuyafujisaki.androidplayground.util.ActivityUtil.OssLicenses.startOssLicensesMenuActivity
 
 class MainFragment : Fragment() {
     private val activityViewModel: MyActivityViewModel by activityViewModels()
@@ -31,12 +30,7 @@ class MainFragment : Fragment() {
         setContent {
             MaterialTheme {
                 MainScreen {
-                    startActivity(
-                        Intent(
-                            this@MainFragment.requireContext(),
-                            OssLicensesMenuActivity::class.java
-                        )
-                    )
+                    startOssLicensesMenuActivity(requireContext())
                 }
             }
         }
