@@ -25,7 +25,6 @@ fun CenterBoxExample(
     onClick: (() -> Unit)? = null,
     content: @Composable BoxScope.() -> Unit,
 ) {
-    Column(Modifier.fillMaxWidth()) {
         Box(
             modifier = Modifier
                 .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
@@ -36,8 +35,6 @@ fun CenterBoxExample(
             contentAlignment = Alignment.Center,
             content = content
         )
-        Divider(color = Color.Red)
-    }
 }
 
 @Preview(showBackground = true)
