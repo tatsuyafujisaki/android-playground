@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.ui.compose
+package com.github.tatsuyafujisaki.androidplayground.ui.compose.box
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,7 +23,7 @@ fun CenterBoxExample(
     height: Dp = 100.dp,
     background: Color = Color.White,
     onClick: (() -> Unit)? = null,
-    content: @Composable BoxScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit,
 ) {
     Column(Modifier.fillMaxWidth()) {
         Box(
