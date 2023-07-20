@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Android Playground</string>
-    <string name="action_settings">Settings</string>
     <string name="main">Main</string>
     <string name="second">Second</string>
     <string name="third">Third</string>
