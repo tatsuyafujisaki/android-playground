@@ -16,16 +16,19 @@ import com.github.tatsuyafujisaki.androidplayground.R
 
 @Preview
 @Composable
-fun BrokenImage() {
+fun BrokenImage(
+    modifier: Modifier = Modifier,
+    contentDescription: String? = null,
+) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .background(Color.LightGray)
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Image(
             painter = painterResource(id = R.drawable.broken_image_24px),
-            contentDescription = null,
+            contentDescription = contentDescription,
             modifier = Modifier.size(24.dp)
         )
     }
