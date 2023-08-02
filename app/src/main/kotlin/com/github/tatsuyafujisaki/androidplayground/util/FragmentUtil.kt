@@ -18,7 +18,7 @@ object FragmentUtil {
         get() = fragments.map { it.javaClass.simpleName }
 
     private val FragmentManager.backStackEntryNames
-        get() = (0 until backStackEntryCount)
+        get() = (0 ..< backStackEntryCount)
             .map {
                 val tag = getBackStackEntryAt(it).name
                 /**
