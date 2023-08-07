@@ -114,6 +114,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.savedstate)
     implementation(libs.logging.interceptor)
     implementation(libs.material.icons.extended)
+    implementation(libs.material)
     implementation(libs.material3)
     implementation(libs.moshi.kotlin)
     implementation(libs.navigation.compose)
