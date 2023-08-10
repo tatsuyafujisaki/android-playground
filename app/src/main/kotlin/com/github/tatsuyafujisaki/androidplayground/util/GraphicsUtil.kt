@@ -9,10 +9,25 @@ import android.graphics.Matrix
 import android.os.Build
 import android.provider.MediaStore
 import android.view.View
+import androidx.annotation.DrawableRes
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.net.toUri
 import java.lang.Integer.max
 
 object GraphicsUtil {
+    object Converter {
+        fun convertDrawableResToBitmap(context: Context, @DrawableRes id: Int) =
+            AppCompatResources.getDrawable(context, id)?.toBitmap()
+
+        @Composable
+        fun convertDrawableResToImageVector(@DrawableRes id: Int) =
+            ImageVector.vectorResource(id = id)
+    }
+
     fun downloadBitmapOrNull(context: Context, url: String): Bitmap? {
         val contentResolver = context.contentResolver
         val uri = url.toUri()
