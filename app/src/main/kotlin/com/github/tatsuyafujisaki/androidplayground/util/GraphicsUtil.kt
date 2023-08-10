@@ -1,7 +1,9 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.ImageDecoder
@@ -20,7 +22,10 @@ import java.lang.Integer.max
 
 object GraphicsUtil {
     object Converter {
-        fun convertDrawableResToBitmapOrNull(context: Context, @DrawableRes id: Int) =
+        fun convertDrawableResToBitmapOrNull1(resources: Resources, @DrawableRes id: Int) =
+            BitmapFactory.decodeResource(resources, id)
+
+        fun convertDrawableResToBitmapOrNull2(context: Context, @DrawableRes id: Int) =
             AppCompatResources.getDrawable(context, id)?.toBitmap()
 
         @Composable
