@@ -89,4 +89,27 @@ object GraphicsUtil {
         }
         return bitmap
     }
+
+    fun drawMouseBitmap(
+        radius: Float = 100f,
+        @ColorInt faceColor: Int = Color.RED,
+        @ColorInt backgroundColor: Int? = Color.WHITE,
+    ): Bitmap {
+        val canvasSize = 5 * radius.toInt()
+        val bitmap = Bitmap.createBitmap(canvasSize, canvasSize, Bitmap.Config.ARGB_8888)
+        val paint = Paint().apply {
+            color = faceColor
+        }
+        val leftEarX = canvasSize * 0.3f
+        val rightEarX = canvasSize - leftEarX
+        val earY = canvasSize * 0.3f
+        val earRadius = radius * 0.7f
+        with(Canvas(bitmap)) {
+            backgroundColor?.let { drawColor(it) }
+            drawCircle(canvasSize * 0.5f, canvasSize * 0.5f, radius, paint)
+            drawCircle(leftEarX, earY, earRadius, paint)
+            drawCircle(rightEarX, earY, earRadius, paint)
+        }
+        return bitmap
+    }
 }
