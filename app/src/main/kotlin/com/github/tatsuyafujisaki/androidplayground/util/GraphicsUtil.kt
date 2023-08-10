@@ -18,17 +18,17 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toBitmapOrNull
 import androidx.core.net.toUri
 import java.lang.Integer.max
 
 object GraphicsUtil {
     object Converter {
-        fun convertDrawableResToBitmapOrNull1(resources: Resources, @DrawableRes id: Int) =
+        private fun convertDrawableResToBitmapOrNull1(resources: Resources, @DrawableRes id: Int) =
             BitmapFactory.decodeResource(resources, id)
 
         fun convertDrawableResToBitmapOrNull2(context: Context, @DrawableRes id: Int) =
-            AppCompatResources.getDrawable(context, id)?.toBitmap()
+            AppCompatResources.getDrawable(context, id)?.toBitmapOrNull()
 
         @Composable
         fun convertDrawableResToImageVector(@DrawableRes id: Int) =
