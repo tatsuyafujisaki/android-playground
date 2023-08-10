@@ -20,7 +20,7 @@ import java.lang.Integer.max
 
 object GraphicsUtil {
     object Converter {
-        fun convertDrawableResToBitmap(context: Context, @DrawableRes id: Int) =
+        fun convertDrawableResToBitmapOrNull(context: Context, @DrawableRes id: Int) =
             AppCompatResources.getDrawable(context, id)?.toBitmap()
 
         @Composable
