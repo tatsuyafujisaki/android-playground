@@ -8,9 +8,11 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.ImageDecoder
 import android.graphics.Matrix
+import android.graphics.Paint
 import android.os.Build
 import android.provider.MediaStore
 import android.view.View
+import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.runtime.Composable
@@ -70,6 +72,21 @@ object GraphicsUtil {
     fun takeScreenshot(view: View): Bitmap {
         val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
         view.draw(Canvas(bitmap).apply { drawColor(Color.WHITE) })
+        return bitmap
+    }
+
+    fun drawCircleAsBitmap(
+        radius: Float = 100f,
+        @ColorInt circleColor: Int = Color.RED,
+        @ColorInt backgroundColor: Int? = Color.WHITE,
+    ): Bitmap {
+        val diameter = 2 * radius.toInt()
+        val bitmap = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888)
+        val paint = Paint().apply { color = circleColor }
+        with(Canvas(bitmap)) {
+            backgroundColor?.let { drawColor(it) }
+            drawCircle(radius, radius, radius, paint)
+        }
         return bitmap
     }
 }
