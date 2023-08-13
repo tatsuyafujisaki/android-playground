@@ -17,17 +17,14 @@ import com.google.accompanist.web.rememberWebViewState
 @Composable
 fun HorizontalPagerExample() {
     val urls = listOf("https://en.wikipedia.org", "https://youtube.com")
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState { urls.size }
 
     HorizontalPager(
-        pageCount = urls.size,
         modifier = Modifier.fillMaxSize(),
         state = pagerState
     ) { page ->
-        WebView(
-            state = rememberWebViewState(urls[page]),
+        WebView(state = rememberWebViewState(urls[page]),
             modifier = Modifier.fillMaxSize(),
-            onCreated = { it.settings.javaScriptEnabled = true }
-        )
+            onCreated = { it.settings.javaScriptEnabled = true })
     }
 }
