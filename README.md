@@ -132,19 +132,12 @@ val uri2: Uri = uri1
 val isDigitsOnly: Boolean = "123".isDigitsOnly() // true
 ```
 
-# How to create a Bundle
-
-```kotlin
-val bundle: Bundle = bundleOf(
-    "apple" to 100,
-    "orange" to 200
-) // simpler than Bundle().apply { putInt("apple", 100) ... }
-```
-
 # WebViewClient
-## How to get [WebViewClient.onReceivedSslError()](https://developer.android.com/reference/kotlin/android/webkit/WebViewClient#onreceivedsslerror) called.
-
+## How to get `WebViewClient.onReceivedSslError()` called
 Open https://httpforever.com
+
+## How to get `WebViewClient.onReceivedHttpError()` called
+Open https://httpstat.us/404
 
 # How to encode HTML entities
 
