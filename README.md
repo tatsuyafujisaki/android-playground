@@ -141,6 +141,11 @@ val bundle: Bundle = bundleOf(
 ) // simpler than Bundle().apply { putInt("apple", 100) ... }
 ```
 
+# WebViewClient
+## How to get [WebViewClient.onReceivedSslError()](https://developer.android.com/reference/kotlin/android/webkit/WebViewClient#onreceivedsslerror) called.
+
+Open https://httpforever.com
+
 # How to encode HTML entities
 
 ```kotlin
@@ -172,15 +177,6 @@ val value: String = uri.getQueryParameter("key2") // value2
 val color: Color = Color.valueOf(0x11223344)
 ```
 
-# How to change the color of a menu item
-
-No need to use `SpannableString`.
-
-```kotlin
-R.id.my_menu_item -> {
-    findViewById<TextView>(R.id.my_menu_item)?.setTextColor(Color.RED)
-}
-```
 
 # Release build
 
