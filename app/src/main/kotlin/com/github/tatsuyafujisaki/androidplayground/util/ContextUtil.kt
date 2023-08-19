@@ -2,7 +2,10 @@ package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.os.Build
 import android.provider.Settings
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -33,6 +36,18 @@ object ContextUtil {
         ) == 1
     }
 
+    fun getVersionName(context: Context): PackageInfo {
+        val packageManager = context.packageManager
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            packageManager.getPackageInfo(
+                context.packageName,
+                PackageManager.PackageInfoFlags.of(0)
+            )
+        } else {
+            packageManager.getPackageInfo(context.packageName, 0)
+        }
+    }
+
     /**
      * Read a text file in the "assets" directory.
      * cf. [ResourcesUtil.readResourceAsText]
@@ -50,7 +65,7 @@ object ContextUtil {
     fun openGooglePlay(context: Context) {
         context.startActivity(Intent(Intent.ACTION_VIEW).apply {
             data =
-                ("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID).toUri()
+                ("https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}").toUri()
             setPackage("com.android.vending")
         })
     }
