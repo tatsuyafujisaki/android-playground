@@ -3,7 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PackageInfoFlags
 import android.content.res.Resources
 import android.os.Build
 import android.provider.Settings
@@ -40,7 +40,7 @@ object ContextUtil {
         val packageManager = context.packageManager
         val packageName = context.packageName
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
+            packageManager.getPackageInfo(packageName, PackageInfoFlags.of(0))
         } else {
             packageManager.getPackageInfo(packageName, 0)
         }
