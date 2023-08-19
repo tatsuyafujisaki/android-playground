@@ -38,13 +38,11 @@ object ContextUtil {
 
     fun getVersionName(context: Context): PackageInfo {
         val packageManager = context.packageManager
+        val packageName = context.packageName
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            packageManager.getPackageInfo(
-                context.packageName,
-                PackageManager.PackageInfoFlags.of(0)
-            )
+            packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0))
         } else {
-            packageManager.getPackageInfo(context.packageName, 0)
+            packageManager.getPackageInfo(packageName, 0)
         }
     }
 
