@@ -133,7 +133,7 @@ google-services = { id = "com.google.gms.google-services" }
 hilt = { id = "dagger.hilt.android.plugin" }
 kotlin-android = { id = "kotlin-android" }
 kotlin-parcelize = { id = "kotlin-parcelize" }
-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-serialization = { id = "plugin.serialization" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 oss-licenses-plugin = { id = "com.google.android.gms.oss-licenses-plugin" }

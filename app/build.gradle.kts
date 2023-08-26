@@ -2,7 +2,7 @@ plugins {
     id(libs.plugins.com.android.application.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
     id(libs.plugins.kotlin.parcelize.get().pluginId)
-    alias(libs.plugins.kotlin.serialization)
+    embeddedKotlin(libs.plugins.kotlin.serialization.get().pluginId)
     id(libs.plugins.ksp.get().pluginId)
     id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
     id(libs.plugins.hilt.get().pluginId)
