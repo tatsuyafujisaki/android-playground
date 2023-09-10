@@ -5,13 +5,17 @@ import android.content.Intent
 import android.net.Uri
 import androidx.core.net.toUri
 
+@SuppressWarnings("unused")
 object EmailUtil {
     fun Activity.composeEmailWithNoAttachment(
         to: Array<String>,
         subject: String,
-        body: String
+        body: String,
     ) {
-        val intent = Intent(Intent.ACTION_SENDTO).apply { // ACTION_SENDTO is for no attachment.
+        /**
+         * [Intent.ACTION_SENDTO] for no attachment.
+         */
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
             data = "mailto:".toUri() // filters only email apps.
             putExtra(Intent.EXTRA_EMAIL, to)
             putExtra(Intent.EXTRA_SUBJECT, subject)
@@ -26,9 +30,12 @@ object EmailUtil {
         to: Array<String>,
         subject: String,
         body: String,
-        attachment: Uri
+        attachment: Uri,
     ) {
-        val intent = Intent(Intent.ACTION_SEND).apply { // ACTION_SEND is for one attachment.
+        /**
+         * [Intent.ACTION_SEND] for one attachment.
+         */
+        val intent = Intent(Intent.ACTION_SEND).apply {
             data = "mailto:".toUri() // filters only email apps.
             putExtra(Intent.EXTRA_EMAIL, to)
             putExtra(Intent.EXTRA_SUBJECT, subject)
@@ -44,9 +51,12 @@ object EmailUtil {
         to: Array<String>,
         subject: String,
         body: String,
-        attachments: Array<Uri>
+        attachments: Array<Uri>,
     ) {
-        val intent = Intent(Intent.ACTION_SEND_MULTIPLE).apply { // ACTION_SEND_MULTIPLE is for multiple attachments.
+        /**
+         * [Intent.ACTION_SEND_MULTIPLE] is for multiple attachments.
+         */
+        val intent = Intent(Intent.ACTION_SEND_MULTIPLE).apply {
             data = "mailto:".toUri() // filters only email apps.
             putExtra(Intent.EXTRA_EMAIL, to)
             putExtra(Intent.EXTRA_SUBJECT, subject)
