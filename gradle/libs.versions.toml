@@ -26,6 +26,7 @@ kotlinx-serialization = "1.6.0" # https://github.com/Kotlin/kotlinx.serializatio
 ksp = "1.9.10-1.0.13" # https://github.com/google/ksp/releases
 ktlint = "11.0.0"
 lifecycle = "2.6.2"
+media3= "1.1.1"
 min-sdk = "26"
 mockito = "5.1.0"
 moshi = "1.15.0"
@@ -98,6 +99,7 @@ logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-intercep
 material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 material = { group = "androidx.compose.material", name = "material" }
 material3 = { group = "androidx.compose.material3", name = "material3" }
+media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "media3" }
 mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockito" }
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
