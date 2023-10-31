@@ -99,7 +99,6 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.datastore.preferences)
     implementation(libs.datastore)
-    implementation(libs.exoplayer)
     implementation(libs.firebase.messaging)
     implementation(libs.foundation)
     implementation(libs.fragment.ktx)
