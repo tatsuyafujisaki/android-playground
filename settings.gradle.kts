@@ -10,8 +10,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        // in case https://repo.maven.apache.org is down.
-        maven(url = "https://repo1.maven.org")
     }
 }
 
