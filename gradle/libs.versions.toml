@@ -1,6 +1,6 @@
 [versions]
 accompanist = "0.30.1"
-activity = "1.8.0" # https://developer.android.com/jetpack/androidx/releases/activity
+activity = "1.8.1" # https://developer.android.com/jetpack/androidx/releases/activity
 android-gradle-plugin = "8.1.4" # https://developer.android.com/build/releases/gradle-plugin
 appcompat = "1.6.1"
 coil-compose = "2.4.0" # https://github.com/coil-kt/coil/releases
@@ -15,7 +15,7 @@ core-ktx = "1.12.0"
 coroutines = "1.7.3"
 datastore = "1.0.0"
 espresso = "3.5.1"
-firebase-bom = "32.5.0" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
+firebase-bom = "32.6.0" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
 fragment = "1.6.2" # https://developer.android.com/jetpack/androidx/releases/fragment
 google-services = "4.4.0"
 hilt = "2.47"
@@ -25,7 +25,7 @@ kotlinx-serialization = "1.6.0" # https://github.com/Kotlin/kotlinx.serializatio
 ksp = "1.9.10-1.0.13" # https://github.com/google/ksp/releases
 ktlint = "11.0.0"
 lifecycle = "2.6.2"
-media3= "1.1.1"
+media3= "1.2.0"
 min-sdk = "26"
 mockito = "5.1.0"
 moshi = "1.15.0"
