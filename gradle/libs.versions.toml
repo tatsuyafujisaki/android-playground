@@ -25,7 +25,7 @@ kotlinx-serialization = "1.6.0" # https://github.com/Kotlin/kotlinx.serializatio
 ksp = "1.9.10-1.0.13" # https://github.com/google/ksp/releases
 ktlint = "11.0.0"
 lifecycle = "2.6.2"
-media3= "1.2.0"
+media3 = "1.2.0"
 min-sdk = "26"
 mockito = "5.1.0"
 moshi = "1.15.0"
@@ -49,7 +49,7 @@ viewpager2 = "1.0.0"
 
 [libraries]
 accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
-accompanist-placeholder-material = { group = "com.google.accompanist", name = "accompanist-placeholder-material", version.ref = "accompanist" }
+accompanist-placeholder-material3 = { group = "com.google.accompanist", name = "accompanist-placeholder-material3", version.ref = "accompanist" }
 accompanist-webview = { group = "com.google.accompanist", name = "accompanist-webview", version.ref = "accompanist" }
 activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }

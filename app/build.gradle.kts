@@ -73,14 +73,13 @@ dependencies {
      * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
      */
 
-    // https://developer.android.com/jetpack/compose/setup#setup-compose
-    // https://developer.android.com/jetpack/compose/setup#bom-version-mapping
+    // https://developer.android.com/jetpack/compose/setup
     implementation(platform(libs.compose.bom))
     debugImplementation(libs.fragment.testing)
     debugImplementation(libs.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
     implementation(libs.accompanist.flowlayout)
-    implementation(libs.accompanist.placeholder.material)
+    implementation(libs.accompanist.placeholder.material3)
     implementation(libs.accompanist.webview)
     implementation(libs.activity.compose)
     implementation(libs.activity)
