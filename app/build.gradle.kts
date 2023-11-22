@@ -80,7 +80,6 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     implementation(libs.accompanist.flowlayout)
     implementation(libs.accompanist.placeholder.material3)
-    implementation(libs.accompanist.webview)
     implementation(libs.activity.compose)
     implementation(libs.activity)
     implementation(libs.animation)
