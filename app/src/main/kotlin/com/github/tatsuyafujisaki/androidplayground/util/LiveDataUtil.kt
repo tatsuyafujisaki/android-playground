@@ -6,8 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.map
-import androidx.lifecycle.switchMap
 import androidx.lifecycle.toPublisher
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
@@ -70,23 +68,6 @@ object LiveDataUtil {
             }
         }
     }
-
-    /**
-     * Instead, use MediatorLiveData directly.
-     * [Transformations] is a wrapper of [MediatorLiveData].
-     * Nested [Transformations]s are nested [MediatorLiveData]s and create extra overhead.
-     */
-    @Deprecated("Instead, use MediatorLiveData directly")
-    fun <A, B, C> combine(
-        liveData1: LiveData<A>,
-        liveData2: LiveData<B>,
-        onChanged: (A, B) -> C
-    ) =
-        liveData1.switchMap { a ->
-            liveData2.map { b ->
-                onChanged(a, b)
-            }
-        }
 
     fun sampleUsage(lifecycleOwner: LifecycleOwner) {
         val a = MutableLiveData(1)
