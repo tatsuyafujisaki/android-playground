@@ -10,8 +10,11 @@ import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 
 object NavigationUtil {
+    /**
+     * Prints a breadcrumb of the navigation stack, not for Navigation Compose.
+     */
     fun printBreadcrumb(navController: NavController) {
-        Log.d("👀Breadcrumb", navController
+        Log.d("Breadcrumb", navController
             .currentBackStack
             .value
             .map {
@@ -23,6 +26,22 @@ object NavigationUtil {
             .joinToString(" > ") {
                 it.displayName.split('/')[1]
             }
+        )
+    }
+
+    /**
+     * Prints a breadcrumb of the navigation stack for Navigation Compose.
+     */
+    fun printComposeBreadcrumb(navController: NavController) {
+        Log.d(
+            "Breadcrumb",
+            navController
+                .currentBackStack
+                .value
+                .map {
+                    it.destination.route
+                }
+                .joinToString(" > ")
         )
     }
 
@@ -53,7 +72,7 @@ object NavigationUtil {
     fun setNavGraphIfAbsent(
         navController: NavController,
         @NavigationRes graphResId: Int,
-        startDestinationArgs: Bundle?
+        startDestinationArgs: Bundle?,
     ) {
         if (navController.currentDestination != null) return
         if (startDestinationArgs != null) {
@@ -66,7 +85,7 @@ object NavigationUtil {
     fun setGraphWithStartDestination(
         navController: NavController,
         @NavigationRes graphResId: Int,
-        @IdRes startDestId: Int
+        @IdRes startDestId: Int,
     ) {
         navController.graph = navController.navInflater.inflate(graphResId).apply {
             setStartDestination(startDestId)
@@ -76,7 +95,7 @@ object NavigationUtil {
     fun setGraphWithStartDestinationAndArgs(
         navController: NavController,
         @NavigationRes graphResId: Int,
-        @IdRes startDestId: Int
+        @IdRes startDestId: Int,
     ) {
         val graph = navController.navInflater.inflate(graphResId).apply {
             setStartDestination(startDestId)
@@ -86,7 +105,7 @@ object NavigationUtil {
 
     fun hasBackStackEntry(
         navController: NavController,
-        @IdRes destinationId: Int
+        @IdRes destinationId: Int,
     ) = runCatching {
         navController.getBackStackEntry(destinationId)
     }.isSuccess
