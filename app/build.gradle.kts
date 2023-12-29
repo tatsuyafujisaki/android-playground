@@ -106,7 +106,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.material3)
     implementation(libs.media3.exoplayer)
-    implementation(libs.moshi.kotlin)
     implementation(libs.navigation.compose)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
