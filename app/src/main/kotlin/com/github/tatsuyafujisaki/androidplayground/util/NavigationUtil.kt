@@ -7,42 +7,94 @@ import androidx.annotation.NavigationRes
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.fragment.NavHostFragment
 
 object NavigationUtil {
-    /**
-     * Prints a breadcrumb of the navigation stack, not for Navigation Compose.
-     */
-    fun printBreadcrumb(navController: NavController) {
-        Log.d("Breadcrumb", navController
-            .currentBackStack
-            .value
-            .map {
-                it.destination
-            }
-            .filterNot {
-                it is NavGraph
-            }
-            .joinToString(" > ") {
-                it.displayName.split('/')[1]
-            }
-        )
-    }
+    object NavigationController {
 
-    /**
-     * Prints a breadcrumb of the navigation stack for Navigation Compose.
-     */
-    fun printComposeBreadcrumb(navController: NavController) {
-        Log.d(
-            "Breadcrumb",
-            navController
+        /**
+         * Prints a breadcrumb of the navigation stack, not for Navigation Compose.
+         */
+        fun printBreadcrumb(navController: NavController) {
+            Log.d("Breadcrumb", navController
                 .currentBackStack
                 .value
                 .map {
-                    it.destination.route
+                    it.destination
                 }
-                .joinToString(" > ")
-        )
+                .filterNot {
+                    it is NavGraph
+                }
+                .joinToString(" > ") {
+                    it.displayName.split('/')[1]
+                }
+            )
+        }
+
+        /**
+         * Prints a breadcrumb of the navigation stack for Navigation Compose.
+         */
+        fun printComposeBreadcrumb(navController: NavController) {
+            Log.d(
+                "Breadcrumb",
+                navController
+                    .currentBackStack
+                    .value
+                    .map {
+                        it.destination.route
+                    }
+                    .joinToString(" > ")
+            )
+        }
+
+        fun printStartDestination(navController: NavController) =
+            Log.d("StartDestination", navController.graph.findStartDestination().id.toString())
+
+        fun canNavigateUp(navController: NavController) = with(navController) {
+            graph.startDestinationId != currentDestination?.id
+        }
+
+        fun hasBackStackEntry(
+            navController: NavController,
+            @IdRes destinationId: Int,
+        ) = runCatching {
+            navController.getBackStackEntry(destinationId)
+        }.isSuccess
+
+        fun setNavGraphIfAbsent(
+            navController: NavController,
+            @NavigationRes graphResId: Int,
+            startDestinationArgs: Bundle?,
+        ) {
+            if (navController.currentDestination != null) return
+            if (startDestinationArgs != null) {
+                navController.setGraph(graphResId, startDestinationArgs)
+            } else {
+                navController.setGraph(graphResId)
+            }
+        }
+
+        fun setGraphWithStartDestination(
+            navController: NavController,
+            @NavigationRes graphResId: Int,
+            @IdRes startDestId: Int,
+        ) {
+            navController.graph = navController.navInflater.inflate(graphResId).apply {
+                setStartDestination(startDestId)
+            }
+        }
+
+        fun setGraphWithStartDestinationAndArgs(
+            navController: NavController,
+            @NavigationRes graphResId: Int,
+            @IdRes startDestId: Int,
+        ) {
+            val graph = navController.navInflater.inflate(graphResId).apply {
+                setStartDestination(startDestId)
+            }
+            // navController.setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
+        }
     }
 
     /**
@@ -64,49 +116,4 @@ object NavigationUtil {
      */
     fun getFragmentInViewPager2(navHostFragment: NavHostFragment) =
         getViewPager2Fragment(navHostFragment)?.childFragmentManager?.fragments?.first()
-
-    fun canNavigateUp(navController: NavController) = with(navController) {
-        graph.startDestinationId != currentDestination?.id
-    }
-
-    fun setNavGraphIfAbsent(
-        navController: NavController,
-        @NavigationRes graphResId: Int,
-        startDestinationArgs: Bundle?,
-    ) {
-        if (navController.currentDestination != null) return
-        if (startDestinationArgs != null) {
-            navController.setGraph(graphResId, startDestinationArgs)
-        } else {
-            navController.setGraph(graphResId)
-        }
-    }
-
-    fun setGraphWithStartDestination(
-        navController: NavController,
-        @NavigationRes graphResId: Int,
-        @IdRes startDestId: Int,
-    ) {
-        navController.graph = navController.navInflater.inflate(graphResId).apply {
-            setStartDestination(startDestId)
-        }
-    }
-
-    fun setGraphWithStartDestinationAndArgs(
-        navController: NavController,
-        @NavigationRes graphResId: Int,
-        @IdRes startDestId: Int,
-    ) {
-        val graph = navController.navInflater.inflate(graphResId).apply {
-            setStartDestination(startDestId)
-        }
-        // navController.setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
-    }
-
-    fun hasBackStackEntry(
-        navController: NavController,
-        @IdRes destinationId: Int,
-    ) = runCatching {
-        navController.getBackStackEntry(destinationId)
-    }.isSuccess
 }
