@@ -48,8 +48,11 @@ object NavigationUtil {
             )
         }
 
-        fun printStartDestination(navController: NavController) =
-            Log.d("StartDestination", navController.graph.findStartDestination().id.toString())
+        fun printStartDestinationRoute(navController: NavController) =
+            Log.d(
+                "StartDestinationRoute",
+                navController.graph.findStartDestination().route.toString()
+            )
 
         fun canNavigateUp(navController: NavController) = with(navController) {
             graph.startDestinationId != currentDestination?.id
