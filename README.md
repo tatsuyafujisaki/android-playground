@@ -329,6 +329,10 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 
 [fragment.md](markdown/fragment.md)
 
+# Hilt
+
+[hilt.md](markdown/hilt.md)
+
 # Jetpack Compose
 
 [jetpack-compose.md](markdown/jetpack-compose.md)
