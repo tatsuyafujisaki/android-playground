@@ -25,7 +25,6 @@ allprojects {
         // https://github.com/JLLeitschuh/ktlint-gradle/blob/main/plugin/src/main/kotlin/org/jlleitschuh/gradle/ktlint/KtlintExtension.kt
         configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
             android.set(true)
-            disabledRules.set(setOf("max-line-length"))
         }
     }
 }
