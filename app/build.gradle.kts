@@ -7,6 +7,8 @@ plugins {
     id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
     id(libs.plugins.google.services.get().pluginId)
     id(libs.plugins.oss.licenses.plugin.get().pluginId)
+//    id(libs.plugins.protobuf.get().pluginId)
+    id("com.google.protobuf") version "0.9.4" // https://github.com/google/protobuf-gradle-plugin
 }
 
 android {
@@ -119,7 +121,7 @@ dependencies {
     implementation(libs.paging.compose)
     implementation(libs.play.core.ktx)
     implementation(libs.play.services.oss.licenses)
-    implementation(libs.protobuf.kotlin)
+    implementation(libs.protobuf.kotlin.lite)
     implementation(libs.recyclerview)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.room.ktx)
@@ -138,4 +140,22 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.room.testing)
     testImplementation(libs.test.core.ktx)
+}
+
+protobuf {
+    protoc {
+        artifact = libs.protobuf.protoc.get().toString()
+    }
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                register("java") {
+                    option("lite")
+                }
+                register("kotlin") {
+                    option("lite")
+                }
+            }
+        }
+    }
 }
