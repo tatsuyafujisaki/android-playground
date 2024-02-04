@@ -117,7 +117,6 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.room.ktx)
-    implementation(libs.runtime.livedata)
     implementation(libs.rxandroid)
     implementation(libs.rxjava)
     implementation(libs.ui.tooling)
