@@ -10,6 +10,7 @@ buildscript {
         classpath(libs.kotlin.gradle.plugin)
         classpath(libs.navigation.safe.args.gradle.plugin)
         classpath(libs.oss.licenses.plugin)
+        classpath(libs.protobuf.gradle.plugin)
     }
 }
 
