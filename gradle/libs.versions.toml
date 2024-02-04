@@ -29,7 +29,7 @@ mockito = "5.2.1"
 navigation = "2.7.6"
 okhttp = "4.12.0"
 oss-licenses-plugin = "0.10.6" # https://github.com/google/play-services-plugins/releases
-paging = "3.2.1"
+paging = "3.2.1" # https://developer.android.com/jetpack/androidx/releases/paging
 play-core = "1.8.1"
 play-services-oss-licenses = "17.0.1"
 preference = "1.2.1"
@@ -96,7 +96,7 @@ navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "na
 navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
 okhttp-urlconnection = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttp" } # for CookieJar
 oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-licenses-plugin", version.ref = "oss-licenses-plugin" }
-paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging" }
+paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
 play-core-ktx = { group = "com.google.android.play", name = "core-ktx", version.ref = "play-core" }
 play-services-oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "play-services-oss-licenses" }
 preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "preference" }
