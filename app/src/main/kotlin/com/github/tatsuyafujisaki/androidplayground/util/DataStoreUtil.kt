@@ -1,11 +1,14 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.Context
+import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
-import com.github.tatsuyafujisaki.androidplayground.data.dataStore
+import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore("")
 
 object DataStoreUtil {
     suspend fun <T> get(context: Context, key: Preferences.Key<T>, defaultValue: T) =
