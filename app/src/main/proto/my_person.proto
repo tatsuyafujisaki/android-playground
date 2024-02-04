@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+option java_package = "com.github.tatsuyafujisaki.androidplayground";
+option java_multiple_files = true;
+
 message MyPerson {
   string name = 1;
   int32 age = 2;

@@ -1,12 +1,12 @@
 package com.github.tatsuyafujisaki.androidplayground.util.datastore
 
-import MyPersonOuterClass.MyPerson
 import android.content.Context
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.Serializer
 import androidx.datastore.dataStore
 import androidx.datastore.preferences.protobuf.InvalidProtocolBufferException
+import com.github.tatsuyafujisaki.androidplayground.MyPerson
 import java.io.InputStream
 import java.io.OutputStream
 
@@ -28,6 +28,6 @@ object MyPersonSerializer : Serializer<MyPerson> {
 }
 
 val Context.myPersonDataStore: DataStore<MyPerson> by dataStore(
-    fileName = "my_person.pb",
+    fileName = "my_person.proto",
     serializer = MyPersonSerializer
 )
