@@ -119,6 +119,7 @@ dependencies {
     implementation(libs.paging.compose)
     implementation(libs.play.core.ktx)
     implementation(libs.play.services.oss.licenses)
+    implementation(libs.protobuf.kotlin)
     implementation(libs.recyclerview)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.room.ktx)
