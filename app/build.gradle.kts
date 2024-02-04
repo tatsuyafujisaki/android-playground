@@ -7,8 +7,7 @@ plugins {
     id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
     id(libs.plugins.google.services.get().pluginId)
     id(libs.plugins.oss.licenses.plugin.get().pluginId)
-//    id(libs.plugins.protobuf.get().pluginId)
-    id("com.google.protobuf") version "0.9.4" // https://github.com/google/protobuf-gradle-plugin
+    alias(libs.plugins.protobuf)
 }
 
 android {
