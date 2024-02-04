@@ -46,28 +46,30 @@ object OkHttpUtil {
         })
 
     fun OkHttpClient.Builder.addCookieJar() = apply {
-        cookieJar(object : CookieJar {
-            // Set cookies in CookieManger to HTTP requests
-            override fun loadForRequest(url: HttpUrl): List<Cookie> =
-                CookieManager.getInstance().getCookie(url.toString())?.split(';')?.filter {
-                    isKeyOfInterest(it.split('=').firstOrNull()?.trim())
-                }?.mapNotNull {
-                    Cookie.parse(url.baseUrl, it.trim() /* key=value */)
-                }.orEmpty()
 
-            // Save cookies in HTTP responses to CookieManger
-            override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
-                cookies.filter {
-                    isKeyOfInterest(it.name)
-                }.forEach {
-                    CookieManager.getInstance().setCookie(url.host, "${it.name}=${it.value}")
+        cookieJar(
+            object : CookieJar {
+                // Set cookies from CookieManger to HTTP requests.
+                override fun loadForRequest(url: HttpUrl) =
+                    CookieManager
+                        .getInstance()
+                        .getCookie(url.toString())
+                        ?.split(';')
+                        ?.mapNotNull {
+                            Cookie.parse(url.baseUrl, it.trim() /* key=value */)
+                        }.orEmpty()
+
+                // Store cookies from HTTP responses in CookieManager.
+                override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
+                    cookies.forEach {
+                        CookieManager
+                            .getInstance()
+                            .setCookie(url.host, "${it.name}=${it.value}")
+                    }
                 }
-            }
-        })
+            },
+        )
     }
-
-    private fun isKeyOfInterest(cookieKey: String?) =
-        setOf("SampleCookieKey1", "SampleCookieKey1").contains(cookieKey)
 
     val HttpUrl.baseUrl get() = HttpUrl.Builder().scheme(scheme).host(host).build()
 }
