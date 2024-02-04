@@ -11,7 +11,7 @@ import java.io.InputStream
 import java.io.OutputStream
 
 object MyPersonSerializer : Serializer<MyPerson> {
-    override val defaultValue = MyPerson.getDefaultInstance()
+    override val defaultValue: MyPerson = MyPerson.getDefaultInstance()
 
     override suspend fun readFrom(input: InputStream): MyPerson {
         try {
