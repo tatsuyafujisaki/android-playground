@@ -67,11 +67,6 @@ android {
 }
 
 dependencies {
-    /**
-     * > Dependency on the standard library added by default
-     * https://kotlinlang.org/docs/whatsnew14.html#dependency-on-the-standard-library-added-by-default
-     */
-
     // https://developer.android.com/jetpack/compose/setup
     implementation(platform(libs.compose.bom))
     debugImplementation(libs.fragment.testing)
