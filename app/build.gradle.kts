@@ -93,7 +93,6 @@ dependencies {
     implementation(libs.constraintlayout.compose)
     implementation(libs.constraintlayout)
     implementation(libs.coordinatorlayout)
-    implementation(libs.core.ktx)
     implementation(libs.datastore.preferences)
     implementation(libs.datastore)
     implementation(libs.firebase.messaging)

@@ -10,7 +10,6 @@ compose-compiler = "1.5.8" # https://developer.android.com/jetpack/androidx/rele
 constraintlayout = "2.1.4" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 constraintlayout-compose = "1.0.1" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 coordinatorlayout = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
-core-ktx = "1.12.0" # https://developer.android.com/jetpack/androidx/releases/core
 coroutines = "1.7.3" # https://github.com/Kotlin/kotlinx.coroutines/releases
 datastore = "1.0.0" # https://developer.android.com/jetpack/androidx/releases/datastore
 espresso = "3.5.1" # https://developer.android.com/jetpack/androidx/releases/test
@@ -57,7 +56,6 @@ compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = 
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout-compose" }
 coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espresso" }
