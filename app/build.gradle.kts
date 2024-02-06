@@ -96,6 +96,8 @@ dependencies {
     implementation(libs.coordinatorlayout)
     implementation(libs.datastore.preferences)
     implementation(libs.datastore)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.config)
     implementation(libs.firebase.messaging)
     implementation(libs.foundation)
     implementation(libs.fragment.ktx)
