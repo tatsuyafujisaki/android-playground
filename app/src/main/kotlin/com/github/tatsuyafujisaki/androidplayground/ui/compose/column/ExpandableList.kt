@@ -19,7 +19,6 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -43,7 +42,7 @@ data class MyData(
 @Composable
 fun ExpandableList(
     items: List<MyData>,
-    collapsedContent: @Composable ColumnScope.(MyData, Float, Boolean, () -> Unit) -> Unit,
+    collapsedListItemContent: @Composable ColumnScope.(MyData, Float) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(MyData) -> Unit,
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -53,12 +52,11 @@ fun ExpandableList(
                 targetValue = if (isExpanded) 180f else 0f,
                 label = "",
             )
-            val onExpansionChange = { isExpanded = !isExpanded }
             ExpandableListItem(
                 isExpanded = isExpanded,
-                onExpansionChange = onExpansionChange,
+                onExpansionChange = { isExpanded = !isExpanded },
                 collapsedContent = {
-                    collapsedContent(item, iconDegrees, isExpanded, onExpansionChange)
+                    collapsedListItemContent(item, iconDegrees)
                 },
                 expandedContent = { expandedListItemContent(item) },
             )
@@ -103,9 +101,9 @@ private fun ExpandableListPreview() {
                 body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             )
         },
-        collapsedContent = { item, iconDegrees, isExpanded, onExpansionChange ->
+        collapsedListItemContent = { item, iconDegrees ->
             Row(
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                modifier = Modifier.padding(all = 16.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
@@ -114,16 +112,12 @@ private fun ExpandableListPreview() {
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
                 )
-                IconButton(
+                Image(
+                    // Requires androidx.compose.material:material-icons-extended.
+                    imageVector = Icons.Default.ExpandMore,
+                    contentDescription = null,
                     modifier = Modifier.rotate(iconDegrees),
-                    onClick = onExpansionChange,
-                ) {
-                    Image(
-                        // Requires androidx.compose.material:material-icons-extended.
-                        imageVector = Icons.Default.ExpandMore,
-                        contentDescription = null,
-                    )
-                }
+                )
             }
         },
         expandedListItemContent = {
