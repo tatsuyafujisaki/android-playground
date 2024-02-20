@@ -3,6 +3,9 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowColumn
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -11,8 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.flowlayout.FlowColumn
-import com.google.accompanist.flowlayout.FlowRow
 
 @Composable
 private fun SampleContent() {
@@ -20,7 +21,7 @@ private fun SampleContent() {
         Box(
             modifier = Modifier
                 .size(64.dp)
-                .background(Color.Blue)
+                .background(Color.LightGray)
                 .border(2.dp, Color.DarkGray),
             contentAlignment = Alignment.Center
         ) {
@@ -29,6 +30,7 @@ private fun SampleContent() {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Preview
 @Composable
 fun FlowRowPreview() {
@@ -37,6 +39,7 @@ fun FlowRowPreview() {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Preview
 @Composable
 fun FlowColumnPreview() {
