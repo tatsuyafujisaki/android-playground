@@ -125,7 +125,7 @@ private fun ExpandableListPreview() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(color = Color.LightGray)
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                    .padding(all = 16.dp),
             ) {
                 Text(
                     text = it.body,
