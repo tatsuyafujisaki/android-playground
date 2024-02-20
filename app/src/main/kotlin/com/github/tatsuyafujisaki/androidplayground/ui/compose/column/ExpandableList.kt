@@ -40,23 +40,16 @@ data class MyData(
 )
 
 @Composable
-fun ExpandableList(items: List<MyData>) {
+fun ExpandableList(
+    items: List<MyData>,
+    listItemContent: @Composable AnimatedVisibilityScope.(MyData) -> Unit,
+) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         itemsIndexed(items = items) { index, item ->
             ExpandableListItem(
                 title = item.title,
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(color = Color.LightGray)
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                ) {
-                    Text(
-                        text = item.body,
-                    )
-                }
-            }
+                content = { listItemContent(item) },
+            )
             if (index < items.lastIndex) {
                 HorizontalDivider()
             }
@@ -122,5 +115,16 @@ private fun ExpandableListPreview() {
                 body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             )
         },
-    )
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Color.LightGray)
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+        ) {
+            Text(
+                text = it.body,
+            )
+        }
+    }
 }
