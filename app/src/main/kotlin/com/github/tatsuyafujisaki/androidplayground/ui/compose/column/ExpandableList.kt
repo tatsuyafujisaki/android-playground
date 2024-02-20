@@ -48,7 +48,7 @@ fun ExpandableList(
         itemsIndexed(items = items) { index, item ->
             ExpandableListItem(
                 title = item.title,
-                content = { expandedListItemContent(item) },
+                expandedContent = { expandedListItemContent(item) },
             )
             if (index < items.lastIndex) {
                 HorizontalDivider()
@@ -60,7 +60,7 @@ fun ExpandableList(
 @Composable
 private fun ExpandableListItem(
     title: String,
-    content: @Composable AnimatedVisibilityScope.() -> Unit,
+    expandedContent: @Composable AnimatedVisibilityScope.() -> Unit,
 ) {
     var isExpanded by remember { mutableStateOf(false) }
     val iconDegrees by animateFloatAsState(
@@ -100,7 +100,7 @@ private fun ExpandableListItem(
                     )
                 }
             }
-            AnimatedVisibility(visible = isExpanded, content = content)
+            AnimatedVisibility(visible = isExpanded, content = expandedContent)
         }
     }
 }
