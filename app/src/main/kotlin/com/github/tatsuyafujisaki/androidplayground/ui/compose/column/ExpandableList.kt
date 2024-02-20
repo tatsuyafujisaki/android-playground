@@ -40,10 +40,10 @@ data class MyData(
 )
 
 @Composable
-fun ExpandableList(
-    items: List<MyData>,
-    collapsedListItemContent: @Composable ColumnScope.(MyData, Boolean) -> Unit,
-    expandedListItemContent: @Composable AnimatedVisibilityScope.(MyData) -> Unit,
+fun <T> ExpandableList(
+    items: List<T>,
+    collapsedListItemContent: @Composable ColumnScope.(T, Boolean) -> Unit,
+    expandedListItemContent: @Composable AnimatedVisibilityScope.(T) -> Unit,
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         itemsIndexed(items = items) { index, item ->
