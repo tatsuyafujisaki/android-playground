@@ -9,6 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -46,8 +47,37 @@ fun ExpandableList(
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         itemsIndexed(items = items) { index, item ->
+            var isExpanded by remember { mutableStateOf(false) }
+            val iconDegrees by animateFloatAsState(
+                targetValue = if (isExpanded) 180f else 0f,
+                label = "",
+            )
             ExpandableListItem(
-                title = item.title,
+                isExpanded = isExpanded,
+                onExpansionChange = { isExpanded = !isExpanded },
+                collapsedContent = {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = item.title,
+                            modifier = Modifier.weight(1f),
+                            overflow = TextOverflow.Ellipsis,
+                            maxLines = 1,
+                        )
+                        IconButton(
+                            modifier = Modifier.rotate(iconDegrees),
+                            onClick = { isExpanded = !isExpanded },
+                        ) {
+                            Image(
+                                // Requires androidx.compose.material:material-icons-extended.
+                                imageVector = Icons.Default.ExpandMore,
+                                contentDescription = null,
+                            )
+                        }
+                    }
+                },
                 expandedContent = { expandedListItemContent(item) },
             )
             if (index < items.lastIndex) {
@@ -59,14 +89,11 @@ fun ExpandableList(
 
 @Composable
 private fun ExpandableListItem(
-    title: String,
+    isExpanded: Boolean,
+    onExpansionChange: () -> Unit = {},
+    collapsedContent: @Composable ColumnScope.() -> Unit,
     expandedContent: @Composable AnimatedVisibilityScope.() -> Unit,
 ) {
-    var isExpanded by remember { mutableStateOf(false) }
-    val iconDegrees by animateFloatAsState(
-        targetValue = if (isExpanded) 180f else 0f,
-        label = "",
-    )
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -74,32 +101,11 @@ private fun ExpandableListItem(
                 // Disables a touch ripple.
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null,
-            ) {
-                isExpanded = !isExpanded
-            },
+                onClick = onExpansionChange,
+            ),
     ) {
         Column(modifier = Modifier.fillMaxWidth()) {
-            Row(
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = title,
-                    modifier = Modifier.weight(1f),
-                    overflow = TextOverflow.Ellipsis,
-                    maxLines = 1,
-                )
-                IconButton(
-                    modifier = Modifier.rotate(iconDegrees),
-                    onClick = { isExpanded = !isExpanded },
-                ) {
-                    Image(
-                        // Requires androidx.compose.material:material-icons-extended.
-                        imageVector = Icons.Default.ExpandMore,
-                        contentDescription = null,
-                    )
-                }
-            }
+            collapsedContent()
             AnimatedVisibility(visible = isExpanded, content = expandedContent)
         }
     }
