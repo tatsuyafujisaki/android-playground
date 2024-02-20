@@ -42,21 +42,17 @@ data class MyData(
 @Composable
 fun ExpandableList(
     items: List<MyData>,
-    collapsedListItemContent: @Composable ColumnScope.(MyData, Float) -> Unit,
+    collapsedListItemContent: @Composable ColumnScope.(MyData, Boolean) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(MyData) -> Unit,
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         itemsIndexed(items = items) { index, item ->
             var isExpanded by remember { mutableStateOf(false) }
-            val iconDegrees by animateFloatAsState(
-                targetValue = if (isExpanded) 180f else 0f,
-                label = "",
-            )
             ExpandableListItem(
                 isExpanded = isExpanded,
                 onExpansionChange = { isExpanded = !isExpanded },
                 collapsedContent = {
-                    collapsedListItemContent(item, iconDegrees)
+                    collapsedListItemContent(item, isExpanded)
                 },
                 expandedContent = { expandedListItemContent(item) },
             )
@@ -101,7 +97,11 @@ private fun ExpandableListPreview() {
                 body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             )
         },
-        collapsedListItemContent = { item, iconDegrees ->
+        collapsedListItemContent = { item, isExpanded ->
+            val iconDegrees by animateFloatAsState(
+                targetValue = if (isExpanded) 180f else 0f,
+                label = "",
+            )
             Row(
                 modifier = Modifier.padding(all = 16.dp),
                 verticalAlignment = Alignment.CenterVertically,
