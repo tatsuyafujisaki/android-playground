@@ -43,6 +43,7 @@ data class MyData(
 @Composable
 fun ExpandableList(
     items: List<MyData>,
+    collapsedContent: @Composable ColumnScope.(MyData, Float, Boolean, () -> Unit) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(MyData) -> Unit,
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -52,31 +53,12 @@ fun ExpandableList(
                 targetValue = if (isExpanded) 180f else 0f,
                 label = "",
             )
+            val onExpansionChange = { isExpanded = !isExpanded }
             ExpandableListItem(
                 isExpanded = isExpanded,
-                onExpansionChange = { isExpanded = !isExpanded },
+                onExpansionChange = onExpansionChange,
                 collapsedContent = {
-                    Row(
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Text(
-                            text = item.title,
-                            modifier = Modifier.weight(1f),
-                            overflow = TextOverflow.Ellipsis,
-                            maxLines = 1,
-                        )
-                        IconButton(
-                            modifier = Modifier.rotate(iconDegrees),
-                            onClick = { isExpanded = !isExpanded },
-                        ) {
-                            Image(
-                                // Requires androidx.compose.material:material-icons-extended.
-                                imageVector = Icons.Default.ExpandMore,
-                                contentDescription = null,
-                            )
-                        }
-                    }
+                    collapsedContent(item, iconDegrees, isExpanded, onExpansionChange)
                 },
                 expandedContent = { expandedListItemContent(item) },
             )
@@ -120,6 +102,29 @@ private fun ExpandableListPreview() {
                 title = "Title $it",
                 body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             )
+        },
+        collapsedContent = { item, iconDegrees, isExpanded, onExpansionChange ->
+            Row(
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = item.title,
+                    modifier = Modifier.weight(1f),
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                )
+                IconButton(
+                    modifier = Modifier.rotate(iconDegrees),
+                    onClick = onExpansionChange,
+                ) {
+                    Image(
+                        // Requires androidx.compose.material:material-icons-extended.
+                        imageVector = Icons.Default.ExpandMore,
+                        contentDescription = null,
+                    )
+                }
+            }
         },
         expandedListItemContent = {
             Box(
