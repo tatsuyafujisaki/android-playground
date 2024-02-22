@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -45,7 +44,7 @@ fun <T> ExpandableList(
     collapsedListItemContent: @Composable ColumnScope.(T, Boolean) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(T) -> Unit,
 ) {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
+    LazyColumn(modifier = Modifier.fillMaxWidth()) {
         itemsIndexed(items = items) { index, item ->
             var isExpanded by remember { mutableStateOf(false) }
             ExpandableListItem(
