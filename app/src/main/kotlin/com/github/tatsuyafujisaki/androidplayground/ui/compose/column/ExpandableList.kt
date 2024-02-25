@@ -69,7 +69,7 @@ private fun ExpandableListItem(
     collapsedContent: @Composable ColumnScope.() -> Unit,
     expandedContent: @Composable AnimatedVisibilityScope.() -> Unit,
 ) {
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(
@@ -79,10 +79,8 @@ private fun ExpandableListItem(
                 onClick = onExpansionChange,
             ),
     ) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            collapsedContent()
-            AnimatedVisibility(visible = isExpanded, content = expandedContent)
-        }
+        collapsedContent()
+        AnimatedVisibility(visible = isExpanded, content = expandedContent)
     }
 }
 
