@@ -9,7 +9,6 @@
 - https://developer.android.com/topic/architecture/recommendations
 - https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
 - https://developer.android.com/training/data-storage/use-cases
-- https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
 
 ## How to show the root project's dependencies
 
