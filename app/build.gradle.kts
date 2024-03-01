@@ -69,12 +69,6 @@ android {
 
 dependencies {
     androidTestImplementation(kotlin("test"))
-    androidTestImplementation(libs.espresso.contrib)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(libs.espresso.idling.resource)
-    androidTestImplementation(libs.espresso.intents)
-    androidTestImplementation(libs.espresso.web)
-    androidTestImplementation(libs.idling.concurrent)
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.rules)
     androidTestImplementation(libs.runner)
