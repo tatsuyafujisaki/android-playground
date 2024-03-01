@@ -1,19 +1,19 @@
 [versions]
-accompanist = "0.32.0" # https://github.com/google/accompanist/releases
+accompanist = "0.34.0" # https://github.com/google/accompanist/releases
 activity = "1.8.2" # https://developer.android.com/jetpack/androidx/releases/activity
-android-gradle-plugin = "8.2.2" # https://developer.android.com/build/releases/gradle-plugin
+android-gradle-plugin = "8.3.0" # https://developer.android.com/build/releases/gradle-plugin
 appcompat = "1.6.1" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "2.6.0" # https://github.com/coil-kt/coil/releases
 compile-target-sdk = "34"
 compose-bom = "2024.02.01" # https://developer.android.com/jetpack/compose/bom/bom-mapping
-compose-compiler = "1.5.8" # https://developer.android.com/jetpack/androidx/releases/compose-compiler
+compose-compiler = "1.5.10" # https://developer.android.com/jetpack/androidx/releases/compose-compiler
 constraintlayout = "2.1.4" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 constraintlayout-compose = "1.0.1" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 coordinatorlayout = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
 coroutines = "1.8.0" # https://github.com/Kotlin/kotlinx.coroutines/releases
 datastore = "1.0.0" # https://developer.android.com/jetpack/androidx/releases/datastore
 espresso = "3.5.1" # https://developer.android.com/jetpack/androidx/releases/test
-firebase-bom = "32.7.2" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
+firebase-bom = "32.7.3" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
 fragment = "1.6.2" # https://developer.android.com/jetpack/androidx/releases/fragment
 google-services = "4.4.1"
 hilt = "2.50" # https://github.com/google/dagger/releases
