@@ -91,7 +91,7 @@ private fun ExpandableListPreview() {
         items = List(10) {
             MyData(
                 title = "Title $it",
-                body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                body = "Once when I was six years old I saw a magnificent picture in a book, called True Stories from Nature, about the primeval forest.",
             )
         },
         collapsedListItemContent = { item, isExpanded ->
