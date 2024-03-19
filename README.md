@@ -115,11 +115,11 @@ task clean(type: Delete) {
 }
 ```
 
-# Predefined ColorRes from Android SDK
+# Predefined color resources in Android SDK
 
 https://developer.android.com/reference/kotlin/android/R.color
 
-# Predefined string resources from Android SDK
+# Predefined string resources in Android SDK
 
 https://developer.android.com/reference/kotlin/android/R.string
 
