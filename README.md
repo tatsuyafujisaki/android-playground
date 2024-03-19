@@ -53,13 +53,24 @@
 ./gradlew help --task app:dependencyInsight
 ```
 
-## How to build your app with all the build variants
+## How to build a debug APK
 ```shell
+# Build with the product flavor "foo" and the build type "debug"
+./gradlew assembleFooDebug
+```
+```shell
+# Build with all the build variants
 ./gradlew build
 ```
+https://developer.android.com/build/building-cmdline#DebugMode
 
-## How to install your app with all the build variants
+## How to install a debug APK
 ```shell
+# Install with the product flavor "foo" and the build type "debug"
+./gradlew installFooDebug
+```
+```shell
+# Install with all the build variants
 ./gradlew install
 ```
 
