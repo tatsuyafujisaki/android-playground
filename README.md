@@ -88,7 +88,7 @@ https://developer.android.com/build/building-cmdline#DebugMode
 ./gradlew connectedAndroidTest
 
 # Alternatively
-# https://docs.gradle.org/current/userguide/command_line_interface.html#task_name_abbreviation
+# https://docs.gradle.org/current/userguide/command_line_interface.html#sec:name_abbreviation
 ./gradlew cAT
 ```
 
