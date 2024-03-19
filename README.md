@@ -1,7 +1,6 @@
 # Style guides
 - https://developer.android.com/kotlin/style-guide
 - https://kotlinlang.org/docs/coding-conventions.html
-- https://twitter.github.io/compose-rules/
 
 # Best practices
 - https://developer.android.com/jetpack/compose/performance/bestpractices
@@ -60,7 +59,7 @@
 ```
 ```shell
 # Build with all the build variants
-./gradlew build
+./gradlew assemble
 ```
 https://developer.android.com/build/building-cmdline#DebugMode
 
