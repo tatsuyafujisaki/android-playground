@@ -1,6 +1,8 @@
 # Style guides
 - https://developer.android.com/kotlin/style-guide
 - https://kotlinlang.org/docs/coding-conventions.html
+- Use case naming conventions (in a guide)
+  - https://developer.android.com/topic/architecture/domain-layer#conventions
 
 # Best practices
 - https://developer.android.com/jetpack/compose/performance/bestpractices
