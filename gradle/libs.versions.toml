@@ -1,5 +1,4 @@
 [versions]
-accompanist = "0.34.0" # https://github.com/google/accompanist/releases
 activity = "1.8.2" # https://developer.android.com/jetpack/androidx/releases/activity
 android-gradle-plugin = "8.3.1" # https://developer.android.com/build/releases/gradle-plugin
 appcompat = "1.6.1" # https://developer.android.com/jetpack/androidx/releases/appcompat
@@ -45,8 +44,6 @@ test-runner = "1.5.2" # https://developer.android.com/jetpack/androidx/releases/
 viewpager2 = "1.0.0" # https://developer.android.com/jetpack/androidx/releases/viewpager2
 
 [libraries]
-accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
-accompanist-placeholder-material3 = { group = "com.google.accompanist", name = "accompanist-placeholder-material3", version.ref = "accompanist" }
 activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }

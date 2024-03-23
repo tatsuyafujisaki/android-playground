@@ -78,8 +78,6 @@ dependencies {
     debugImplementation(libs.fragment.testing)
     debugImplementation(libs.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
-    implementation(libs.accompanist.flowlayout)
-    implementation(libs.accompanist.placeholder.material3)
     implementation(libs.activity.compose)
     implementation(libs.activity)
     implementation(libs.animation)
