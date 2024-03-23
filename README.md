@@ -369,6 +369,10 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 
 [resources.md](markdown/resources.md)
 
+# Retrofit
+
+[retrofit.md](markdown/retrofit.md)
+
 # Glossary / Vocabulary / Terminology
 
 [terminology.md](markdown/terminology.md)
