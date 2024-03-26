@@ -56,19 +56,19 @@
 
 ## How to build a debug APK
 ```shell
-# Build with the product flavor "foo" and the build type "debug"
-./gradlew assembleFooDebug
+# Build the app module with the product flavor "foo" and the build type "debug"
+./gradlew app:assembleFooDebug
 ```
 ```shell
-# Build with all the build variants
+# Build all the modules with all the build variants
 ./gradlew assemble
 ```
 https://developer.android.com/build/building-cmdline#DebugMode
 
 ## How to install a debug APK
 ```shell
-# Install with the product flavor "foo" and the build type "debug"
-./gradlew installFooDebug
+# Install the app module with the product flavor "foo" and the build type "debug"
+./gradlew app:installFooDebug
 ```
 ```shell
 # Install with all the build variants
