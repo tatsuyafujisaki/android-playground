@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandMore
@@ -43,13 +44,18 @@ fun <T> ExpandableList(
     items: List<T>,
     collapsedListItemContent: @Composable ColumnScope.(T, Boolean) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(T) -> Unit,
+    onExpansionChange: (T, Boolean) -> Unit = { _, _ -> },
+    bottomItemContent: @Composable LazyItemScope.() -> Unit = {},
 ) {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
         itemsIndexed(items = items) { index, item ->
             var isExpanded by remember { mutableStateOf(false) }
             ExpandableListItem(
                 isExpanded = isExpanded,
-                onExpansionChange = { isExpanded = !isExpanded },
+                onExpansionChange = {
+                    onExpansionChange(item, isExpanded)
+                    isExpanded = !isExpanded
+                },
                 collapsedContent = {
                     collapsedListItemContent(item, isExpanded)
                 },
@@ -59,6 +65,7 @@ fun <T> ExpandableList(
                 HorizontalDivider()
             }
         }
+        item(content = bottomItemContent)
     }
 }
 
@@ -128,6 +135,6 @@ private fun ExpandableListPreview() {
                     text = it.body,
                 )
             }
-        }
+        },
     )
 }
