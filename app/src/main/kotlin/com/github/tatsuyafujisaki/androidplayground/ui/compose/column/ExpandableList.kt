@@ -44,8 +44,8 @@ fun <T> ExpandableList(
     items: List<T>,
     collapsedListItemContent: @Composable ColumnScope.(T, Boolean) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(T) -> Unit,
-    onExpansionChange: (T, Boolean) -> Unit = { _, _ -> },
     bottomItemContent: @Composable LazyItemScope.() -> Unit = {},
+    onExpansionChange: (T, Boolean) -> Unit = { _, _ -> },
 ) {
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
         itemsIndexed(items = items) { index, item ->
@@ -72,9 +72,9 @@ fun <T> ExpandableList(
 @Composable
 private fun ExpandableListItem(
     isExpanded: Boolean,
-    onExpansionChange: () -> Unit = {},
     collapsedContent: @Composable ColumnScope.() -> Unit,
     expandedContent: @Composable AnimatedVisibilityScope.() -> Unit,
+    onExpansionChange: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
