@@ -35,7 +35,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 
-data class MyData(
+private data class MyData(
     val title: String,
     val body: String,
     var isExpanded: Boolean = false,
