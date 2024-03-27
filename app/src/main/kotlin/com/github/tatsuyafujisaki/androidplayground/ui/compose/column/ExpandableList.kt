@@ -97,12 +97,12 @@ private class LoremIpsum18 : LoremIpsum(words = 18)
 
 @Preview
 @Composable
-private fun ExpandableListPreview(@PreviewParameter(LoremIpsum18::class) text: String) {
+private fun ExpandableListPreview(@PreviewParameter(LoremIpsum18::class) body: String) {
     ExpandableList(
         items = List(10) {
             MyData(
                 title = "Title $it",
-                body = text,
+                body = body,
             )
         },
         collapsedListItemContent = { item, isExpanded ->
