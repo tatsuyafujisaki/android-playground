@@ -46,10 +46,12 @@ fun <T> ExpandableList(
     items: List<T>,
     collapsedListItemContent: @Composable ColumnScope.(T, Boolean) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(T) -> Unit,
+    modifier: Modifier = Modifier,
+    divider: @Composable () -> Unit = {},
     bottomItemContent: @Composable LazyItemScope.() -> Unit = {},
     onExpansionChange: (T, Boolean) -> Unit = { _, _ -> },
 ) {
-    LazyColumn(modifier = Modifier.fillMaxWidth()) {
+    LazyColumn(modifier = modifier.fillMaxWidth()) {
         itemsIndexed(items = items) { index, item ->
             var isExpanded by remember { mutableStateOf(false) }
             ExpandableListItem(
@@ -64,7 +66,7 @@ fun <T> ExpandableList(
                 expandedContent = { expandedListItemContent(item) },
             )
             if (index < items.lastIndex) {
-                HorizontalDivider()
+                divider()
             }
         }
         item(content = bottomItemContent)
@@ -140,5 +142,8 @@ private fun ExpandableListPreview(@PreviewParameter(LoremIpsum18::class) body: S
                 )
             }
         },
+        divider = {
+            HorizontalDivider()
+        }
     )
 }
