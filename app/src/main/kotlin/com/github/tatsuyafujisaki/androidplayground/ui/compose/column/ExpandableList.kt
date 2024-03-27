@@ -31,6 +31,8 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 
 data class MyData(
@@ -91,14 +93,16 @@ private fun ExpandableListItem(
     }
 }
 
+private class LoremIpsum18 : LoremIpsum(words = 18)
+
 @Preview
 @Composable
-private fun ExpandableListPreview() {
+private fun ExpandableListPreview(@PreviewParameter(LoremIpsum18::class) text: String) {
     ExpandableList(
         items = List(10) {
             MyData(
                 title = "Title $it",
-                body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                body = text,
             )
         },
         collapsedListItemContent = { item, isExpanded ->
