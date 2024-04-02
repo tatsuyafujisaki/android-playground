@@ -29,4 +29,10 @@ object StringUtil {
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
         }
+
+    /**
+     * https://developer.android.com/develop/ui/compose/navigation#optional-args
+     */
+    fun createNavigationComposeQueryParameters(vararg args: String) =
+        if (args.isEmpty()) "" else args.joinToString(separator = "&", prefix = "?") { "$it={$it}" }
 }
