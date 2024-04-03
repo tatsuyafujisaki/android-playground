@@ -21,7 +21,7 @@
 ./gradlew androidDependencies
 ```
 
-## How to show the project `app`'s dependencies
+## How to show the `app` module (aka project)'s dependencies
 
 ```shell
 # shows as a tree
@@ -38,13 +38,13 @@
 ./gradlew help --task app:androidDependencies
 ```
 
-## How to show projects on which the project `app` depends
+## How to show projects on which the `app` module (aka project) depends
 
 ```shell
 ./gradlew app:dependencies --configuration implementation | grep '+--- project' | sort
 ```
 
-## How to show where a dependency in the project `app` comes from
+## How to show where a dependency in the `app` module (aka project) comes from
 
 ```shell
 ./gradlew app:dependencyInsight --configuration <buildVariant>CompileClasspath --dependency <group>:<name>
