@@ -116,6 +116,7 @@ dependencies {
     implementation(libs.play.services.oss.licenses)
     implementation(libs.protobuf.kotlin.lite)
     implementation(libs.recyclerview)
+    implementation(platform(libs.retrofit.bom))
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.room.ktx)
     implementation(libs.rxandroid)
