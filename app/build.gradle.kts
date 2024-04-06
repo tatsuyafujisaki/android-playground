@@ -123,7 +123,7 @@ dependencies {
     implementation(libs.rxjava)
     implementation(libs.ui.tooling)
     implementation(libs.viewpager2)
-    implementation(platform(libs.compose.bom)) // https://developer.android.com/jetpack/compose/setup
+    implementation(platform(libs.compose.bom))
     implementation(platform(libs.firebase.bom))
     ksp(libs.hilt.compiler)
     ksp(libs.lifecycle.compiler)
