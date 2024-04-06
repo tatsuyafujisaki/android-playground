@@ -8,7 +8,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshContainer
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -21,14 +20,12 @@ import androidx.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-fun PullToRefreshExample() {
+fun PullToRefreshPreview() {
     var text by remember { mutableStateOf("Hello") }
     val state = rememberPullToRefreshState()
     if (state.isRefreshing) {
-        LaunchedEffect(Unit) {
-            text += text
-            state.endRefresh()
-        }
+        text += text
+        state.endRefresh()
     }
     Box(
         modifier = Modifier
