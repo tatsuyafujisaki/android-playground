@@ -33,7 +33,7 @@ fun PullToRefreshPreview() {
             .fillMaxSize(),
     ) {
         if (!state.isRefreshing) {
-            LazyColumn(Modifier.fillMaxSize()) {
+            LazyColumn(modifier = Modifier.fillMaxSize()) {
                 item {
                     Text(text = text)
                 }
