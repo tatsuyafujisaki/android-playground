@@ -32,19 +32,16 @@ fun PullToRefreshPreview() {
             .nestedScroll(state.nestedScrollConnection)
             .fillMaxSize(),
     ) {
-        LazyColumn(Modifier.fillMaxSize()) {
-            if (!state.isRefreshing) {
+        if (!state.isRefreshing) {
+            LazyColumn(Modifier.fillMaxSize()) {
                 item {
                     Text(text = text)
                 }
             }
         }
-        if (!state.isRefreshing) {
-            Text(text = text)
-        }
         PullToRefreshContainer(
-            modifier = Modifier.align(Alignment.TopCenter),
             state = state,
+            modifier = Modifier.align(Alignment.TopCenter),
         )
     }
 }
