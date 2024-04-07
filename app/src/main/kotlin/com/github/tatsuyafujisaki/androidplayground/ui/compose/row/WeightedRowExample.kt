@@ -10,12 +10,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import com.github.tatsuyafujisaki.androidplayground.data.generateLoremIpsum
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 
 @Preview(showBackground = true)
 @Composable
-fun WeightedRowExample() {
+fun WeightedRowExample(@PreviewParameter(LoremIpsum::class) text: String) {
     Row(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -24,10 +26,11 @@ fun WeightedRowExample() {
             contentDescription = null
         )
         Text(
-            text = generateLoremIpsum(),
+            text = text,
             modifier = Modifier
                 .align(CenterVertically)
                 .weight(1f),
+            overflow = TextOverflow.Ellipsis,
             maxLines = 1,
         )
         Icon(
