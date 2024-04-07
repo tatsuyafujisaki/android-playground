@@ -32,8 +32,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
+import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.LoremIpsum18
 
 private data class MyData(
     val title: String,
@@ -94,8 +94,6 @@ private fun ExpandableListItem(
         AnimatedVisibility(visible = isExpanded, content = expandedContent)
     }
 }
-
-private class LoremIpsum18 : LoremIpsum(words = 18)
 
 @Preview
 @Composable
