@@ -11,6 +11,12 @@ private class LoremIpsum18 : LoremIpsum(words = 18)
 
 @Preview(showBackground = true)
 @Composable
+private fun LoremIpsumPreview(@PreviewParameter(LoremIpsum::class) text: String) {
+    Text(text = text)
+}
+
+@Preview(showBackground = true)
+@Composable
 private fun LoremIpsum8Preview(@PreviewParameter(LoremIpsum8::class) text: String) {
     Text(text = text)
 }
