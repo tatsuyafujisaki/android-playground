@@ -34,20 +34,19 @@ private fun SingleChoiceSegmentedButtonRowPreview() {
             SegmentedButton(
                 selected = selectedIndex == index,
                 onClick = { selectedIndex = index },
-                shape = SegmentedButtonDefaults.itemShape(
-                    index = index,
-                    count = options.size,
-                ),
+                shape = SegmentedButtonDefaults.itemShape(index = index, count = options.size),
                 icon = {
-                    Icon(
-                        imageVector = imageVector,
-                        contentDescription = null,
-                        modifier = Modifier.size(SegmentedButtonDefaults.IconSize)
-                    )
+                    SegmentedButtonDefaults.Icon(active = selectedIndex == index) {
+                        Icon(
+                            imageVector = imageVector,
+                            contentDescription = null,
+                            modifier = Modifier.size(SegmentedButtonDefaults.IconSize)
+                        )
+                    }
                 },
                 label = {
                     Text(text = text)
-                }
+                },
             )
         }
     }
