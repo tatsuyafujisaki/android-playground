@@ -1,7 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.button
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Android
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -13,11 +13,12 @@ import androidx.compose.ui.tooling.preview.Preview
 fun IconButtonExample(
     imageVector: ImageVector,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: (() -> Unit)? = null,
 ) {
     IconButton(
-        onClick = onClick,
-        modifier = modifier
+        onClick = onClick ?: {},
+        modifier = modifier,
+        enabled = onClick != null
     ) {
         Icon(
             imageVector = imageVector,
@@ -26,8 +27,8 @@ fun IconButtonExample(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun IconButtonExamplePreview() {
-    IconButtonExample(imageVector = Icons.Default.Favorite) {}
+    IconButtonExample(imageVector = Icons.Default.Android)
 }
