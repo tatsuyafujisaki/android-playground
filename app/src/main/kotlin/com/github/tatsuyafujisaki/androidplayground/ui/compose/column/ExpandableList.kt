@@ -32,13 +32,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
-import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.LoremIpsum18
 
 private data class MyData(
     val title: String,
     val body: String,
-    var isExpanded: Boolean = false,
+    var expanded: Boolean = false,
 )
 
 @Composable
@@ -97,7 +97,7 @@ private fun ExpandableListItem(
 
 @Preview
 @Composable
-private fun ExpandableListPreview(@PreviewParameter(LoremIpsum18::class) body: String) {
+private fun ExpandableListPreview(@PreviewParameter(LoremIpsum::class) body: String) {
     ExpandableList(
         items = List(10) {
             MyData(
