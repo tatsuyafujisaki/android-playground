@@ -44,6 +44,7 @@ private fun MultiChoiceSegmentedButtonRowPreview() {
                         Icon(
                             imageVector = imageVector,
                             contentDescription = null,
+                            // Without the following, the icon will wobble when you tap it.
                             modifier = Modifier.size(SegmentedButtonDefaults.IconSize)
                         )
                     }
