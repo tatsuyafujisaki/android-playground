@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 
 @Preview(showBackground = true)
 @Composable
-fun VerticallyCenteredText1Example(@PreviewParameter(LoremIpsum::class) text: String) {
+fun VerticallyCenterTextExample1(@PreviewParameter(LoremIpsum::class) text: String) {
     Row(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = text,
@@ -34,7 +34,7 @@ fun VerticallyCenteredText1Example(@PreviewParameter(LoremIpsum::class) text: St
 
 @Preview(showBackground = true)
 @Composable
-fun VerticallyCenteredText2Example(@PreviewParameter(LoremIpsum::class) text: String) {
+fun VerticallyCenterTextExample2(@PreviewParameter(LoremIpsum::class) text: String) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         // centers children vertically.
