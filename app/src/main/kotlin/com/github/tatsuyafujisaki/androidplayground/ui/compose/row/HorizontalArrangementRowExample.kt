@@ -8,12 +8,7 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Android
 import androidx.compose.material.icons.filled.Circle
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.MusicNote
-import androidx.compose.material.icons.filled.Receipt
-import androidx.compose.material.icons.filled.Rectangle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
