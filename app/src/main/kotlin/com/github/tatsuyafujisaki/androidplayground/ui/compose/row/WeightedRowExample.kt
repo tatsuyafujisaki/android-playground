@@ -1,43 +1,37 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.row
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.automirrored.filled.NavigateNext
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.github.tatsuyafujisaki.androidplayground.data.generateLoremIpsum
 
 @Preview(showBackground = true)
 @Composable
-fun WeightedRowExample(
-    onClick: (() -> Unit)? = null
-) {
+fun WeightedRowExample() {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(enabled = onClick != null, onClick = onClick ?: {})
+        modifier = Modifier.fillMaxWidth()
     ) {
         Icon(
-            imageVector = Icons.Default.Favorite,
+            imageVector = Icons.Default.Home,
             contentDescription = null
         )
-        Icon(
-            imageVector = Icons.Default.Favorite,
-            contentDescription = null
-        )
-        Spacer(
-            Modifier
-                .weight(1f)
-                .background(Color.Red)
+        Text(
+            text = generateLoremIpsum(),
+            modifier = Modifier
+                .align(CenterVertically)
+                .weight(1f),
+            maxLines = 1,
         )
         Icon(
-            imageVector = Icons.Default.Favorite,
+            imageVector = Icons.AutoMirrored.Default.NavigateNext,
             contentDescription = null
         )
     }
