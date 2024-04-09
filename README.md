@@ -38,7 +38,7 @@
 ./gradlew help --task app:androidDependencies
 ```
 
-## How to show projects on which the `app` module (aka project) depends
+## How to show modules (aka projects) on which the `app` module (aka project) depends
 
 ```shell
 ./gradlew app:dependencies --configuration implementation | grep '+--- project' | sort
