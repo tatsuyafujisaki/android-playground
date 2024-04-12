@@ -21,7 +21,7 @@ fun VerticallyCenterTextExample1(@PreviewParameter(LoremIpsum::class) text: Stri
         Text(
             text = text,
             // centers the text vertically.
-            modifier = Modifier.align(Alignment.CenterVertically),
+            modifier = Modifier.align(Alignment.CenterVertically).weight(1f),
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
         )
@@ -42,7 +42,7 @@ fun VerticallyCenterTextExample2(@PreviewParameter(LoremIpsum::class) text: Stri
     ) {
         Text(
             text = text,
-            modifier = Modifier,
+            modifier = Modifier.weight(1f),
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
         )
