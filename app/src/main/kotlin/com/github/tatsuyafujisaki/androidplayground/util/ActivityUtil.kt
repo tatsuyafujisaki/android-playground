@@ -45,8 +45,8 @@ object ActivityUtil {
     }
 
     object SystemBars {
-        fun toggleSystemBars(window: Window, isVisible: Boolean) {
-            if (isVisible) showSystemBars(window) else hideSystemBars(window)
+        fun toggleSystemBars(activity: Activity, isVisible: Boolean) {
+            if (isVisible) showSystemBars(activity.window) else hideSystemBars(activity.window)
         }
 
         private fun showSystemBars(window: Window) {
