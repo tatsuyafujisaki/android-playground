@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -48,11 +49,15 @@ fun <T> ExpandableList(
     collapsedListItemContent: @Composable ColumnScope.(T, Boolean) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(T) -> Unit,
     modifier: Modifier = Modifier,
+    verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     divider: @Composable () -> Unit = {},
     bottomItemContent: @Composable LazyItemScope.() -> Unit = {},
     onExpansionChange: (T, Boolean) -> Unit = { _, _ -> },
 ) {
-    LazyColumn(modifier = modifier.fillMaxWidth()) {
+    LazyColumn(
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = verticalArrangement,
+    ) {
         itemsIndexed(items = items) { index, item ->
             // Don't use "remember" because it gets reset when you scroll away.
             var expanded by rememberSaveable { mutableStateOf(false) }
@@ -100,45 +105,50 @@ private fun ExpandableListItem(
 @Preview
 @Composable
 private fun ExpandableListPreview(@PreviewParameter(LoremIpsum18::class) body: String) {
-    ExpandableList(items = List(100) {
-        MyData(
-            title = "Title $it",
-            body = body,
-        )
-    }, collapsedListItemContent = { item, expanded ->
-        val iconDegrees by animateFloatAsState(
-            targetValue = if (expanded) 180f else 0f,
-            label = "",
-        )
-        Row(
-            modifier = Modifier.padding(all = 16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = item.title,
-                modifier = Modifier.weight(1f),
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 1,
+    ExpandableList(
+        items = List(100) {
+            MyData(
+                title = "Title $it",
+                body = body,
             )
-            Image(
-                // Requires androidx.compose.material:material-icons-extended.
-                imageVector = Icons.Default.ExpandMore,
-                contentDescription = null,
-                modifier = Modifier.rotate(iconDegrees),
+        },
+        collapsedListItemContent = { item, expanded ->
+            val iconDegrees by animateFloatAsState(
+                targetValue = if (expanded) 180f else 0f,
+                label = "",
             )
-        }
-    }, expandedListItemContent = {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(color = Color.LightGray)
-                .padding(all = 16.dp),
-        ) {
-            Text(
-                text = it.body,
-            )
-        }
-    }, divider = {
-        HorizontalDivider()
-    })
+            Row(
+                modifier = Modifier.padding(all = 16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = item.title,
+                    modifier = Modifier.weight(1f),
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                )
+                Image(
+                    // Requires androidx.compose.material:material-icons-extended.
+                    imageVector = Icons.Default.ExpandMore,
+                    contentDescription = null,
+                    modifier = Modifier.rotate(iconDegrees),
+                )
+            }
+        },
+        expandedListItemContent = {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(color = Color.LightGray)
+                    .padding(all = 16.dp),
+            ) {
+                Text(
+                    text = it.body,
+                )
+            }
+        },
+        divider = {
+            HorizontalDivider()
+        },
+    )
 }
