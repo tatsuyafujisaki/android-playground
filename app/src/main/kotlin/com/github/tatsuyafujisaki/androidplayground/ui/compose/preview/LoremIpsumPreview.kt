@@ -7,8 +7,8 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 
 class LoremIpsum2 : LoremIpsum(words = 2)
-private class LoremIpsum8 : LoremIpsum(words = 8)
-private class LoremIpsum18 : LoremIpsum(words = 18)
+class LoremIpsum8 : LoremIpsum(words = 8)
+class LoremIpsum18 : LoremIpsum(words = 18)
 
 @Preview(showBackground = true)
 @Composable
