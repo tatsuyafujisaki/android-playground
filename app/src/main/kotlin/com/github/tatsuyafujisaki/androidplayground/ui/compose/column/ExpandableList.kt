@@ -7,7 +7,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -33,9 +32,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
-import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.LoremIpsum18
 
 private data class MyData(
     val title: String,
@@ -49,14 +46,12 @@ fun <T> ExpandableList(
     collapsedListItemContent: @Composable ColumnScope.(T, Boolean) -> Unit,
     expandedListItemContent: @Composable AnimatedVisibilityScope.(T) -> Unit,
     modifier: Modifier = Modifier,
-    verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     divider: @Composable () -> Unit = {},
     bottomItemContent: @Composable LazyItemScope.() -> Unit = {},
     onExpansionChange: (T, Boolean) -> Unit = { _, _ -> },
 ) {
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
-        verticalArrangement = verticalArrangement,
     ) {
         itemsIndexed(items = items) { index, item ->
             // Don't use "remember" because it gets reset when you scroll away.
@@ -104,12 +99,12 @@ private fun ExpandableListItem(
 
 @Preview
 @Composable
-private fun ExpandableListPreview(@PreviewParameter(LoremIpsum18::class) body: String) {
+private fun ExpandableListPreview() {
     ExpandableList(
         items = List(100) {
             MyData(
                 title = "Title $it",
-                body = body,
+                body = "Hello world",
             )
         },
         collapsedListItemContent = { item, expanded ->
