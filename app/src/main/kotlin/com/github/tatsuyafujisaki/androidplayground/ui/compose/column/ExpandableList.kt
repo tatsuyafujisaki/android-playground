@@ -33,8 +33,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
+import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.LoremIpsum18
 
 private data class MyData(
     val title: String,
@@ -99,51 +99,46 @@ private fun ExpandableListItem(
 
 @Preview
 @Composable
-private fun ExpandableListPreview(@PreviewParameter(LoremIpsum::class) body: String) {
-    ExpandableList(
-        items = List(100) {
-            MyData(
-                title = "Title $it",
-                body = body,
+private fun ExpandableListPreview(@PreviewParameter(LoremIpsum18::class) body: String) {
+    ExpandableList(items = List(100) {
+        MyData(
+            title = "Title $it",
+            body = body,
+        )
+    }, collapsedListItemContent = { item, expanded ->
+        val iconDegrees by animateFloatAsState(
+            targetValue = if (expanded) 180f else 0f,
+            label = "",
+        )
+        Row(
+            modifier = Modifier.padding(all = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = item.title,
+                modifier = Modifier.weight(1f),
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
             )
-        },
-        collapsedListItemContent = { item, isExpanded ->
-            val iconDegrees by animateFloatAsState(
-                targetValue = if (isExpanded) 180f else 0f,
-                label = "",
+            Image(
+                // Requires androidx.compose.material:material-icons-extended.
+                imageVector = Icons.Default.ExpandMore,
+                contentDescription = null,
+                modifier = Modifier.rotate(iconDegrees),
             )
-            Row(
-                modifier = Modifier.padding(all = 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = item.title,
-                    modifier = Modifier.weight(1f),
-                    overflow = TextOverflow.Ellipsis,
-                    maxLines = 1,
-                )
-                Image(
-                    // Requires androidx.compose.material:material-icons-extended.
-                    imageVector = Icons.Default.ExpandMore,
-                    contentDescription = null,
-                    modifier = Modifier.rotate(iconDegrees),
-                )
-            }
-        },
-        expandedListItemContent = {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(color = Color.LightGray)
-                    .padding(all = 16.dp),
-            ) {
-                Text(
-                    text = it.body,
-                )
-            }
-        },
-        divider = {
-            HorizontalDivider()
         }
-    )
+    }, expandedListItemContent = {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = Color.LightGray)
+                .padding(all = 16.dp),
+        ) {
+            Text(
+                text = it.body,
+            )
+        }
+    }, divider = {
+        HorizontalDivider()
+    })
 }
