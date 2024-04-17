@@ -24,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,15 +54,16 @@ fun <T> ExpandableList(
 ) {
     LazyColumn(modifier = modifier.fillMaxWidth()) {
         itemsIndexed(items = items) { index, item ->
-            var isExpanded by remember { mutableStateOf(false) }
+            // Don't use "remember" because it gets reset when you scroll away.
+            var expanded by rememberSaveable { mutableStateOf(false) }
             ExpandableListItem(
-                isExpanded = isExpanded,
+                expanded = expanded,
                 onExpansionChange = {
-                    onExpansionChange(item, isExpanded)
-                    isExpanded = !isExpanded
+                    onExpansionChange(item, expanded)
+                    expanded = !expanded
                 },
                 collapsedContent = {
-                    collapsedListItemContent(item, isExpanded)
+                    collapsedListItemContent(item, expanded)
                 },
                 expandedContent = { expandedListItemContent(item) },
             )
@@ -75,7 +77,7 @@ fun <T> ExpandableList(
 
 @Composable
 private fun ExpandableListItem(
-    isExpanded: Boolean,
+    expanded: Boolean,
     collapsedContent: @Composable ColumnScope.() -> Unit,
     expandedContent: @Composable AnimatedVisibilityScope.() -> Unit,
     onExpansionChange: () -> Unit = {},
@@ -91,7 +93,7 @@ private fun ExpandableListItem(
             ),
     ) {
         collapsedContent()
-        AnimatedVisibility(visible = isExpanded, content = expandedContent)
+        AnimatedVisibility(visible = expanded, content = expandedContent)
     }
 }
 
@@ -99,7 +101,7 @@ private fun ExpandableListItem(
 @Composable
 private fun ExpandableListPreview(@PreviewParameter(LoremIpsum::class) body: String) {
     ExpandableList(
-        items = List(10) {
+        items = List(100) {
             MyData(
                 title = "Title $it",
                 body = body,
