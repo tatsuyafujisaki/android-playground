@@ -1,5 +1,7 @@
+package com.github.tatsuyafujisaki.androidplayground.ui.compose.divider
+
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -10,11 +12,11 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun HorizontalDividerExample(
     color: Color,
-    thickness: Dp
+    thickness: Dp,
 ) {
-    Divider(
-        color = color,
-        thickness = thickness
+    HorizontalDivider(
+        thickness = thickness,
+        color = color
     )
 }
 

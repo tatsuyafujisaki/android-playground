@@ -1,9 +1,11 @@
+package com.github.tatsuyafujisaki.androidplayground.ui.compose.divider
+
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,12 +17,12 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun VerticalDividerExample(
     width: Dp,
-    color: Color
+    color: Color,
 ) {
     // Divider's "thickness" cannot be used for a vertical divider
     // because "thickness" is always interpreted as the height.
     // Moreover, the width of Divider is infinite unless specified.
-    Divider(
+    HorizontalDivider(
         modifier = Modifier
             .width(width)
             .fillMaxHeight(),

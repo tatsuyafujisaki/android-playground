@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Red
@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 private fun MyDivider() {
-    Divider(color = Yellow, thickness = 10.dp)
+    HorizontalDivider(thickness = 10.dp, color = Yellow)
 }
 
 @Preview
