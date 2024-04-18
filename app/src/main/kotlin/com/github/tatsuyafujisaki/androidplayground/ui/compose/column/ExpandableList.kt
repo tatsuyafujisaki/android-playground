@@ -48,7 +48,7 @@ fun <T> ExpandableList(
     modifier: Modifier = Modifier,
     divider: @Composable () -> Unit = {},
     bottomItemContent: @Composable LazyItemScope.() -> Unit = {},
-    onExpansionChange: (T, Boolean) -> Unit = { _, _ -> },
+    onExpandedChange: (T, Boolean) -> Unit = { _, _ -> },
 ) {
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
@@ -58,8 +58,8 @@ fun <T> ExpandableList(
             var expanded by rememberSaveable { mutableStateOf(false) }
             ExpandableListItem(
                 expanded = expanded,
-                onExpansionChange = {
-                    onExpansionChange(item, expanded)
+                onExpandedChange = {
+                    onExpandedChange(item, expanded)
                     expanded = !expanded
                 },
                 collapsedContent = {
@@ -78,9 +78,9 @@ fun <T> ExpandableList(
 @Composable
 private fun ExpandableListItem(
     expanded: Boolean,
+    onExpandedChange: () -> Unit = {},
     collapsedContent: @Composable ColumnScope.() -> Unit,
     expandedContent: @Composable AnimatedVisibilityScope.() -> Unit,
-    onExpansionChange: () -> Unit = {},
 ) {
     Column(
         modifier = Modifier
@@ -89,7 +89,7 @@ private fun ExpandableListItem(
                 // Disables a touch ripple.
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null,
-                onClick = onExpansionChange,
+                onClick = onExpandedChange,
             ),
     ) {
         collapsedContent()
