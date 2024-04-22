@@ -5,7 +5,7 @@
   - https://developer.android.com/topic/architecture/domain-layer#conventions
 
 # Best practices
-- https://developer.android.com/jetpack/compose/performance/bestpractices
+- https://developer.android.com/develop/ui/compose/performance/bestpractices
 - https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 - https://developer.android.com/topic/architecture/recommendations
 - https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
