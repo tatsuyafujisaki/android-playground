@@ -10,6 +10,11 @@ class MyUrlInterceptor : Interceptor {
         val httpUrl = request.url
 
         Log.d("👀httpUrl", httpUrl.toString())
+        Log.d("👀request > method", request.method)
+        Log.d("👀request > headers", request.headers.toString())
+        Log.d("👀request > body", request.body.toString())
+        Log.d("👀request > tag", request.tag().toString())
+
         Log.d("👀encodedPath", httpUrl.encodedPath)
         Log.d("👀pathSegments", httpUrl.pathSegments.toString())
         Log.d("👀encodedPathSegments", httpUrl.encodedPathSegments.toString())
