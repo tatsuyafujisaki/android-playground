@@ -100,66 +100,48 @@ adb exec-out screencap -p > ${filepath} && open ${filepath}
 ## How to toggle `Developer options`
 
 ```shell
-# Get
 adb shell settings get global development_settings_enabled
-
-# Enable
-adb shell settings put global development_settings_enabled 1
-
-# Disable
-adb shell settings put global development_settings_enabled 0
+adb shell settings put global development_settings_enabled 1 # on
+adb shell settings put global development_settings_enabled 0 # off
 ```
 
 ## How to toggle `Don't keep activities`
 
 ```shell
-# Get
 adb shell settings get global always_finish_activities
-
-# Enable
-adb shell settings put global always_finish_activities 1
-
-# Disable
-adb shell settings put global always_finish_activities 0
+adb shell settings put global always_finish_activities 1 # on
+adb shell settings put global always_finish_activities 0 # off
 ```
 
 ## How to toggle `Enable demo mode`
 
 ```shell
-# Get
 adb shell settings get global sysui_demo_allowed
-
-# Enable
-adb shell settings put global sysui_demo_allowed 1
-
-# Disable
-adb shell settings put global sysui_demo_allowed 0
+adb shell settings put global sysui_demo_allowed 1 # on
+adb shell settings put global sysui_demo_allowed 0 # off
 ```
 
 ## How to toggle `Show demo mode`
 
 ```shell
-# Get
 adb shell settings get global sysui_tuner_demo_on
+adb shell settings put global sysui_tuner_demo_on 1 # on
+adb shell settings put global sysui_tuner_demo_on 0 # off
+```
 
-# Enable
-adb shell settings put global sysui_tuner_demo_on 1
-
-# Disable
-adb shell settings put global sysui_tuner_demo_on 0
+## How to toggle `Show layout bounds`
+```shell
+adb shell getprop debug.layout
+adb shell setprop debug.layout true # on
+adb shell setprop debug.layout false # off
 ```
 
 ## How to toggle `Show taps`
 
 ```shell
-# Get
 adb shell settings get system show_touches
-
-# Enable
-adb shell settings put system show_touches 1
-
-# Disable
-adb shell settings put system show_touches 0
+adb shell settings put system show_touches 1 # on
+adb shell settings put system show_touches 0 # off
 ```
 
 # How to set the location
