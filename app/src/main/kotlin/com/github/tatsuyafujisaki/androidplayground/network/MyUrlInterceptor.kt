@@ -39,10 +39,10 @@ class MyUrlInterceptor : Interceptor {
         Log.d("👀response > code", response.code.toString())
         Log.d("👀response > headers", response.headers.toString())
 
-        // Don't call "response.body?.string()"
-        // because "response.body?.string()" can be called only once
-        // and calling it twice will throw "java.lang.IllegalStateException: closed".
-        // https://square.github.io/okhttp/5.x/okhttp/okhttp3/-response-body/string.html
+        // Don't call "response.body?.string()".
+        // It will cause the "java.lang.IllegalStateException: closed" error because ...
+        // > The response body can be consumed only once.
+        // https://square.github.io/okhttp/5.x/okhttp/okhttp3/-response-body/
         Log.d("👀response > body", response.peekBody(Long.MAX_VALUE).string())
 
         return response

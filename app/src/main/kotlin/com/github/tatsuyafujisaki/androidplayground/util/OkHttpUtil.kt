@@ -1,7 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.os.Build
-import android.util.Log
 import android.webkit.CookieManager
 import com.github.tatsuyafujisaki.androidplayground.BuildConfig
 import okhttp3.Cookie
@@ -11,19 +10,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
 object OkHttpUtil {
-    /**
-     * Add this interpreter only when debugging a raw JSON string in the response body.
-     * Adding this interpreter causes the "java.lang.IllegalStateException: closed" error because ...
-     * > The response body can be consumed only once.
-     * https://square.github.io/okhttp/3.x/okhttp/okhttp3/ResponseBody.html
-     */
-    private fun OkHttpClient.Builder.addLoggingRawJsonInterceptor() = addInterceptor {
-        it.proceed(it.request()).apply {
-            // JSON will be logged with the prefix "D/Response".
-            Log.d(this::class.java.simpleName, body?.string().toString())
-        }
-    }
-
     fun OkHttpClient.Builder.addInterceptors() = addInterceptor {
         it.proceed(
             it.request().newBuilder()
@@ -36,7 +22,7 @@ object OkHttpUtil {
                 .addHeader("X-BuildVersionRelease", Build.VERSION.RELEASE)
                 .addHeader("X-VersionName", BuildConfig.VERSION_NAME).build()
         )
-    }.addLoggingRawJsonInterceptor()
+    }
         /**
          * Logging interceptors must be added after custom interceptors.
          * Otherwise, headers added by the custom interceptor will not be logged.
