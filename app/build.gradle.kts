@@ -132,7 +132,6 @@ dependencies {
     ksp(libs.room.compiler)
     testImplementation(kotlin("test"))
     testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.mockito.kotlin)
     testImplementation(libs.robolectric)
     testImplementation(libs.room.testing)
     testImplementation(libs.test.core.ktx)
