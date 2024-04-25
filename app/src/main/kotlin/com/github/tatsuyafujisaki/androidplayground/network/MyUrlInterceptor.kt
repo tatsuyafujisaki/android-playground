@@ -31,15 +31,20 @@ class MyUrlInterceptor : Interceptor {
         Log.d("👀request > body", request.body.toString())
         Log.d("👀request > tag", request.tag().toString())
 
-        chain.proceed(request).also {
-            Log.d("👀response", it.toString())
-            Log.d("👀response > code", it.code.toString())
-            Log.d("👀response > message", it.message)
-            Log.d("👀response > headers", it.headers.toString())
-            Log.d("👀response > body", it.body?.string().toString())
-            Log.d("👀response > networkResponse", it.networkResponse.toString())
-        }
+        val response = chain.proceed(request)
 
-        return chain.proceed(request)
+        Log.d("👀response", response.toString())
+        Log.d("👀response > protocol", response.protocol.toString())
+        Log.d("👀response > message", response.message)
+        Log.d("👀response > code", response.code.toString())
+        Log.d("👀response > headers", response.headers.toString())
+
+        // Don't call "response.body?.string()"
+        // because "response.body?.string()" can be called only once
+        // and calling it twice will throw "java.lang.IllegalStateException: closed".
+        // https://square.github.io/okhttp/5.x/okhttp/okhttp3/-response-body/string.html
+        Log.d("👀response > body", response.peekBody(Long.MAX_VALUE).string())
+
+        return response
     }
 }
