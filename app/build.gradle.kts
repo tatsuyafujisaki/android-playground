@@ -7,6 +7,7 @@ plugins {
     id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
     id(libs.plugins.google.services.get().pluginId)
     id(libs.plugins.oss.licenses.plugin.get().pluginId)
+    id(libs.plugins.realm.get().pluginId)
     alias(libs.plugins.protobuf)
 }
 
@@ -115,6 +116,7 @@ dependencies {
     implementation(libs.play.core.ktx)
     implementation(libs.play.services.oss.licenses)
     implementation(libs.protobuf.kotlin.lite)
+    implementation(libs.realm)
     implementation(libs.recyclerview)
     implementation(platform(libs.retrofit.bom))
     implementation(libs.retrofit.converter.kotlinx.serialization)
