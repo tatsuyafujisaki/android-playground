@@ -9,21 +9,36 @@ class MyUrlInterceptor : Interceptor {
         val request = chain.request()
         val httpUrl = request.url
 
-        Log.d("👀httpUrl", httpUrl.toString())
+        Log.d("👀request", request.toString())
+        Log.d("👀request > url ", httpUrl.toString())
+        Log.d("👀request > url > encodedPath", httpUrl.encodedPath)
+        Log.d("👀request > url > pathSegments", httpUrl.pathSegments.toString())
+        Log.d(
+            "👀request > url > encodedPathSegments",
+            httpUrl.encodedPathSegments.toString(),
+        )
+        Log.d("👀request > url > encodedQuery", httpUrl.encodedQuery.toString())
+        Log.d(
+            "👀request > url > queryParameterNames",
+            httpUrl.queryParameterNames.toString(),
+        )
+        Log.d(
+            "👀request > url > queryParameterValues",
+            httpUrl.queryParameterNames.flatMap(httpUrl::queryParameterValues).toString(),
+        )
         Log.d("👀request > method", request.method)
         Log.d("👀request > headers", request.headers.toString())
         Log.d("👀request > body", request.body.toString())
         Log.d("👀request > tag", request.tag().toString())
 
-        Log.d("👀encodedPath", httpUrl.encodedPath)
-        Log.d("👀pathSegments", httpUrl.pathSegments.toString())
-        Log.d("👀encodedPathSegments", httpUrl.encodedPathSegments.toString())
-        Log.d("👀encodedQuery", httpUrl.encodedQuery.toString())
-        Log.d("👀queryParameterNames", httpUrl.queryParameterNames.toString())
-        Log.d(
-            "👀queryParameterValues",
-            httpUrl.queryParameterNames.flatMap(httpUrl::queryParameterValues).toString(),
-        )
+        chain.proceed(request).also {
+            Log.d("👀response", it.toString())
+            Log.d("👀response > code", it.code.toString())
+            Log.d("👀response > message", it.message)
+            Log.d("👀response > headers", it.headers.toString())
+            Log.d("👀response > body", it.body?.string().toString())
+            Log.d("👀response > networkResponse", it.networkResponse.toString())
+        }
 
         return chain.proceed(request)
     }
