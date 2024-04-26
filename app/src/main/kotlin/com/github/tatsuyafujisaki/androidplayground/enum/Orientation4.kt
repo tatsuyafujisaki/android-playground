@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.data.enum
+package com.github.tatsuyafujisaki.androidplayground.enum
 
 enum class Orientation4 {
     PORTRAIT,

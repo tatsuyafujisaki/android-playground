@@ -5,13 +5,13 @@ import android.content.res.Configuration
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.github.tatsuyafujisaki.androidplayground.data.enum.Orientation2
-import com.github.tatsuyafujisaki.androidplayground.data.enum.Orientation4
+import com.github.tatsuyafujisaki.androidplayground.enum.Orientation2
+import com.github.tatsuyafujisaki.androidplayground.enum.Orientation4
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.map
 
 class MyActivityViewModel : ViewModel() {
     private val _orientation2 = MutableStateFlow(Orientation2.PORTRAIT)
@@ -20,12 +20,7 @@ class MyActivityViewModel : ViewModel() {
     private val _orientation4 = MutableStateFlow(Orientation4.PORTRAIT)
     val orientation4: StateFlow<Orientation4> = _orientation4.asStateFlow()
 
-    val orientation2b: Flow<Orientation2> = orientation4.mapNotNull {
-        when (it) {
-            Orientation4.PORTRAIT, Orientation4.REVERSE_PORTRAIT -> Orientation2.PORTRAIT
-            Orientation4.LANDSCAPE, Orientation4.REVERSE_LANDSCAPE -> Orientation2.LANDSCAPE
-        }
-    }
+    val orientation2b: Flow<Orientation2> = orientation4.map(Orientation2::create)
 
     private val _myLiveData = MutableLiveData("")
     val myLiveData: LiveData<String> = _myLiveData
