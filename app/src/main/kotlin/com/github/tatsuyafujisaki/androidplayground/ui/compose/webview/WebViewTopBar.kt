@@ -2,8 +2,9 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.webview
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.Icons.AutoMirrored.Filled
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,7 +27,7 @@ fun WebViewTopBar(
     onNavigationIconClick: () -> Unit,
     onBackClick: () -> Unit,
     onReloadClick: () -> Unit,
-    onForwardClick: () -> Unit
+    onForwardClick: () -> Unit,
 ) {
     TopAppBar(
         title = {
@@ -49,7 +50,7 @@ fun WebViewTopBar(
                 enabled = canGoBack
             ) {
                 Icon(
-                    imageVector = Icons.Default.ArrowBack,
+                    imageVector = Filled.ArrowBack,
                     contentDescription = null,
                     tint = if (canGoBack) Color.Black else Color.Gray
                 )
@@ -66,7 +67,7 @@ fun WebViewTopBar(
                 enabled = canGoForward
             ) {
                 Icon(
-                    imageVector = Icons.Default.ArrowForward,
+                    imageVector = Filled.ArrowForward,
                     contentDescription = null,
                     tint = if (canGoForward) Color.Black else Color.Gray
                 )
