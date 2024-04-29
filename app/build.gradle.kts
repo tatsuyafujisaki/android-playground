@@ -128,7 +128,6 @@ dependencies {
     implementation(libs.viewpager2)
     implementation(platform(libs.compose.bom))
     implementation(platform(libs.firebase.bom))
-    ksp(libs.androidx.hilt.compiler)
     ksp(libs.hilt.compiler)
     ksp(libs.lifecycle.compiler)
     ksp(libs.room.compiler)
