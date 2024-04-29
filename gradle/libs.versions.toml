@@ -120,6 +120,7 @@ viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref =
 androidx-navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin" }
 com-android-application = { id = "com.android.application" }
 google-services = { id = "com.google.gms.google-services" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "kotlin-android" }
 kotlin-parcelize = { id = "kotlin-parcelize" }
 kotlin-serialization = { id = "plugin.serialization" }
