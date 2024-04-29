@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.factory
+package com.github.tatsuyafujisaki.androidplayground.ui.fragment
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
