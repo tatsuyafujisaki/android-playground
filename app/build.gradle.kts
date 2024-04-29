@@ -8,6 +8,7 @@ plugins {
     id(libs.plugins.google.services.get().pluginId)
     id(libs.plugins.oss.licenses.plugin.get().pluginId)
     id(libs.plugins.realm.get().pluginId)
+    id(libs.plugins.hilt.get().pluginId)
     alias(libs.plugins.protobuf)
 }
 

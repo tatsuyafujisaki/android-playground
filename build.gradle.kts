@@ -15,6 +15,7 @@ buildscript {
 }
 
 plugins {
+    alias(libs.plugins.hilt) apply false
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
 }
