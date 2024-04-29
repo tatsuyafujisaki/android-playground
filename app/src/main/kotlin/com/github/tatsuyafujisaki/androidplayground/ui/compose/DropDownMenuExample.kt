@@ -18,13 +18,13 @@ import androidx.compose.ui.tooling.preview.Preview
 fun <T> DropdownMenuExample(
     options: Iterable<T>,
     selectedValue: String,
-    onClick: (T) -> Unit
+    onClick: (T) -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
 
     ExposedDropdownMenuBox(
         expanded = expanded,
-        onExpandedChange = { expanded = !expanded }
+        onExpandedChange = { expanded = !expanded },
     ) {
         TextField(
             readOnly = true,
@@ -32,17 +32,17 @@ fun <T> DropdownMenuExample(
             onValueChange = {},
             trailingIcon = {
                 ExposedDropdownMenuDefaults.TrailingIcon(
-                    expanded = expanded
+                    expanded = expanded,
                 )
             },
-            colors = ExposedDropdownMenuDefaults.textFieldColors()
+            colors = ExposedDropdownMenuDefaults.textFieldColors(),
         )
         ExposedDropdownMenu(
             expanded = expanded,
             onDismissRequest = {
                 // Close the menu when you click outside the menu.
                 expanded = false
-            }
+            },
         ) {
             for (option in options) {
                 DropdownMenuItem(
@@ -51,7 +51,7 @@ fun <T> DropdownMenuExample(
                         onClick(option)
                         // Close the menu when you click the menu item.
                         expanded = false
-                    }
+                    },
                 )
             }
         }
@@ -64,6 +64,6 @@ fun DropdownMenuExamplePreview() {
     DropdownMenuExample(
         options = listOf("Bacon", "Lettuce", "Tomato"),
         selectedValue = "Bacon",
-        onClick = {}
+        onClick = {},
     )
 }

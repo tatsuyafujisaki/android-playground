@@ -19,13 +19,13 @@ fun OnlineImageExample(
     url: String,
     isCircle: Boolean = false,
     border: Pair<Dp, Color>? = null,
-    contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit
+    contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit,
 ) {
     AsyncImage(
         model = url,
         contentDescription = null,
         modifier = modifier.circleBorder(isCircle = isCircle, border = border),
-        contentScale = contentScale
+        contentScale = contentScale,
     )
 }
 
@@ -36,7 +36,7 @@ private const val url = "https://images.unsplash.com/photo-1558240077-e33b10a16a
 private fun OnlineImageExamplePreview() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
-        url = url
+        url = url,
     )
 }
 
@@ -46,7 +46,7 @@ private fun OnlineCircularImageExamplePreview() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
         url = url,
-        isCircle = true
+        isCircle = true,
     )
 }
 
@@ -56,7 +56,7 @@ private fun OnlineBorderedImageExamplePreview() {
     OnlineImageExample(
         modifier = Modifier.size(200.dp),
         url = url,
-        border = 8.dp to Color.Red
+        border = 8.dp to Color.Red,
     )
 }
 
@@ -67,6 +67,6 @@ private fun OnlineCircularBorderedImageExamplePreview() {
         modifier = Modifier.size(200.dp),
         url = url,
         isCircle = true,
-        border = 8.dp to Color.Red
+        border = 8.dp to Color.Red,
     )
 }

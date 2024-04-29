@@ -29,15 +29,18 @@ class MyActivityViewModel : ViewModel() {
      * Call setOrientation(resources.configuration.orientation) in [Activity.onCreate]
      */
     @Deprecated(
-        message = "Not recommended for production use because [Activity.onCreate] is not always called when you change the orientation from or to the reverse portrait.",
-        replaceWith = ReplaceWith("setOrientation4")
+        message =
+            "Not recommended for production use because [Activity.onCreate] is not always " +
+                "called when you change the orientation from or to the reverse portrait.",
+        replaceWith = ReplaceWith("setOrientation4"),
     )
     fun setOrientation2(orientation: Int) {
-        _orientation2.value = when (orientation) {
-            Configuration.ORIENTATION_PORTRAIT -> Orientation2.PORTRAIT
-            Configuration.ORIENTATION_LANDSCAPE -> Orientation2.LANDSCAPE
-            else -> error("Unknown orientation: $orientation")
-        }
+        _orientation2.value =
+            when (orientation) {
+                Configuration.ORIENTATION_PORTRAIT -> Orientation2.PORTRAIT
+                Configuration.ORIENTATION_LANDSCAPE -> Orientation2.LANDSCAPE
+                else -> error("Unknown orientation: $orientation")
+            }
     }
 
     /**
@@ -50,13 +53,14 @@ class MyActivityViewModel : ViewModel() {
      * }.enable()
      */
     fun setOrientation4(orientation: Int) {
-        _orientation4.value = when (orientation) {
-            0 -> Orientation4.PORTRAIT
-            90 -> Orientation4.LANDSCAPE
-            180 -> Orientation4.REVERSE_PORTRAIT
-            270 -> Orientation4.REVERSE_LANDSCAPE
-            else -> error("Unknown orientation: $orientation")
-        }
+        _orientation4.value =
+            when (orientation) {
+                0 -> Orientation4.PORTRAIT
+                90 -> Orientation4.LANDSCAPE
+                180 -> Orientation4.REVERSE_PORTRAIT
+                270 -> Orientation4.REVERSE_LANDSCAPE
+                else -> error("Unknown orientation: $orientation")
+            }
     }
 
     fun setMyLiveData(something: String) {

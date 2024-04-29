@@ -23,10 +23,11 @@ fun VerticalDividerExample(
     // because "thickness" is always interpreted as the height.
     // Moreover, the width of Divider is infinite unless specified.
     HorizontalDivider(
-        modifier = Modifier
-            .width(width)
-            .fillMaxHeight(),
-        color = color
+        modifier =
+            Modifier
+                .width(width)
+                .fillMaxHeight(),
+        color = color,
     )
 }
 
@@ -37,7 +38,7 @@ private fun VerticalDividerExamplePreview() {
         Text("Hello")
         VerticalDividerExample(
             width = 10.dp,
-            color = Color.Yellow
+            color = Color.Yellow,
         )
         Text("World")
     }

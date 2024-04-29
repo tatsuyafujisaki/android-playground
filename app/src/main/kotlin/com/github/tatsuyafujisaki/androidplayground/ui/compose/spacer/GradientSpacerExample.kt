@@ -21,8 +21,8 @@ fun GradientSpacerExample() {
             .background(
                 Brush.verticalGradient(
                     // Flag of Ukraine
-                    listOf(Color.Blue, Color.Yellow)
-                )
-            )
+                    listOf(Color.Blue, Color.Yellow),
+                ),
+            ),
     )
 }

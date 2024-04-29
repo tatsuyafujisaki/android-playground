@@ -23,13 +23,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        navHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navHostFragment =
+            supportFragmentManager
+                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         binding.bottomNavigationView.setupWithNavController(navController)
-        appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.main_fragment, R.id.second_fragment, R.id.third_fragment)
-        )
+        appBarConfiguration =
+            AppBarConfiguration(
+                setOf(R.id.main_fragment, R.id.second_fragment, R.id.third_fragment),
+            )
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         setSupportActionBar(binding.toolbar)
 

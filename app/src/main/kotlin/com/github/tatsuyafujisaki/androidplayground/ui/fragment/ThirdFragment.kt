@@ -14,7 +14,7 @@ class ThirdFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
         return binding.root

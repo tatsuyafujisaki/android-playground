@@ -9,9 +9,13 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
  */
 object UrlUtil {
     fun clearQuery(url: String) = url.toUri().buildUpon().clearQuery().build().toString()
+
     fun getHttpUrl(url: String) = url.toHttpUrlOrNull()
+
     fun getDomain(url: String) = url.toHttpUrlOrNull()?.topPrivateDomain()
-    fun getPathlessUrl(url: String): HttpUrl? = url.toHttpUrlOrNull()?.run {
-        HttpUrl.Builder().scheme(scheme).host(host).build()
-    }
+
+    fun getPathlessUrl(url: String): HttpUrl? =
+        url.toHttpUrlOrNull()?.run {
+            HttpUrl.Builder().scheme(scheme).host(host).build()
+        }
 }

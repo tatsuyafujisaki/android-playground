@@ -12,7 +12,9 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 
 @Preview(showBackground = true)
 @Composable
-fun SingleLineTextPreview(@PreviewParameter(LoremIpsum::class) text: String) {
+fun SingleLineTextPreview(
+    @PreviewParameter(LoremIpsum::class) text: String,
+) {
     Row(modifier = Modifier.fillMaxSize()) {
         Text(
             text = text,

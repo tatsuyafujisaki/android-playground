@@ -20,7 +20,7 @@ fun AlertDialogExample(
     text: String? = null,
     confirmButtonText: String = stringResource(android.R.string.ok),
     dismissButtonText: String? = null,
-    onConfirmButtonClick: () -> Unit = {}
+    onConfirmButtonClick: () -> Unit = {},
 ) {
     AlertDialog(
         onDismissRequest = onDismissRequest,
@@ -29,29 +29,32 @@ fun AlertDialogExample(
                 onClick = {
                     onConfirmButtonClick()
                     onDismissRequest()
-                }
+                },
             ) {
                 Text(confirmButtonText)
             }
         },
         modifier = modifier,
-        dismissButton = dismissButtonText?.let {
-            {
-                TextButton(onClick = onDismissRequest) {
+        dismissButton =
+            dismissButtonText?.let {
+                {
+                    TextButton(onClick = onDismissRequest) {
+                        Text(it)
+                    }
+                }
+            },
+        title =
+            title?.let {
+                {
                     Text(it)
                 }
-            }
-        },
-        title = title?.let {
-            {
-                Text(it)
-            }
-        },
-        text = text?.let {
-            {
-                Text(it)
-            }
-        }
+            },
+        text =
+            text?.let {
+                {
+                    Text(it)
+                }
+            },
     )
 }
 
@@ -65,7 +68,7 @@ private fun AlertDialogExamplePreview() {
             title = "Title",
             text = "Text",
             dismissButtonText = stringResource(android.R.string.cancel),
-            onDismissRequest = { isVisible = false }
+            onDismissRequest = { isVisible = false },
         )
     }
 }

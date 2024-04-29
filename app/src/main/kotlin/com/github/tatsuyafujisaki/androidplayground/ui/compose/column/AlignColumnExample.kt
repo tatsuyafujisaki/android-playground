@@ -18,17 +18,18 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun AlignColumnExample(
     content: @Composable ColumnScope.() -> Unit,
-    onClick: (() -> Unit)? = null
+    onClick: (() -> Unit)? = null,
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(100.dp)
-            .verticalScroll(rememberScrollState())
-            .clickable(enabled = onClick != null, onClick = onClick ?: {}),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .height(100.dp)
+                .verticalScroll(rememberScrollState())
+                .clickable(enabled = onClick != null, onClick = onClick ?: {}),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        content = content
+        content = content,
     )
 }
 
@@ -40,6 +41,6 @@ private fun AlignColumnExamplePreview() {
             Text("Bacon", modifier = Modifier.align(Alignment.Start))
             Text("Lettuce")
             Text("Tomato", modifier = Modifier.align(Alignment.End))
-        }
+        },
     )
 }

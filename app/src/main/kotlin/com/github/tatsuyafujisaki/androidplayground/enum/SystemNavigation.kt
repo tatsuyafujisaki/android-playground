@@ -6,11 +6,13 @@ import android.provider.Settings
 enum class SystemNavigation {
     THREE_BUTTON,
     TWO_BUTTON,
-    GESTURE;
+    GESTURE,
+    ;
 
     companion object {
-        fun create(context: Context) = entries.getOrNull(
-            Settings.Secure.getInt(context.contentResolver, "navigation_mode", -1)
-        )
+        fun create(context: Context) =
+            entries.getOrNull(
+                Settings.Secure.getInt(context.contentResolver, "navigation_mode", -1),
+            )
     }
 }

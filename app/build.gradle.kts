@@ -35,7 +35,7 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro",
-                "kotlin-serialization.pro"
+                "kotlin-serialization.pro",
             )
 
             buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")

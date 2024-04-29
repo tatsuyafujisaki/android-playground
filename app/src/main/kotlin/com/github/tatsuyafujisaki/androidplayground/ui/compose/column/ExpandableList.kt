@@ -83,14 +83,15 @@ private fun ExpandableListItem(
     expandedContent: @Composable AnimatedVisibilityScope.() -> Unit,
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(
-                // Disables a touch ripple.
-                interactionSource = remember { MutableInteractionSource() },
-                indication = null,
-                onClick = onExpandedChange,
-            ),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .clickable(
+                    // Disables a touch ripple.
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = null,
+                    onClick = onExpandedChange,
+                ),
     ) {
         collapsedContent()
         AnimatedVisibility(visible = expanded, content = expandedContent)
@@ -101,12 +102,13 @@ private fun ExpandableListItem(
 @Composable
 private fun ExpandableListPreview() {
     ExpandableList(
-        items = List(100) {
-            MyData(
-                title = "Title $it",
-                body = "Hello world",
-            )
-        },
+        items =
+            List(100) {
+                MyData(
+                    title = "Title $it",
+                    body = "Hello world",
+                )
+            },
         collapsedListItemContent = { item, expanded ->
             val iconDegrees by animateFloatAsState(
                 targetValue = if (expanded) 180f else 0f,
@@ -132,10 +134,11 @@ private fun ExpandableListPreview() {
         },
         expandedListItemContent = {
             Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(color = Color.LightGray)
-                    .padding(all = 16.dp),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .background(color = Color.LightGray)
+                        .padding(all = 16.dp),
             ) {
                 Text(
                     text = it.body,

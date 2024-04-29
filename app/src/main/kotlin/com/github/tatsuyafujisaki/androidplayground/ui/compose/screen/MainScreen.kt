@@ -11,19 +11,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun MainScreen(
-    onClick: () -> Unit,
-) {
+fun MainScreen(onClick: () -> Unit) {
     Scaffold {
         Box(
-            modifier = Modifier
-                .padding(it)
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .padding(it)
+                    .fillMaxSize(),
+            contentAlignment = Alignment.Center,
         ) {
             Text(
                 text = "Hello Compose!",
-                modifier = Modifier.clickable(onClick = onClick)
+                modifier = Modifier.clickable(onClick = onClick),
             )
         }
     }

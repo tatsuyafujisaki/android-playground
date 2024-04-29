@@ -12,7 +12,10 @@ object CookieUtil {
         }
     }
 
-    fun setCookies(url: String, cookies: Map<String, String>) {
+    fun setCookies(
+        url: String,
+        cookies: Map<String, String>,
+    ) {
         val cookieManager = CookieManager.getInstance()
         for (cookie in cookies) {
             cookieManager.setCookie(url, "${cookie.key}=${cookie.value}")

@@ -11,14 +11,24 @@ import kotlinx.coroutines.flow.map
 val Context.preferencesDataStore: DataStore<Preferences> by preferencesDataStore("")
 
 object PreferencesDataStoreUtil {
-    suspend fun <T> get(context: Context, key: Preferences.Key<T>, defaultValue: T) =
-        context.preferencesDataStore.data.map { it[key] ?: defaultValue }.first()
+    suspend fun <T> get(
+        context: Context,
+        key: Preferences.Key<T>,
+        defaultValue: T,
+    ) = context.preferencesDataStore.data.map { it[key] ?: defaultValue }.first()
 
-    suspend fun <T> set(context: Context, key: Preferences.Key<T>, value: T) = runCatching {
+    suspend fun <T> set(
+        context: Context,
+        key: Preferences.Key<T>,
+        value: T,
+    ) = runCatching {
         context.preferencesDataStore.edit { it[key] = value }
     }.isSuccess
 
-    suspend fun <T> remove(context: Context, key: Preferences.Key<T>) = runCatching {
+    suspend fun <T> remove(
+        context: Context,
+        key: Preferences.Key<T>,
+    ) = runCatching {
         context.preferencesDataStore.edit { it.remove(key) }
     }.isSuccess
 }

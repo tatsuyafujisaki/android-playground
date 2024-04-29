@@ -17,7 +17,7 @@ fun SliderExample(
     maxValue: Float,
     onValueChange: (Float) -> Unit,
     onValueChangeStarted: () -> Unit,
-    onValueChangeFinished: () -> Unit
+    onValueChangeFinished: () -> Unit,
 ) {
     var sliderValue by remember { mutableFloatStateOf(0f) }
     var started by remember { mutableStateOf(true) }
@@ -38,7 +38,7 @@ fun SliderExample(
             onValueChangeFinished = {
                 started = true
                 onValueChangeFinished()
-            }
+            },
         )
     }
 }
@@ -56,6 +56,6 @@ fun SliderExamplePreview() {
         },
         onValueChangeFinished = {
             Log.d("SliderExample", "onValueChangeFinished() is called.")
-        }
+        },
     )
 }

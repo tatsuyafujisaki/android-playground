@@ -17,18 +17,17 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 
 @Composable
-fun FullscreenDialogExample(
-    onDismissRequest: () -> Unit = {}
-) {
+fun FullscreenDialogExample(onDismissRequest: () -> Unit = {}) {
     Dialog(
         onDismissRequest = { onDismissRequest() },
-        properties = DialogProperties(usePlatformDefaultWidth = false)
+        properties = DialogProperties(usePlatformDefaultWidth = false),
     ) {
         Box(
-            modifier = Modifier
-                .background(Color.White)
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
+            modifier =
+                Modifier
+                    .background(Color.White)
+                    .fillMaxSize(),
+            contentAlignment = Alignment.Center,
         ) {
             Text("Hello world")
         }

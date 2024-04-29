@@ -17,25 +17,28 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 
 @Preview(showBackground = true)
 @Composable
-fun WeightedRowExample(@PreviewParameter(LoremIpsum::class) text: String) {
+fun WeightedRowExample(
+    @PreviewParameter(LoremIpsum::class) text: String,
+) {
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
     ) {
         Icon(
             imageVector = Icons.Default.Home,
-            contentDescription = null
+            contentDescription = null,
         )
         Text(
             text = text,
-            modifier = Modifier
-                .align(CenterVertically)
-                .weight(1f),
+            modifier =
+                Modifier
+                    .align(CenterVertically)
+                    .weight(1f),
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
         )
         Icon(
             imageVector = Icons.AutoMirrored.Default.NavigateNext,
-            contentDescription = null
+            contentDescription = null,
         )
     }
 }

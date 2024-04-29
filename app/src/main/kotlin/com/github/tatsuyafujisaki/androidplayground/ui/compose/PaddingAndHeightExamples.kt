@@ -17,11 +17,12 @@ import androidx.compose.ui.unit.dp
 fun PaddingAndHeightExample1() {
     Box(
         // Total size including padding is 150x150.
-        modifier = Modifier
-            .padding(50.dp)
-            .size(100.dp)
-            .background(Color.LightGray),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .padding(50.dp)
+                .size(100.dp)
+                .background(Color.LightGray),
+        contentAlignment = Alignment.Center,
     ) {
         Text("Sample")
     }
@@ -32,11 +33,12 @@ fun PaddingAndHeightExample1() {
 fun PaddingAndHeightExample2() {
     Box(
         // Total size including padding is 100x100.
-        modifier = Modifier
-            .size(100.dp)
-            .padding(50.dp)
-            .background(Color.LightGray),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .size(100.dp)
+                .padding(50.dp)
+                .background(Color.LightGray),
+        contentAlignment = Alignment.Center,
     ) {
         Text("Sample")
     }

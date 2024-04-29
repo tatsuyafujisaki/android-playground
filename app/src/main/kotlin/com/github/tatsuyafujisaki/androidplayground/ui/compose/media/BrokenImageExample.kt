@@ -21,15 +21,16 @@ fun BrokenImage(
     contentDescription: String? = null,
 ) {
     Box(
-        modifier = modifier
-            .background(Color.LightGray)
-            .fillMaxSize(),
-        contentAlignment = Alignment.Center
+        modifier =
+            modifier
+                .background(Color.LightGray)
+                .fillMaxSize(),
+        contentAlignment = Alignment.Center,
     ) {
         Image(
             painter = painterResource(id = R.drawable.broken_image_24px),
             contentDescription = contentDescription,
-            modifier = Modifier.size(24.dp)
+            modifier = Modifier.size(24.dp),
         )
     }
 }

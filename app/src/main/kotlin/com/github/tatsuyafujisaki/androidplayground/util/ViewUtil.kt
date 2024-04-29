@@ -15,13 +15,13 @@ object ViewUtil {
         @DimenRes leftId: Int? = null,
         @DimenRes topId: Int? = null,
         @DimenRes rightId: Int? = null,
-        @DimenRes bottomId: Int? = null
+        @DimenRes bottomId: Int? = null,
     ) {
         view.updatePadding(
             leftId?.let(resources::getDimensionPixelSize) ?: view.paddingLeft,
             topId?.let(resources::getDimensionPixelSize) ?: view.paddingTop,
             rightId?.let(resources::getDimensionPixelSize) ?: view.paddingRight,
-            bottomId?.let(resources::getDimensionPixelSize) ?: view.paddingBottom
+            bottomId?.let(resources::getDimensionPixelSize) ?: view.paddingBottom,
         )
     }
 
@@ -30,7 +30,7 @@ object ViewUtil {
         leftDp: Int? = null,
         topDp: Int? = null,
         rightDp: Int? = null,
-        bottomDp: Int? = null
+        bottomDp: Int? = null,
     ) {
         fun toPx(dp: Int) = (dp * Resources.getSystem().displayMetrics.density).toInt()
 
@@ -38,13 +38,13 @@ object ViewUtil {
             leftDp?.let(::toPx) ?: view.paddingLeft,
             topDp?.let(::toPx) ?: view.paddingTop,
             rightDp?.let(::toPx) ?: view.paddingRight,
-            bottomDp?.let(::toPx) ?: view.paddingBottom
+            bottomDp?.let(::toPx) ?: view.paddingBottom,
         )
     }
 
     fun View.setOnDownUpListener(
         onActionDown: () -> Unit,
-        onActionUp: () -> Unit
+        onActionUp: () -> Unit,
     ) {
         setOnTouchListener { v, event ->
             when (event.action) {
@@ -61,7 +61,10 @@ object ViewUtil {
         }
     }
 
-    fun View.setOnSafeClickListener(delayMillis: Long = 1000L, onClick: () -> Unit) {
+    fun View.setOnSafeClickListener(
+        delayMillis: Long = 1000L,
+        onClick: () -> Unit,
+    ) {
         setOnClickListener {
             isClickable = false
             postDelayed({

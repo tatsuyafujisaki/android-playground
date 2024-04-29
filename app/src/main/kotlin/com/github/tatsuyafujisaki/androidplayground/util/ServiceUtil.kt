@@ -9,8 +9,7 @@ import android.view.inputmethod.InputMethodManager
 
 object ServiceUtil {
     object ActivityService {
-        private fun getActivityManager(context: Context) =
-            context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        private fun getActivityManager(context: Context) = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
 
         fun getMemoryInfo(context: Context): ActivityManager.MemoryInfo {
             return ActivityManager.MemoryInfo().also {
@@ -20,19 +19,17 @@ object ServiceUtil {
     }
 
     object InputMethodService {
-        fun getInputMethodManager(context: Context) =
-            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        fun getInputMethodManager(context: Context) = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     }
 
     object ConnectivityService {
         enum class MyNetworkType {
             WIFI,
             CELLULAR,
-            UNKNOWN
+            UNKNOWN,
         }
 
-        private fun getConnectivityService(context: Context) =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        private fun getConnectivityService(context: Context) = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         fun getNetworkType(context: Context): MyNetworkType {
             val connectivityService = getConnectivityService(context)
@@ -50,15 +47,14 @@ object ServiceUtil {
             with(getConnectivityService(context)) {
                 getNetworkCapabilities(activeNetwork)?.run {
                     hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                            hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                            hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+                        hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                        hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
                 } ?: false
             }
     }
 
     object PowerService {
-        private fun getPowerService(context: Context) =
-            context.getSystemService(Context.POWER_SERVICE) as PowerManager
+        private fun getPowerService(context: Context) = context.getSystemService(Context.POWER_SERVICE) as PowerManager
 
         fun isInteractive(context: Context) = getPowerService(context).isInteractive
     }

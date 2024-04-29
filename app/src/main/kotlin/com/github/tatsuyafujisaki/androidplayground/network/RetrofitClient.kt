@@ -18,7 +18,7 @@ object RetrofitClient {
                     .Builder()
                     .addInterceptors()
                     .addCookieJar()
-                    .build()
+                    .build(),
             )
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .build()

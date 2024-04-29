@@ -23,7 +23,7 @@ private fun MyRow(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = horizontalArrangement,
         verticalAlignment = Alignment.CenterVertically,
-        content = content
+        content = content,
     )
 }
 

@@ -30,9 +30,10 @@ private const val TAG = "ContextUtil"
  */
 object ContextUtil {
     object AutoRotation {
-        fun isAutoRotatable(context: Context) = Settings.System.getInt(
-            context.contentResolver, Settings.System.ACCELEROMETER_ROTATION
-        ) == 1
+        fun isAutoRotatable(context: Context) =
+            Settings.System.getInt(
+                context.contentResolver, Settings.System.ACCELEROMETER_ROTATION,
+            ) == 1
     }
 
     fun getVersionName(context: Context): String {
@@ -49,10 +50,15 @@ object ContextUtil {
      * Read a text file in the "assets" directory.
      * cf. [ResourcesUtil.readResourceAsText]
      */
-    fun readAssetAsText(context: Context, fileName: String) =
-        context.assets.open(fileName).bufferedReader().use(BufferedReader::readText)
+    fun readAssetAsText(
+        context: Context,
+        fileName: String,
+    ) = context.assets.open(fileName).bufferedReader().use(BufferedReader::readText)
 
-    fun openInBrowser(context: Context, url: String) {
+    fun openInBrowser(
+        context: Context,
+        url: String,
+    ) {
         startActivity(context, Intent(Intent.ACTION_VIEW, url.toUri()), null)
     }
 
@@ -60,11 +66,13 @@ object ContextUtil {
      * https://developer.android.com/distribute/marketing-tools/linking-to-google-play#android-app
      */
     fun openGooglePlay(context: Context) {
-        context.startActivity(Intent(Intent.ACTION_VIEW).apply {
-            data =
-                ("https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}").toUri()
-            setPackage("com.android.vending")
-        })
+        context.startActivity(
+            Intent(Intent.ACTION_VIEW).apply {
+                data =
+                    ("https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}").toUri()
+                setPackage("com.android.vending")
+            },
+        )
     }
 
     /**
@@ -73,17 +81,18 @@ object ContextUtil {
     fun printScreenInfo(displayMetrics: DisplayMetrics) {
         require(displayMetrics.density == displayMetrics.densityDpi / 160f)
 
-        val densityQualifier = displayMetrics.densityDpi.let {
-            when {
-                it <= DisplayMetrics.DENSITY_LOW -> "ldpi (~120dpi)"
-                it <= DisplayMetrics.DENSITY_MEDIUM -> "mdpi (121~160dpi)"
-                it <= DisplayMetrics.DENSITY_HIGH -> "hdpi (161~240dpi)"
-                it <= DisplayMetrics.DENSITY_XHIGH -> "xhdpi (241~320dpi)"
-                it <= DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi (321~480dpi)"
-                it <= DisplayMetrics.DENSITY_XXXHIGH -> "xxxhdpi (481~640dpi)"
-                else -> error("Screen quantifier for $it is not supported.")
+        val densityQualifier =
+            displayMetrics.densityDpi.let {
+                when {
+                    it <= DisplayMetrics.DENSITY_LOW -> "ldpi (~120dpi)"
+                    it <= DisplayMetrics.DENSITY_MEDIUM -> "mdpi (121~160dpi)"
+                    it <= DisplayMetrics.DENSITY_HIGH -> "hdpi (161~240dpi)"
+                    it <= DisplayMetrics.DENSITY_XHIGH -> "xhdpi (241~320dpi)"
+                    it <= DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi (321~480dpi)"
+                    it <= DisplayMetrics.DENSITY_XXXHIGH -> "xxxhdpi (481~640dpi)"
+                    else -> error("Screen quantifier for $it is not supported.")
+                }
             }
-        }
 
         Log.d(TAG, "dpi: $${displayMetrics.densityDpi}")
         Log.d(TAG, "density [(# of 160px) / inch] (= dpi / 160): ${displayMetrics.density}")
@@ -92,15 +101,19 @@ object ContextUtil {
         Log.d(TAG, "heightPixels: ${displayMetrics.heightPixels}")
         Log.d(
             TAG,
-            "widthInDp [(1 / 160) inch] (= px / density): ${(displayMetrics.widthPixels / displayMetrics.density).toInt()}"
+            "widthInDp [(1 / 160) inch] (= px / density): ${(displayMetrics.widthPixels / displayMetrics.density).toInt()}",
         )
         Log.d(
             TAG,
-            "heightInDp [(1 / 160) inch] (= px / density): ${(displayMetrics.heightPixels / displayMetrics.density).toInt()}"
+            "heightInDp [(1 / 160) inch] (= px / density): ${(displayMetrics.heightPixels / displayMetrics.density).toInt()}",
         )
     }
 
-    fun <T> createChip(context: Context, text: String, tag: T): Chip {
+    fun <T> createChip(
+        context: Context,
+        text: String,
+        tag: T,
+    ): Chip {
         return Chip(context).apply {
             this.text = text
             this.tag = tag
@@ -114,15 +127,24 @@ object ContextUtil {
         }
     }
 
-    fun color(menuItem: MenuItem, @ColorInt color: Int) {
-        menuItem.title = SpannableString(menuItem.title.toString()).apply {
-            setSpan(ForegroundColorSpan(color), 0, length, 0)
-        }
+    fun color(
+        menuItem: MenuItem,
+        @ColorInt color: Int,
+    ) {
+        menuItem.title =
+            SpannableString(menuItem.title.toString()).apply {
+                setSpan(ForegroundColorSpan(color), 0, length, 0)
+            }
     }
 
-    fun color(context: Context, menuItem: MenuItem, @ColorRes id: Int) {
-        menuItem.title = SpannableString(menuItem.title.toString()).apply {
-            setSpan(ForegroundColorSpan(ContextCompat.getColor(context, id)), 0, length, 0)
-        }
+    fun color(
+        context: Context,
+        menuItem: MenuItem,
+        @ColorRes id: Int,
+    ) {
+        menuItem.title =
+            SpannableString(menuItem.title.toString()).apply {
+                setSpan(ForegroundColorSpan(ContextCompat.getColor(context, id)), 0, length, 0)
+            }
     }
 }

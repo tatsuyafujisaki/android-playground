@@ -13,6 +13,6 @@ private fun MaterialSymbolExamplePreview() {
     Icon(
         imageVector = Icons.Default.Favorite,
         contentDescription = null,
-        tint = Color.Red
+        tint = Color.Red,
     )
 }

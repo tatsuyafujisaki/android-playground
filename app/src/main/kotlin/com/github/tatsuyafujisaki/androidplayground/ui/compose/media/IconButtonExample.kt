@@ -14,16 +14,16 @@ fun IconButtonExample(
     @DrawableRes id: Int,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     IconButton(
         modifier = modifier,
         enabled = enabled,
-        onClick = onClick
+        onClick = onClick,
     ) {
         Image(
             painter = painterResource(id = id),
-            contentDescription = null
+            contentDescription = null,
         )
     }
 }

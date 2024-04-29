@@ -12,23 +12,24 @@ import androidx.navigation.fragment.NavHostFragment
 
 object NavigationUtil {
     object NavigationController {
-
         /**
          * Prints a breadcrumb of the navigation stack, not for Navigation Compose.
          */
         fun printBreadcrumb(navController: NavController) {
-            Log.d("Breadcrumb", navController
-                .currentBackStack
-                .value
-                .map {
-                    it.destination
-                }
-                .filterNot {
-                    it is NavGraph
-                }
-                .joinToString(" > ") {
-                    it.displayName.split('/')[1]
-                }
+            Log.d(
+                "Breadcrumb",
+                navController
+                    .currentBackStack
+                    .value
+                    .map {
+                        it.destination
+                    }
+                    .filterNot {
+                        it is NavGraph
+                    }
+                    .joinToString(" > ") {
+                        it.displayName.split('/')[1]
+                    },
             )
         }
 
@@ -44,19 +45,20 @@ object NavigationUtil {
                     .map {
                         it.destination.route
                     }
-                    .joinToString(" > ")
+                    .joinToString(" > "),
             )
         }
 
         fun printStartDestinationRoute(navController: NavController) =
             Log.d(
                 "StartDestinationRoute",
-                navController.graph.findStartDestination().route.toString()
+                navController.graph.findStartDestination().route.toString(),
             )
 
-        fun canNavigateUp(navController: NavController) = with(navController) {
-            graph.startDestinationId != currentDestination?.id
-        }
+        fun canNavigateUp(navController: NavController) =
+            with(navController) {
+                graph.startDestinationId != currentDestination?.id
+            }
 
         fun hasBackStackEntry(
             navController: NavController,
@@ -83,9 +85,10 @@ object NavigationUtil {
             @NavigationRes graphResId: Int,
             @IdRes startDestId: Int,
         ) {
-            navController.graph = navController.navInflater.inflate(graphResId).apply {
-                setStartDestination(startDestId)
-            }
+            navController.graph =
+                navController.navInflater.inflate(graphResId).apply {
+                    setStartDestination(startDestId)
+                }
         }
 
         fun setGraphWithStartDestinationAndArgs(
@@ -93,9 +96,10 @@ object NavigationUtil {
             @NavigationRes graphResId: Int,
             @IdRes startDestId: Int,
         ) {
-            val graph = navController.navInflater.inflate(graphResId).apply {
-                setStartDestination(startDestId)
-            }
+            val graph =
+                navController.navInflater.inflate(graphResId).apply {
+                    setStartDestination(startDestId)
+                }
             // navController.setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
         }
     }
@@ -103,14 +107,11 @@ object NavigationUtil {
     /**
      * A [FragmentActivity] can contain 0, 1, or more than 1 [NavHostFragment].
      */
-    fun getNavHostFragments(activity: FragmentActivity) =
-        activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>()
+    fun getNavHostFragments(activity: FragmentActivity) = activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>()
 
-    private fun getCurrentFragment(navHostFragment: NavHostFragment) =
-        navHostFragment.childFragmentManager.primaryNavigationFragment
+    private fun getCurrentFragment(navHostFragment: NavHostFragment) = navHostFragment.childFragmentManager.primaryNavigationFragment
 
-    private fun getViewPager2Fragment(navHostFragment: NavHostFragment) =
-        getCurrentFragment(navHostFragment)
+    private fun getViewPager2Fragment(navHostFragment: NavHostFragment) = getCurrentFragment(navHostFragment)
 
     /**
      * Don't replace ".fragments?.first()" with ".primaryNavigationFragment"

@@ -12,7 +12,9 @@ import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.LoremIpsu
 
 @Preview(showBackground = true)
 @Composable
-fun HorizontallyCenteredTextExample(@PreviewParameter(LoremIpsum2::class) text: String) {
+fun HorizontallyCenteredTextExample(
+    @PreviewParameter(LoremIpsum2::class) text: String,
+) {
     Text(
         text = text,
         modifier = Modifier.fillMaxWidth(),

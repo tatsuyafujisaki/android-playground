@@ -23,7 +23,7 @@ fun StatelessPullRefreshBox(
         PullRefreshIndicator(
             refreshing = refreshing,
             state = state,
-            modifier = Modifier.align(Alignment.TopCenter)
+            modifier = Modifier.align(Alignment.TopCenter),
         )
     }
 }

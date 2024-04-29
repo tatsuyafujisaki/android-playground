@@ -9,9 +9,10 @@ object ParcelableTest {
         assertEquals(original, writeAndRead(original))
     }
 
-    private fun <T : Parcelable> writeAndRead(data: T): T = with(Parcel.obtain()) {
-        writeParcelable(data, 0)
-        setDataPosition(0)
-        readParcelable(javaClass.classLoader)!!
-    }
+    private fun <T : Parcelable> writeAndRead(data: T): T =
+        with(Parcel.obtain()) {
+            writeParcelable(data, 0)
+            setDataPosition(0)
+            readParcelable(javaClass.classLoader)!!
+        }
 }

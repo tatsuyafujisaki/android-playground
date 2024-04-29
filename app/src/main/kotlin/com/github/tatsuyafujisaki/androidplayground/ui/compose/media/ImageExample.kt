@@ -24,37 +24,37 @@ fun ImageExample(
     modifier: Modifier = Modifier,
     isCircle: Boolean = false,
     border: Pair<Dp, Color>? = null,
-    contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit
+    contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit,
 ) {
     Image(
         painter = painterResource(id = id),
         contentDescription = null,
         modifier = modifier.circleBorder(isCircle = isCircle, border = border),
-        contentScale = contentScale
+        contentScale = contentScale,
     )
 }
 
 @Preview
 @Composable
 private fun ImageExamplePreview(
-    @PreviewParameter(BooleanProvider::class) isCircle: Boolean
+    @PreviewParameter(BooleanProvider::class) isCircle: Boolean,
 ) {
     ImageExample(
         id = R.drawable.ic_android_robot,
         modifier = Modifier.size(200.dp),
-        isCircle = isCircle
+        isCircle = isCircle,
     )
 }
 
 @Preview
 @Composable
 private fun ImageBorderedExamplePreview(
-    @PreviewParameter(BooleanProvider::class) isCircle: Boolean
+    @PreviewParameter(BooleanProvider::class) isCircle: Boolean,
 ) {
     ImageExample(
         id = R.drawable.ic_android_robot,
         modifier = Modifier.size(200.dp),
         isCircle = isCircle,
-        border = 8.dp to Color.Red
+        border = 8.dp to Color.Red,
     )
 }

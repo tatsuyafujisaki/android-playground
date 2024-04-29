@@ -22,13 +22,15 @@ object ActivityUtil {
     object Keyboard {
         fun showKeyboard(activity: Activity) {
             WindowInsetsControllerCompat(
-                activity.window, activity.window.decorView
+                activity.window,
+                activity.window.decorView,
             ).show(Type.ime())
         }
 
         private fun hideKeyboard(activity: Activity) {
             WindowInsetsControllerCompat(
-                activity.window, activity.window.decorView
+                activity.window,
+                activity.window.decorView,
             ).hide(Type.ime())
         }
 
@@ -45,7 +47,10 @@ object ActivityUtil {
     }
 
     object SystemBars {
-        fun toggleSystemBars(activity: Activity, isVisible: Boolean) {
+        fun toggleSystemBars(
+            activity: Activity,
+            isVisible: Boolean,
+        ) {
             if (isVisible) showSystemBars(activity.window) else hideSystemBars(activity.window)
         }
 
@@ -56,21 +61,28 @@ object ActivityUtil {
         // https://developer.android.com/develop/ui/views/layout/immersive
         private fun hideSystemBars(window: Window) {
             with(WindowCompat.getInsetsController(window, window.decorView)) {
-                systemBarsBehavior = WindowInsetsControllerCompat
-                    .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                systemBarsBehavior =
+                    WindowInsetsControllerCompat
+                        .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
                 hide(Type.systemBars())
             }
         }
     }
 
     object OssLicenses {
-        fun startOssLicensesMenuActivity(context: Context, title: String = "") {
+        fun startOssLicensesMenuActivity(
+            context: Context,
+            title: String = "",
+        ) {
             if (title.isNotBlank()) OssLicensesMenuActivity.setActivityTitle(title)
             context.startActivity(Intent(context, OssLicensesMenuActivity::class.java))
         }
     }
 
-    fun keepScreenOn(activity: Activity, on: Boolean) {
+    fun keepScreenOn(
+        activity: Activity,
+        on: Boolean,
+    ) {
         val window = activity.window
         if (on) {
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -79,13 +91,17 @@ object ActivityUtil {
         }
     }
 
-    fun getNavController(activity: Activity, @IdRes navHostFragmentId: Int) =
-        activity.findNavController(navHostFragmentId)
+    fun getNavController(
+        activity: Activity,
+        @IdRes navHostFragmentId: Int,
+    ) = activity.findNavController(navHostFragmentId)
 
     fun hasEnabledCallbacks(activity: ComponentActivity) {
         activity.onBackPressedDispatcher.hasEnabledCallbacks()
     }
 
-    fun getExtraString(activity: Activity, key: String) =
-        activity.intent?.extras?.getString(key).orEmpty()
+    fun getExtraString(
+        activity: Activity,
+        key: String,
+    ) = activity.intent?.extras?.getString(key).orEmpty()
 }

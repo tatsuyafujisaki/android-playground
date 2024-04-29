@@ -7,19 +7,21 @@ import kotlinx.coroutines.flow.callbackFlow
 class CountDownTimerWrapper(total: Long, interval: Long, onFinish: () -> Unit) {
     private lateinit var countDownTimer: CountDownTimer
 
-    val flow = callbackFlow {
-        countDownTimer = object : CountDownTimer(total, interval) {
-            override fun onTick(millisUntilFinished: Long) {
-                trySend(millisUntilFinished)
-            }
+    val flow =
+        callbackFlow {
+            countDownTimer =
+                object : CountDownTimer(total, interval) {
+                    override fun onTick(millisUntilFinished: Long) {
+                        trySend(millisUntilFinished)
+                    }
 
-            override fun onFinish() {
-                onFinish()
-            }
+                    override fun onFinish() {
+                        onFinish()
+                    }
+                }
+
+            awaitClose { countDownTimer.cancel() }
         }
-
-        awaitClose { countDownTimer.cancel() }
-    }
 
     fun start() {
         countDownTimer.start()

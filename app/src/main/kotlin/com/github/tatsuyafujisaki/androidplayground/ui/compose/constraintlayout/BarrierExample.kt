@@ -19,44 +19,47 @@ fun BarrierExample() {
         val (
             text1,
             text2,
-            icon
+            icon,
         ) = createRefs()
 
         val titleAndSubtitleEndBarrier = createEndBarrier(text1, text2)
 
         Text(
             text = "Apple",
-            modifier = Modifier
-                .background(Color.Red)
-                .constrainAs(text1) {
-                    start.linkTo(parent.start)
-                    top.linkTo(parent.top)
-                    bottom.linkTo(text2.top)
-                }
+            modifier =
+                Modifier
+                    .background(Color.Red)
+                    .constrainAs(text1) {
+                        start.linkTo(parent.start)
+                        top.linkTo(parent.top)
+                        bottom.linkTo(text2.top)
+                    },
         )
 
         Text(
             text = "Orange",
-            modifier = Modifier
-                .background(Color.Red)
-                .constrainAs(text2) {
-                    start.linkTo(parent.start)
-                    top.linkTo(text1.bottom)
-                    bottom.linkTo(parent.bottom)
-                }
+            modifier =
+                Modifier
+                    .background(Color.Red)
+                    .constrainAs(text2) {
+                        start.linkTo(parent.start)
+                        top.linkTo(text1.bottom)
+                        bottom.linkTo(parent.bottom)
+                    },
         )
 
         Icon(
             imageVector = Icons.Default.Favorite,
             contentDescription = null,
-            modifier = Modifier
-                .background(Color.Blue)
-                .constrainAs(icon) {
-                    width = Dimension.fillToConstraints
-                    top.linkTo(parent.top)
-                    start.linkTo(titleAndSubtitleEndBarrier)
-                    bottom.linkTo(parent.bottom)
-                }
+            modifier =
+                Modifier
+                    .background(Color.Blue)
+                    .constrainAs(icon) {
+                        width = Dimension.fillToConstraints
+                        top.linkTo(parent.top)
+                        start.linkTo(titleAndSubtitleEndBarrier)
+                        bottom.linkTo(parent.bottom)
+                    },
         )
     }
 }

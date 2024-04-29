@@ -22,19 +22,21 @@ import com.github.tatsuyafujisaki.androidplayground.R
 /**
  * @see [Stack Overflow](https://stackoverflow.com/a/73821217/10867055)
  */
-private fun Modifier.repeatedTiles(): Modifier = composed {
-    val imageBitmap = ImageBitmap.imageResource(R.drawable.ichimatsu)
-    val shaderBrush = remember(imageBitmap) {
-        ShaderBrush(
-            ImageShader(
-                image = imageBitmap,
-                tileModeX = TileMode.Repeated,
-                tileModeY = TileMode.Repeated
-            )
-        )
+private fun Modifier.repeatedTiles(): Modifier =
+    composed {
+        val imageBitmap = ImageBitmap.imageResource(R.drawable.ichimatsu)
+        val shaderBrush =
+            remember(imageBitmap) {
+                ShaderBrush(
+                    ImageShader(
+                        image = imageBitmap,
+                        tileModeX = TileMode.Repeated,
+                        tileModeY = TileMode.Repeated,
+                    ),
+                )
+            }
+        background(shaderBrush)
     }
-    background(shaderBrush)
-}
 
 @Preview
 @Composable
@@ -42,7 +44,7 @@ private fun RepeatedTileSpacerExample() {
     Spacer(
         Modifier
             .repeatedTiles()
-            .fillMaxSize()
+            .fillMaxSize(),
     )
 }
 
@@ -50,10 +52,11 @@ private fun RepeatedTileSpacerExample() {
 @Composable
 private fun RepeatedTileBoxPreview() {
     Box(
-        modifier = Modifier
-            .repeatedTiles()
-            .fillMaxSize(),
-        contentAlignment = Alignment.Center
+        modifier =
+            Modifier
+                .repeatedTiles()
+                .fillMaxSize(),
+        contentAlignment = Alignment.Center,
     ) {
         Text(text = "Hello", color = Color.White)
     }

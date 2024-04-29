@@ -10,23 +10,26 @@ import androidx.lifecycle.LifecycleOwner
 
 object FragmentUtil {
     object DialogUtil {
-        fun isDialogShowing(fragmentManager: FragmentManager, tag: String) =
-            (fragmentManager.findFragmentByTag(tag) as? DialogFragment)?.dialog?.isShowing
+        fun isDialogShowing(
+            fragmentManager: FragmentManager,
+            tag: String,
+        ) = (fragmentManager.findFragmentByTag(tag) as? DialogFragment)?.dialog?.isShowing
     }
 
     private val FragmentManager.fragmentNames
         get() = fragments.map { it.javaClass.simpleName }
 
     private val FragmentManager.backStackEntryNames
-        get() = (0 ..< backStackEntryCount)
-            .map {
-                val tag = getBackStackEntryAt(it).name
-                /**
-                 * [FragmentManager.findFragmentByTag returns null
-                 *   if the [BackStackEntry] has NOT been added with the tag.
-                 */
-                findFragmentByTag(tag)?.javaClass?.simpleName ?: tag
-            }
+        get() =
+            (0..<backStackEntryCount)
+                .map {
+                    val tag = getBackStackEntryAt(it).name
+                    /**
+                     * [FragmentManager.findFragmentByTag returns null
+                     *   if the [BackStackEntry] has NOT been added with the tag.
+                     */
+                    findFragmentByTag(tag)?.javaClass?.simpleName ?: tag
+                }
 
     fun keepScreenOn(fragment: Fragment) {
         val window = fragment.requireActivity().window
@@ -39,14 +42,14 @@ object FragmentUtil {
                 override fun onPause(owner: LifecycleOwner) {
                     window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                 }
-            }
+            },
         )
     }
 
     fun FragmentManager.popBackStack(fragmentCountToPop: Int) {
         popBackStack(
             getBackStackEntryAt(backStackEntryCount - fragmentCountToPop).id,
-            FragmentManager.POP_BACK_STACK_INCLUSIVE
+            FragmentManager.POP_BACK_STACK_INCLUSIVE,
         )
     }
 }

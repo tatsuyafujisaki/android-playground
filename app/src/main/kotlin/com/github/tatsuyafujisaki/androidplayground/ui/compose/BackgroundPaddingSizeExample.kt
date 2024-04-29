@@ -29,42 +29,42 @@ fun BackgroundPaddingSizeExample() {
             Modifier
                 .background(Red)
                 .padding(padding)
-                .size(size)
+                .size(size),
         )
         MyDivider()
         Spacer(
             Modifier
                 .background(Red)
                 .size(size)
-                .padding(padding)
+                .padding(padding),
         )
         MyDivider()
         Spacer(
             Modifier
                 .padding(padding)
                 .background(Red)
-                .size(size)
+                .size(size),
         )
         MyDivider()
         Spacer(
             Modifier
                 .padding(padding)
                 .size(size)
-                .background(Red)
+                .background(Red),
         )
         MyDivider()
         Spacer(
             Modifier
                 .size(size)
                 .background(Red)
-                .padding(padding)
+                .padding(padding),
         )
         MyDivider()
         Spacer(
             Modifier
                 .size(size)
                 .padding(padding)
-                .background(Red)
+                .background(Red),
         )
         MyDivider()
     }

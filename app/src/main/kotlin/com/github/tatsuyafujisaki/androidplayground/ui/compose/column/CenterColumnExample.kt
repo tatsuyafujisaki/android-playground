@@ -16,16 +16,17 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun CenterColumnExample(
     content: @Composable ColumnScope.() -> Unit,
-    onClick: (() -> Unit)? = null
+    onClick: (() -> Unit)? = null,
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .clickable(enabled = onClick != null, onClick = onClick ?: {}),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .clickable(enabled = onClick != null, onClick = onClick ?: {}),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        content = content
+        content = content,
     )
 }
 
@@ -37,6 +38,6 @@ private fun CenterColumnExamplePreview() {
             Text("Bacon")
             Text("Lettuce")
             Text("Tomato")
-        }
+        },
     )
 }

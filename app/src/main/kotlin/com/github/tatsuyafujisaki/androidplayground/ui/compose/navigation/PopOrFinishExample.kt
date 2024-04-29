@@ -9,7 +9,7 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun PopOrFinishExample(
     activity: Activity = LocalContext.current as Activity,
-    navController: NavController = rememberNavController()
+    navController: NavController = rememberNavController(),
 ) {
     if (!navController.popBackStack()) {
         activity.finish()

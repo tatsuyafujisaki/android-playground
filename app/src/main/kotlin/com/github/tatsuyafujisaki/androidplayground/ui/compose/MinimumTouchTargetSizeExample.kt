@@ -15,11 +15,21 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun MinimumTouchTargetSizeExample() {
     var state by remember { mutableStateOf(false) }
-    RadioButton(selected = state, onClick = { state = true }, modifier = Modifier.onSizeChanged {
-        Log.d("Clickable RadioButton", "Size $it")
-    })
+    RadioButton(
+        selected = state,
+        onClick = { state = true },
+        modifier =
+            Modifier.onSizeChanged {
+                Log.d("Clickable RadioButton", "Size $it")
+            },
+    )
 
-    RadioButton(selected = state, onClick = null, modifier = Modifier.onSizeChanged {
-        Log.d("Not clickable RadioButton", "Size $it")
-    })
+    RadioButton(
+        selected = state,
+        onClick = null,
+        modifier =
+            Modifier.onSizeChanged {
+                Log.d("Not clickable RadioButton", "Size $it")
+            },
+    )
 }

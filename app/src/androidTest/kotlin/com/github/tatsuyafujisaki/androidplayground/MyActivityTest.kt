@@ -6,10 +6,10 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.tatsuyafujisaki.androidplayground.ui.activity.MainActivity
-import kotlin.test.BeforeTest
-import kotlin.test.Test
 import org.junit.Rule
 import org.junit.runner.RunWith
+import kotlin.test.BeforeTest
+import kotlin.test.Test
 
 @RunWith(AndroidJUnit4::class)
 class MyActivityTest {

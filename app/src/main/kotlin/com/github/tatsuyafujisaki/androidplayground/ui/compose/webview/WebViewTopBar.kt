@@ -34,45 +34,45 @@ fun WebViewTopBar(
             Text(
                 text = title,
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
         },
         navigationIcon = {
             Icon(
                 imageVector = Icons.Filled.Close,
                 contentDescription = null,
-                modifier = Modifier.clickable(onClick = onNavigationIconClick)
+                modifier = Modifier.clickable(onClick = onNavigationIconClick),
             )
         },
         actions = {
             IconButton(
                 onClick = onBackClick,
-                enabled = canGoBack
+                enabled = canGoBack,
             ) {
                 Icon(
                     imageVector = Filled.ArrowBack,
                     contentDescription = null,
-                    tint = if (canGoBack) Color.Black else Color.Gray
+                    tint = if (canGoBack) Color.Black else Color.Gray,
                 )
             }
             IconButton(onReloadClick) {
                 Icon(
                     imageVector = Icons.Default.Refresh,
                     contentDescription = null,
-                    tint = Color.Black
+                    tint = Color.Black,
                 )
             }
             IconButton(
                 onClick = onForwardClick,
-                enabled = canGoForward
+                enabled = canGoForward,
             ) {
                 Icon(
                     imageVector = Filled.ArrowForward,
                     contentDescription = null,
-                    tint = if (canGoForward) Color.Black else Color.Gray
+                    tint = if (canGoForward) Color.Black else Color.Gray,
                 )
             }
-        }
+        },
     )
 }
 
@@ -86,6 +86,6 @@ private fun WebViewTopBarPreview() {
         onNavigationIconClick = {},
         onBackClick = {},
         onReloadClick = {},
-        onForwardClick = {}
+        onForwardClick = {},
     )
 }

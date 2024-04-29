@@ -23,11 +23,12 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview
 @Composable
 private fun SingleChoiceSegmentedButtonRowPreview() {
-    val options = listOf(
-        Icons.Default.Favorite to "Heart",
-        Icons.Default.MusicNote to "Music",
-        Icons.Default.Star to "Star"
-    )
+    val options =
+        listOf(
+            Icons.Default.Favorite to "Heart",
+            Icons.Default.MusicNote to "Music",
+            Icons.Default.Star to "Star",
+        )
     var selectedIndex by remember { mutableIntStateOf(0) }
     SingleChoiceSegmentedButtonRow {
         options.forEachIndexed { index, (imageVector, text) ->
@@ -41,7 +42,7 @@ private fun SingleChoiceSegmentedButtonRowPreview() {
                             imageVector = imageVector,
                             contentDescription = null,
                             // Without the following, the icon will wobble when you tap it.
-                            modifier = Modifier.size(SegmentedButtonDefaults.IconSize)
+                            modifier = Modifier.size(SegmentedButtonDefaults.IconSize),
                         )
                     }
                 },

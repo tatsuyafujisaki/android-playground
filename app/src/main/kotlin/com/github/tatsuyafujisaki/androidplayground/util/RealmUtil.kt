@@ -12,8 +12,9 @@ object RealmUtil {
             ZoneOffset.UTC,
         )
 
-    fun convertToRealmInstance(localDateTime: LocalDateTime) = RealmInstant.from(
-        localDateTime.toEpochSecond(ZoneOffset.UTC),
-        localDateTime.nano,
-    )
+    fun convertToRealmInstance(localDateTime: LocalDateTime) =
+        RealmInstant.from(
+            localDateTime.toEpochSecond(ZoneOffset.UTC),
+            localDateTime.nano,
+        )
 }

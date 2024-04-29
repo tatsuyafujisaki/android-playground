@@ -22,22 +22,23 @@ fun HorizontalPagerExample() {
 
     HorizontalPager(
         modifier = Modifier.fillMaxSize(),
-        state = pagerState
+        state = pagerState,
     ) { page ->
         AndroidView(
             modifier = Modifier.fillMaxSize(),
             factory = {
                 WebView(it).apply {
-                    layoutParams = LayoutParams(
-                        LayoutParams.MATCH_PARENT,
-                        LayoutParams.MATCH_PARENT
-                    )
+                    layoutParams =
+                        LayoutParams(
+                            LayoutParams.MATCH_PARENT,
+                            LayoutParams.MATCH_PARENT,
+                        )
                     settings.javaScriptEnabled = true
                 }
             },
             update = {
                 it.loadUrl(urls[page])
-            }
+            },
         )
     }
 }

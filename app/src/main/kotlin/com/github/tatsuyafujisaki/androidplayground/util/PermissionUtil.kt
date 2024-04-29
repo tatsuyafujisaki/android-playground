@@ -18,7 +18,7 @@ object PermissionUtil {
     fun Activity.requestStoragePermission() {
         requestPermissions(
             arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE),
-            REQUEST_EXTERNAL_STORAGE
+            REQUEST_EXTERNAL_STORAGE,
         )
     }
 }

@@ -15,10 +15,11 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun RoundedCornerExample(modifier: Modifier = Modifier) {
     Box(
-        modifier = modifier
-            .size(100.dp)
-            .background(Color.Red)
-            .clip(RoundedCornerShape(4.dp))
-            .background(Color.Blue)
+        modifier =
+            modifier
+                .size(100.dp)
+                .background(Color.Red)
+                .clip(RoundedCornerShape(4.dp))
+                .background(Color.Blue),
     )
 }

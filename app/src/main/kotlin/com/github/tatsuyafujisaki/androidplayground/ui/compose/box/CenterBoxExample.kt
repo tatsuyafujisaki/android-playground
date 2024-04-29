@@ -24,14 +24,15 @@ fun CenterBoxExample(
     content: @Composable BoxScope.() -> Unit,
 ) {
     Box(
-        modifier = Modifier
-            .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
-            .fillMaxWidth()
-            .height(height)
-            .background(background)
-            .clickable(enabled = onClick != null, onClick = onClick ?: {}),
+        modifier =
+            Modifier
+                .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
+                .fillMaxWidth()
+                .height(height)
+                .background(background)
+                .clickable(enabled = onClick != null, onClick = onClick ?: {}),
         contentAlignment = Alignment.Center,
-        content = content
+        content = content,
     )
 }
 

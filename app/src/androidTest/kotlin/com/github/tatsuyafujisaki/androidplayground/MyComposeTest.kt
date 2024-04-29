@@ -8,8 +8,8 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.printToLog
 import androidx.compose.ui.test.printToString
-import kotlin.test.Test
 import org.junit.Rule
+import kotlin.test.Test
 
 class MyComposeTest {
     @get:Rule

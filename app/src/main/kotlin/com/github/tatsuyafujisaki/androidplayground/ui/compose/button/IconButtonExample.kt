@@ -18,11 +18,11 @@ fun IconButtonExample(
     IconButton(
         onClick = onClick ?: {},
         modifier = modifier,
-        enabled = onClick != null
+        enabled = onClick != null,
     ) {
         Icon(
             imageVector = imageVector,
-            contentDescription = null
+            contentDescription = null,
         )
     }
 }

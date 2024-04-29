@@ -23,7 +23,7 @@ fun WebViewExample(
     title: String,
     url: String,
     onBack: () -> Unit,
-    onClick: (() -> Unit)? = null
+    onClick: (() -> Unit)? = null,
 ) {
     var canGoBack by remember { mutableStateOf(false) }
     var canGoForward by remember { mutableStateOf(false) }
@@ -41,32 +41,35 @@ fun WebViewExample(
                 onNavigationIconClick = onBack,
                 onBackClick = { isBackClicked = true },
                 onReloadClick = { isReloadClicked = true },
-                onForwardClick = { isForwardClicked = true }
+                onForwardClick = { isForwardClicked = true },
             )
-        }
+        },
     ) { paddingValues ->
         AndroidView(
-            modifier = Modifier
-                .padding(paddingValues)
-                .fillMaxSize(),
+            modifier =
+                Modifier
+                    .padding(paddingValues)
+                    .fillMaxSize(),
             onReset = { println("onReset") },
             factory = {
                 WebView(it).apply {
-                    layoutParams = ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT
-                    )
+                    layoutParams =
+                        ViewGroup.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                        )
                     settings.javaScriptEnabled = true
-                    webViewClient = object : WebViewClient() {
-                        override fun doUpdateVisitedHistory(
-                            view: WebView?,
-                            url: String?,
-                            isReload: Boolean
-                        ) {
-                            canGoBack = view?.canGoBack() ?: false
-                            canGoForward = view?.canGoForward() ?: false
+                    webViewClient =
+                        object : WebViewClient() {
+                            override fun doUpdateVisitedHistory(
+                                view: WebView?,
+                                url: String?,
+                                isReload: Boolean,
+                            ) {
+                                canGoBack = view?.canGoBack() ?: false
+                                canGoForward = view?.canGoForward() ?: false
+                            }
                         }
-                    }
                     onClick?.let {
                         setOnTouchListener { v, _ ->
                             it.invoke()
@@ -94,7 +97,7 @@ fun WebViewExample(
                 }
                 it.loadUrl(url)
             },
-            onRelease = { println("onRelease") }
+            onRelease = { println("onRelease") },
         )
     }
     BackHandler {

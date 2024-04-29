@@ -7,7 +7,7 @@ import androidx.annotation.FloatRange
  */
 data class FloatRangeExample(
     @FloatRange(from = MIN, to = MAX) val lower: Float,
-    @FloatRange(from = MIN, to = MAX) val upper: Float
+    @FloatRange(from = MIN, to = MAX) val upper: Float,
 ) {
     init {
         require(lower <= upper)

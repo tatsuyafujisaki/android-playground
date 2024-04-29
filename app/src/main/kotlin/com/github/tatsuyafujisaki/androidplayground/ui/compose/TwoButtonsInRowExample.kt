@@ -14,11 +14,11 @@ import androidx.compose.ui.unit.dp
 @Composable
 private fun MyTextButton(
     text: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     TextButton(
         onClick = {},
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth(),
     ) {
         Text(text = text)
     }
@@ -30,12 +30,12 @@ fun TwoButtonsInRow() {
     Row(modifier = Modifier.fillMaxWidth()) {
         MyTextButton(
             modifier = Modifier.weight(1f),
-            text = "a"
+            text = "a",
         )
         Spacer(Modifier.width(8.dp))
         MyTextButton(
             modifier = Modifier.weight(1f),
-            text = "b"
+            text = "b",
         )
     }
 }

@@ -15,7 +15,10 @@ object LiveDataUtil {
         value = value
     }
 
-    fun <T> LiveData<T>.observeOnce(owner: LifecycleOwner, onChanged: (T) -> Unit) {
+    fun <T> LiveData<T>.observeOnce(
+        owner: LifecycleOwner,
+        onChanged: (T) -> Unit,
+    ) {
         observe(
             owner,
             object : Observer<T> {
@@ -23,7 +26,7 @@ object LiveDataUtil {
                     onChanged(value)
                     removeObserver(this)
                 }
-            }
+            },
         )
     }
 
@@ -31,18 +34,20 @@ object LiveDataUtil {
      * NB: observeForever(...) observes even after LifecycleOwner, which contains this LiveData, gets destroyed.
      */
     fun <T> LiveData<T>.observeOnce(onChanged: (T) -> Unit) {
-        observeForever(object : Observer<T> {
-            override fun onChanged(value: T) {
-                onChanged(value)
-                removeObserver(this)
-            }
-        })
+        observeForever(
+            object : Observer<T> {
+                override fun onChanged(value: T) {
+                    onChanged(value)
+                    removeObserver(this)
+                }
+            },
+        )
     }
 
     fun <A, B, C> mediate(
         liveData1: LiveData<A>,
         liveData2: LiveData<B>,
-        onChanged: (A?, B?) -> C
+        onChanged: (A?, B?) -> C,
     ) = MediatorLiveData<C>().apply {
         addSource(liveData1) {
             value = onChanged(liveData1.value, liveData2.value)
@@ -55,7 +60,7 @@ object LiveDataUtil {
     private fun <A, B, C> mediateNonNull(
         liveData1: LiveData<A>,
         liveData2: LiveData<B>,
-        onChanged: (A, B) -> C
+        onChanged: (A, B) -> C,
     ) = MediatorLiveData<C>().apply {
         addSource(liveData1) {
             if (liveData1.value != null && liveData2.value != null) {
@@ -86,8 +91,7 @@ object LiveDataUtil {
     /**
      * Converts LiveData to Observable using LiveDataReactiveStreams in androidx.lifecycle:lifecycle-reactivestreams-ktx.
      */
-    fun <T : Any> LiveData<T>.toObservable1(owner: LifecycleOwner): Observable<T> =
-        Observable.fromPublisher(toPublisher(owner))
+    fun <T : Any> LiveData<T>.toObservable1(owner: LifecycleOwner): Observable<T> = Observable.fromPublisher(toPublisher(owner))
 
     /**
      * Converts LiveData to Observable without LiveDataReactiveStreams in androidx.lifecycle:lifecycle-reactivestreams-ktx.

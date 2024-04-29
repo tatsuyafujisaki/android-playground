@@ -17,6 +17,6 @@ fun TopAppBarExample() {
         actions = {
             Text("Action1")
             Text("Action2")
-        }
+        },
     )
 }

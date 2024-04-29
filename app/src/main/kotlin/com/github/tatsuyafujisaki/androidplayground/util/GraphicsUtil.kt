@@ -24,18 +24,26 @@ import java.lang.Integer.max
 
 object GraphicsUtil {
     object Converter {
-        private fun convertDrawableResToBitmapOrNull1(resources: Resources, @DrawableRes id: Int) =
-            BitmapFactory.decodeResource(resources, id)
+        private fun convertDrawableResToBitmapOrNull1(
+            resources: Resources,
+            @DrawableRes id: Int,
+        ) = BitmapFactory.decodeResource(resources, id)
 
-        fun convertDrawableResToBitmapOrNull2(context: Context, @DrawableRes id: Int) =
-            AppCompatResources.getDrawable(context, id)?.toBitmapOrNull()
+        fun convertDrawableResToBitmapOrNull2(
+            context: Context,
+            @DrawableRes id: Int,
+        ) = AppCompatResources.getDrawable(context, id)?.toBitmapOrNull()
 
         @Composable
-        fun convertDrawableResToImageVector(@DrawableRes id: Int) =
-            ImageVector.vectorResource(id = id)
+        fun convertDrawableResToImageVector(
+            @DrawableRes id: Int,
+        ) = ImageVector.vectorResource(id = id)
     }
 
-    fun downloadBitmapOrNull(context: Context, url: String): Bitmap? {
+    fun downloadBitmapOrNull(
+        context: Context,
+        url: String,
+    ): Bitmap? {
         val contentResolver = context.contentResolver
         val uri = url.toUri()
 
@@ -64,10 +72,19 @@ object GraphicsUtil {
         return max(1, inSampleSize / 2)
     }
 
-    fun rotateClockwise(bitmap: Bitmap, degrees: Float): Bitmap = Bitmap.createBitmap(
-        bitmap, 0, 0, bitmap.width, bitmap.height,
-        Matrix().apply { postRotate(degrees) }, true
-    )
+    fun rotateClockwise(
+        bitmap: Bitmap,
+        degrees: Float,
+    ): Bitmap =
+        Bitmap.createBitmap(
+            bitmap,
+            0,
+            0,
+            bitmap.width,
+            bitmap.height,
+            Matrix().apply { postRotate(degrees) },
+            true,
+        )
 
     fun takeScreenshot(view: View): Bitmap {
         val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
@@ -97,9 +114,10 @@ object GraphicsUtil {
     ): Bitmap {
         val canvasSize = 5 * radius.toInt()
         val bitmap = Bitmap.createBitmap(canvasSize, canvasSize, Bitmap.Config.ARGB_8888)
-        val paint = Paint().apply {
-            color = faceColor
-        }
+        val paint =
+            Paint().apply {
+                color = faceColor
+            }
         val leftEarX = canvasSize * 0.3f
         val rightEarX = canvasSize - leftEarX
         val earY = canvasSize * 0.3f

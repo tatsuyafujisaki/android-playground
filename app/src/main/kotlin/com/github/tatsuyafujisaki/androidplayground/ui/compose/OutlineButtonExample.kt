@@ -17,21 +17,23 @@ import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.BooleanPr
 @Composable
 fun OutlinedButtonExample(
     enabled: Boolean,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     OutlinedButton(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         enabled = enabled,
-        border = BorderStroke(
-            width = 4.dp,
-            color = Color.Red
-        ),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.White,
-            disabledContainerColor = Color.Gray
-        ),
-        contentPadding = PaddingValues(horizontal = 18.dp, vertical = 12.dp)
+        border =
+            BorderStroke(
+                width = 4.dp,
+                color = Color.Red,
+            ),
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color.White,
+                disabledContainerColor = Color.Gray,
+            ),
+        contentPadding = PaddingValues(horizontal = 18.dp, vertical = 12.dp),
     ) {
         Text("Sample")
     }
@@ -40,7 +42,7 @@ fun OutlinedButtonExample(
 @Preview
 @Composable
 private fun OutlineButtonExamplePreview(
-    @PreviewParameter(BooleanProvider::class) enabled: Boolean
+    @PreviewParameter(BooleanProvider::class) enabled: Boolean,
 ) {
     OutlinedButtonExample(enabled) {}
 }

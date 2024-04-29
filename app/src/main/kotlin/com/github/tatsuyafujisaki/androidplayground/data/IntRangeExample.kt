@@ -7,7 +7,7 @@ import androidx.annotation.IntRange
  */
 data class IntRangeExample(
     @IntRange(from = MIN, to = MAX) val lower: Int,
-    @IntRange(from = MIN, to = MAX) val upper: Int
+    @IntRange(from = MIN, to = MAX) val upper: Int,
 ) {
     init {
         require(lower <= upper)

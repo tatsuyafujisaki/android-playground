@@ -18,25 +18,27 @@ fun HorizontalConstraintLayoutExample() {
 
         Text(
             text = "Hello",
-            modifier = Modifier
-                .background(Color.Blue)
-                .constrainAs(text1) {
-                    start.linkTo(parent.start, 8.dp)
-                    top.linkTo(parent.top, 8.dp)
-                    end.linkTo(text2.start, 8.dp)
-                    bottom.linkTo(parent.bottom, 8.dp)
-                }
+            modifier =
+                Modifier
+                    .background(Color.Blue)
+                    .constrainAs(text1) {
+                        start.linkTo(parent.start, 8.dp)
+                        top.linkTo(parent.top, 8.dp)
+                        end.linkTo(text2.start, 8.dp)
+                        bottom.linkTo(parent.bottom, 8.dp)
+                    },
         )
         Text(
             text = "World",
-            modifier = Modifier
-                .background(Color.Red)
-                .constrainAs(text2) {
-                    start.linkTo(text1.end, 8.dp)
-                    top.linkTo(parent.top, 8.dp)
-                    end.linkTo(parent.end, 8.dp)
-                    bottom.linkTo(parent.bottom, 8.dp)
-                }
+            modifier =
+                Modifier
+                    .background(Color.Red)
+                    .constrainAs(text2) {
+                        start.linkTo(text1.end, 8.dp)
+                        top.linkTo(parent.top, 8.dp)
+                        end.linkTo(parent.end, 8.dp)
+                        bottom.linkTo(parent.bottom, 8.dp)
+                    },
         )
     }
 }

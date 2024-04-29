@@ -16,7 +16,7 @@ fun HorizontalDividerExample(
 ) {
     HorizontalDivider(
         thickness = thickness,
-        color = color
+        color = color,
     )
 }
 
@@ -27,7 +27,7 @@ private fun HorizontalDividerPreview() {
         Text("Hello")
         HorizontalDividerExample(
             color = Color.Yellow,
-            thickness = 10.dp
+            thickness = 10.dp,
         )
         Text("World")
     }

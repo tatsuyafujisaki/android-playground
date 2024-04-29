@@ -14,6 +14,6 @@ fun TextAlignExample() {
     Text(
         modifier = Modifier.width(100.dp),
         text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        textAlign = TextAlign.Center
+        textAlign = TextAlign.Center,
     )
 }

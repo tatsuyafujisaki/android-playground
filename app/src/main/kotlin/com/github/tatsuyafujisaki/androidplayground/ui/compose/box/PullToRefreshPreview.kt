@@ -28,9 +28,10 @@ fun PullToRefreshPreview() {
         state.endRefresh()
     }
     Box(
-        modifier = Modifier
-            .nestedScroll(state.nestedScrollConnection)
-            .fillMaxSize(),
+        modifier =
+            Modifier
+                .nestedScroll(state.nestedScrollConnection)
+                .fillMaxSize(),
     ) {
         if (!state.isRefreshing) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {

@@ -29,5 +29,5 @@ object MyPersonSerializer : Serializer<MyPerson> {
 
 val Context.myPersonDataStore: DataStore<MyPerson> by dataStore(
     fileName = "my_person.proto",
-    serializer = MyPersonSerializer
+    serializer = MyPersonSerializer,
 )
