@@ -10,7 +10,9 @@ import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
 import com.github.tatsuyafujisaki.androidplayground.util.ResourcesUtil.OrientationUtil
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val navController get() = navHostFragment.navController
     private lateinit var binding: ActivityMainBinding
