@@ -8,7 +8,10 @@ import io.realm.kotlin.ext.query
 
 class MyRealmRepository {
     private val realm = Realm.open(
-        RealmConfiguration.Builder(schema = setOf(MyRealmPerson::class)).schemaVersion(1).build(),
+        RealmConfiguration
+            .Builder(schema = setOf(MyRealmPerson::class))
+            .schemaVersion(schemaVersion = 1)
+            .build(),
     )
 
     fun getOrNull(name: String) =
