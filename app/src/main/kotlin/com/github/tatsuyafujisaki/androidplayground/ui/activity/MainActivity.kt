@@ -7,10 +7,16 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.github.tatsuyafujisaki.androidplayground.R
+import com.github.tatsuyafujisaki.androidplayground.data.MyRemoteConfig
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
 import com.github.tatsuyafujisaki.androidplayground.util.ResourcesUtil.OrientationUtil
+import com.google.firebase.Firebase
+import com.google.firebase.remoteconfig.get
+import com.google.firebase.remoteconfig.remoteConfig
+import com.google.firebase.remoteconfig.remoteConfigSettings
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.serialization.json.Json
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -26,23 +32,39 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         navHostFragment =
-            supportFragmentManager
-                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         binding.bottomNavigationView.setupWithNavController(navController)
-        appBarConfiguration =
-            AppBarConfiguration(
-                setOf(R.id.main_fragment, R.id.second_fragment, R.id.third_fragment),
-            )
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.main_fragment, R.id.second_fragment, R.id.third_fragment),
+        )
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         setSupportActionBar(binding.toolbar)
 
         OrientationUtil.enableOrientationEventListener(this) {
             viewModel.setOrientation4(it)
         }
+
+        doRemoteConfigStuff()
     }
 
-    companion object {
-        private const val TAG = "MainActivity"
+    private fun doRemoteConfigStuff() {
+        val remoteConfig = Firebase.remoteConfig
+
+        remoteConfig.setConfigSettingsAsync(
+            remoteConfigSettings {
+                minimumFetchIntervalInSeconds = 0
+            },
+        )
+
+        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
+
+        remoteConfig.fetchAndActivate().addOnCompleteListener {
+            if (it.isSuccessful) {
+                val myRemoteConfig =
+                    Json.decodeFromString<MyRemoteConfig>(remoteConfig["my_key"].asString())
+                println(myRemoteConfig)
+            }
+        }
     }
 }

@@ -1,8 +1,8 @@
 plugins {
+    embeddedKotlin(libs.plugins.kotlin.serialization.get().pluginId)
     id(libs.plugins.com.android.application.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
     id(libs.plugins.kotlin.parcelize.get().pluginId)
-    // Kotlin serialization works without this -> embeddedKotlin(libs.plugins.kotlin.serialization.get().pluginId)
     id(libs.plugins.ksp.get().pluginId)
     id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
     id(libs.plugins.google.services.get().pluginId)

@@ -1,0 +1,6 @@
+<defaults>
+    <entry>
+        <key>my_key</key>
+        <value>{"myLocalDateTime":"2040-01-02 12:34:56"}</value>
+    </entry>
+</defaults>
