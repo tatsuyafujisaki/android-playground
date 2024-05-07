@@ -24,5 +24,9 @@ private object LocalDateTimeSerializer : KSerializer<LocalDateTime> {
 
 @Serializable
 data class MyRemoteConfig(
+    val myBoolean: Boolean,
+    val myDouble: Double,
+    val myLong: Long,
+    val myString: String,
     @Serializable(with = LocalDateTimeSerializer::class) val myLocalDateTime: LocalDateTime,
 )
