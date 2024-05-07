@@ -16,10 +16,14 @@ import com.google.firebase.remoteconfig.get
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import kotlinx.serialization.json.Json
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    @Inject
+    lateinit var json: Json
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navHostFragment: NavHostFragment
@@ -62,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         remoteConfig.fetchAndActivate().addOnCompleteListener {
             if (it.isSuccessful) {
                 val myRemoteConfig =
-                    Json.decodeFromString<MyRemoteConfig>(remoteConfig["my_key"].asString())
+                    json.decodeFromString<MyRemoteConfig>(remoteConfig["my_key"].asString())
                 println(myRemoteConfig)
             }
         }
