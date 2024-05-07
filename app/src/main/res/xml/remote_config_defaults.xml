@@ -1,6 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <defaults>
     <entry>
         <key>my_key</key>
-        <value>{"myLocalDateTime":"2040-01-02 12:34:56"}</value>
+        <value>
+            {"myBoolean":"true","myDouble":3.14,"myLong":42,"myString":"Hello","myLocalDateTime":"2025-01-02
+            12:34:56"}
+        </value>
     </entry>
 </defaults>
