@@ -8,10 +8,8 @@ import io.realm.kotlin.ext.query
 
 class MyRealmRepository {
     private val realm = Realm.open(
-        RealmConfiguration
-            .Builder(schema = setOf(MyRealmPerson::class))
-            .schemaVersion(schemaVersion = 1)
-            .build(),
+        RealmConfiguration.Builder(schema = setOf(MyRealmPerson::class))
+            .schemaVersion(schemaVersion = 1).build(),
     )
 
     fun getOrNull(name: String) =
@@ -26,6 +24,12 @@ class MyRealmRepository {
                 },
                 updatePolicy = UpdatePolicy.ALL,
             )
+        }
+    }
+
+    fun delete(name: String) {
+        realm.writeBlocking {
+            delete(realm.query<MyRealmPerson>("name == $0", name).find())
         }
     }
 }
