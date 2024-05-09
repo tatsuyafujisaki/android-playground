@@ -15,8 +15,8 @@ class MyRealmRepository {
     fun getOrNull(name: String) =
         realm.query<MyRealmPerson>("name == $0", name).find().firstOrNull()
 
-    fun upsert(name: String, age: Int) {
-        realm.writeBlocking {
+    suspend fun upsert(name: String, age: Int) {
+        realm.write {
             copyToRealm(
                 instance = MyRealmPerson().apply {
                     this.name = name
@@ -27,8 +27,8 @@ class MyRealmRepository {
         }
     }
 
-    fun delete(name: String) {
-        realm.writeBlocking {
+    suspend fun delete(name: String) {
+        realm.write {
             delete(realm.query<MyRealmPerson>("name == $0", name).find())
         }
     }
