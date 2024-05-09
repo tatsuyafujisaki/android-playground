@@ -5,15 +5,21 @@ import android.content.res.Configuration
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.github.tatsuyafujisaki.androidplayground.domain.MyRealmRepository
 import com.github.tatsuyafujisaki.androidplayground.enum.Orientation2
 import com.github.tatsuyafujisaki.androidplayground.enum.Orientation4
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 
-class MyActivityViewModel : ViewModel() {
+@HiltViewModel
+class MyActivityViewModel @Inject constructor(
+    myRealmRepository: MyRealmRepository,
+) : ViewModel() {
     private val _orientation2 = MutableStateFlow(Orientation2.PORTRAIT)
     val orientation2: StateFlow<Orientation2> = _orientation2.asStateFlow()
 

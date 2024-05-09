@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 
 @Module
 @InstallIn(SingletonComponent::class)
-object SingletonModule {
+object SingletonProvideModule {
     @Provides
     fun provideJson() = Json {
         ignoreUnknownKeys = true

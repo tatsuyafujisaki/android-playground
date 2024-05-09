@@ -9,16 +9,16 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MyRealmRepositoryImpl @Inject constructor() {
+class MyRealmRepositoryImpl @Inject constructor() : MyRealmRepository {
     private val realm = Realm.open(
         RealmConfiguration.Builder(schema = setOf(MyRealmPerson::class))
             .schemaVersion(schemaVersion = 1).build(),
     )
 
-    fun getOrNull(name: String) =
+    override fun getOrNull(name: String) =
         realm.query<MyRealmPerson>("name == $0", name).find().firstOrNull()
 
-    suspend fun upsert(name: String, age: Int) {
+    override suspend fun upsert(name: String, age: Int) {
         realm.write {
             copyToRealm(
                 instance = MyRealmPerson().apply {
@@ -30,7 +30,7 @@ class MyRealmRepositoryImpl @Inject constructor() {
         }
     }
 
-    suspend fun delete(name: String) {
+    override suspend fun delete(name: String) {
         realm.write {
             delete(realm.query<MyRealmPerson>("name == $0", name).find())
         }
