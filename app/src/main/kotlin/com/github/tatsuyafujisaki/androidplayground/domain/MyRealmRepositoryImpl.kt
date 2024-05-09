@@ -32,7 +32,7 @@ class MyRealmRepositoryImpl @Inject constructor() : MyRealmRepository {
 
     override suspend fun delete(name: String) {
         realm.write {
-            delete(realm.query<MyRealmPerson>("name == $0", name).find())
+            delete(query<MyRealmPerson>("name == $0", name).find())
         }
     }
 }
