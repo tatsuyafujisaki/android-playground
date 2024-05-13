@@ -15,6 +15,8 @@ class MyRealmRepositoryImpl @Inject constructor() : MyRealmRepository {
             .schemaVersion(schemaVersion = 1).build(),
     )
 
+    override fun getAll() = realm.query<MyRealmPerson>().find().toList()
+
     override fun getOrNull(name: String) =
         realm.query<MyRealmPerson>("name == $0", name).find().firstOrNull()
 
