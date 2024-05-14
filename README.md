@@ -6,6 +6,7 @@
 
 # Best practices
 - https://developer.android.com/develop/ui/compose/performance/bestpractices
+- https://developer.android.com/guide/components/activities/parcelables-and-bundles
 - https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 - https://developer.android.com/topic/architecture/recommendations
 - https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
