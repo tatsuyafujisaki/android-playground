@@ -40,13 +40,6 @@ android {
 
             buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")
 
-            /**
-             * For debugging purposes
-             *
-             * NB: Remove "isDebuggable = true" or OssLicensesMenuActivity will show an absent list.
-             * https://github.com/google/play-services-plugins/issues/252
-             */
-            isDebuggable = true
             signingConfig = signingConfigs.getByName("debug")
         }
     }
