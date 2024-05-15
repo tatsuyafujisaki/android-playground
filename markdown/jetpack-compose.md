@@ -69,6 +69,15 @@ HorizontalPager(pageCount = 4, state = pagerState) { page ->
 
 https://developer.android.com/jetpack/compose/layouts/pager#scroll-effects
 
+# ViewModel
+> Note: You shouldn't pass ViewModel instances down to other composables. For more information, see the Architecture state holders documentation.
+
+https://developer.android.com/develop/ui/compose/state-hoisting#screen-ui-state
+
+> Warning: Don't pass ViewModel instances down to other composable functions.
+
+https://developer.android.com/topic/architecture/ui-layer/stateholders#business-logic
+
 # Unit test
 ## Difference between `assertExists()` and `assertIsDisplayed()`
 &nbsp;|`assertExists()`|`assertIsDisplayed()`
@@ -79,5 +88,5 @@ Modifier.alpha(0.dp)|true|true
 The nodes exists below the screen and you need to scroll down to show it|true|false
 
 # Use A rather than B for simplicity
-- Use content spacing between items rather than each item having padding.
-    - https://developer.android.com/jetpack/compose/lists#content-spacing
+- Use `contentPadding` when you want to add padding around each item.
+    - https://developer.android.com/develop/ui/compose/lists#content-padding
