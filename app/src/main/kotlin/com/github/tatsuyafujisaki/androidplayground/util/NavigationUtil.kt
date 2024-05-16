@@ -111,7 +111,7 @@ object NavigationUtil {
 
     private fun getCurrentFragment(navHostFragment: NavHostFragment) = navHostFragment.childFragmentManager.primaryNavigationFragment
 
-    private fun getViewPager2Fragment(navHostFragment: NavHostFragment) = getCurrentFragment(navHostFragment)
+    private fun getViewPagerFragment(navHostFragment: NavHostFragment) = getCurrentFragment(navHostFragment)
 
     /**
      * Don't replace ".fragments?.first()" with ".primaryNavigationFragment"
@@ -119,5 +119,5 @@ object NavigationUtil {
      * even though ".fragments" contains multiple fragments.
      */
     fun getFragmentInViewPager2(navHostFragment: NavHostFragment) =
-        getViewPager2Fragment(navHostFragment)?.childFragmentManager?.fragments?.first()
+        getViewPagerFragment(navHostFragment)?.childFragmentManager?.fragments?.first()
 }
