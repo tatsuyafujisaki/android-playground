@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.toPublisher
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
 
@@ -87,11 +86,6 @@ object LiveDataUtil {
         a.value = 10
         b.value = 100
     }
-
-    /**
-     * Converts LiveData to Observable using LiveDataReactiveStreams in androidx.lifecycle:lifecycle-reactivestreams-ktx.
-     */
-    fun <T : Any> LiveData<T>.toObservable1(owner: LifecycleOwner): Observable<T> = Observable.fromPublisher(toPublisher(owner))
 
     /**
      * Converts LiveData to Observable without LiveDataReactiveStreams in androidx.lifecycle:lifecycle-reactivestreams-ktx.
