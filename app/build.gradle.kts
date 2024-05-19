@@ -123,6 +123,7 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(platform(libs.firebase.bom))
     ksp(libs.hilt.compiler)
+    ksp(libs.hilt.compiler.androidx)
     ksp(libs.lifecycle.compiler)
     ksp(libs.room.compiler)
     testImplementation(kotlin("test"))
