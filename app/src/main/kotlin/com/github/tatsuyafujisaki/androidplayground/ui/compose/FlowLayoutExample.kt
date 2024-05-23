@@ -20,10 +20,10 @@ private fun SampleContent() {
     repeat(30) {
         Box(
             modifier =
-                Modifier
-                    .size(64.dp)
-                    .background(Color.LightGray)
-                    .border(2.dp, Color.DarkGray),
+            Modifier
+                .size(64.dp)
+                .background(Color.LightGray)
+                .border(2.dp, Color.DarkGray),
             contentAlignment = Alignment.Center,
         ) {
             Text(it.toString())

@@ -20,10 +20,10 @@ fun CenterColumnExample(
 ) {
     Column(
         modifier =
-            Modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .clickable(enabled = onClick != null, onClick = onClick ?: {}),
+        Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .clickable(enabled = onClick != null, onClick = onClick ?: {}),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         content = content,

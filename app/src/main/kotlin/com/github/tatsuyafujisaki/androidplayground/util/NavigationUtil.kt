@@ -107,11 +107,14 @@ object NavigationUtil {
     /**
      * A [FragmentActivity] can contain 0, 1, or more than 1 [NavHostFragment].
      */
-    fun getNavHostFragments(activity: FragmentActivity) = activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>()
+    fun getNavHostFragments(activity: FragmentActivity) =
+        activity.supportFragmentManager.fragments.filterIsInstance<NavHostFragment>()
 
-    private fun getCurrentFragment(navHostFragment: NavHostFragment) = navHostFragment.childFragmentManager.primaryNavigationFragment
+    private fun getCurrentFragment(navHostFragment: NavHostFragment) =
+        navHostFragment.childFragmentManager.primaryNavigationFragment
 
-    private fun getViewPagerFragment(navHostFragment: NavHostFragment) = getCurrentFragment(navHostFragment)
+    private fun getViewPagerFragment(navHostFragment: NavHostFragment) =
+        getCurrentFragment(navHostFragment)
 
     /**
      * Don't replace ".fragments?.first()" with ".primaryNavigationFragment"

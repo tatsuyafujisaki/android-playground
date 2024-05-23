@@ -24,9 +24,9 @@ fun VerticalDividerExample(
     // Moreover, the width of Divider is infinite unless specified.
     HorizontalDivider(
         modifier =
-            Modifier
-                .width(width)
-                .fillMaxHeight(),
+        Modifier
+            .width(width)
+            .fillMaxHeight(),
         color = color,
     )
 }

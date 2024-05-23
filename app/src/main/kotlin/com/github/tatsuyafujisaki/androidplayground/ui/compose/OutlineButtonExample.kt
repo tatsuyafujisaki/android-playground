@@ -24,15 +24,15 @@ fun OutlinedButtonExample(
         modifier = Modifier.fillMaxWidth(),
         enabled = enabled,
         border =
-            BorderStroke(
-                width = 4.dp,
-                color = Color.Red,
-            ),
+        BorderStroke(
+            width = 4.dp,
+            color = Color.Red,
+        ),
         colors =
-            ButtonDefaults.buttonColors(
-                containerColor = Color.White,
-                disabledContainerColor = Color.Gray,
-            ),
+        ButtonDefaults.buttonColors(
+            containerColor = Color.White,
+            disabledContainerColor = Color.Gray,
+        ),
         contentPadding = PaddingValues(horizontal = 18.dp, vertical = 12.dp),
     ) {
         Text("Sample")

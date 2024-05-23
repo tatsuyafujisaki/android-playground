@@ -24,9 +24,9 @@ fun FullscreenDialogExample(onDismissRequest: () -> Unit = {}) {
     ) {
         Box(
             modifier =
-                Modifier
-                    .background(Color.White)
-                    .fillMaxSize(),
+            Modifier
+                .background(Color.White)
+                .fillMaxSize(),
             contentAlignment = Alignment.Center,
         ) {
             Text("Hello world")

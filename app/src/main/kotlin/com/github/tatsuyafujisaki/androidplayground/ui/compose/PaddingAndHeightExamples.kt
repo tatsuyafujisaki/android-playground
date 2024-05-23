@@ -18,10 +18,10 @@ fun PaddingAndHeightExample1() {
     Box(
         // Total size including padding is 150x150.
         modifier =
-            Modifier
-                .padding(50.dp)
-                .size(100.dp)
-                .background(Color.LightGray),
+        Modifier
+            .padding(50.dp)
+            .size(100.dp)
+            .background(Color.LightGray),
         contentAlignment = Alignment.Center,
     ) {
         Text("Sample")
@@ -34,10 +34,10 @@ fun PaddingAndHeightExample2() {
     Box(
         // Total size including padding is 100x100.
         modifier =
-            Modifier
-                .size(100.dp)
-                .padding(50.dp)
-                .background(Color.LightGray),
+        Modifier
+            .size(100.dp)
+            .padding(50.dp)
+            .background(Color.LightGray),
         contentAlignment = Alignment.Center,
     ) {
         Text("Sample")

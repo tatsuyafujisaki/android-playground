@@ -14,12 +14,15 @@ object ResourcesUtil {
      * Read a text file in the "resources" directory.
      * cf. [ContextUtil.readAssetAsText]
      */
-    fun readResourceAsText(name: String) = object {}.javaClass.classLoader!!.getResource(name).readText()
+    fun readResourceAsText(name: String) =
+        object {}.javaClass.classLoader!!.getResource(name).readText()
 
     object OrientationUtil {
-        fun isPortrait(resources: Resources) = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
+        fun isPortrait(resources: Resources) =
+            resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
-        fun isLandscape(resources: Resources) = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+        fun isLandscape(resources: Resources) =
+            resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
         fun enableOrientationEventListener(
             context: Context,

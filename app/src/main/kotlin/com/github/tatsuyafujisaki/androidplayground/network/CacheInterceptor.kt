@@ -1,10 +1,10 @@
 package com.github.tatsuyafujisaki.androidplayground.network
 
+import java.time.LocalDateTime
 import okhttp3.Interceptor
 import okhttp3.Protocol
 import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
-import java.time.LocalDateTime
 
 // Consider using OkHttp's built-in cache, instead.
 // https://square.github.io/okhttp/recipes/#response-caching-kt-java
@@ -41,5 +41,6 @@ class CacheInterceptor(
         }
     }
 
-    private fun isLessThan1HoursOld(localDateTime: LocalDateTime) = localDateTime.isAfter(LocalDateTime.now().minusHours(1))
+    private fun isLessThan1HoursOld(localDateTime: LocalDateTime) =
+        localDateTime.isAfter(LocalDateTime.now().minusHours(1))
 }

@@ -22,9 +22,9 @@ fun BrokenImage(
 ) {
     Box(
         modifier =
-            modifier
-                .background(Color.LightGray)
-                .fillMaxSize(),
+        modifier
+            .background(Color.LightGray)
+            .fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
         Image(

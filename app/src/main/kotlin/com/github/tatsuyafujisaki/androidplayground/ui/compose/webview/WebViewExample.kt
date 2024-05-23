@@ -47,9 +47,9 @@ fun WebViewExample(
     ) { paddingValues ->
         AndroidView(
             modifier =
-                Modifier
-                    .padding(paddingValues)
-                    .fillMaxSize(),
+            Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
             onReset = { println("onReset") },
             factory = {
                 WebView(it).apply {

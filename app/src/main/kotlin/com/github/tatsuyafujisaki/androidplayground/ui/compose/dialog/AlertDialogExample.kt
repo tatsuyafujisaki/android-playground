@@ -36,25 +36,25 @@ fun AlertDialogExample(
         },
         modifier = modifier,
         dismissButton =
-            dismissButtonText?.let {
-                {
-                    TextButton(onClick = onDismissRequest) {
-                        Text(it)
-                    }
+        dismissButtonText?.let {
+            {
+                TextButton(onClick = onDismissRequest) {
+                    Text(it)
                 }
-            },
+            }
+        },
         title =
-            title?.let {
-                {
-                    Text(it)
-                }
-            },
+        title?.let {
+            {
+                Text(it)
+            }
+        },
         text =
-            text?.let {
-                {
-                    Text(it)
-                }
-            },
+        text?.let {
+            {
+                Text(it)
+            }
+        },
     )
 }
 

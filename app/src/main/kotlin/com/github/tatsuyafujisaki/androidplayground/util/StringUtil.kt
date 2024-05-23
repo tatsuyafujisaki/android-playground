@@ -9,7 +9,8 @@ import androidx.annotation.ColorInt
 import androidx.core.text.htmlEncode
 
 object StringUtil {
-    fun isValidEmailAddress(emailAddress: String) = Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
+    fun isValidEmailAddress(emailAddress: String) =
+        Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
 
     fun isValidPhoneNumber(phoneNumber: String) = Patterns.PHONE.matcher(phoneNumber).matches()
 

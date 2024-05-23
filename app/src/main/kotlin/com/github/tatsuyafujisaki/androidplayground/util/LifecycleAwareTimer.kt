@@ -1,11 +1,11 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import kotlin.time.Duration
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
-import kotlin.time.Duration
 
 class LifecycleAwareTimer {
     private var job: Job? = null

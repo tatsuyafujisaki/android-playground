@@ -30,9 +30,9 @@ fun WeightedRowExample(
         Text(
             text = text,
             modifier =
-                Modifier
-                    .align(CenterVertically)
-                    .weight(1f),
+            Modifier
+                .align(CenterVertically)
+                .weight(1f),
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
         )

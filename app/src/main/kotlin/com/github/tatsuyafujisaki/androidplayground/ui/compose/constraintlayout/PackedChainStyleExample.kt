@@ -25,23 +25,23 @@ fun PackedChainStyleExample() {
         Text(
             text = "Apple",
             modifier =
-                Modifier
-                    .background(Color.Red)
-                    .constrainAs(text1) {
-                        top.linkTo(parent.top)
-                        bottom.linkTo(text2.top)
-                    },
+            Modifier
+                .background(Color.Red)
+                .constrainAs(text1) {
+                    top.linkTo(parent.top)
+                    bottom.linkTo(text2.top)
+                },
         )
 
         Text(
             text = "Orange",
             modifier =
-                Modifier
-                    .background(Color.Red)
-                    .constrainAs(text2) {
-                        top.linkTo(text1.bottom)
-                        bottom.linkTo(parent.bottom)
-                    },
+            Modifier
+                .background(Color.Red)
+                .constrainAs(text2) {
+                    top.linkTo(text1.bottom)
+                    bottom.linkTo(parent.bottom)
+                },
         )
     }
 }

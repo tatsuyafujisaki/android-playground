@@ -22,11 +22,11 @@ fun AlignColumnExample(
 ) {
     Column(
         modifier =
-            Modifier
-                .fillMaxWidth()
-                .height(100.dp)
-                .verticalScroll(rememberScrollState())
-                .clickable(enabled = onClick != null, onClick = onClick ?: {}),
+        Modifier
+            .fillMaxWidth()
+            .height(100.dp)
+            .verticalScroll(rememberScrollState())
+            .clickable(enabled = onClick != null, onClick = onClick ?: {}),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         content = content,

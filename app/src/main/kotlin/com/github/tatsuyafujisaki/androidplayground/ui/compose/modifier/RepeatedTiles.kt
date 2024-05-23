@@ -53,9 +53,9 @@ private fun RepeatedTileSpacerExample() {
 private fun RepeatedTileBoxPreview() {
     Box(
         modifier =
-            Modifier
-                .repeatedTiles()
-                .fillMaxSize(),
+        Modifier
+            .repeatedTiles()
+            .fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
         Text(text = "Hello", color = Color.White)

@@ -15,9 +15,9 @@ fun MainScreen(onClick: () -> Unit) {
     Scaffold {
         Box(
             modifier =
-                Modifier
-                    .padding(it)
-                    .fillMaxSize(),
+            Modifier
+                .padding(it)
+                .fillMaxSize(),
             contentAlignment = Alignment.Center,
         ) {
             Text(

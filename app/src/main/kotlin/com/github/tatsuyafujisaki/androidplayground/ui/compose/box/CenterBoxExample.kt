@@ -25,12 +25,12 @@ fun CenterBoxExample(
 ) {
     Box(
         modifier =
-            Modifier
-                .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
-                .fillMaxWidth()
-                .height(height)
-                .background(background)
-                .clickable(enabled = onClick != null, onClick = onClick ?: {}),
+        Modifier
+            .sizeIn(minWidth = 48.dp, minHeight = 48.dp)
+            .fillMaxWidth()
+            .height(height)
+            .background(background)
+            .clickable(enabled = onClick != null, onClick = onClick ?: {}),
         contentAlignment = Alignment.Center,
         content = content,
     )

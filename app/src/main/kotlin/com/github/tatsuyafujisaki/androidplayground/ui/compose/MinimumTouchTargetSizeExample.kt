@@ -19,17 +19,17 @@ fun MinimumTouchTargetSizeExample() {
         selected = state,
         onClick = { state = true },
         modifier =
-            Modifier.onSizeChanged {
-                Log.d("Clickable RadioButton", "Size $it")
-            },
+        Modifier.onSizeChanged {
+            Log.d("Clickable RadioButton", "Size $it")
+        },
     )
 
     RadioButton(
         selected = state,
         onClick = null,
         modifier =
-            Modifier.onSizeChanged {
-                Log.d("Not clickable RadioButton", "Size $it")
-            },
+        Modifier.onSizeChanged {
+            Log.d("Not clickable RadioButton", "Size $it")
+        },
     )
 }

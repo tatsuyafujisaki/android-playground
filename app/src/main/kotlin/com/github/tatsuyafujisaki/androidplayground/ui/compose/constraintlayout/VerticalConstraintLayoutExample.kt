@@ -23,12 +23,12 @@ fun VerticalConstraintLayoutExample() {
             value = 0f,
             onValueChange = {},
             modifier =
-                Modifier
-                    .constrainAs(slider1) {
-                        start.linkTo(parent.start, 16.dp)
-                        top.linkTo(parent.top, 8.dp)
-                        end.linkTo(parent.end, 16.dp)
-                    },
+            Modifier
+                .constrainAs(slider1) {
+                    start.linkTo(parent.start, 16.dp)
+                    top.linkTo(parent.top, 8.dp)
+                    end.linkTo(parent.end, 16.dp)
+                },
         )
 
         // "width = Dimension.fillToConstraints" is set.
@@ -36,62 +36,62 @@ fun VerticalConstraintLayoutExample() {
             value = 0f,
             onValueChange = {},
             modifier =
-                Modifier
-                    .constrainAs(slider2) {
-                        width = Dimension.fillToConstraints
-                        start.linkTo(parent.start, 16.dp)
-                        top.linkTo(slider1.bottom, 8.dp)
-                        end.linkTo(parent.end, 16.dp)
-                    },
+            Modifier
+                .constrainAs(slider2) {
+                    width = Dimension.fillToConstraints
+                    start.linkTo(parent.start, 16.dp)
+                    top.linkTo(slider1.bottom, 8.dp)
+                    end.linkTo(parent.end, 16.dp)
+                },
         )
 
         Text(
             text = "fillToConstraints is NOT set.",
             modifier =
-                Modifier
-                    .background(Color.Red)
-                    .constrainAs(text1) {
-                        start.linkTo(parent.start, 16.dp)
-                        top.linkTo(slider2.bottom)
-                        end.linkTo(parent.end, 16.dp)
-                    },
+            Modifier
+                .background(Color.Red)
+                .constrainAs(text1) {
+                    start.linkTo(parent.start, 16.dp)
+                    top.linkTo(slider2.bottom)
+                    end.linkTo(parent.end, 16.dp)
+                },
         )
 
         Text(
             text = "fillToConstraints is set.",
             modifier =
-                Modifier
-                    .background(Color.Red)
-                    .constrainAs(text2) {
-                        width = Dimension.fillToConstraints
-                        start.linkTo(parent.start)
-                        top.linkTo(text1.bottom)
-                        end.linkTo(parent.end)
-                    },
+            Modifier
+                .background(Color.Red)
+                .constrainAs(text2) {
+                    width = Dimension.fillToConstraints
+                    start.linkTo(parent.start)
+                    top.linkTo(text1.bottom)
+                    end.linkTo(parent.end)
+                },
         )
 
         Text(
             text = "Center",
             modifier =
-                Modifier
-                    .background(Color.Green)
-                    .constrainAs(text3) {
-                        start.linkTo(parent.start)
-                        top.linkTo(parent.top)
-                        end.linkTo(parent.end)
-                        bottom.linkTo(parent.bottom)
-                    },
+            Modifier
+                .background(Color.Green)
+                .constrainAs(text3) {
+                    start.linkTo(parent.start)
+                    top.linkTo(parent.top)
+                    end.linkTo(parent.end)
+                    bottom.linkTo(parent.bottom)
+                },
         )
         Text(
             text = "Bottom",
             modifier =
-                Modifier
-                    .background(Color.Blue)
-                    .constrainAs(text4) {
-                        start.linkTo(parent.start)
-                        end.linkTo(parent.end)
-                        bottom.linkTo(parent.bottom)
-                    },
+            Modifier
+                .background(Color.Blue)
+                .constrainAs(text4) {
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    bottom.linkTo(parent.bottom)
+                },
         )
     }
 }

@@ -1,10 +1,10 @@
 package com.github.tatsuyafujisaki.androidplayground
 
+import kotlin.test.Test
+import kotlin.test.assertEquals
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.junit.runners.Parameterized.Parameters
-import kotlin.test.Test
-import kotlin.test.assertEquals
 
 @RunWith(Parameterized::class)
 class FibonacciTest(private val expected: Int, private val n: Int) {

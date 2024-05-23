@@ -23,7 +23,9 @@ fun VerticallyCenteredTextExample1(
         Text(
             text = text,
             // centers the text vertically.
-            modifier = Modifier.align(Alignment.CenterVertically).weight(1f),
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+                .weight(1f),
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
         )

@@ -26,23 +26,23 @@ fun ClickableSizeExample() {
         Text(
             text = "Click me!",
             modifier =
-                Modifier
-                    .background(Red)
-                    .clickable {
-                        Log.d("Here!", "Clicked!")
-                    }
-                    .fillMaxWidth(),
+            Modifier
+                .background(Red)
+                .clickable {
+                    Log.d("Here!", "Clicked!")
+                }
+                .fillMaxWidth(),
         )
         MyDivider()
         Text(
             text = "Click me!",
             modifier =
-                Modifier
-                    .background(Red)
-                    .fillMaxWidth()
-                    .clickable {
-                        Log.d("Here!", "Clicked!")
-                    },
+            Modifier
+                .background(Red)
+                .fillMaxWidth()
+                .clickable {
+                    Log.d("Here!", "Clicked!")
+                },
         )
     }
 }
