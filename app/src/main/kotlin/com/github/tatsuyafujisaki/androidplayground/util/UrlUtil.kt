@@ -26,6 +26,17 @@ object UrlUtil {
         fun getBooleanQueryParameter(uri: Uri, key: String) =
             uri.getBooleanQueryParameter(key, false)
 
+        /**
+         * @param query e.g. "?k1=v1&k2=v2&k2=v3" or "k1=v1&k2=v2&k2=v3"
+         */
+        fun convertToQueryParameters(query: String): Map<String, Set<String>> {
+            val queryWithoutQueryMark = query.replace("?", "")
+            val uri = "?$queryWithoutQueryMark".toUri()
+            return uri.queryParameterNames.associateWith {
+                uri.getQueryParameters(it).toSet()
+            }
+        }
+
         fun removeQuery(uri: Uri): Uri = uri.buildUpon().clearQuery().build()
     }
 
