@@ -128,18 +128,6 @@ https://developer.android.com/reference/kotlin/android/R.string
 
 # String
 
-## How to convert a String to a Uri and enrich it if necessary
-
-```kotlin
-val uri1: Uri = "example.com".toUri() // simpler than Uri.parse(String)
-val uri2: Uri = uri1
-    .buildUpon()
-    .scheme("https")
-    .appendPath("path")
-    .appendQueryParameter("key1", "value1")
-    .build() // https:/example.com/path?key1=value1
-```
-
 ## How to check if a string contains only digits
 
 ```kotlin
@@ -170,13 +158,6 @@ val decoded: String = String =
 is a part of the Core KTX library and is syntactic sugar
 for [TextUtils.htmlEncode](https://developer.android.com/reference/kotlin/android/text/TextUtils#htmlEncode(kotlin.String))
 .
-
-# How to get a query parameter
-
-```kotlin
-val uri: Uri = "https://example.com?key1=value1&key2=value2".toUri()
-val value: String = uri.getQueryParameter("key2") // value2
-```
 
 # How to convert AARRGGBB as Int to Color
 
@@ -387,9 +368,13 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 
 [viewpager.md](markdown/viewpager.md)
 
+# android.net.Uri
+[uri.md](markdown/uri.md)
+
 # UI template
 
 [ui-template.md](markdown/ui-template.md)
+
 
 # Use A rather than B for simplicity (except for Jetpack Compose)
 
