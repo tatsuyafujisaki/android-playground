@@ -4,15 +4,22 @@
     - `Uri.encodedQuery` returns an encoded query string if the original query string is encoded.
     - `Uri.encodedQuery` returns an unencoded query string if the original query string is not encoded.
 
+# Difference between Uri.path and Uri.encodedPath
+- It is the same relationship between `Uri.query` and `Uri.encodedQuery`.
+
 ## Example
 ```kotlin
-val uri = "https://www.google.com/search?q=hello world".toUri()
-val query = uri.query.orEmpty() // q=hello world
-val encodedQuery = uri.encodedQuery.orEmpty() // q=hello world (NOT hello%20world)
+val uri = "https://example.com/a b/search?q=c d".toUri()
+val path = uri.path.orEmpty() // /a b/search
+val encodedPath = uri.encodedPath.orEmpty() // /a b/search
+val query = uri.query.orEmpty() // q=c d
+val encodedQuery = uri.encodedQuery.orEmpty() // q=c d
 ```
 
 ```kotlin
-val uri = "https://www.google.com/search?q=hello%20world".toUri()
-val query = uri.query.orEmpty() // q=hello world
-val encodedQuery = uri.encodedQuery.orEmpty() // q=hello%20world
+val uri = "https://example.com/a%20b/search?q=c%20d".toUri()
+val path = uri.path.orEmpty() // /a b/search
+val encodedPath = uri.encodedPath.orEmpty() // /a%20b/search
+val query = uri.query.orEmpty() // q=c d
+val encodedQuery = uri.encodedQuery.orEmpty() // q=c%20d
 ```
