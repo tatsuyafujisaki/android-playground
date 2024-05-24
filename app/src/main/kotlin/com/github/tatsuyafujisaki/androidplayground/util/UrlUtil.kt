@@ -1,21 +1,50 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.net.Uri
 import androidx.core.net.toUri
+import java.net.URL
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 
 /**
  * Impractical redundant explanatory wrappers
+ *
+ * https://developer.android.com/reference/android/net/Uri
+ * https://developer.android.com/reference/java/net/URL
+ * https://square.github.io/okhttp/5.x/okhttp/okhttp3/-http-url/
  */
 object UrlUtil {
-    fun clearQuery(url: String) = url.toUri().buildUpon().clearQuery().build().toString()
+    object AndroidNetUrl {
+        fun convertToUri(url: String) = url.toUri()
+        fun getHost(uri: Uri) = uri.host.orEmpty()
+        fun getPath(uri: Uri) = uri.path.orEmpty()
+        fun getEncodedPath(uri: Uri) = uri.encodedPath.orEmpty()
+        fun getPathSegments(uri: Uri): List<String> = uri.pathSegments
+        fun getQuery(uri: Uri) = uri.query.orEmpty()
+        fun getEncodedQuery(uri: Uri) = uri.encodedQuery.orEmpty()
+        fun getQueryParameterNames(uri: Uri): Set<String> = uri.queryParameterNames
+        fun getBooleanQueryParameter(uri: Uri, key: String) =
+            uri.getBooleanQueryParameter(key, false)
 
-    fun getHttpUrl(url: String) = url.toHttpUrlOrNull()
+        fun removeQuery(uri: Uri): Uri = uri.buildUpon().clearQuery().build()
+    }
 
-    fun getDomain(url: String) = url.toHttpUrlOrNull()?.topPrivateDomain()
+    object JavaNetUrl {
+        fun convertToURL(url: String) = URL(url)
+        fun getHost(url: URL): String = url.host
+        fun getPath(url: URL): String = url.path
+        fun getQuery(url: URL): String = url.query
+    }
 
-    fun getPathlessUrl(url: String): HttpUrl? =
-        url.toHttpUrlOrNull()?.run {
-            HttpUrl.Builder().scheme(scheme).host(host).build()
-        }
+    object OkHttpUrl {
+        fun convertToHttpUrlOrNull(url: String) = url.toHttpUrlOrNull()
+        fun getHost(httpUrl: HttpUrl) = httpUrl.host
+        fun getEncodedPath(httpUrl: HttpUrl) = httpUrl.encodedPath
+        fun getPathSegments(httpUrl: HttpUrl) = httpUrl.pathSegments
+        fun getPathSize(httpUrl: HttpUrl) = httpUrl.pathSize
+        fun getQuery(httpUrl: HttpUrl) = httpUrl.query.orEmpty()
+        fun getQueryParameterNames(httpUrl: HttpUrl) = httpUrl.queryParameterNames
+        fun getQuerySize(httpUrl: HttpUrl) = httpUrl.querySize
+        fun getDomain(httpUrl: HttpUrl) = httpUrl.topPrivateDomain().orEmpty()
+    }
 }
