@@ -390,4 +390,4 @@ A|B|Note
 `Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
 `Intent.getStringExtra("foo")`|`Intent.extras?.getString("foo")`|The same goes for other types.
 `view` in `fun onViewCreated(view: View)`|`requireView()` in `fun onViewCreated(view: View)`
-`requireViewById(...)`|`findViewById(...)`|in case you are not authorized to use view binding
+`Uri.encode(url)`|`URLEncoder.encode(url, Charsets.UTF_8.name())`
