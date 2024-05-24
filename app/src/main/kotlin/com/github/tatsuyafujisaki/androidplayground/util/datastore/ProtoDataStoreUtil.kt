@@ -11,7 +11,7 @@ val Context.myPersonProtoDataStore: DataStore<MyPerson> by dataStore(
 )
 
 object ProtoDataStoreUtil {
-    suspend fun <T> clear(context: Context) {
+    suspend fun clear(context: Context) {
         context.myPersonProtoDataStore.updateData {
             it.toBuilder().clear().build()
         }
