@@ -7,7 +7,7 @@
 * density [(# of 160px) / inch] = dpi / 160
 * dp [(1 / 160) inch] = px * (160 / dpi) = px / density
 
-# How a lancher icon's density bucket (mdpi, hdpi,  xhdpi, ...) is chosen
+# How a launcher icon's density bucket (mdpi, hdpi,  xhdpi, ...) is chosen
 > Android will select the resource at the closest larger density bucket and then scale down.
 
 https://developer.android.com/codelabs/basic-android-kotlin-training-change-app-icon#2
