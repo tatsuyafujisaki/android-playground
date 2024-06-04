@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 private fun VerticalSpacerExample() {
     Row {
-        Text("Hello")
-        Spacer(Modifier.height(8.dp))
-        Text("World")
+        Text(text = "Hello")
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(text = "World")
     }
 }
