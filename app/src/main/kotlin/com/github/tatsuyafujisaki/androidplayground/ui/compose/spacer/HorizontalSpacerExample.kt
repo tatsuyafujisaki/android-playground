@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 private fun HorizontalSpacerExample() {
     Column {
-        Text("Hello")
-        Spacer(Modifier.width(8.dp))
-        Text("World")
+        Text(text = "Hello")
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = "World")
     }
 }
