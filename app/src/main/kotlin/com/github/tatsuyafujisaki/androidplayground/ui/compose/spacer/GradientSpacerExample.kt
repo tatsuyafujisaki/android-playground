@@ -11,11 +11,11 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview
 @Composable
-fun GradientSpacerExample() {
+private fun GradientSpacerExample() {
     Spacer(
         modifier = Modifier
             .background(
-                Brush.verticalGradient(
+                brush = Brush.verticalGradient(
                     colors = listOf(Color.Blue, Color.Green),
                 ),
             )
