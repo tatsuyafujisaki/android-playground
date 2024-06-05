@@ -128,12 +128,6 @@ https://developer.android.com/reference/kotlin/android/R.string
 
 # String
 
-## How to check if a string contains only digits
-
-```kotlin
-val isDigitsOnly: Boolean = "123".isDigitsOnly() // true
-```
-
 # WebViewClient
 ## How to get `WebViewClient.onReceivedSslError()` called
 Open https://httpforever.com
