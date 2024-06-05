@@ -326,10 +326,6 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 
 [jetpack-compose.md](markdown/jetpack-compose.md)
 
-# Material Design
-
-[material-design.md](markdown/material-design.md)
-
 # Misc
 
 [misc.md](markdown/misc.md)
