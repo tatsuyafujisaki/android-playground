@@ -29,7 +29,7 @@ private fun MyRow(
 
 @Preview(showBackground = true)
 @Composable
-fun HorizontalArrangementRowExample() {
+private fun HorizontalArrangementRowExample() {
     val content = @Composable { _: RowScope ->
         repeat(3) {
             Image(
