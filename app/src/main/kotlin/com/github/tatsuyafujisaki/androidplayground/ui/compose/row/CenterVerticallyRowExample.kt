@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 private fun CenterVerticallyRowExample() {
     Row(
-        modifier = Modifier.height(100.dp),
+        modifier = Modifier.height(height = 100.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(text = "Hello")
