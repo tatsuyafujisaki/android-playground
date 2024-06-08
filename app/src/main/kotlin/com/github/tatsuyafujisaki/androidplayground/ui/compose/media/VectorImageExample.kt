@@ -6,6 +6,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color.Companion.Red
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -15,6 +17,7 @@ private fun VectorImageExample() {
     Image(
         imageVector = Icons.Default.Favorite,
         contentDescription = null,
-        modifier = Modifier.size(size = 48.dp)
+        modifier = Modifier.size(size = 48.dp),
+        colorFilter = ColorFilter.tint(color = Red)
     )
 }
