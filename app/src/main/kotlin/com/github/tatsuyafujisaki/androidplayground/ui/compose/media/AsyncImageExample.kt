@@ -14,17 +14,16 @@ import coil.compose.AsyncImage
  * @param contentScale clip(CircleShape) with ContentScale.Fit on an image whose aspect ratio is not 1:1 produces an imperfect circle.
  */
 @Composable
-fun OnlineImageExample(
-    modifier: Modifier = Modifier,
+fun AsyncImageExample(
     url: String,
-    isCircle: Boolean = false,
+    circle: Boolean = false,
     border: Pair<Dp, Color>? = null,
-    contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit,
+    contentScale: ContentScale = if (circle) ContentScale.Crop else ContentScale.Fit,
 ) {
     AsyncImage(
         model = url,
         contentDescription = null,
-        modifier = modifier.circleBorder(isCircle = isCircle, border = border),
+        modifier = Modifier.size(200.dp).circleBorder(isCircle = circle, border = border),
         contentScale = contentScale,
     )
 }
@@ -34,27 +33,22 @@ private const val url = "https://images.unsplash.com/photo-1558240077-e33b10a16a
 @Preview
 @Composable
 private fun OnlineImageExamplePreview() {
-    OnlineImageExample(
-        modifier = Modifier.size(200.dp),
-        url = url,
-    )
+    AsyncImageExample(url = url)
 }
 
 @Preview
 @Composable
 private fun OnlineCircularImageExamplePreview() {
-    OnlineImageExample(
-        modifier = Modifier.size(200.dp),
+    AsyncImageExample(
         url = url,
-        isCircle = true,
+        circle = true,
     )
 }
 
 @Preview
 @Composable
 private fun OnlineBorderedImageExamplePreview() {
-    OnlineImageExample(
-        modifier = Modifier.size(200.dp),
+    AsyncImageExample(
         url = url,
         border = 8.dp to Color.Red,
     )
@@ -63,10 +57,9 @@ private fun OnlineBorderedImageExamplePreview() {
 @Preview
 @Composable
 private fun OnlineCircularBorderedImageExamplePreview() {
-    OnlineImageExample(
-        modifier = Modifier.size(200.dp),
+    AsyncImageExample(
         url = url,
-        isCircle = true,
+        circle = true,
         border = 8.dp to Color.Red,
     )
 }
