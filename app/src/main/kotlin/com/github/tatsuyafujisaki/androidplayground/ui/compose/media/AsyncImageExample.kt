@@ -14,7 +14,7 @@ import coil.compose.AsyncImage
  * @param contentScale clip(CircleShape) with ContentScale.Fit on an image whose aspect ratio is not 1:1 produces an imperfect circle.
  */
 @Composable
-fun AsyncImageExample(
+private fun AsyncImageExample(
     url: String,
     circle: Boolean = false,
     border: Pair<Dp, Color>? = null,
