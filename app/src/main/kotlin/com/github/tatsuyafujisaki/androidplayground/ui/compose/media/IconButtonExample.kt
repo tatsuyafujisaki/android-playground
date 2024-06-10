@@ -1,35 +1,34 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.media
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.github.tatsuyafujisaki.androidplayground.R
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.NullableLambdaProvider
 
 @Composable
-fun IconButtonExample(
-    @DrawableRes id: Int,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    onClick: () -> Unit,
-) {
+fun IconButtonExample(onClick: (() -> Unit)?) {
     IconButton(
-        modifier = modifier,
-        enabled = enabled,
-        onClick = onClick,
+        onClick = { onClick?.invoke() },
+        enabled = onClick != null,
     ) {
-        Image(
-            painter = painterResource(id = id),
+        Icon(
+            imageVector = Icons.Default.Favorite,
             contentDescription = null,
+            tint = Color.Red,
         )
     }
 }
 
 @Preview
 @Composable
-private fun IconButtonExamplePreview() {
-    IconButtonExample(id = R.drawable.ic_android_robot) {}
+private fun IconButtonExamplePreview(
+    @PreviewParameter(NullableLambdaProvider::class) onClick: (() -> Unit)?
+) {
+    IconButtonExample(onClick = onClick)
 }
