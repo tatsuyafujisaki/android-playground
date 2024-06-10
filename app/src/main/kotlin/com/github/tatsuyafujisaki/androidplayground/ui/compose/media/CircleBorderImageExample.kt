@@ -19,7 +19,7 @@ import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.BooleanPr
  * @param contentScale clip(CircleShape) with ContentScale.Fit on an image whose aspect ratio is not 1:1 produces an imperfect circle.
  */
 @Composable
-fun ImageExample(
+fun CircleBorderImageExample(
     @DrawableRes id: Int,
     modifier: Modifier = Modifier,
     isCircle: Boolean = false,
@@ -39,7 +39,7 @@ fun ImageExample(
 private fun ImageExamplePreview(
     @PreviewParameter(BooleanProvider::class) isCircle: Boolean,
 ) {
-    ImageExample(
+    CircleBorderImageExample(
         id = R.drawable.ic_android_robot,
         modifier = Modifier.size(200.dp),
         isCircle = isCircle,
@@ -51,7 +51,7 @@ private fun ImageExamplePreview(
 private fun ImageBorderedExamplePreview(
     @PreviewParameter(BooleanProvider::class) isCircle: Boolean,
 ) {
-    ImageExample(
+    CircleBorderImageExample(
         id = R.drawable.ic_android_robot,
         modifier = Modifier.size(200.dp),
         isCircle = isCircle,
