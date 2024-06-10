@@ -1,6 +1,5 @@
-package com.github.tatsuyafujisaki.androidplayground.ui.compose.media
+package com.github.tatsuyafujisaki.androidplayground.ui.compose.media.iconbutton
 
-import androidx.compose.foundation.Image
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Icon
@@ -12,7 +11,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.NullableLambdaProvider
 
 @Composable
-fun IconButtonExample(onClick: (() -> Unit)?) {
+private fun IconButtonExample(onClick: (() -> Unit)?) {
     IconButton(
         onClick = { onClick?.invoke() },
         enabled = onClick != null,
