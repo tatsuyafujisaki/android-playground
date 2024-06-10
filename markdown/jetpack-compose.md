@@ -87,6 +87,11 @@ Modifier.size(1.dp)|true|true
 Modifier.alpha(0.dp)|true|true
 The nodes exists below the screen and you need to scroll down to show it|true|false
 
-# Use A rather than B for simplicity
+# Use A rather than B
+
+A|B|Note
+--|--|--
+androidx.compose.material3.Icon|androidx.compose.foundation.Image
+
 - Use `contentPadding` when you want to add padding around each item.
     - https://developer.android.com/develop/ui/compose/lists#content-padding
