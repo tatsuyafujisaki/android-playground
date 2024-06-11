@@ -11,6 +11,15 @@
 
 - https://developer.android.com/codelabs/basic-android-kotlin-compose-material-theming#3
 
+## The order of `background()`, `padding()`, and `size()`
+How does the order of `padding()` and `size()` affect the overall size?
+- If `size()` is called before `padding()` in a Modifier's method chain, the overall size is padding + size.
+- If `padding()` is called before `size()` in a Modifier's method chain, the total size is size.
+
+How does the order of background() and padding() affect where to color?
+- If `background()` is called before `padding()` in a Modifier's method chain, the padding is painted.
+- If `padding()` is called before `background()` in a Modifier's method chain, the padding is NOT painted.
+
 # Content padding
 - is a padding for an entire list. The padding also scrolls along with the content.
 - https://developer.android.com/jetpack/compose/lists
