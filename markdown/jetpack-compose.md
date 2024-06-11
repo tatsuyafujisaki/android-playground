@@ -13,7 +13,7 @@
 
 ## The order of `background()`, `padding()`, and `size()`
 How does the order of `padding()` and `size()` affect the overall size?
-- If `size()` is called before `padding()` in a Modifier's method chain, the overall size is padding + size.
+- If `size()` is called before `padding()` in a Modifier's method chain, the total size is padding + size.
 - If `padding()` is called before `size()` in a Modifier's method chain, the total size is size.
 
 How does the order of background() and padding() affect where to color?
