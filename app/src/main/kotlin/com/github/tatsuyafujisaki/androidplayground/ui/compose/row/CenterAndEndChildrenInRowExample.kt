@@ -33,7 +33,7 @@ private fun CenterAndEndChildrenRowExample() {
         )
         IconButton(
             onClick = {},
-            modifier = Modifier.align(Alignment.CenterEnd),
+            modifier = Modifier.align(alignment = Alignment.CenterEnd),
         ) {
             Icon(
                 imageVector = Icons.Default.Close,
