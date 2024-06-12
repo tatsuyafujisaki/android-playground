@@ -13,7 +13,7 @@ import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.NullableL
 @Composable
 private fun FilledIconButtonExample(onClick: (() -> Unit)?) {
     FilledIconButton(
-        onClick = { onClick?.invoke() },
+        onClick = onClick ?: {},
         enabled = onClick != null,
     ) {
         Icon(
