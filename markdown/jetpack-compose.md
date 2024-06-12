@@ -20,6 +20,11 @@ How does the order of background() and padding() affect where to color?
 - If `background()` is called before `padding()` in a Modifier's method chain, the padding is painted.
 - If `padding()` is called before `background()` in a Modifier's method chain, the padding is NOT painted.
 
+## The order of `clickable()` and `padding()`
+How does the order of clickable() and padding() affect the touch target?
+- If `clickable()` is called before `padding()` in a Modifier's method chain, the padding is clickable.
+- If `padding()` is called before `clickable()` in a Modifier's method chain, the padding is NOT clickable.
+
 # Content padding
 - is a padding for an entire list. The padding also scrolls along with the content.
 - https://developer.android.com/jetpack/compose/lists
