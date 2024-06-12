@@ -1,11 +1,10 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.row
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons.Rounded
-import androidx.compose.material.icons.rounded.Close
+import androidx.compose.foundation.layout.height
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -20,21 +19,24 @@ import androidx.compose.ui.unit.dp
 @Preview
 @Composable
 private fun CenterAndEndChildrenRowExample() {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(height = 48.dp),
+        contentAlignment = Alignment.Center,
     ) {
-        Spacer(modifier = Modifier.width(48.dp))
         Text(
-            text = "a",
-            modifier = Modifier.weight(1f),
+            text = "🍎",
             textAlign = TextAlign.Center,
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
         )
-        IconButton(onClick = {}) {
+        IconButton(
+            onClick = {},
+            modifier = Modifier.align(Alignment.CenterEnd),
+        ) {
             Icon(
-                imageVector = Rounded.Close,
+                imageVector = Icons.Default.Close,
                 contentDescription = null,
             )
         }
