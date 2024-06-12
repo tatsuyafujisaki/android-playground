@@ -2,7 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.constraintlayout
 
 import androidx.compose.foundation.background
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Android
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,11 +28,11 @@ fun BarrierExample() {
             text = "Apple",
             modifier =
             Modifier
-                .background(Color.Red)
+                .background(color = Color.Red)
                 .constrainAs(text1) {
-                    start.linkTo(parent.start)
-                    top.linkTo(parent.top)
-                    bottom.linkTo(text2.top)
+                    start.linkTo(anchor = parent.start)
+                    top.linkTo(anchor = parent.top)
+                    bottom.linkTo(anchor = text2.top)
                 },
         )
 
@@ -40,25 +40,25 @@ fun BarrierExample() {
             text = "Orange",
             modifier =
             Modifier
-                .background(Color.Red)
+                .background(color = Color.Red)
                 .constrainAs(text2) {
-                    start.linkTo(parent.start)
-                    top.linkTo(text1.bottom)
-                    bottom.linkTo(parent.bottom)
+                    start.linkTo(anchor = parent.start)
+                    top.linkTo(anchor = text1.bottom)
+                    bottom.linkTo(anchor = parent.bottom)
                 },
         )
 
         Icon(
-            imageVector = Icons.Default.Favorite,
+            imageVector = Icons.Default.Android,
             contentDescription = null,
             modifier =
             Modifier
-                .background(Color.Blue)
+                .background(color = Color.Green)
                 .constrainAs(icon) {
                     width = Dimension.fillToConstraints
-                    top.linkTo(parent.top)
-                    start.linkTo(titleAndSubtitleEndBarrier)
-                    bottom.linkTo(parent.bottom)
+                    top.linkTo(anchor = parent.top)
+                    start.linkTo(anchor = titleAndSubtitleEndBarrier)
+                    bottom.linkTo(anchor = parent.bottom)
                 },
         )
     }

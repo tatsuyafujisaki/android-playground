@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Circle
+import androidx.compose.material.icons.filled.Android
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +33,7 @@ private fun HorizontalArrangementRowExample() {
     val content = @Composable { _: RowScope ->
         repeat(3) {
             Image(
-                imageVector = Icons.Default.Circle,
+                imageVector = Icons.Default.Android,
                 contentDescription = null,
             )
         }

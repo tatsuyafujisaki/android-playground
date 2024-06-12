@@ -2,7 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.media
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Android
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,10 +16,10 @@ import com.github.tatsuyafujisaki.androidplayground.R
 @Composable
 private fun IconExample1() {
     Icon(
-        imageVector = Icons.Default.Favorite,
+        imageVector = Icons.Default.Android,
         contentDescription = null,
         modifier = Modifier.size(size = 48.dp),
-        tint = Color.Red,
+        tint = Color.Green,
     )
 }
 
