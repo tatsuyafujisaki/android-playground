@@ -1,11 +1,10 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.button
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -15,16 +14,13 @@ private fun TextButton48(
     text: String,
     modifier: Modifier = Modifier,
 ) {
-    Box(
+    TextButton(
+        onClick = onClick,
         modifier = modifier
             .minimumInteractiveComponentSize()
             .clickable(onClick = onClick),
-        contentAlignment = Alignment.Center,
     ) {
-        Text(
-            text = text,
-            modifier = modifier,
-        )
+        Text(text = text)
     }
 }
 
