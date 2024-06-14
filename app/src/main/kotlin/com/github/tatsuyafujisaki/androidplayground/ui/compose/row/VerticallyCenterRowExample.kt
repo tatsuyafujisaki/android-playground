@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview(showBackground = true)
 @Composable
-private fun CenterVerticallyRowExample() {
+private fun VerticallyCenterRowExample() {
     Row(
         modifier = Modifier.height(height = 100.dp),
         verticalAlignment = Alignment.CenterVertically,
