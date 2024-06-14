@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-private fun CenterAndEndChildrenRowExample() {
+private fun CenterAndEndInRowExample() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
