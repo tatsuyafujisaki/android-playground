@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.ui.compose.box.align
+package com.github.tatsuyafujisaki.androidplayground.ui.compose.box
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-private fun StartCenterEndTextInBoxExample() {
+private fun StartCenterEndInBoxExample() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
