@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-private fun StartCenterEndInBoxExample() {
+private fun StartCenterEndBoxExample() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
