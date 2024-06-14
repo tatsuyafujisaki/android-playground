@@ -13,16 +13,16 @@ import androidx.constraintlayout.compose.ConstraintLayout
 @Composable
 fun HorizontallyCenterBarrierExample() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
-        val (text) = createRefs()
+        val (ref) = createRefs()
 
-        val guideline = createGuidelineFromStart(fraction = 0.5f)
+        val horizontallyCenterGuideline = createGuidelineFromStart(fraction = 0.5f)
 
         Text(
             text = "Hello, World",
             modifier = Modifier
                 .background(color = Color.Cyan)
-                .constrainAs(text) {
-                    start.linkTo(anchor = guideline)
+                .constrainAs(ref = ref) {
+                    start.linkTo(anchor = horizontallyCenterGuideline)
                     top.linkTo(anchor = parent.top)
                     bottom.linkTo(anchor = parent.bottom)
                 },
