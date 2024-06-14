@@ -16,18 +16,13 @@ import androidx.constraintlayout.compose.Dimension
 @Composable
 fun BarrierExample() {
     ConstraintLayout {
-        val (
-            text1,
-            text2,
-            icon,
-        ) = createRefs()
+        val (text1, text2, icon) = createRefs()
 
         val titleAndSubtitleEndBarrier = createEndBarrier(text1, text2)
 
         Text(
             text = "Apple",
-            modifier =
-            Modifier
+            modifier = Modifier
                 .background(color = Color.Red)
                 .constrainAs(text1) {
                     start.linkTo(anchor = parent.start)
@@ -38,8 +33,7 @@ fun BarrierExample() {
 
         Text(
             text = "Orange",
-            modifier =
-            Modifier
+            modifier = Modifier
                 .background(color = Color.Red)
                 .constrainAs(text2) {
                     start.linkTo(anchor = parent.start)
@@ -51,8 +45,7 @@ fun BarrierExample() {
         Icon(
             imageVector = Icons.Default.Android,
             contentDescription = null,
-            modifier =
-            Modifier
+            modifier = Modifier
                 .background(color = Color.Green)
                 .constrainAs(icon) {
                     width = Dimension.fillToConstraints
