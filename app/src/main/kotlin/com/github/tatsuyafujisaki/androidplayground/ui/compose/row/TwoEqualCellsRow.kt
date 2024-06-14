@@ -2,9 +2,9 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.row
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -14,36 +14,51 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-@Preview(showBackground = true)
 @Composable
-private fun TwoEqualCellsRow() {
+private fun TwoEqualCellsRow(
+    modifier: Modifier = Modifier,
+    leftCellModifier: Modifier = Modifier,
+    rightCellModifier: Modifier = Modifier,
+    leftCellContent: @Composable BoxScope.() -> Unit,
+    rightCellContent: @Composable BoxScope.() -> Unit
+) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(height = 100.dp),
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
-            modifier = Modifier
-                .background(color = Color.Cyan)
+            modifier = leftCellModifier
                 .fillMaxHeight()
                 .weight(1f),
-        ) {
-            Text(
-                text = "あ".repeat(n = 10),
-                modifier = Modifier.align(alignment = Alignment.CenterEnd)
-            )
-        }
+            content = leftCellContent,
+        )
         Box(
-            modifier = Modifier
-                .background(color = Color.Magenta)
+            modifier = rightCellModifier
                 .fillMaxHeight()
-                .weight(1f)
-        ) {
+                .weight(1f),
+            content = rightCellContent,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun TwoEqualCellsRowPreview() {
+    TwoEqualCellsRow(
+        modifier = Modifier.height(height = 100.dp),
+        leftCellModifier = Modifier.background(color = Color.Cyan),
+        rightCellModifier = Modifier.background(color = Color.Magenta),
+        leftCellContent = {
             Text(
-                text = "い".repeat(n = 10),
+                text = "🍎".repeat(n = 10),
+                modifier = Modifier.align(alignment = Alignment.CenterEnd)
+            )
+        },
+        rightCellContent = {
+            Text(
+                text = "🍏".repeat(n = 10),
                 modifier = Modifier.align(alignment = Alignment.CenterEnd)
             )
         }
-    }
+    )
 }
