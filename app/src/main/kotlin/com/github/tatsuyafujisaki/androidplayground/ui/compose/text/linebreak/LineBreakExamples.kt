@@ -35,7 +35,7 @@ fun LineBreakExamples() {
         item {
             Text(text = "LineBreak.Paragraph")
         }
-        repeat(100) {
+        repeat(10) {
             val texts = listOf(
                 generateText(s = "a", charCountPerWord = it + 1),
                 generateText(s = "あ", charCountPerWord = it + 1)
