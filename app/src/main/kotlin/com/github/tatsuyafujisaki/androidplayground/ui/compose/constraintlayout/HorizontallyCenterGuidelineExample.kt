@@ -11,7 +11,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Preview(showBackground = true)
 @Composable
-fun HorizontallyCenterBarrierExample() {
+fun HorizontallyCenterGuidelineExample() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         val (ref) = createRefs()
 
