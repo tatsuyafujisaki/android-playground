@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.ui.compose.text
+package com.github.tatsuyafujisaki.androidplayground.ui.compose.text.linebreak
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
@@ -31,11 +31,12 @@ private val lineBreakOptions = listOf(
     "Custom" to LineBreak(
         strategy = LineBreak.Strategy.Balanced,
         strictness = LineBreak.Strictness.Strict,
-        wordBreak = LineBreak.WordBreak.Default
+        wordBreak = LineBreak.WordBreak.Phrase
     )
 )
 
 /**
+ * https://github.com/androidx/androidx/blob/androidx-main/compose/foundation/foundation/integration-tests/foundation-demos/src/main/java/androidx/compose/foundation/demos/text/LineBreakDemo.kt
  * https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/LineBreak
  */
 private const val demoText = "This is an example text\n今日は自由が丘で焼き鳥を食べます。"
@@ -68,12 +69,9 @@ fun TextLineBreakingDemo() {
                             append(":\n")
                         }
                         append(demoText)
-                    },
-                    style = TextStyle(
-                        lineBreak = preset,
-                        fontSize = selectedFontSize.floatValue.sp
-                    ),
-                    modifier = textModifier.weight(1f)
+                    }, style = TextStyle(
+                        lineBreak = preset, fontSize = selectedFontSize.floatValue.sp
+                    ), modifier = textModifier.weight(1f)
                 )
             }
         }
