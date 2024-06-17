@@ -21,8 +21,8 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 @Preview(showBackground = true)
 @Composable
 fun FontExample() {
-    // NB: Google Font is not applied in a preview.
-    val fontName = GoogleFont("Noto Sans")
+    // NB: Downloadable fonts are not applied in a preview.
+    val fontName = GoogleFont("Noto Sans JP")
 
     val fontProvider = GoogleFont.Provider(
         providerAuthority = "com.google.android.gms.fonts",
