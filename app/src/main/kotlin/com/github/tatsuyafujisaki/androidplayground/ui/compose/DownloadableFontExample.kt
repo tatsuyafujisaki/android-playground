@@ -15,12 +15,12 @@ import com.github.tatsuyafujisaki.androidplayground.R
 import kotlinx.coroutines.CoroutineExceptionHandler
 
 /**
- * Google Fonts
  * https://developer.android.com/develop/ui/compose/text/fonts
+ * https://fonts.google.com/noto/specimen/Noto+Sans+JP
  */
 @Preview(showBackground = true)
 @Composable
-fun FontExample() {
+fun DownloadableFontExample() {
     // NB: Downloadable fonts are not applied in a preview.
     val fontName = GoogleFont("Noto Sans JP")
 
