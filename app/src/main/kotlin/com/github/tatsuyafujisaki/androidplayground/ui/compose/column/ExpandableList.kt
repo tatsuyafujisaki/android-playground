@@ -50,9 +50,7 @@ fun <T> ExpandableList(
     bottomItemContent: @Composable LazyItemScope.() -> Unit = {},
     onExpandedChange: (T, Boolean) -> Unit = { _, _ -> },
 ) {
-    LazyColumn(
-        modifier = modifier.fillMaxWidth(),
-    ) {
+    LazyColumn(modifier = modifier) {
         itemsIndexed(items = items) { index, item ->
             // Don't use "remember" because it gets reset when you scroll away.
             var expanded by rememberSaveable { mutableStateOf(false) }
@@ -83,8 +81,7 @@ private fun ExpandableListItem(
     expandedContent: @Composable AnimatedVisibilityScope.() -> Unit,
 ) {
     Column(
-        modifier =
-        Modifier
+        modifier = Modifier
             .fillMaxWidth()
             .clickable(
                 // Disables a touch ripple.
@@ -98,15 +95,14 @@ private fun ExpandableListItem(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun ExpandableListPreview() {
     ExpandableList(
-        items =
-        List(100) {
+        items = List(100) {
             MyData(
-                title = "Title $it",
-                body = "Hello world",
+                title = "🍎$it",
+                body = "🍊".repeat(n = 100),
             )
         },
         collapsedListItemContent = { item, expanded ->
@@ -134,10 +130,9 @@ private fun ExpandableListPreview() {
         },
         expandedListItemContent = {
             Box(
-                modifier =
-                Modifier
+                modifier = Modifier
                     .fillMaxWidth()
-                    .background(color = Color.LightGray)
+                    .background(color = Color.Yellow)
                     .padding(all = 16.dp),
             ) {
                 Text(
