@@ -6,8 +6,8 @@
 
 # Best practices
 - https://developer.android.com/develop/ui/compose/performance/bestpractices
-- https://developer.android.com/guide/components/activities/parcelables-and-bundles
-  - > This page provides recommendations and best practices for using Parcelable and Bundle objects.
+- https://developer.android.com/develop/ui/compose/state-hoisting#best-practice
+- https://developer.android.com/guide/components/activities/parcelables-and-bundles (This page provides recommendations and best practices for using Parcelable and Bundle objects.)
 - https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 - https://developer.android.com/topic/architecture/recommendations
 - https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
