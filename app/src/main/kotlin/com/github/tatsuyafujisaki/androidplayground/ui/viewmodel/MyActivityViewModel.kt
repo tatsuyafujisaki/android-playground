@@ -68,12 +68,14 @@ class MyActivityViewModel @Inject constructor(
      * }.enable()
      */
     fun setOrientation4(orientation: Int) {
-        _orientation4.value = when (orientation) {
+        when (orientation) {
             0 -> Orientation4.PORTRAIT
             90 -> Orientation4.LANDSCAPE
             180 -> Orientation4.REVERSE_PORTRAIT
             270 -> Orientation4.REVERSE_LANDSCAPE
-            else -> error("Unknown orientation: $orientation")
+            else -> null
+        }?.let {
+            _orientation4.value = it
         }
     }
 
