@@ -346,10 +346,6 @@ val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 
 
 [retrofit.md](markdown/retrofit.md)
 
-# Glossary / Vocabulary / Terminology
-
-[terminology.md](markdown/terminology.md)
-
 # Lifecycle/ViewModel/LiveData
 
 [lifecycle-viewmodel-livedata.md](markdown/lifecycle-viewmodel-livedata.md)
