@@ -18,11 +18,13 @@ object VibrationUtil {
             context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         }
 
-    fun vibrate(context: Context, milliseconds: Long = 1000) {
+    fun vibrate(context: Context) {
         getVibrator(context).vibrate(
-            // The following error is thrown when if you pass [VibrationEffect.EFFECT_CLICK].
-            // [IllegalArgumentException]: amplitude must either be DEFAULT_AMPLITUDE, or between 1 and 255 inclusive (amplitude=0)
-            VibrationEffect.createOneShot(milliseconds, VibrationEffect.DEFAULT_AMPLITUDE)
+            if (Build.VERSION.SDK_INT >= VERSION_CODES.Q) {
+                VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK)
+            } else {
+                VibrationEffect.createOneShot(1_000, VibrationEffect.DEFAULT_AMPLITUDE)
+            }
         )
     }
 }
