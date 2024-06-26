@@ -2,7 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.media
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,18 +17,16 @@ import com.github.tatsuyafujisaki.androidplayground.R
 @Composable
 private fun AsyncImageOverlayExample() {
     Box(modifier = Modifier.size(size = 200.dp)) {
-        val ratio = 1f / 1f
         AsyncImage(
             model = "https://www.gstatic.com/webp/gallery/4.webp",
             contentDescription = null,
-            modifier = Modifier.aspectRatio(ratio = ratio),
+            modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
         )
         Image(
             painter = painterResource(id = R.drawable.solid_yellow),
             contentDescription = null,
-            modifier = Modifier.aspectRatio(ratio = ratio),
-            contentScale = ContentScale.Crop,
+            modifier = Modifier.fillMaxSize(),
             alpha = 0.5f,
         )
     }
