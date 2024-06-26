@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,30 +15,44 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
+
+@Preview
+@Composable
+fun Example() {
+    Text(text = "Hello", modifier = Modifier.onSizeChanged {
+        println("Text size: $it[dp]") // Text size: 87 x 45[dp]
+        println("Text width: ${it.width.dp}") // Text width: 87.0.dp
+        println("Text height: ${it.height.dp}") // Text height: 45.0.dp
+    })
+}
 
 @Preview
 @Composable
 fun MinimumTouchTargetSizeExample() {
-    var state by remember { mutableStateOf(false) }
+    var selected by remember { mutableStateOf(false) }
+
+    fun onSizeChanged(size: IntSize) {
+        Log.d("👀", "RadioButton size $size[dp]")
+        Log.d("👀", "RadioButton width: ${size.width.dp}")
+        Log.d("👀", "RadioButton height: ${size.height.dp}")
+    }
 
     Row(verticalAlignment = Alignment.CenterVertically) {
         RadioButton(
-            selected = state,
-            onClick = { state = true },
+            selected = selected,
+            onClick = { selected = !selected },
             modifier = Modifier
                 .background(color = Color.Cyan)
-                .onSizeChanged {
-                    Log.d("Clickable RadioButton", "Size $it")
-                },
+                .onSizeChanged(onSizeChanged = ::onSizeChanged),
         )
         RadioButton(
-            selected = state,
+            selected = false,
             onClick = null,
             modifier = Modifier
                 .background(color = Color.Magenta)
-                .onSizeChanged {
-                    Log.d("Non-clickable RadioButton", "Size $it")
-                },
+                .onSizeChanged(onSizeChanged = ::onSizeChanged),
         )
     }
 }
