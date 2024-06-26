@@ -24,7 +24,7 @@ import com.github.tatsuyafujisaki.androidplayground.R
  */
 private fun Modifier.repeatedTiles(): Modifier =
     composed {
-        val imageBitmap = ImageBitmap.imageResource(R.drawable.ichimatsu)
+        val imageBitmap = ImageBitmap.imageResource(id = R.drawable.ichimatsu)
         val shaderBrush =
             remember(imageBitmap) {
                 ShaderBrush(
