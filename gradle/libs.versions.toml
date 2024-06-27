@@ -40,8 +40,8 @@ room = "2.6.1" # https://developer.android.com/jetpack/androidx/releases/room
 rxandroid = "3.0.2" # https://github.com/ReactiveX/RxAndroid/releases
 rxjava = "3.1.8" # https://github.com/ReactiveX/RxJava/releases
 test-core-ktx = "1.6.1" # https://developer.android.com/jetpack/androidx/releases/test
-test-rules = "1.5.0" # https://developer.android.com/jetpack/androidx/releases/test
-test-runner = "1.5.2" # https://developer.android.com/jetpack/androidx/releases/test
+test-rules = "1.6.1" # https://developer.android.com/jetpack/androidx/releases/test
+test-runner = "1.6.1" # https://developer.android.com/jetpack/androidx/releases/test
 viewpager2 = "1.1.0" # https://developer.android.com/jetpack/androidx/releases/viewpager2
 
 [libraries]
