@@ -14,8 +14,8 @@
 ## How to find the width and height of the screen
 ```kotlin
 val configuration = LocalConfiguration.current
-val screenHeight = configuration.screenHeightDp.dp
 val screenWidth = configuration.screenWidthDp.dp
+val screenHeight = configuration.screenHeightDp.dp
 ```
 
 ## The order of `background()`, `padding()`, and `size()`
