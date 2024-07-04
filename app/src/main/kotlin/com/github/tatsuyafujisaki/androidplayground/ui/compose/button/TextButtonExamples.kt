@@ -21,7 +21,7 @@ fun TextButtonExample() {
             contentColor = Color.Magenta,
         )
     ) {
-        Text(text = "Text")
+        Text(text = "a")
     }
 }
 
