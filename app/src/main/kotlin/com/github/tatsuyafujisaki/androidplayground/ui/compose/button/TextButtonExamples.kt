@@ -32,7 +32,7 @@ private fun TextButton48() {
         onClick = {},
         modifier = Modifier.minimumInteractiveComponentSize()
     ) {
-        Text(text = "a")
+        Text(text = "🍎")
     }
 }
 
@@ -43,6 +43,6 @@ private fun TextButton44() {
         onClick = {},
         modifier = Modifier.sizeIn(minWidth = 44.dp, minHeight = 44.dp)
     ) {
-        Text(text = "a")
+        Text(text = "🍎")
     }
 }
