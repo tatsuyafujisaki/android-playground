@@ -15,46 +15,42 @@ import androidx.compose.ui.unit.dp
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.preview.BooleanProvider
 
-/**
- * @param contentScale clip(CircleShape) with ContentScale.Fit on an image whose aspect ratio is not 1:1 produces an imperfect circle.
- */
 @Composable
 private fun CircleBorderImageExample(
     @DrawableRes id: Int,
     modifier: Modifier = Modifier,
-    isCircle: Boolean = false,
+    circle: Boolean = false,
     border: Pair<Dp, Color>? = null,
-    contentScale: ContentScale = if (isCircle) ContentScale.Crop else ContentScale.Fit,
 ) {
     Image(
         painter = painterResource(id = id),
         contentDescription = null,
-        modifier = modifier.circleBorder(isCircle = isCircle, border = border),
-        contentScale = contentScale,
+        modifier = modifier.circleBorder(isCircle = circle, border = border),
+        contentScale = ContentScale.Crop,
     )
 }
 
 @Preview
 @Composable
-private fun ImageExamplePreview(
-    @PreviewParameter(BooleanProvider::class) isCircle: Boolean,
+private fun NonBorderedImageExamplePreview(
+    @PreviewParameter(BooleanProvider::class) circle: Boolean,
 ) {
     CircleBorderImageExample(
         id = R.drawable.ic_android_robot,
-        modifier = Modifier.size(200.dp),
-        isCircle = isCircle,
+        modifier = Modifier.size(size = 200.dp),
+        circle = circle,
     )
 }
 
 @Preview
 @Composable
-private fun ImageBorderedExamplePreview(
-    @PreviewParameter(BooleanProvider::class) isCircle: Boolean,
+private fun BorderedImageExamplePreview(
+    @PreviewParameter(BooleanProvider::class) circle: Boolean,
 ) {
     CircleBorderImageExample(
         id = R.drawable.ic_android_robot,
-        modifier = Modifier.size(200.dp),
-        isCircle = isCircle,
+        modifier = Modifier.size(size = 200.dp),
+        circle = circle,
         border = 8.dp to Color.Red,
     )
 }
