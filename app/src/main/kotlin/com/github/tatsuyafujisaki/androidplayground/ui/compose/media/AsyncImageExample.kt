@@ -18,17 +18,18 @@ private fun AsyncImageExample(
     url: String,
     circle: Boolean = false,
     border: Pair<Dp, Color>? = null,
-    contentScale: ContentScale = if (circle) ContentScale.Crop else ContentScale.Fit,
 ) {
     AsyncImage(
         model = url,
         contentDescription = null,
-        modifier = Modifier.size(200.dp).circleBorder(isCircle = circle, border = border),
-        contentScale = contentScale,
+        modifier = Modifier
+            .size(size = 200.dp)
+            .circleBorder(isCircle = circle, border = border),
+        contentScale = ContentScale.Crop,
     )
 }
 
-private const val url = "https://images.unsplash.com/photo-1558240077-e33b10a16a64"
+private const val url = "https://placehold.co/400/png"
 
 @Preview
 @Composable
