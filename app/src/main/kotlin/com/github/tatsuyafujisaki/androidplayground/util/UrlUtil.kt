@@ -14,7 +14,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
  * https://square.github.io/okhttp/5.x/okhttp/okhttp3/-http-url/
  */
 object UrlUtil {
-    object AndroidNetUrl {
+    object AndroidNetUri {
         fun convertToUri(url: String) = url.toUri()
         fun getHost(uri: Uri) = uri.host.orEmpty()
         fun getPath(uri: Uri) = uri.path.orEmpty()
