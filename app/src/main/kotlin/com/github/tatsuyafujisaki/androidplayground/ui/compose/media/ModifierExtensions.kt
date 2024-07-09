@@ -1,12 +1,17 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.media
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 
 fun Modifier.circleBorder(
     isCircle: Boolean = false,
@@ -19,3 +24,9 @@ fun Modifier.circleBorder(
         m
     }
 }
+
+@Composable
+fun Modifier.fillScreenWidth() = width(width = LocalConfiguration.current.screenWidthDp.dp)
+
+@Composable
+fun Modifier.fillScreenHeight() = height(height = LocalConfiguration.current.screenHeightDp.dp)

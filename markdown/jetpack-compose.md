@@ -11,13 +11,6 @@
 
 - https://developer.android.com/codelabs/basic-android-kotlin-compose-material-theming#3
 
-## How to find the width and height of the screen
-```kotlin
-val configuration = LocalConfiguration.current
-val screenWidth = configuration.screenWidthDp.dp
-val screenHeight = configuration.screenHeightDp.dp
-```
-
 ## The order of `background()`, `padding()`, and `size()`
 How does the order of `padding()` and `size()` affect the overall size?
 - If `size()` is called before `padding()` in a Modifier's method chain, the total size is padding + size.
