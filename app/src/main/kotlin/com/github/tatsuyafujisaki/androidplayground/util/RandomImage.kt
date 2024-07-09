@@ -3,7 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import kotlin.random.Random
 
 object RandomImage {
-    fun getUrl(sizeInPixel: Int) =
+    fun getUrl(sizeInPixel: Int = 1_000) =
         "https://picsum.photos/$sizeInPixel?random=${Random.nextInt()}"
 
     fun getUrl(widthInPixel: Int, heightInPixel: Int) =
