@@ -37,7 +37,7 @@ private fun PullToRefreshBoxExample() {
         onRefresh = {
             isRefreshing = true
             coroutineScope.launch {
-                delay(100)
+                delay(timeMillis = 100)
                 imageUrl = RandomImage.getUrl()
                 isRefreshing = false
             }
