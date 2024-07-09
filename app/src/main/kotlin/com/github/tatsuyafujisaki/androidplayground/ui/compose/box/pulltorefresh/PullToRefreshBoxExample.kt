@@ -44,7 +44,7 @@ private fun PullToRefreshBoxExample() {
         modifier = Modifier.fillMaxSize(),
     ) {
         Box(
-            Modifier
+            modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(state = rememberScrollState())
         ) {
