@@ -221,7 +221,7 @@ override fun onBackPressed() {
 
 * `OnBackPressedDispatcher.hasEnabledCallbacks()` returns true if both of the following are met.
     1. There is at least one callback registered with this dispatcher.
-    2. Your Activity is being between `onStart()` and `onStop()` (both inclusive). If you
+    1. Your Activity is being between `onStart()` and `onStop()` (both inclusive). If you
        override `onStart()` and/or `onStop()`, it is between `super.onStart()` and `super.onStop()`.
     1. Even if you pass a Fragment to `OnBackPressedDispatcher.addCallback(...)`, the Fragment's
        lifecycle does not affect `OnBackPressedDispatcher.hasEnabledCallbacks()`.
