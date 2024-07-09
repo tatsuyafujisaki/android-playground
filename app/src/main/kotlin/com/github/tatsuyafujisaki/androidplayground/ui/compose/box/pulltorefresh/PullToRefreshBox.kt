@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.ui.compose.box
+package com.github.tatsuyafujisaki.androidplayground.ui.compose.box.pulltorefresh
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-fun PullToRefreshPreview() {
+fun PullToRefreshBox() {
     var text by remember { mutableStateOf("Hello") }
     val state = rememberPullToRefreshState()
     if (state.isRefreshing) {
@@ -28,8 +28,7 @@ fun PullToRefreshPreview() {
         state.endRefresh()
     }
     Box(
-        modifier =
-        Modifier
+        modifier = Modifier
             .nestedScroll(state.nestedScrollConnection)
             .fillMaxSize(),
     ) {
