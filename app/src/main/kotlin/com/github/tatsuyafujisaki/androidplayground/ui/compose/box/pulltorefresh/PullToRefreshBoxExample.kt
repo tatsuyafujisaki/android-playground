@@ -1,5 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.box.pulltorefresh
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
@@ -13,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
@@ -40,11 +42,17 @@ private fun PullToRefreshBoxExample() {
         },
         modifier = Modifier.fillMaxSize(),
     ) {
-        Box(Modifier.verticalScroll(state = rememberScrollState())) {
+        Box(
+            Modifier
+                .fillMaxSize()
+                .verticalScroll(state = rememberScrollState())
+        ) {
             AsyncImage(
                 model = imageUrl,
                 contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .background(Color.Red)
+                    .fillMaxSize(),
                 contentScale = ContentScale.Crop,
             )
         }
