@@ -1,14 +1,14 @@
 plugins {
-    embeddedKotlin(libs.plugins.kotlin.serialization.get().pluginId)
-    id(libs.plugins.com.android.application.get().pluginId)
-    id(libs.plugins.kotlin.android.get().pluginId)
-    id(libs.plugins.kotlin.parcelize.get().pluginId)
+    embeddedKotlin("plugin.serialization")
+    id("com.android.application")
+    id("kotlin-android")
     id(libs.plugins.ksp.get().pluginId)
-    id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
-    id(libs.plugins.google.services.get().pluginId)
-    id(libs.plugins.oss.licenses.plugin.get().pluginId)
-    id(libs.plugins.realm.get().pluginId)
+    id("androidx.navigation.safeargs.kotlin")
+    id("com.google.gms.google-services")
+    id("com.google.android.gms.oss-licenses-plugin")
     id(libs.plugins.hilt.get().pluginId)
+    id("io.realm.kotlin")
+    id("kotlin-parcelize")
     alias(libs.plugins.protobuf)
 }
 
