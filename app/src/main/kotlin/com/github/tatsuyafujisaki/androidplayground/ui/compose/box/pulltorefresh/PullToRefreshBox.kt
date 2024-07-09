@@ -2,9 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.box.pulltorefres
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshContainer
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
@@ -15,32 +13,38 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
+import coil.compose.AsyncImage
+import com.github.tatsuyafujisaki.androidplayground.util.RandomImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 fun PullToRefreshBox() {
-    var text by remember { mutableStateOf("Hello") }
-    val state = rememberPullToRefreshState()
-    if (state.isRefreshing) {
-        text += text
-        state.endRefresh()
+    var imageUrl by remember { mutableStateOf(value = RandomImage.getUrl(sizeInPixel = 400)) }
+    val pullToRefreshState = rememberPullToRefreshState()
+
+    if (pullToRefreshState.isRefreshing) {
+        imageUrl = RandomImage.getUrl(sizeInPixel = 400)
+        pullToRefreshState.endRefresh()
     }
+
     Box(
         modifier = Modifier
-            .nestedScroll(state.nestedScrollConnection)
+            .nestedScroll(connection = pullToRefreshState.nestedScrollConnection)
             .fillMaxSize(),
     ) {
-        if (!state.isRefreshing) {
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                item {
-                    Text(text = text)
-                }
-            }
+        if (!pullToRefreshState.isRefreshing) {
+            AsyncImage(
+                model = imageUrl,
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop,
+            )
         }
         PullToRefreshContainer(
-            state = state,
+            state = pullToRefreshState,
             modifier = Modifier.align(Alignment.TopCenter),
         )
     }
