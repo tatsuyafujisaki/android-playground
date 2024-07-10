@@ -7,4 +7,5 @@ interface MyRealmRepository {
     fun getOrNull(name: String): MyRealmPerson?
     suspend fun upsert(name: String, age: Int)
     suspend fun delete(name: String)
+    suspend fun deleteIfContains(name: String)
 }

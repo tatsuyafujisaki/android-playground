@@ -37,4 +37,10 @@ class MyRealmRepositoryImpl @Inject constructor() : MyRealmRepository {
             delete(query<MyRealmPerson>("name == $0", name).find())
         }
     }
+
+    override suspend fun deleteIfContains(name: String) {
+        realm.write {
+            delete(query<MyRealmPerson>("name CONTAINS $0", name).find())
+        }
+    }
 }
