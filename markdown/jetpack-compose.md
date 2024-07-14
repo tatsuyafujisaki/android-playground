@@ -5,11 +5,11 @@
 
 > Note: It is a best practice to pass a modifier to every composable and set it to a default value.
 
-- https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list#3
+- https://developer.android.com/codelabs/basic-android-kotlin-compose-training-add-scrollable-list#2
 
 > In Compose, it is best practice to pass a modifier parameter to composable functions.
 
-- https://developer.android.com/codelabs/basic-android-kotlin-compose-material-theming#3
+- https://developer.android.com/codelabs/basic-android-kotlin-compose-material-theming#2
 
 ## The order of `background()`, `padding()`, and `size()`
 How does the order of `padding()` and `size()` affect the overall size?
