@@ -26,7 +26,7 @@ fun AlignColumnExample(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(text = "🍎", modifier = Modifier.align(Alignment.Start))
-        Text(text = "🍊")
-        Text(text = "🍏", modifier = Modifier.align(Alignment.End))
+        Text(text = "🍏")
+        Text(text = "🍊", modifier = Modifier.align(Alignment.End))
     }
 }
