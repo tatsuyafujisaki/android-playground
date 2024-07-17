@@ -1,3 +1,5 @@
+@file:JvmName("HorizontalStartCenterEndBoxKt")
+
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.box
 
 import androidx.compose.foundation.layout.Box
