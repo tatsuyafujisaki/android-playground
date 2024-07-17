@@ -5,11 +5,10 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.snapshotFlow
-import androidx.compose.ui.Modifier
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 @Composable
-fun LazyListExample(modifier: Modifier = Modifier) {
+fun LazyListExample() {
     val lazyListState = rememberLazyListState()
 
     LaunchedEffect(lazyListState) {
