@@ -1,5 +1,3 @@
-@file:JvmName("HorizontalStartCenterEndBoxKt")
-
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.box
 
 import androidx.compose.foundation.layout.Box
@@ -15,7 +13,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-private fun StartCenterEndBoxExample() {
+private fun HorizontalStartCenterEndBoxExample() {
     Box(
         modifier = Modifier
             .fillMaxWidth()

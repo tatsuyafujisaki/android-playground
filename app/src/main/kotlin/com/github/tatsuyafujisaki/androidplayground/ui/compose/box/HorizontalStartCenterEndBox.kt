@@ -2,6 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.box
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Text
@@ -14,9 +15,9 @@ import androidx.compose.ui.unit.dp
 @Composable
 private fun HorizontalStartCenterEndBox(
     modifier: Modifier = Modifier,
-    startContent: @Composable BoxScope.(Modifier) -> Unit,
-    centerContent: @Composable BoxScope.(Modifier) -> Unit,
-    endContent: @Composable BoxScope.(Modifier) -> Unit,
+    startContent: @Composable (BoxScope.(Modifier) -> Unit) = {},
+    centerContent: @Composable (BoxScope.(Modifier) -> Unit) = {},
+    endContent: @Composable BoxScope.(Modifier) -> Unit = {},
 ) {
     Box(modifier = modifier) {
         startContent(Modifier.align(alignment = Alignment.CenterStart))
@@ -33,22 +34,16 @@ private fun HorizontalStartCenterEndBoxPreview(modifier: Modifier = Modifier) {
             .fillMaxWidth()
             .height(height = 48.dp),
         startContent = {
-            Text(
-                text = "🍎",
-                modifier = it,
-            )
+            Text(text = "🍋", modifier = it)
         },
         centerContent = {
-            Text(
-                text = "🍏",
-                modifier = it,
-            )
+            Text(text = "🍊", modifier = it)
         },
         endContent = {
-            Text(
-                text = "🍊",
-                modifier = it,
-            )
+            Row(modifier = it, verticalAlignment = Alignment.CenterVertically) {
+                Text(text = "🍎")
+                Text(text = "🍏")
+            }
         },
     )
 }
