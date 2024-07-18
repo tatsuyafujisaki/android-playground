@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -22,8 +23,8 @@ fun AsyncImageBottomHalfOverlay(
     @DrawableRes mask: Int,
     maskAlpha: Float,
     modifier: Modifier = Modifier,
-    additionalAsyncImageModifier: Modifier = Modifier,
-    additionalImageModifier: Modifier = Modifier
+    asyncImageModifier: Modifier = Modifier,
+    imageModifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier,
@@ -32,14 +33,15 @@ fun AsyncImageBottomHalfOverlay(
         AsyncImage(
             model = url,
             contentDescription = null,
-            modifier = modifier then additionalAsyncImageModifier,
+            modifier = asyncImageModifier,
             contentScale = ContentScale.Crop,
         )
+        // NB: Avoid using "ContentScale.Crop" or the mask will cover the entire image.
         Image(
             painter = painterResource(id = mask),
             contentDescription = null,
-            modifier = modifier then additionalImageModifier,
-            contentScale = ContentScale.Crop,
+            modifier = imageModifier,
+            contentScale = ContentScale.FillWidth,
             alpha = maskAlpha,
         )
     }
@@ -52,11 +54,11 @@ private fun AsyncImageLowerAreaOverlayPreview() {
         url = RandomImage.getUrl(),
         mask = R.drawable.solid_yellow,
         maskAlpha = 0.5f,
-        additionalAsyncImageModifier = Modifier
+        asyncImageModifier = Modifier
             .aspectRatio(ratio = 1f / 1f)
             .fillMaxSize(),
-        additionalImageModifier = Modifier
-            .aspectRatio(ratio = 2f / 1f)
-            .fillMaxWidth(),
+        imageModifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(fraction = 0.2f),
     )
 }
