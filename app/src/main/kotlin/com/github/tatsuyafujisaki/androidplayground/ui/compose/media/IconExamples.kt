@@ -19,7 +19,7 @@ private fun IconExample1() {
         imageVector = Icons.Default.Android,
         contentDescription = null,
         modifier = Modifier.size(size = 48.dp),
-        tint = Color.Green,
+        tint = Color.Unspecified,
     )
 }
 
@@ -30,6 +30,6 @@ private fun IconExample2() {
         painter = painterResource(id = R.drawable.ic_android_robot),
         contentDescription = null,
         modifier = Modifier.size(size = 48.dp),
-        tint = Color.Green,
+        tint = Color.Unspecified,
     )
 }
