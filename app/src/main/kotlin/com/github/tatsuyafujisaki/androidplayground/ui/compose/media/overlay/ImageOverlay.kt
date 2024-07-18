@@ -23,7 +23,6 @@ fun ImageOverlay(
         contentDescription = null,
         modifier = modifier,
         contentScale = ContentScale.Crop,
-        alpha = maskAlpha,
     )
     Image(
         painter = painterResource(id = mask),
