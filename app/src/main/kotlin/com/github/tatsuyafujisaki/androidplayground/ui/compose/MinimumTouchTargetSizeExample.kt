@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.RadioButton
@@ -15,8 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import com.github.tatsuyafujisaki.androidplayground.ui.compose.media.logSizeChanged
 
 @Preview
 @Composable
@@ -33,26 +32,20 @@ fun Example() {
 fun MinimumTouchTargetSizeExample() {
     var selected by remember { mutableStateOf(false) }
 
-    fun onSizeChanged(size: IntSize) {
-        Log.d("👀", "RadioButton size $size[dp]")
-        Log.d("👀", "RadioButton width: ${size.width.dp}")
-        Log.d("👀", "RadioButton height: ${size.height.dp}")
-    }
-
     Row(verticalAlignment = Alignment.CenterVertically) {
         RadioButton(
             selected = selected,
             onClick = { selected = !selected },
             modifier = Modifier
                 .background(color = Color.Cyan)
-                .onSizeChanged(onSizeChanged = ::onSizeChanged),
+                .logSizeChanged(),
         )
         RadioButton(
             selected = false,
             onClick = null,
             modifier = Modifier
                 .background(color = Color.Magenta)
-                .onSizeChanged(onSizeChanged = ::onSizeChanged),
+                .logSizeChanged(),
         )
     }
 }
