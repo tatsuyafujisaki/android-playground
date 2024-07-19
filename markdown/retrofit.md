@@ -29,17 +29,17 @@ https://example.com/api/v1/mydata?key2=a&key2=b
 
 # What happens if a key is missing or the value of a key is null in the JSON response?
 ## If the expected type of a key's value in the JSON response is array ...
-Corresponding property in data class annotated with `@Serializable`|"foo" key is missing in JSON response and [isLenient](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/is-lenient.html) is false|"foo":null in JSON response
+Corresponding property in data class annotated with `@Serializable`|"foo" key is missing in JSON response|"foo":null in JSON response
 --|--|--
-val foo: List<T>|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
-val foo: List<T>?|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|Success
-val foo: List<T> = emptyList()|Success|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
-val foo: List<T>? = null|Success|Success
+val foo: List&lt;String>|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
+val foo: List&lt;String>?|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|Success
+val foo: List&lt;String> = emptyList()|Success|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
+val foo: List&lt;String>? = null|Success|Success
 
 ## If the expected type of a key's value in the JSON response is string ...
-Corresponding property in data class annotated with `@Serializable`|"foo" key is missing in JSON response and [isLenient](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-json/kotlinx.serialization.json/-json-builder/is-lenient.html) is false|"foo":null in JSON response
+Corresponding property in data class annotated with `@Serializable`|"foo" key is missing in JSON response|"foo":null in JSON response
 --|--|--
-val foo: String<T>|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
-val foo: String<T>?|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|Success
-val foo: String<T> = ""|Success|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
-val foo: String<T>? = null|Success|Success
+val foo: String|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
+val foo: String?|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|Success
+val foo: String = ""|Success|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
+val foo: String? = null|Success|Success
