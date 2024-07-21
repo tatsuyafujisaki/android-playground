@@ -61,14 +61,15 @@ object ViewUtil {
         }
     }
 
-    fun View.setOnSafeClickListener(
+    fun setOnSafeClickListener(
+        view: View,
         delayMillis: Long = 1000L,
         onClick: () -> Unit,
     ) {
-        setOnClickListener {
-            isClickable = false
-            postDelayed({
-                isClickable = true
+        view.setOnClickListener {
+            view.isClickable = false
+            view.postDelayed({
+                view.isClickable = true
             }, delayMillis)
             onClick()
         }
