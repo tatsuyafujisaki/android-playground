@@ -23,11 +23,12 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.github.tatsuyafujisaki.androidplayground.util.RandomImage
 
+private val URLS = List(size = 3) { RandomImage.getUrl() }
+
 @Preview
 @Composable
 fun HorizontalPagerExample() {
-    val urls = List(size = 3) { RandomImage.getUrl() }
-    val pagerState = rememberPagerState(pageCount = { urls.size })
+    val pagerState = rememberPagerState(pageCount = { URLS.size })
     val uriHandler = LocalUriHandler.current
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -36,13 +37,12 @@ fun HorizontalPagerExample() {
             modifier = Modifier.fillMaxSize(),
             beyondViewportPageCount = pagerState.pageCount - 1,
         ) {
-            val url = urls[it]
             AsyncImage(
-                model = url,
+                model = URLS[it],
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxSize()
-                    .clickable { uriHandler.openUri(uri = url) },
+                    .clickable { uriHandler.openUri(uri = URLS[it]) },
                 contentScale = ContentScale.Crop,
             )
         }
