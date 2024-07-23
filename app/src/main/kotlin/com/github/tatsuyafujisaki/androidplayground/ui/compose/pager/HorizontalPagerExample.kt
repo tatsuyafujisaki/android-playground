@@ -1,11 +1,10 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.pager
 
-import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -24,11 +23,10 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.github.tatsuyafujisaki.androidplayground.util.RandomImage
 
-@SuppressLint("SetJavaScriptEnabled")
 @Preview
 @Composable
 fun HorizontalPagerExample() {
-    val urls = List(3) { RandomImage.getUrl() }
+    val urls = List(size = 3) { RandomImage.getUrl() }
     val pagerState = rememberPagerState(pageCount = { urls.size })
     val uriHandler = LocalUriHandler.current
 
@@ -38,7 +36,6 @@ fun HorizontalPagerExample() {
             modifier = Modifier.fillMaxSize(),
             beyondViewportPageCount = pagerState.pageCount - 1,
         ) {
-            Log.d("👀page", it.toString())
             val url = urls[it]
             AsyncImage(
                 model = url,
@@ -52,15 +49,14 @@ fun HorizontalPagerExample() {
         Row(
             modifier = Modifier
                 .padding(bottom = 40.dp)
-                .background(Color.Red)
                 .align(alignment = Alignment.BottomCenter),
         ) {
             repeat(times = pagerState.pageCount) {
-                Box(
+                Spacer(
                     modifier = Modifier
                         .padding(all = 4.dp)
                         .clip(shape = CircleShape)
-                        .background(color = if (pagerState.currentPage == it) Color.DarkGray else Color.LightGray)
+                        .background(color = if (it == pagerState.currentPage) Color.DarkGray else Color.LightGray)
                         .size(size = 16.dp)
                 )
             }
