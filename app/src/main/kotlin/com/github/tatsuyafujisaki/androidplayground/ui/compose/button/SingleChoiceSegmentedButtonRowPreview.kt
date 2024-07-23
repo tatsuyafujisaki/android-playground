@@ -19,7 +19,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 private fun SingleChoiceSegmentedButtonRowPreview() {
