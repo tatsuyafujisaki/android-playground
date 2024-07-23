@@ -1,5 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.pager
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -12,6 +13,8 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,6 +33,12 @@ private val URLS = List(size = 3) { RandomImage.getUrl() }
 fun HorizontalPagerExample() {
     val pagerState = rememberPagerState(pageCount = { URLS.size })
     val uriHandler = LocalUriHandler.current
+
+    LaunchedEffect(pagerState) {
+        snapshotFlow { pagerState.currentPage }.collect {
+            Log.d("👀", "Page changed to $it")
+        }
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
         HorizontalPager(
@@ -54,8 +63,8 @@ fun HorizontalPagerExample() {
             repeat(times = pagerState.pageCount) {
                 Spacer(
                     modifier = Modifier
-                        .padding(all = 4.dp)
                         .clip(shape = CircleShape)
+                        .padding(all = 4.dp)
                         .background(color = if (it == pagerState.currentPage) Color.DarkGray else Color.LightGray)
                         .size(size = 16.dp)
                 )
