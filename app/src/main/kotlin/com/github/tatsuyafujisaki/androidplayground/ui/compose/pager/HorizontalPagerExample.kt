@@ -85,7 +85,7 @@ private fun CircularIndicator(currentPage: Boolean) {
     Spacer(
         modifier = Modifier
             .clip(shape = CircleShape)
-            .background(color = if (currentPage) Color.White else Color.White.copy(alpha = 0.5f))
+            .background(color = Color.White.copy(alpha = if (currentPage) 1.0f else 0.5f))
             .size(size = 16.dp)
     )
 }
@@ -94,7 +94,7 @@ private fun CircularIndicator(currentPage: Boolean) {
 private fun LinearIndicator(width: Dp, currentPage: Boolean) {
     Spacer(
         modifier = Modifier
-            .background(color = if (currentPage) Color.White else Color.White.copy(alpha = 0.5f))
+            .background(color = Color.White.copy(alpha = if (currentPage) 1.0f else 0.5f))
             .width(width = width)
             .height(height = 2.dp)
     )
