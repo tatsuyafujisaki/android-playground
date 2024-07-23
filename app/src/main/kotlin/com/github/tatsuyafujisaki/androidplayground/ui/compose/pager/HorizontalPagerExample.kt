@@ -63,9 +63,9 @@ fun HorizontalPagerExample() {
             repeat(times = pagerState.pageCount) {
                 Spacer(
                     modifier = Modifier
-                        .clip(shape = CircleShape)
                         .padding(all = 4.dp)
-                        .background(color = if (it == pagerState.currentPage) Color.DarkGray else Color.LightGray)
+                        .clip(shape = CircleShape)
+                        .background(color = if (it == pagerState.currentPage) Color.LightGray else Color.DarkGray)
                         .size(size = 16.dp)
                 )
             }
