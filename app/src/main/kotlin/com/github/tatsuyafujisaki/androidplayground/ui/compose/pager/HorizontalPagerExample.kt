@@ -1,43 +1,40 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.pager
 
 import android.annotation.SuppressLint
-import android.view.ViewGroup.LayoutParams
-import android.webkit.WebView
-import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.viewinterop.AndroidView
+import coil.compose.AsyncImage
+import com.github.tatsuyafujisaki.androidplayground.util.RandomImage
 
 @SuppressLint("SetJavaScriptEnabled")
 @Preview
 @Composable
 fun HorizontalPagerExample() {
-    val urls = listOf("https://example.com", "https://google.com")
-    val pagerState = rememberPagerState { urls.size }
+    val urls = List(3) { RandomImage.getUrl() }
+    val pagerState = rememberPagerState(pageCount = { urls.size })
+    val uriHandler = LocalUriHandler.current
 
     HorizontalPager(
-        modifier = Modifier.fillMaxSize(),
         state = pagerState,
+        modifier = Modifier.fillMaxSize(),
+        beyondViewportPageCount = pagerState.pageCount - 1,
     ) { page ->
-        AndroidView(
-            modifier = Modifier.fillMaxSize(),
-            factory = {
-                WebView(it).apply {
-                    layoutParams =
-                        LayoutParams(
-                            LayoutParams.MATCH_PARENT,
-                            LayoutParams.MATCH_PARENT,
-                        )
-                    settings.javaScriptEnabled = true
-                }
-            },
-            update = {
-                it.loadUrl(urls[page])
-            },
+        val url = urls[page]
+
+        AsyncImage(
+            model = url,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxSize()
+                .clickable { uriHandler.openUri(uri = url) },
+            contentScale = ContentScale.Crop,
         )
     }
 }
