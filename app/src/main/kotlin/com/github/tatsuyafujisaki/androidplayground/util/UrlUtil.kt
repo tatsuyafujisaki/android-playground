@@ -16,6 +16,8 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 object UrlUtil {
     object AndroidNetUri {
         fun convertToUri(url: String) = url.toUri()
+        fun isAbsolute(uri: Uri) = uri.isAbsolute
+        fun isRelative(uri: Uri) = uri.isRelative
         fun getHost(uri: Uri) = uri.host.orEmpty()
         fun getPath(uri: Uri) = uri.path.orEmpty()
         fun getEncodedPath(uri: Uri) = uri.encodedPath.orEmpty()
@@ -26,10 +28,18 @@ object UrlUtil {
         fun getBooleanQueryParameter(uri: Uri, key: String) =
             uri.getBooleanQueryParameter(key, false)
 
+        fun prependBaseUrlIfUrlIsRelative(baseUrl: String, pathOrUrl: String): String {
+            return if (pathOrUrl.toUri().isRelative) {
+                "${baseUrl.removeSuffix(suffix = "/")}/${pathOrUrl.removePrefix(prefix = "/")}"
+            } else {
+                pathOrUrl
+            }
+        }
+
         /**
          * @param query e.g. "?k1=v1&k2=v2&k2=v3" or "k1=v1&k2=v2&k2=v3"
          */
-        fun convertToQueryParameters(query: String): Map<String, Set<String>> {
+        fun getQueryParameters(query: String): Map<String, Set<String>> {
             val queryWithoutQueryMark = query.replace("?", "")
             val uri = "?$queryWithoutQueryMark".toUri()
             return uri.queryParameterNames.associateWith {
@@ -57,5 +67,8 @@ object UrlUtil {
         fun getQueryParameterNames(httpUrl: HttpUrl) = httpUrl.queryParameterNames
         fun getQuerySize(httpUrl: HttpUrl) = httpUrl.querySize
         fun getDomain(httpUrl: HttpUrl) = httpUrl.topPrivateDomain().orEmpty()
+
+        fun getBaseUrl(httpUrl: HttpUrl) =
+            HttpUrl.Builder().scheme(httpUrl.scheme).host(httpUrl.host).build()
     }
 }
