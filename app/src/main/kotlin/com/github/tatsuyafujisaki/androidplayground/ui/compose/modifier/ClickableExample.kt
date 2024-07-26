@@ -14,6 +14,6 @@ fun ClickableExample(
     @PreviewParameter(NullableLambdaProvider::class) onClick: (() -> Unit)?,
 ) {
     Spacer(
-        modifier = Modifier.clickable(enabled = onClick != null, onClick = onClick ?: {}),
+        modifier = Modifier.clickable(enabled = onClick != null, onClick = { onClick?.invoke() }),
     )
 }
