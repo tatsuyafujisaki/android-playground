@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.ui.compose.media
+package com.github.tatsuyafujisaki.androidplayground.ui.compose.media.icon
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
