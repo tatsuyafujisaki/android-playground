@@ -18,8 +18,6 @@ import com.github.tatsuyafujisaki.androidplayground.R
 private fun Modifier.mask1() = this then Modifier.drawWithCache {
     val brush = Brush.verticalGradient(
         colors = listOf(Color.Red, Color.Green, Color.Blue),
-        startY = 0f,
-        endY = size.height
     )
     onDrawWithContent {
         drawContent()
@@ -32,8 +30,6 @@ private fun Modifier.mask2() = this then Modifier.drawWithCache {
         0.0f to Color.Red,
         0.5f to Color.Green,
         1.0f to Color.Blue,
-        startY = 0f,
-        endY = size.height
     )
     onDrawWithContent {
         drawContent()
