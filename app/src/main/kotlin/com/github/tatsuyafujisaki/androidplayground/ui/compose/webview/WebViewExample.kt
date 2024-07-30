@@ -46,30 +46,23 @@ fun WebViewExample(
         },
     ) { paddingValues ->
         AndroidView(
-            modifier =
-            Modifier
-                .padding(paddingValues)
-                .fillMaxSize(),
-            onReset = { println("onReset") },
             factory = {
                 WebView(it).apply {
-                    layoutParams =
-                        ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT,
-                            ViewGroup.LayoutParams.MATCH_PARENT,
-                        )
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                    )
                     settings.javaScriptEnabled = true
-                    webViewClient =
-                        object : WebViewClient() {
-                            override fun doUpdateVisitedHistory(
-                                view: WebView?,
-                                url: String?,
-                                isReload: Boolean,
-                            ) {
-                                canGoBack = view?.canGoBack() ?: false
-                                canGoForward = view?.canGoForward() ?: false
-                            }
+                    webViewClient = object : WebViewClient() {
+                        override fun doUpdateVisitedHistory(
+                            view: WebView?,
+                            url: String?,
+                            isReload: Boolean,
+                        ) {
+                            canGoBack = view?.canGoBack() ?: false
+                            canGoForward = view?.canGoForward() ?: false
                         }
+                    }
                     onClick?.let {
                         setOnTouchListener { v, _ ->
                             it.invoke()
@@ -78,6 +71,11 @@ fun WebViewExample(
                     }
                 }
             },
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            onReset = { println("onReset") },
+            onRelease = { println("onRelease") },
             update = {
                 when {
                     isBackClicked -> {
@@ -97,7 +95,6 @@ fun WebViewExample(
                 }
                 it.loadUrl(url)
             },
-            onRelease = { println("onRelease") },
         )
     }
     BackHandler {
