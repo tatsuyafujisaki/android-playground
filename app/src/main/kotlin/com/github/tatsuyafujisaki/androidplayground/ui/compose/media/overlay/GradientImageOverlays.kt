@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.media.overlay
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,39 +36,30 @@ private fun Modifier.mask2() = this then Modifier.drawWithCache {
     }
 }
 
+@Preview
 @Composable
-private fun GradientImageOverlay(
-    @DrawableRes id: Int,
-    modifier: Modifier = Modifier,
-) {
+private fun GradientImageOverlayExample1() {
     Image(
-        painter = painterResource(id = id),
+        painter = painterResource(id = R.drawable.star_24),
         contentDescription = null,
-        modifier = modifier,
+        modifier = Modifier
+            .mask1()
+            .aspectRatio(ratio = 1f / 1f)
+            .fillMaxSize(),
         contentScale = ContentScale.Crop,
     )
 }
 
 @Preview
 @Composable
-private fun GradientImageOverlayPreview1() {
-    GradientImageOverlay(
-        id = R.drawable.star_24,
-        modifier = Modifier
-            .mask1()
-            .aspectRatio(ratio = 1f / 1f)
-            .fillMaxSize(),
-    )
-}
-
-@Preview
-@Composable
-private fun GradientImageOverlayPreview2() {
-    GradientImageOverlay(
-        id = R.drawable.star_24,
+private fun GradientImageOverlayExample2() {
+    Image(
+        painter = painterResource(id = R.drawable.star_24),
+        contentDescription = null,
         modifier = Modifier
             .mask2()
             .aspectRatio(ratio = 1f / 1f)
             .fillMaxSize(),
+        contentScale = ContentScale.Crop,
     )
 }
