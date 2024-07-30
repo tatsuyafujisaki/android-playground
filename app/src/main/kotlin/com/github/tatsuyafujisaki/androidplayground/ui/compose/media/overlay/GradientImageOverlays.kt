@@ -15,24 +15,25 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.github.tatsuyafujisaki.androidplayground.R
 
 private fun Modifier.mask1() = this then Modifier.drawWithCache {
-    val brush = Brush.verticalGradient(
-        colors = listOf(Color.Red, Color.Green, Color.Blue),
-    )
     onDrawWithContent {
         drawContent()
-        drawRect(brush = brush, blendMode = BlendMode.Multiply)
+        drawRect(
+            brush = Brush.verticalGradient(colors = listOf(Color.Red, Color.Green, Color.Blue)),
+            blendMode = BlendMode.Multiply
+        )
     }
 }
 
 private fun Modifier.mask2() = this then Modifier.drawWithCache {
-    val brush = Brush.verticalGradient(
-        0.0f to Color.Red,
-        0.5f to Color.Green,
-        1.0f to Color.Blue,
-    )
     onDrawWithContent {
         drawContent()
-        drawRect(brush = brush, blendMode = BlendMode.Multiply)
+        drawRect(
+            brush = Brush.verticalGradient(
+                0.0f to Color.Red,
+                0.5f to Color.Green,
+                1.0f to Color.Blue,
+            ), blendMode = BlendMode.Multiply
+        )
     }
 }
 
