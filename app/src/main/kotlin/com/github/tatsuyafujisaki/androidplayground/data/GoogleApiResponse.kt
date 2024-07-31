@@ -1,6 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.data
 
-data class BookList(
+data class GoogleApiResponse(
     val kind: String,
     val totalItems: Int,
 )
