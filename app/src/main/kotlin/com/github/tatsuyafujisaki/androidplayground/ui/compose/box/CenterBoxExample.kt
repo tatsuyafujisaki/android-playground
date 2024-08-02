@@ -12,10 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun CenterBoxExample(
-    onClick: (() -> Unit)? = null,
-    content: @Composable BoxScope.() -> Unit,
-) {
+fun CenterBoxExample(content: @Composable() (BoxScope.() -> Unit)) {
     Box(
         modifier = Modifier
             .fillMaxSize()
