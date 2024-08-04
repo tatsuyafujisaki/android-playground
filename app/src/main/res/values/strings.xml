@@ -5,6 +5,6 @@
     <string name="third">Third</string>
 
     <!-- Fruit -->
-    <string name="apple">Apple!</string>
-    <string name="orange">Orange!</string>
+    <string name="apple">🍎</string>
+    <string name="orange">🍊</string>
 </resources>
