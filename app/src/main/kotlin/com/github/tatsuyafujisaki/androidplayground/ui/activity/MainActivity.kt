@@ -3,12 +3,14 @@ package com.github.tatsuyafujisaki.androidplayground.ui.activity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.data.MyRemoteConfig
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
+import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
 import com.github.tatsuyafujisaki.androidplayground.util.ResourcesUtil.OrientationUtil
 import com.google.firebase.Firebase
@@ -17,6 +19,7 @@ import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
 @AndroidEntryPoint
@@ -47,6 +50,14 @@ class MainActivity : AppCompatActivity() {
 
         OrientationUtil.enableOrientationEventListener(this) {
             viewModel.setOrientation4(it)
+        }
+
+        lifecycleScope.launch {
+            val service = RetrofitClient.createJsonPlaceholderService()
+//            println(service.getAlbums())
+//            println(service.getAlbum(id = 1))
+//            println(service.postAlbum(AlbumToPost(title = "🍎")))
+            service.deleteAlbum(id = 1)
         }
 
         doRemoteConfigStuff()
