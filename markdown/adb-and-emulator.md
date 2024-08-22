@@ -1,13 +1,14 @@
-# Third-party packages
+# How to enable a microphone in an Android emulator
+Android emulator > [Extended controls](https://developer.android.com/studio/run/emulator-extended-controls)  > `Microphone` > `Virtual microphone uses host audio input`
 
-## How to show third-party packages
+# How to show third-party packages
 
 ```shell
 # -3 is to show only third-party packages.
 adb shell pm list package -3 | sort
 ```
 
-## How to uninstall third-party packages
+# How to uninstall third-party packages
 
 ```shell
 # https://stackoverflow.com/a/30390647
