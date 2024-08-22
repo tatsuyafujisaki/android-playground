@@ -274,93 +274,9 @@ val cookie4: String = cookieManager.getCookie(url4) // a = 1; b = 2; d = 4; e = 
 val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 5!
 ```
 
-# Activity
+# Other information in separate Markdown files
 
-[activity.md](markdown/activity.md)
-
-# Android Studio
-
-[android-studio.md](markdown/android-studio.md)
-
-# Build variant / Build type / Flavor dimension
-
-[build-variant.md](markdown/build-variant.md)
-
-# Charles
-
-[charles.md](markdown/charles.md)
-
-# ConstriantLayout
-
-[constraint-layout.md](markdown/constraint-layout.md)
-
-# Dagger
-
-[dagger.md](markdown/dagger.md)
-
-# Deep link
-
-[deep-link.md](markdown/deep-link.md)
-
-# `adb` and `emulator` commands
-
-[adb-emulator.md](markdown/adb-emulator.md)
-
-# Espresso
-
-[espresso.md](markdown/espresso.md)
-
-# Firebase Cloud Messaging
-
-[fcm.md](markdown/fcm.md)
-
-# Fragment
-
-[fragment.md](markdown/fragment.md)
-
-# Hilt
-
-[hilt.md](markdown/hilt.md)
-
-# Jetpack Compose
-
-[jetpack-compose.md](markdown/jetpack-compose.md)
-
-# Misc
-
-[misc.md](markdown/misc.md)
-
-# Navigation
-
-[navigation.md](markdown/navigation.md)
-
-# RecyclerView
-
-[recyclerview.md](markdown/recyclerview.md)
-
-# Resources
-
-[resources.md](markdown/resources.md)
-
-# Retrofit
-
-[retrofit.md](markdown/retrofit.md)
-
-# Lifecycle/ViewModel/LiveData
-
-[lifecycle-viewmodel-livedata.md](markdown/lifecycle-viewmodel-livedata.md)
-
-# ViewPager
-
-[viewpager.md](markdown/viewpager.md)
-
-# android.net.Uri
-[uri.md](markdown/uri.md)
-
-# UI template
-
-[ui-template.md](markdown/ui-template.md)
-
+[markdown](markdown)
 
 # Use A rather than B for simplicity (except for Jetpack Compose)
 
