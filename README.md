@@ -1,14 +1,12 @@
 # Style guides
 - https://developer.android.com/kotlin/style-guide
 - https://kotlinlang.org/docs/coding-conventions.html
-- Use case naming conventions (in a guide)
-  - https://developer.android.com/topic/architecture/domain-layer#conventions
 
 # Best practices
 - https://developer.android.com/develop/ui/compose/performance/bestpractices
 - https://developer.android.com/develop/ui/compose/state-hoisting#best-practice
 - https://developer.android.com/guide/components/activities/parcelables-and-bundles
-    - > This page provides recommendations and best practices for using Parcelable and Bundle objects.
+  - > This page provides recommendations and best practices for using Parcelable and Bundle objects.
 - https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 - https://developer.android.com/topic/architecture/recommendations
 - https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
