@@ -1,10 +1,10 @@
 # Android Debug Bridge (adb)
-# How to kill emulators or simulate a system-initiated process death
+## How to kill emulators or simulate a system-initiated process death
 ```shell
 adb emu kill
 ```
 
-# How to display third-party packages
+## How to display third-party packages
 ```shell
 # -3 is to show only third-party packages.
 adb shell pm list package -3 | sort
@@ -101,6 +101,11 @@ adb shell settings put system show_touches 0 # off
 ## How to set the location
 ```shell
 adb emu geo fix <longitude> <latitude>
+```
+
+## How to send files from macOS to Android
+```shell
+adb push filename.extension /sdcard/0/
 ```
 
 ## `emulator` command
