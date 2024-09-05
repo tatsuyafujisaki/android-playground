@@ -20,7 +20,6 @@ junit = "1.2.1" # https://developer.android.com/jetpack/androidx/releases/test
 kotlin = "1.9.25" # https://kotlinlang.org/docs/releases.html
 kotlinx-serialization = "1.6.3" # https://github.com/Kotlin/kotlinx.serialization/releases
 ksp = "1.9.24-1.0.20" # https://github.com/google/ksp/releases
-ktlint = "12.1.1" # https://github.com/JLLeitschuh/ktlint-gradle/releases
 lifecycle = "2.8.5" # https://developer.android.com/jetpack/androidx/releases/lifecycle
 media3 = "1.4.1" # https://developer.android.com/jetpack/androidx/releases/media3
 min-sdk = "26" # https://developer.android.com/guide/topics/manifest/uses-sdk-element
@@ -115,5 +114,4 @@ viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref =
 [plugins]
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }
