@@ -1,5 +1,5 @@
 [versions]
-activity = "1.9.1" # https://developer.android.com/jetpack/androidx/releases/activity
+activity = "1.9.2" # https://developer.android.com/jetpack/androidx/releases/activity
 android-gradle-plugin = "8.5.2" # https://developer.android.com/build/releases/gradle-plugin
 appcompat = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "2.6.0" # https://github.com/coil-kt/coil/releases
@@ -12,7 +12,7 @@ coordinatorlayout = "1.2.0" # https://developer.android.com/jetpack/androidx/rel
 coroutines = "1.8.0" # https://github.com/Kotlin/kotlinx.coroutines/releases
 datastore = "1.1.1" # https://developer.android.com/jetpack/androidx/releases/datastore
 firebase-bom = "33.2.0" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
-fragment = "1.8.2" # https://developer.android.com/jetpack/androidx/releases/fragment
+fragment = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/fragment
 google-services = "4.4.2" # https://developers.google.com/android/guides/releases
 hilt = "2.51.1" # https://github.com/google/dagger/releases
 hilt-androidx = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/hilt
@@ -21,7 +21,7 @@ kotlin = "1.9.25" # https://kotlinlang.org/docs/releases.html
 kotlinx-serialization = "1.6.3" # https://github.com/Kotlin/kotlinx.serialization/releases
 ksp = "1.9.24-1.0.20" # https://github.com/google/ksp/releases
 ktlint = "12.1.1" # https://github.com/JLLeitschuh/ktlint-gradle/releases
-lifecycle = "2.8.4" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+lifecycle = "2.8.5" # https://developer.android.com/jetpack/androidx/releases/lifecycle
 media3 = "1.4.1" # https://developer.android.com/jetpack/androidx/releases/media3
 min-sdk = "26" # https://developer.android.com/guide/topics/manifest/uses-sdk-element
 navigation = "2.7.7" # https://developer.android.com/jetpack/androidx/releases/navigation
