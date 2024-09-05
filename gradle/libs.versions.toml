@@ -25,10 +25,8 @@ media3 = "1.4.1" # https://developer.android.com/jetpack/androidx/releases/media
 min-sdk = "26" # https://developer.android.com/guide/topics/manifest/uses-sdk-element
 navigation = "2.7.7" # https://developer.android.com/jetpack/androidx/releases/navigation
 okhttp = "4.12.0" # https://github.com/square/okhttp/blob/master/CHANGELOG.md
-oss-licenses-plugin = "0.10.6" # https://github.com/google/play-services-plugins/releases
 paging = "3.3.2" # https://developer.android.com/jetpack/androidx/releases/paging
 play-core = "1.8.1" # https://developer.android.com/reference/com/google/android/play/core/release-notes
-play-services-oss-licenses = "17.1.0" # https://developers.google.com/android/guides/releases
 protobuf = "4.27.3" # https://central.sonatype.com/artifact/com.google.protobuf/protobuf-kotlin-lite/versions
 protobuf-plugin = "0.9.4" # https://github.com/google/protobuf-gradle-plugin/releases
 realm = "1.15.0" # https://github.com/realm/realm-kotlin/blob/main/CHANGELOG.md
@@ -86,10 +84,8 @@ navigation-fragment = { group = "androidx.navigation", name = "navigation-fragme
 navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigation" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation" }
 okhttp-urlconnection = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttp" } # for CookieJar
-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-licenses-plugin", version.ref = "oss-licenses-plugin" }
 paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
 play-core-ktx = { group = "com.google.android.play", name = "core-ktx", version.ref = "play-core" }
-play-services-oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "play-services-oss-licenses" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
 protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
 realm = { group = "io.realm.kotlin", name = "library-base", version.ref = "realm" }

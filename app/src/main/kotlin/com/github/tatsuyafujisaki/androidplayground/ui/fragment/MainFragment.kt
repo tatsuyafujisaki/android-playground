@@ -15,7 +15,6 @@ import androidx.lifecycle.asLiveData
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.MainScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
-import com.github.tatsuyafujisaki.androidplayground.util.ActivityUtil.OssLicenses.startOssLicensesMenuActivity
 
 class MainFragment : Fragment() {
     private val activityViewModel: MyActivityViewModel by activityViewModels()
@@ -30,7 +29,6 @@ class MainFragment : Fragment() {
         setContent {
             MaterialTheme {
                 MainScreen {
-                    startOssLicensesMenuActivity(requireContext())
                 }
             }
         }

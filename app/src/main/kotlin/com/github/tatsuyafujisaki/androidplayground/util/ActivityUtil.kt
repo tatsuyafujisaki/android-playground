@@ -1,8 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.view.KeyEvent
 import android.view.View
 import android.view.Window
@@ -13,7 +11,6 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.findNavController
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 /**
  * Impractical redundant explanatory wrappers
@@ -66,16 +63,6 @@ object ActivityUtil {
                         .BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
                 hide(Type.systemBars())
             }
-        }
-    }
-
-    object OssLicenses {
-        fun startOssLicensesMenuActivity(
-            context: Context,
-            title: String = "",
-        ) {
-            if (title.isNotBlank()) OssLicensesMenuActivity.setActivityTitle(title)
-            context.startActivity(Intent(context, OssLicensesMenuActivity::class.java))
         }
     }
 
