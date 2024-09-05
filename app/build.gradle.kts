@@ -1,4 +1,5 @@
 plugins {
+    alias(libs.plugins.compose.compiler)
     embeddedKotlin("plugin.serialization")
     id("com.android.application")
     id("kotlin-android")
@@ -48,10 +49,6 @@ android {
         buildConfig = true
         compose = true
         viewBinding = true
-    }
-    composeOptions {
-        // https://developer.android.com/jetpack/androidx/releases/compose-compiler
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
     testOptions {
         unitTests {
