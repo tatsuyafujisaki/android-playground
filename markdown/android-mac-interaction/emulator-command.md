@@ -9,3 +9,8 @@ emulator -list-avds
 # http://zsh.sourceforge.net/Doc/Release/Shell-Builtin-Commands.html
 emulator @<android-virtual-device> &|
 ```
+
+# How to start one of the installed emulators without specifying which one
+```shell
+emulator -list-avds | tail -1 | xargs emulator -avd
+```
