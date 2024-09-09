@@ -12,5 +12,5 @@ emulator @<android-virtual-device> &|
 
 # How to start one of the installed emulators without specifying which one
 ```shell
-emulator -list-avds | tail -1 | xargs emulator -avd
+emulator -list-avds | tail -1 | xargs emulator -avd &|
 ```
