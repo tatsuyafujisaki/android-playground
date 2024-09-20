@@ -1,6 +1,6 @@
 # RecyclerView
 * `android:clipToPadding="false"` removes the top margin of the screen disappears as you scroll down the screen.
-  * Search https://developer.android.com/codelabs/basic-android-kotlin-training-internet-images#4 for `android:clipToPadding="false"` to find a good visual explanation. 
+  * Search https://developer.android.com/codelabs/basic-android-kotlin-training-internet-images#4 for `android:clipToPadding="false"` to find a good visual explanation.
 * `findViewHolderForItemId(id: Long)` returns a ViewHolder of the given ID.
   * This method is available only if `RecyclerView.Adapter.hasStableIds()` is `true`.
 * `findViewHolderForAdapterPosition(position: Int)` returns a ViewHolder at the given adapter position.
@@ -26,8 +26,8 @@
 
 ## Layout position and adapter position are inconsistent only during the following short period.
 1. The adapter content is updated.
-2. The Adapter.notify*() is called.
-3. The next frame is rendered, which will occur in  16 milliseconds.
+1. The Adapter.notify*() is called.
+1. The next frame is rendered, which will occur in  16 milliseconds.
 
 ## How to scroll to top after adapter.submitList(...)
 ```kotlin

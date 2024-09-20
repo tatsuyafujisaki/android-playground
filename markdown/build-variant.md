@@ -33,12 +33,12 @@ android {
 
 ## List of source sets in order of priority
 1. Build variant source set (e.g. `src/HigherDimensionFravorLowerDimensionFlavorDebug`)
-2. Combination of higher-priority individual product flavor and build type source set (e.g. `src/HigherDimensionFravorDebug`)
-3. Combination of lower-priority individual product flavor and build type source set (e.g. `src/LowerDimensionFravorDebug`)
-4. Build type source set (e.g. `src/Debug`)
-5. Higher-prirority individual product flavor source set (e.g. `src/HigherDimensionFlavor`)
-6. Lower-prirority individual product flavor source set (e.g. `src/LowerDimensionFlavor`)
-7. Main/Default source set (`src/main`)
+1. Combination of higher-priority individual product flavor and build type source set (e.g. `src/HigherDimensionFravorDebug`)
+1. Combination of lower-priority individual product flavor and build type source set (e.g. `src/LowerDimensionFravorDebug`)
+1. Build type source set (e.g. `src/Debug`)
+1. Higher-prirority individual product flavor source set (e.g. `src/HigherDimensionFlavor`)
+1. Lower-prirority individual product flavor source set (e.g. `src/LowerDimensionFlavor`)
+1. Main/Default source set (`src/main`)
 
 ### Note
 * The more specific, the more prioritized.
@@ -104,12 +104,12 @@ productFlavors {
 
 ## Generated source sets in order of priority
 1. `src/[black, white][Apple, Orange][Debug, Release]` *(build variant source set)*
-2. `src/[black, white][Debug, Release]` *(higher-priority individual product flavor and build type source set)*
-3. `src/[apple, orange][Debug, Release]` *(lower-priority individual product flavor and build type source set)*
-4. `src/[debug, release]` *(build type source set)*
-5. `src/[black, white]` *(higher-prirority individual product flavor source set)*
-6. `src/[apple, orange]` *(lower-prirority individual product flavor source set)*
-7. `src/main` *(main/default source set)*
+1. `src/[black, white][Debug, Release]` *(higher-priority individual product flavor and build type source set)*
+1. `src/[apple, orange][Debug, Release]` *(lower-priority individual product flavor and build type source set)*
+1. `src/[debug, release]` *(build type source set)*
+1. `src/[black, white]` *(higher-prirority individual product flavor source set)*
+1. `src/[apple, orange]` *(lower-prirority individual product flavor source set)*
+1. `src/main` *(main/default source set)*
 
 ## Generated APKs
 ```

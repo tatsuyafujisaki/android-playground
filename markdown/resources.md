@@ -1,6 +1,6 @@
 # How to convert alpha (0.0 ~ 1.0) to hexadecimal (0x00 ~ 0xFF)
 1. Calculate 255 * alpha (0.0~1.0)
-2. Convert the result to hexadecimal.
+1. Convert the result to hexadecimal.
 
 For example:
 * alpha 1.0 = 255 * 1.0 = 0xFF

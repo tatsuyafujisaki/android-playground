@@ -1,13 +1,13 @@
 # Meanings of onStart and onResume
 * onStart ... Activity is visible.
-* onResume ... Activity has focus. 
+* onResume ... Activity has focus.
 
 # Activity lifecycle
 * onCreate()
 * onStart()
 * onRestoreInstanceState() (API 21+)
   * called only if savedInstanceState is not null.
-  * > Most of the time, you restore the activity state in onCreate(). But because onRestoreInstanceState() is called after onStart(), if you ever need to restore 
+  * > Most of the time, you restore the activity state in onCreate(). But because onRestoreInstanceState() is called after onStart(), if you ever need to restore
   * some state after onCreate() is called, you can use onRestoreInstanceState().
     * https://developer.android.com/codelabs/basic-android-kotlin-training-activity-lifecycle#4
 * onNewIntent()
@@ -31,13 +31,13 @@ is an Activity that can get FragmentManager.
 
 # `android:configChanges`
 1. Open https://developer.android.com/guide/topics/manifest/activity-element
-2. Search for `Normal launches for most activities`, and you will find the great table of the list of configuration changes.
+1. Search for `Normal launches for most activities`, and you will find the great table of the list of configuration changes.
 
 # `android:launchMode`
 * https://developer.android.com/guide/components/activities/tasks-and-back-stack#ManifestForTasks
 * Do the following
   1. Open https://developer.android.com/guide/topics/manifest/activity-element
-  2. Search for `Normal launches for most activities`, and you will find the great table of the differences between `standard`, `singleTop`, `singleTask`, and `singleInstance`.
+  1. Search for `Normal launches for most activities`, and you will find the great table of the differences between `standard`, `singleTop`, `singleTask`, and `singleInstance`.
 
 ## Examples
 Each of A, B, C, and D below represents an instance of an Activity.
@@ -47,13 +47,13 @@ Suppose that B is `android:launchMode="standard"`.
 1. Stack
     * B
     * A
-2. Start B
-3. Stack
+1. Start B
+1. Stack
     * B (new)
     * B
     * A
-4. Start A
-5. Stack
+1. Start A
+1. Stack
     * A (new)
     * B
     * B
@@ -64,12 +64,12 @@ Suppose that B is `android:launchMode="singleTop"`.
 1. Stack
     * B
     * A
-2. Start B
-3. Stack
+1. Start B
+1. Stack
     * B (reused with the new intent)
     * A
-4. Start A
-5. Stack
+1. Start A
+1. Stack
     * A (new)
     * B
     * A

@@ -1,16 +1,16 @@
 # How to share the clipboard between an emulator and macOS
 ## macOS ➡️ emulator
 1. Copy text on macOS.
-2. Long-tap in a text box of an app on an emulator.
+1. Long-tap in a text box of an app on an emulator.
 
 ## emulator ➡️ macOS
 1. Copy text on an emulator.
-2. Paste in an editor on macOS.
+1. Paste in an editor on macOS.
 
 # How to transfer a file or a folder between an emulator and macOS
 ## macOS ➡️ emulator
 1. Drag a file or a folder on macOS.
-2. Drop it on an emulator.
+1. Drop it on an emulator.
 
 ## emulator ➡️ macOS
 ```shell

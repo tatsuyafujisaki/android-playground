@@ -71,8 +71,8 @@ fragmentManager.commit {
 # FragmentManager
 * When `FragmentManager.popBackStack()` is called, the following happens in sequence.
   1. `FragmentManager.primaryNavigationFragment.childFragmentManager.popBackStack()` is called.
-  2. If the above returns false, `FragmentActivity.supportFragmentManager.popBackStack()` is called.
-  3. If the above returns false, the app quits.
+  1. If the above returns false, `FragmentActivity.supportFragmentManager.popBackStack()` is called.
+  1. If the above returns false, the app quits.
 
 # FragmentTransaction
 ## FragmentTransaction.remove(...)

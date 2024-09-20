@@ -65,7 +65,7 @@ findNavController().navigate(deepLink: Uri)
   * You should call `Activity.finish()`.
   * https://developer.android.com/guide/navigation/navigation-navigate#back-stack
 * https://developer.android.com/guide/navigation/navigation-getting-started#kotlin
-  * > attempting to retrieve the NavController in onCreate() of an Activity via Navigation.findNavController(Activity, @IdRes int) will fail. 
+  * > attempting to retrieve the NavController in onCreate() of an Activity via Navigation.findNavController(Activity, @IdRes int) will fail.
 
 # NavDestination
 * is either one of them
@@ -80,8 +80,8 @@ findNavController().navigate(deepLink: Uri)
     * `<activity>` cannot contain `<action>` because activities are considered terminal destinations.
       * https://developer.android.com/guide/navigation/navigation-migrate#create_a_navigation_graph
   * `<argument>`
-  * `<deepLink>` 
- 
+  * `<deepLink>`
+
 # How to save and store NavController's state during a configuration change or a system-initiated process death
 * NavHostFragment automatically saves and restores NavController's state during configuration changes or system-initiated process death even if you programatically set a graph. I verified that.
   * Search https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:navigation/navigation-fragment/src/main/java/androidx/navigation/fragment/NavHostFragment.kt for `onSaveInstanceState` to find the implementation.
@@ -163,20 +163,20 @@ Destinations in the outer graph cannot directly navigate to any destination, exc
 ## How BottomNavigationView works
 1. Suppose there are three items in a Bottom Navigation.
     * A (startDestination), B, C
-2. When you touch A
+1. When you touch A
     * fragmentManager's fragments == [A]
     * fragmentManager's backStackEntries == (empty)
-3. When you touch B
+1. When you touch B
     * If A was selected previously, A will call onDestroyView().
     * If C was selected previously, C will call onDestroy().
     * fragmentManager's fragments == [B]
     * fragmentManager's backStackEntries == [A]
-4. When you touch C
+1. When you touch C
     * If A was selected previously, A will call onDestroyView().
     * If B was selected previously, B will call onDestroy().
     *  fragmentManager's fragments == [C]
     * fragmentManager's backStackEntries == [A]
-5. When you navigate from C to "C-Detail" for example.
+1. When you navigate from C to "C-Detail" for example.
     * fragmentManager's fragments == [C-Detail]
     * B will call onDestroyView().
     * fragmentManager's backStackEntries == [A, C]

@@ -11,5 +11,5 @@
 Select the first of the following options that applies to your use case.
 
 1. If you want to inject your own class, constructor-inject it.
-2. If you want to inject an interface, you have a class that implements the interface, and you can instantiate the class without any additional code, use @Binds.
-3. Otherwise, use @Provides.
+1. If you want to inject an interface, you have a class that implements the interface, and you can instantiate the class without any additional code, use @Binds.
+1. Otherwise, use @Provides.
