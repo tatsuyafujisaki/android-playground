@@ -1,5 +1,10 @@
-# How to convert alpha (0.0 ~ 1.0) to hexadecimal (0x00 ~ 0xFF)
-1. Calculate 255 * alpha (0.0~1.0)
+# Drawable
+> Supported file types are PNG (preferred), JPG (acceptable), and GIF (discouraged).
+
+https://developer.android.com/develop/ui/views/graphics/drawables#drawables-from-images
+
+# How to convert alpha (0.0 .. 1.0) to hexadecimal (0x00 ... 0xFF)
+1. Calculate 255 * alpha (0.0 ... 1.0)
 1. Convert the result to hexadecimal.
 
 For example:
@@ -30,7 +35,3 @@ Alpha (0.0 ~ 1.0)|Alpha in decimal|Alpha in hexadecimal
   * https://developer.android.com/reference/kotlin/android/content/res/ColorStateList
 * DrawableStateList
   * https://developer.android.com/reference/kotlin/android/graphics/drawable/StateListDrawable
-
-# `<plural>`
-* is used to express quantity strings.
-  * https://developer.android.com/guide/topics/resources/string-resource#Plurals
