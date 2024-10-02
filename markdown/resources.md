@@ -1,7 +1,18 @@
-# Drawable
-> Supported file types are PNG (preferred), JPG (acceptable), and GIF (discouraged).
+# Drawable and Mipmap
+## Difference between `drawable/` or `mipmap/`
+- `mipmap/` is for app icons.
+  - https://developer.android.com/studio/write/create-app-icons
+  - https://developer.android.com/training/multiscreen/screendensities#mipmap
+- `drawable/` is not for app icons.
+    - > A vector drawable is a vector graphic defined in an XML file as a set of points, lines, and curves along with its associated color information.
+      - https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources
+   - > Supported file types are PNG (preferred), JPG (acceptable), and GIF (discouraged).
+       - https://developer.android.com/develop/ui/views/graphics/drawables#drawables-from-images
 
-https://developer.android.com/develop/ui/views/graphics/drawables#drawables-from-images
+## How to create notification icons
+> A notification is a message that you can display to the user outside of the normal UI of your app. Image Asset Studio places notifications icons in the proper locations in the `res/drawable-density/` directories:
+
+https://developer.android.com/studio/write/create-app-icons#notification
 
 # How to convert alpha (0.0 .. 1.0) to hexadecimal (0x00 ... 0xFF)
 1. Calculate 255 * alpha (0.0 ... 1.0)
