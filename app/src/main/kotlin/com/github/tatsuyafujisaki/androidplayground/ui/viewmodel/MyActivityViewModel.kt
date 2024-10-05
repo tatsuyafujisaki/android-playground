@@ -5,8 +5,6 @@ import android.content.res.Configuration
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.github.tatsuyafujisaki.androidplayground.domain.MyRealmRepository
 import com.github.tatsuyafujisaki.androidplayground.enum.Orientation2
 import com.github.tatsuyafujisaki.androidplayground.enum.Orientation4
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,12 +14,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 
 @HiltViewModel
-class MyActivityViewModel @Inject constructor(
-    myRealmRepository: MyRealmRepository,
-) : ViewModel() {
+class MyActivityViewModel @Inject constructor() : ViewModel() {
     private val _orientation2 = MutableStateFlow(Orientation2.PORTRAIT)
     val orientation2: StateFlow<Orientation2> = _orientation2.asStateFlow()
 
@@ -32,16 +27,6 @@ class MyActivityViewModel @Inject constructor(
 
     private val _myLiveData = MutableLiveData("")
     val myLiveData: LiveData<String> = _myLiveData
-
-    init {
-        try {
-            viewModelScope.launch {
-                myRealmRepository.delete("dummy")
-            }
-        } catch (e: Throwable) {
-            e.printStackTrace()
-        }
-    }
 
     /**
      * Call setOrientation(resources.configuration.orientation) in [Activity.onCreate]

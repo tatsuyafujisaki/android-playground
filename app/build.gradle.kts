@@ -6,8 +6,8 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.gms.google-services")
     id(libs.plugins.hilt.get().pluginId)
-    id("io.realm.kotlin")
     id("kotlin-parcelize")
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.protobuf)
 }
 
@@ -48,10 +48,6 @@ android {
         buildConfig = true
         compose = true
         viewBinding = true
-    }
-    composeOptions {
-        // https://developer.android.com/jetpack/androidx/releases/compose-compiler
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
     testOptions {
         unitTests {
@@ -105,7 +101,6 @@ dependencies {
     implementation(libs.paging.compose)
     implementation(libs.play.core.ktx)
     implementation(libs.protobuf.kotlin.lite)
-    implementation(libs.realm)
     implementation(libs.recyclerview)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.room.runtime)
