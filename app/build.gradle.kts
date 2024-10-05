@@ -104,8 +104,6 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.room.runtime)
-    implementation(libs.rxandroid)
-    implementation(libs.rxjava)
     implementation(libs.ui.text.google.fonts)
     implementation(libs.ui.tooling)
     implementation(libs.viewpager2)
