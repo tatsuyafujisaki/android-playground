@@ -34,11 +34,5 @@
         <activity
             android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
             android:exported="true" />
-        <activity
-            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
-        <activity
-            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
     </application>
 </manifest>
