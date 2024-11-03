@@ -1,6 +1,6 @@
 [versions]
 activity = "1.9.3" # https://developer.android.com/jetpack/androidx/releases/activity
-android-gradle-plugin = "8.7.1" # https://developer.android.com/build/releases/gradle-plugin
+android-gradle-plugin = "8.7.2" # https://developer.android.com/build/releases/gradle-plugin
 appcompat = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "2.7.0" # https://github.com/coil-kt/coil/releases
 compile-target-sdk = "34"
