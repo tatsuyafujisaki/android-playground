@@ -43,7 +43,7 @@ object ContextUtil {
             packageManager.getPackageInfo(packageName, PackageInfoFlags.of(0))
         } else {
             packageManager.getPackageInfo(packageName, 0)
-        }.versionName
+        }?.versionName ?: ""
     }
 
     /**
