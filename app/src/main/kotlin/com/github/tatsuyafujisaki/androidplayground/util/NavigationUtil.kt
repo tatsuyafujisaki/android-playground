@@ -1,5 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.IdRes
@@ -15,6 +16,7 @@ object NavigationUtil {
         /**
          * Prints a breadcrumb of the navigation stack, not for Navigation Compose.
          */
+        @SuppressLint("RestrictedApi")
         fun printBreadcrumb(navController: NavController) {
             Log.d(
                 "Breadcrumb",
@@ -36,6 +38,7 @@ object NavigationUtil {
         /**
          * Prints a breadcrumb of the navigation stack for Navigation Compose.
          */
+        @SuppressLint("RestrictedApi")
         fun printComposeBreadcrumb(navController: NavController) {
             Log.d(
                 "Breadcrumb",
