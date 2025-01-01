@@ -104,7 +104,6 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.room.runtime)
-    implementation(libs.ui.text.google.fonts)
     implementation(libs.ui.tooling)
     implementation(libs.viewpager2)
     implementation(platform(libs.compose.bom))

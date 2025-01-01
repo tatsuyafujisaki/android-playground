@@ -95,7 +95,6 @@ runner = { group = "androidx.test", name = "runner", version.ref = "test-runner"
 test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "test-core-ktx" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
