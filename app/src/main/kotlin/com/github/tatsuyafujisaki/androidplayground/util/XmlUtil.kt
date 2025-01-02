@@ -5,6 +5,7 @@ import android.util.Xml
 import androidx.annotation.XmlRes
 import org.xmlpull.v1.XmlPullParser
 
+@Suppress("unused")
 object XmlUtil {
     fun readXmlTag(resources: Resources, @XmlRes xmlResId: Int, tagToRead: String) =
         readXmlTag(parser = resources.getXml(xmlResId), tagToRead = tagToRead)
