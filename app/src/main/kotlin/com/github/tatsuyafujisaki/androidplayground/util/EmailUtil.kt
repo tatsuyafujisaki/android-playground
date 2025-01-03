@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.core.net.toUri
 
-@SuppressWarnings("unused")
+@Suppress("unused")
 object EmailUtil {
     fun Activity.composeEmailWithNoAttachment(
         to: Array<String>,
