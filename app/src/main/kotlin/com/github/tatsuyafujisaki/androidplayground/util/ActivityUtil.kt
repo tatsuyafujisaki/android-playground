@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 /**
  * Impractical redundant explanatory wrappers
  */
+@Suppress("unused")
 object ActivityUtil {
     object Keyboard {
         fun showKeyboard(activity: Activity) {
