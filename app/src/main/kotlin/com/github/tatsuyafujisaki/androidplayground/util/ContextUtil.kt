@@ -28,6 +28,7 @@ private const val TAG = "ContextUtil"
 /**
  * Impractical redundant explanatory wrappers
  */
+@Suppress("unused")
 object ContextUtil {
     object AutoRotation {
         fun isAutoRotatable(context: Context) =
