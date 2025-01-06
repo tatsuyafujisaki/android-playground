@@ -13,6 +13,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
  * https://developer.android.com/reference/java/net/URL
  * https://square.github.io/okhttp/5.x/okhttp/okhttp3/-http-url/
  */
+@Suppress("unused")
 object UrlUtil {
     object AndroidNetUri {
         fun convertToUri(url: String) = url.toUri()
