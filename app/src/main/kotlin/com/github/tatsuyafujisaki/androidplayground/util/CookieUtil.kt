@@ -2,6 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.webkit.CookieManager
 
+@Suppress("unused")
 object CookieUtil {
     fun getCookies(url: String): Map<String, String> {
         val cookie = CookieManager.getInstance().getCookie(url) ?: return emptyMap()
