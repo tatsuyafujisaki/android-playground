@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 
+@Suppress("unused")
 class BackPressedCallback(fragment: Fragment, onBackPressed: (OnBackPressedCallback) -> Unit) {
     init {
         fragment.lifecycleScope.launch {
