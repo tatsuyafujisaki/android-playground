@@ -8,6 +8,7 @@ import okhttp3.ResponseBody.Companion.toResponseBody
 
 // Consider using OkHttp's built-in cache, instead.
 // https://square.github.io/okhttp/recipes/#response-caching-kt-java
+@Suppress("unused")
 class CacheInterceptor(
     private val cache: Set<Triple<String, String, LocalDateTime>>,
     private val upsert: (String, String) -> Unit,
