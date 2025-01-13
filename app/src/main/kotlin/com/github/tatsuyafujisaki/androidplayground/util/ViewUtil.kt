@@ -6,6 +6,7 @@ import android.view.View
 import androidx.annotation.DimenRes
 import androidx.core.view.updatePadding
 
+@Suppress("unused")
 object ViewUtil {
     private const val TAG = "ViewUtil"
 
