@@ -6,6 +6,7 @@ import okhttp3.Protocol
 import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
 
+@Suppress("unused")
 class CannedResponseInterceptor(
     private val cache: Set<Triple<String, String, LocalDateTime>>,
     private val upsert: (String, String) -> Unit,
