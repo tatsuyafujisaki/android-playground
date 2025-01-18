@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.updateLayoutParams
 
+@Suppress("unused")
 object ConstraintLayoutUtil {
     private fun constraintLayoutExample(cl: ConstraintLayout) {
         cl.updateLayoutParams<ConstraintLayout.LayoutParams> {
