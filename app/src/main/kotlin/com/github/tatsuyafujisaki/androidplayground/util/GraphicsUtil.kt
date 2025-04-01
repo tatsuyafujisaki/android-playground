@@ -18,6 +18,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toBitmapOrNull
 import androidx.core.net.toUri
 import java.lang.Integer.max
@@ -87,7 +88,7 @@ object GraphicsUtil {
         )
 
     fun takeScreenshot(view: View): Bitmap {
-        val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val bitmap = createBitmap(view.width, view.height)
         view.draw(Canvas(bitmap).apply { drawColor(Color.WHITE) })
         return bitmap
     }
@@ -98,7 +99,7 @@ object GraphicsUtil {
         @ColorInt backgroundColor: Int? = Color.WHITE,
     ): Bitmap {
         val diameter = 2 * radius.toInt()
-        val bitmap = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888)
+        val bitmap = createBitmap(diameter, diameter)
         val paint = Paint().apply { color = circleColor }
         with(Canvas(bitmap)) {
             backgroundColor?.let { drawColor(it) }
@@ -113,7 +114,7 @@ object GraphicsUtil {
         @ColorInt backgroundColor: Int? = Color.WHITE,
     ): Bitmap {
         val canvasSize = 5 * radius.toInt()
-        val bitmap = Bitmap.createBitmap(canvasSize, canvasSize, Bitmap.Config.ARGB_8888)
+        val bitmap = createBitmap(canvasSize, canvasSize)
         val paint =
             Paint().apply {
                 color = faceColor
