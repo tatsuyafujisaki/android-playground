@@ -1,14 +1,14 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.navigation
 
 import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun PopOrFinishExample(
-    activity: Activity = LocalContext.current as Activity,
+    activity: Activity = LocalActivity.current as Activity,
     navController: NavController = rememberNavController(),
 ) {
     if (!navController.popBackStack()) {
