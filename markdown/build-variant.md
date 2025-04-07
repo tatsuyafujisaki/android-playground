@@ -36,8 +36,8 @@ android {
 1. Combination of higher-priority individual product flavor and build type source set (e.g. `src/HigherDimensionFravorDebug`)
 1. Combination of lower-priority individual product flavor and build type source set (e.g. `src/LowerDimensionFravorDebug`)
 1. Build type source set (e.g. `src/Debug`)
-1. Higher-prirority individual product flavor source set (e.g. `src/HigherDimensionFlavor`)
-1. Lower-prirority individual product flavor source set (e.g. `src/LowerDimensionFlavor`)
+1. Higher-priority individual product flavor source set (e.g. `src/HigherDimensionFlavor`)
+1. Lower-priority individual product flavor source set (e.g. `src/LowerDimensionFlavor`)
 1. Main/Default source set (`src/main`)
 
 ### Note
@@ -107,8 +107,8 @@ productFlavors {
 1. `src/[black, white][Debug, Release]` *(higher-priority individual product flavor and build type source set)*
 1. `src/[apple, orange][Debug, Release]` *(lower-priority individual product flavor and build type source set)*
 1. `src/[debug, release]` *(build type source set)*
-1. `src/[black, white]` *(higher-prirority individual product flavor source set)*
-1. `src/[apple, orange]` *(lower-prirority individual product flavor source set)*
+1. `src/[black, white]` *(higher-priority individual product flavor source set)*
+1. `src/[apple, orange]` *(lower-priority individual product flavor source set)*
 1. `src/main` *(main/default source set)*
 
 ## Generated APKs
