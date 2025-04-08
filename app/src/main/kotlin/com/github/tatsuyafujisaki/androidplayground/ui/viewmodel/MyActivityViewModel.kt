@@ -1,7 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.viewmodel
 
 import android.app.Activity
-import android.content.res.Configuration
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,21 +26,6 @@ class MyActivityViewModel @Inject constructor() : ViewModel() {
 
     private val _myLiveData = MutableLiveData("")
     val myLiveData: LiveData<String> = _myLiveData
-
-    /**
-     * Call setOrientation(resources.configuration.orientation) in [Activity.onCreate]
-     */
-    @Deprecated(
-        message = "Not recommended for production use because [Activity.onCreate] is not always " + "called when you change the orientation from or to the reverse portrait.",
-        replaceWith = ReplaceWith("setOrientation4"),
-    )
-    fun setOrientation2(orientation: Int) {
-        _orientation2.value = when (orientation) {
-            Configuration.ORIENTATION_PORTRAIT -> Orientation2.PORTRAIT
-            Configuration.ORIENTATION_LANDSCAPE -> Orientation2.LANDSCAPE
-            else -> error("Unknown orientation: $orientation")
-        }
-    }
 
     /**
      * Call the following in [Activity.onCreate]
