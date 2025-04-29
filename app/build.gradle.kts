@@ -72,6 +72,7 @@ dependencies {
     implementation(libs.animation)
     implementation(libs.appcompat)
     implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
     implementation(libs.constraintlayout.compose)
     implementation(libs.constraintlayout)
     implementation(libs.coordinatorlayout)

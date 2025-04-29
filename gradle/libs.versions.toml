@@ -2,7 +2,7 @@
 activity = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/activity
 android-gradle-plugin = "8.9.2" # https://developer.android.com/build/releases/gradle-plugin
 appcompat = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/appcompat
-coil-compose = "2.7.0" # https://github.com/coil-kt/coil/releases
+coil-compose = "3.1.0" # https://github.com/coil-kt/coil/releases
 compile-target-sdk = "35"
 compose-bom = "2025.04.01" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 constraintlayout = "2.2.1" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
@@ -43,7 +43,8 @@ activity-compose = { group = "androidx.activity", name = "activity-compose", ver
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
 animation = { group = "androidx.compose.animation", name = "animation" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil-compose" }
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil-compose" }
+coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout-compose" }
