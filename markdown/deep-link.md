@@ -21,7 +21,7 @@
 * A URI without a scheme matches both http and https.
   * e.g. `www.example.com/foo` matches both `https://www.example.com/foo` and `http://www.example.com/foo`.
   * `.*` matches 0 or more characters.
-  * Placefolders like `http://www.example.com/users/{id}?myarg={myarg}` are available.
+  * Placeholders like `http://www.example.com/users/{id}?myarg={myarg}` are available.
   * `{id}` can be got as `arguments?.getString("id")`, or as `arguments?.getInt("id")` if SafeArgs is used as follows.
 ```xml
 <fragment>
