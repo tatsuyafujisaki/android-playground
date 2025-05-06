@@ -12,9 +12,6 @@ object PermissionUtil {
     val Context.isStoragePermissionGranted
         get() = checkSelfPermission(READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
 
-    /**
-     * Activity#requestPermissions has been deprecated since Activity 1.2.0-alpha02
-     */
     fun Activity.requestStoragePermission() {
         requestPermissions(
             arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE),
