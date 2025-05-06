@@ -17,7 +17,7 @@ class CacheInterceptor(
         val request = chain.request()
         val url = request.url.toString()
         val cache =
-            cache.filter { (cachedUrl, responseJson, createdAt) ->
+            cache.filter { (cachedUrl, _, createdAt) ->
                 cachedUrl == url && isLessThan1HoursOld(createdAt)
             }.map { (_, responseJson, _) ->
                 responseJson
