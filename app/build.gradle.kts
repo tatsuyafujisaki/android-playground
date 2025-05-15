@@ -100,7 +100,6 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.okhttp.urlconnection)
     implementation(libs.paging.compose)
-    implementation(libs.play.core.ktx)
     implementation(libs.protobuf.kotlin.lite)
     implementation(libs.recyclerview)
     implementation(libs.retrofit.converter.kotlinx.serialization)
