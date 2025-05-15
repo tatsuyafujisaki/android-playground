@@ -7,6 +7,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
 
+@Suppress("unused")
 object VibrationUtil {
     private fun getVibrator(context: Context) = if (Build.VERSION.SDK_INT >= VERSION_CODES.S) {
         (context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager).defaultVibrator
