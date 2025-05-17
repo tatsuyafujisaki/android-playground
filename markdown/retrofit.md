@@ -1,5 +1,5 @@
 # Query
-## What query will null and an empty string generate, respestively?
+## What do a null parameter and an empty string parameter generate, respectively?
 ```kotlin
 @GET("/api/v1/mydata")
 suspend fun getMyData(
