@@ -10,7 +10,7 @@ https://developer.android.com/codelabs/kotlin-android-training-live-data#5
 # LiveData versus Flow
 &nbsp;|LiveData|Flow
 --|--|--
-contains ...|only the lastest value|all the past values
+contains ...|only the latest value|all the past values
 readable and writable only in|the main thread (*1)|any thread
 when there is no active observer (*2)|canceled|not canceled
 suitable for|the main thread|except for the main thread
