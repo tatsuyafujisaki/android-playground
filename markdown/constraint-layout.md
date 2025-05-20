@@ -22,7 +22,7 @@
 
 ## `<KeyPosition>`
 * never affects start and end constraints.
-* never affects other views that are constained to the view associated with `<KeyPosition>`.
+* never affects other views that are constrained to the view associated with `<KeyPosition>`.
 
 ## `<ConstraintSet>`
 * is the start and the end constraints of a motion.
