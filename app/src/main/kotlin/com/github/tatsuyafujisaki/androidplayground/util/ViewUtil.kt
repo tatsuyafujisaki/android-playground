@@ -64,7 +64,7 @@ object ViewUtil {
 
     fun setOnSafeClickListener(
         view: View,
-        delayMillis: Long = 1000L,
+        delayMillis: Long = 1_000,
         onClick: () -> Unit,
     ) {
         view.setOnClickListener {
