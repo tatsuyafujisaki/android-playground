@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import coil3.compose.AsyncImage
-import com.github.tatsuyafujisaki.androidplayground.ui.compose.media.fillScreenHeight
+import com.github.tatsuyafujisaki.androidplayground.ui.compose.media.fillWindowHeight
 import com.github.tatsuyafujisaki.androidplayground.util.RandomImage
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -52,7 +52,7 @@ private fun PullToRefreshBoxExample() {
             AsyncImage(
                 model = imageUrl,
                 contentDescription = null,
-                modifier = Modifier.fillScreenHeight(),
+                modifier = Modifier.fillWindowHeight(),
                 contentScale = ContentScale.Crop,
             )
         }

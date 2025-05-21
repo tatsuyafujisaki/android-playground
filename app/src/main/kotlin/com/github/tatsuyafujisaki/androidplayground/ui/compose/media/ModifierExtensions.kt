@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.onSizeChanged
-import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -34,10 +34,10 @@ fun Modifier.circleBorder(
 }
 
 @Composable
-fun Modifier.fillScreenWidth() = width(width = LocalConfiguration.current.screenWidthDp.dp)
+fun Modifier.fillWindowWidth() = width(width = LocalWindowInfo.current.containerSize.width.dp)
 
 @Composable
-fun Modifier.fillScreenHeight() = height(height = LocalConfiguration.current.screenHeightDp.dp)
+fun Modifier.fillWindowHeight() = height(height = LocalWindowInfo.current.containerSize.height.dp)
 
 fun Modifier.logSizeChanged() = onSizeChanged {
     Log.d("👀", "onSizeChanged > size: $it[dp]")
