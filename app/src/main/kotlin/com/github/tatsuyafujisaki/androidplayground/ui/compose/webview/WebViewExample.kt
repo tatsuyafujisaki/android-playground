@@ -59,8 +59,8 @@ fun WebViewExample(
                             url: String?,
                             isReload: Boolean,
                         ) {
-                            canGoBack = view?.canGoBack() ?: false
-                            canGoForward = view?.canGoForward() ?: false
+                            canGoBack = view?.canGoBack() == true
+                            canGoForward = view?.canGoForward() == true
                         }
                     }
                     onClick?.let {
