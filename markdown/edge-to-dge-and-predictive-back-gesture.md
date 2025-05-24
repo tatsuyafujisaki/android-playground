@@ -1,0 +1,27 @@
+# Edge-to-edge
+
+- In Android 15 or later, edge-to-edge is enabled without calling [enableEdgeToEdge()](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)).
+- In Android 14 or earlier, edge-to-edge is disabled if you don't call `enableEdgeToEdge()`.
+
+> If your app targets SDK 35 or later, edge-to-edge is automatically enabled for Android 15 devices or later.
+> To enable edge-to-edge on previous Android versions, do the following:
+>
+> ...
+>
+> Manually enable edge-to-edge by calling enableEdgeToEdge in onCreate of your Activity. It should be called before setContentView.
+
+https://developer.android.com/develop/ui/views/layout/edge-to-edge
+
+> Note: SociaLite has one activity. If your app has more than one activity, enableEdgeToEdge should be called on each activity.
+
+https://developer.android.com/codelabs/edge-to-edge#3
+
+# Predictable back gesture
+
+&nbsp;|Android 12|Android 13|Android 14|Android 15|Note
+--|--|--|--|--|--
+(Application-level) Predictive back gesture|Unavailable|Available but disabled by default|(same as ⬅️)|(same as ⬅️)
+Activity-level predictive back gsture|Unavailable|Unavailable|Available|Available|> Starting with Android 14, the `android:enableOnBackInvokedCallback` flag lets you opt-in to predictive system animations at the activity level.<br>https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-activity-level
+Settings > System > Developer options > Predictive back animations|Does not exist|Exists|Exists|Does not exist|> Starting with Android 15, the developer option for predictive back animations is no longer available.<br>https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#dev-option
+
+https://developer.android.com/codelabs/predictive-back
