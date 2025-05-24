@@ -1,6 +1,11 @@
 # Edge-to-edge
 
-- If `targetSdk = 35`, edge-to-edge is enabled on Android 15 without calling [enableEdgeToEdge()](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)).
+> - If your app targets Android 16 (API level 36) and is running on an Android 15 device, `R.attr#windowOptOutEdgeToEdgeEnforcement` continues to work.
+> - If your app targets Android 16 (API level 36) and is running on an Android 16 device, `R.attr#windowOptOutEdgeToEdgeEnforcement` is disabled.
+
+https://developer.android.com/about/versions/16/behavior-changes-16#edge-to-edge
+
+- If `targetSdk = 35` or later, edge-to-edge is enabled by default on Android 15 or later without calling [enableEdgeToEdge()](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)).
 - In Android 14 or earlier, `enableEdgeToEdge()` must be called in each Activity to enable edge-to-edge.
 
 > Important: Edge-to-edge is enforced on Android 15 (API level 35) and higher once your app targets SDK 35.
