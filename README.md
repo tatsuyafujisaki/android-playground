@@ -272,23 +272,3 @@ val cookie3: String = cookieManager.getCookie(url3) // c = 3
 val cookie4: String = cookieManager.getCookie(url4) // a = 1; b = 2; d = 4; e = 5!
 val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 5!
 ```
-
-# Other information in separate Markdown files
-
-[markdown](markdown)
-
-# Use A rather than B for simplicity (except for Jetpack Compose)
-
-A|B|Note
---|--|--
-`Activity.resources`<br>`Fragment.resources`<br>`View.resources`
-|`Activity.context.resources`<br>`Fragment.requireContext().resources`<br>`View.context.resources`
-`Activity.getString(...)`<br>`Fragment.getString(...)`
-|`Activity.resources.getString(...)`<br>`Fragment.requireContext().getString(...)`<br>`Fragment.resources.getString(...)`
-`String.toUri()`|`Uri.parse(...)`
-`bundleOf(...)`|`Bundle().apply { ... }`
-`CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
-`Context.withStyledAttributes(...)`|`obtainStyledAttributes(...)`
-`Intent.getStringExtra("foo")`|`Intent.extras?.getString("foo")`|The same goes for other types.
-`view` in `fun onViewCreated(view: View)`|`requireView()` in `fun onViewCreated(view: View)`
-`Uri.encode(url)`|`URLEncoder.encode(url, Charsets.UTF_8.name())`
