@@ -25,7 +25,7 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ) = ComposeView(requireContext()).apply {
-        setViewCompositionStrategy(DisposeOnViewTreeLifecycleDestroyed)
+        setViewCompositionStrategy(strategy = DisposeOnViewTreeLifecycleDestroyed)
         setContent {
             MaterialTheme {
                 MainScreen {
