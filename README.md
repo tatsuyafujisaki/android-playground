@@ -9,6 +9,7 @@
 - https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#best-practices
 - https://developer.android.com/kotlin/coroutines/coroutines-best-practices
 - https://developer.android.com/topic/architecture/recommendations
+- https://developer.android.com/topic/libraries/architecture/lifecycle#lc-bp
 - https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
 - https://developer.android.com/training/data-storage/use-cases
 
