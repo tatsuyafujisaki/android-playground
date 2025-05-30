@@ -8,10 +8,8 @@ https://developer.android.com/codelabs/predictive-back#4
 
 A|B|Note
 --|--|--
-`Activity.resources`<br>`Fragment.resources`<br>`View.resources`
-|`Activity.context.resources`<br>`Fragment.requireContext().resources`<br>`View.context.resources`
-`Activity.getString(...)`<br>`Fragment.getString(...)`
-|`Activity.resources.getString(...)`<br>`Fragment.requireContext().getString(...)`<br>`Fragment.resources.getString(...)`
+`Activity.resources`<br>`Fragment.resources`<br>`View.resources`|`Activity.context.resources`<br>`Fragment.requireContext().resources`<br>`View.context.resources`
+`Activity.getString(...)`<br>`Fragment.getString(...)`|`Activity.resources.getString(...)`<br>`Fragment.requireContext().getString(...)`<br>`Fragment.resources.getString(...)`
 `String.toUri()`|`Uri.parse(...)`
 `bundleOf(...)`|`Bundle().apply { ... }`
 `CharSequence.isDigitsOnly()`|(old-school ways to check if a string contains only digits)
