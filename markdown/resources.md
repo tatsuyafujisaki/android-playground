@@ -37,12 +37,3 @@ Alpha (0.0 ~ 1.0)|Alpha in decimal|Alpha in hexadecimal
 0.8|204|0xCC
 0.9|230|0xE6
 1.0|255|0xFF
-
-# `<selector>` / ColorStateList / DrawableStateList
-* A state list, i.e. `<selector>`, can be used only for colors or drawables.
-  * https://developer.android.com/guide/topics/resources/color-list-resource
-  * https://developer.android.com/guide/topics/resources/drawable-resource#StateList
-* ColorStateList
-  * https://developer.android.com/reference/kotlin/android/content/res/ColorStateList
-* DrawableStateList
-  * https://developer.android.com/reference/kotlin/android/graphics/drawable/StateListDrawable
