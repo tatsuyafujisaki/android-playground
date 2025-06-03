@@ -19,9 +19,6 @@
 # Activity.finish()
   * calls these in order: onPause > onStop > onDestroy
 
-# Activity.isFinishing()
-  * is false if the system is temporarily destroying the activity to save space.
-
 # FragmentActivity
 is an Activity that can get FragmentManager.
 
