@@ -1,8 +1,6 @@
-# Miscellaneous
+# Best Practices for Gradle and JVM
 
-> Do not intercept back at the root (for example, MainActivity.kt)
-
-https://developer.android.com/codelabs/predictive-back#4
+https://github.com/tatsuyafujisaki/android-playground/blob/main/markdown/gradle-and-jvm-and-buil-error.md#best-practices
 
 # Use A rather than B for simplicity (except for Jetpack Compose)
 
@@ -17,3 +15,9 @@ A|B|Note
 `Intent.getStringExtra("foo")`|`Intent.extras?.getString("foo")`|The same goes for other types.
 `view` in `fun onViewCreated(view: View)`|`requireView()` in `fun onViewCreated(view: View)`
 `Uri.encode(url)`|`URLEncoder.encode(url, Charsets.UTF_8.name())`
+
+# Miscellaneous
+
+> Do not intercept back at the root (for example, MainActivity.kt)
+
+https://developer.android.com/codelabs/predictive-back#4
