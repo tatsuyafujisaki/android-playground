@@ -1,7 +1,7 @@
 [versions]
 activity = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/activity
 android-gradle-plugin = "8.10.1" # https://developer.android.com/build/releases/gradle-plugin
-appcompat = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/appcompat
+appcompat = "1.7.1" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "3.2.0" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
 compile-target-sdk = "35"
 compose-bom = "2025.05.01" # https://developer.android.com/jetpack/compose/bom/bom-mapping
