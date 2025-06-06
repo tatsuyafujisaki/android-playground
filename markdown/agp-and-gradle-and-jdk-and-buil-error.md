@@ -28,6 +28,16 @@ https://docs.gradle.org/current/userguide/compatibility.html#java_runtime
 https://docs.gradle.org/current/userguide/compatibility.html#kotlin
 
 # Note
+## The Kotlin JVM toolchain also affects Java compilation.
+> Note that setting a toolchain via the `kotlin` extension updates the toolchain for Java compile tasks as well.
+
+https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
+
+## The Java toolchain also affects the compilation of Kotlin.
+> You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
+
+https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
+
 ## Setting `sourceCompatibility` and `targetCompatibility` does not enforce which JDK Gradle itself runs with.
 > Setting sourceCompatibility and targetCompatibility tells the Java compiler to produce bytecode compatible with a specific Java version but does not enforce which JDK Gradle itself runs with:
 
@@ -47,29 +57,6 @@ https://developer.android.com/build/jdks#source-compat
 ## Which Java binary features can be used when I compile my Kotlin or Java source?
 
 https://developer.android.com/build/jdks#target-compat
-
-# How do I fix the build error below?
-
-> Inconsistent JVM-target compatibility detected for tasks 'compileDebugJavaWithJavac' (xxx) and 'compileDebugKotlin' (yyy).
-
-1. Open `app/build.gradle` in Android Studio.
-1. Delete the following.
-    ```kotlin
-    android {
-      compileOptions {
-          sourceCompatibility = JavaVersion.VERSION_##
-          targetCompatibility = JavaVersion.VERSION_##
-      }
-      kotlinOptions.jvmTarget = ##
-      kotlin.jvmToolchain(jdkVersion = ##)
-    }
-    ```
-1. Write the following.
-   ```kotlin
-   android {
-       java.toolchain.languageVersion = JavaLanguageVersion.of(##)
-   }
-   ```
 
 # Best practices
 ## Use the JBR (JetBrains Runtime)
@@ -104,3 +91,27 @@ https://developer.android.com/build/jdks#target-compat
 > **For most user**: User Java toolchains (`toolchain.languageVersion`)
 
 https://docs.gradle.org/current/userguide/toolchains.html#comparison_table_for_setting_project_toolchains
+
+# Troubleshooting
+## How do I fix the build error below?
+
+> Inconsistent JVM-target compatibility detected for tasks 'compileDebugJavaWithJavac' (xxx) and 'compileDebugKotlin' (yyy).
+
+1. Open `app/build.gradle` in Android Studio.
+1. Delete the following.
+    ```kotlin
+    android {
+      compileOptions {
+          sourceCompatibility = JavaVersion.VERSION_##
+          targetCompatibility = JavaVersion.VERSION_##
+      }
+      kotlinOptions.jvmTarget = ##
+      kotlin.jvmToolchain(jdkVersion = ##)
+    }
+    ```
+1. Write the following.
+   ```kotlin
+   android {
+       java.toolchain.languageVersion = JavaLanguageVersion.of(##)
+   }
+   ```
