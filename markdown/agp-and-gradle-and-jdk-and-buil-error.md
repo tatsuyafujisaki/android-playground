@@ -27,7 +27,12 @@ https://docs.gradle.org/current/userguide/compatibility.html#java_runtime
 ## Compatibility between Kotlin version and Gradle version
 https://docs.gradle.org/current/userguide/compatibility.html#kotlin
 
-# Miscellaneous
+# Note
+## Setting `sourceCompatibility` and `targetCompatibility` does not enforce which JDK Gradle itself runs with.
+> Setting sourceCompatibility and targetCompatibility tells the Java compiler to produce bytecode compatible with a specific Java version but does not enforce which JDK Gradle itself runs with:
+
+https://docs.gradle.org/current/userguide/toolchains.html#sec:source-target-toolchain
+
 ## Which Java APIs can I use in my Java or Kotlin source code?
 https://developer.android.com/build/jdks#compileSdk
 
@@ -72,12 +77,30 @@ https://developer.android.com/build/jdks#target-compat
 
 https://developer.android.com/build/jdks#jdk-android-studio
 
+## Avoid `sourceCompatibility` and `targetCompatibility`
 
-## Specify the Java toolchain
+> This does not guarantee the correct JDK is used
+
+> You should only use this method in cases where you need backward compatibility but cannot use toolchains.
+
+https://docs.gradle.org/current/userguide/toolchains.html#sec:source-target-toolchain
+
+> Recommendation:<br>
+> **Avoid** `sourceCompatibility` and `targetCompabitility` unless necessary.
+
+https://docs.gradle.org/current/userguide/toolchains.html#comparison_table_for_setting_project_toolchains
+
+## Specify the Java toolchains
 > We recommend that you always specify the Java toolchain, and either ensure that the specified JDK is installed, or add a toolchain resolver to your build.
+>
 
 https://developer.android.com/build/jdks#toolchain
 
 > Therefore, we recommend that you always explicitly specify these values or use a Java toolchain.
 
 https://developer.android.com/build/jdks#target-compat
+
+> Recommendation:<br>
+> **For most user**: User Java toolchains (`toolchain.languageVersion`)
+
+https://docs.gradle.org/current/userguide/toolchains.html#comparison_table_for_setting_project_toolchains
