@@ -80,8 +80,7 @@ https://docs.gradle.org/current/userguide/toolchains.html#sec:source-target-tool
 https://docs.gradle.org/current/userguide/toolchains.html#comparison_table_for_setting_project_toolchains
 
 ## Specify the Java toolchains
-> We recommend that you always specify the Java toolchain, and either ensure that the specified JDK is installed, or add a toolchain resolver to your build.
->
+> We recommend that you always specify the Java toolchain
 
 https://developer.android.com/build/jdks#toolchain
 
