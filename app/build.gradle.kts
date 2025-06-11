@@ -141,3 +141,14 @@ protobuf {
         }
     }
 }
+
+// https://docs.gradle.org/current/userguide/kotlin_dsl.html#extra_properties
+tasks.register("printExtraPropertiesExample") {
+    doLast {
+        val apple = rootProject.extra["apple"] as? Map<*, *>
+        val emoji = apple?.get("emoji") as? String
+        val price = apple?.get("price") as? Int
+        println(emoji)
+        println(price)
+    }
+}

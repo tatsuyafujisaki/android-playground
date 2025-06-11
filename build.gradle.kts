@@ -10,6 +10,7 @@ buildscript {
         classpath(libs.kotlin.gradle.plugin)
         classpath(libs.navigation.safe.args.gradle.plugin)
     }
+    extra["apple"] = mapOf("emoji" to "🍎", "price" to 123)
 }
 
 plugins {
