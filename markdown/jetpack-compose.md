@@ -104,3 +104,6 @@ The nodes exists below the screen and you need to scroll down to show it|true|fa
 # Best practices
 - Use `contentPadding` when you want to add padding around each item.
     - https://developer.android.com/develop/ui/compose/lists#content-padding
+
+## How do I preview a composable that depends on a ViewModel?
+https://youtu.be/UnHTlNlzJPw?t=161
