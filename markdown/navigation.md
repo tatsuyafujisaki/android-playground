@@ -83,7 +83,7 @@ findNavController().navigate(deepLink: Uri)
   * `<deepLink>`
 
 # How to save and store NavController's state during a configuration change or a system-initiated process death
-* NavHostFragment automatically saves and restores NavController's state during configuration changes or system-initiated process death even if you programatically set a graph. I verified that.
+* NavHostFragment automatically saves and restores NavController's state during configuration changes or system-initiated process death even if you programmatically set a graph. I verified that.
   * Search https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:navigation/navigation-fragment/src/main/java/androidx/navigation/fragment/NavHostFragment.kt for `onSaveInstanceState` to find the implementation.
 * However, if you have to manually do that, you can do as follows.
 
