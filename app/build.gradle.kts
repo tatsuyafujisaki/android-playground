@@ -1,14 +1,14 @@
 plugins {
-    embeddedKotlin("plugin.serialization")
-    id("com.android.application")
-    id("kotlin-android")
-    id(libs.plugins.ksp.get().pluginId)
-    id("androidx.navigation.safeargs.kotlin")
-    id("com.google.gms.google-services")
-    id(libs.plugins.hilt.get().pluginId)
-    id("kotlin-parcelize")
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.protobuf)
+    id(libs.plugins.com.android.application.get().pluginId) // https://developer.android.com/build/migrate-to-kotlin-dsl#perform-refactoring
+    id(libs.plugins.compose.compiler.get().pluginId) // https://developer.android.com/develop/ui/compose/compiler#version-catalog
+    id(libs.plugins.google.services.get().pluginId) // https://developers.google.com/android/guides/google-services-plugin#introduction
+    id(libs.plugins.hilt.get().pluginId) // https://developer.android.com/training/dependency-injection/hilt-android#setup
+    id(libs.plugins.ksp.get().pluginId) // https://developer.android.com/build/migrate-to-ksp#add-ksp, https://kotlinlang.org/docs/ksp-quickstart.html#add-a-processor
+    id(libs.plugins.protobuf.get().pluginId) // https://github.com/google/protobuf-gradle-plugin?tab=readme-ov-file#latest-version
+    id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
+    id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
+    embeddedKotlin("plugin.serialization") // https://kotlinlang.org/docs/serialization.html#add-plugins-and-dependencies
+    kotlin("android") // equivalent to id("kotlin-android"), https://developer.android.com/kotlin/add-kotlin#add, https://developer.android.com/build/migrate-to-kotlin-dsl#perform-refactoring
 }
 
 android {

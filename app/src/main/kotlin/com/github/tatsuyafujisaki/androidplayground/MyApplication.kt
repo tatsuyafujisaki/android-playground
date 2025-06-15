@@ -11,6 +11,7 @@ import java.util.concurrent.Executors
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        println("Kotlin version: ${KotlinVersion.CURRENT}")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api
             StrictMode.setVmPolicy(

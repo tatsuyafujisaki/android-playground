@@ -1,8 +1,8 @@
 [versions]
 activity = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/activity
-android-gradle-plugin = "8.10.1" # https://developer.android.com/build/releases/gradle-plugin
 appcompat = "1.7.1" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "3.2.0" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
+com-android-application = "8.10.1" # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin
 compile-target-sdk = "36"
 compose-bom = "2025.06.00" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 constraintlayout = "2.2.1" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
@@ -39,7 +39,6 @@ viewpager2 = "1.1.0" # https://developer.android.com/jetpack/androidx/releases/v
 [libraries]
 activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
-android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
 animation = { group = "androidx.compose.animation", name = "animation" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil-compose" }
@@ -57,13 +56,11 @@ firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging
 foundation = { group = "androidx.compose.foundation", name = "foundation" }
 fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 fragment-testing = { group = "androidx.fragment", name = "fragment-testing", version.ref = "fragment" }
-google-services = { group = "com.google.gms", name = "google-services", version.ref = "google-services" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-compiler-androidx = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt-androidx" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-androidx" }
 junit = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junit" }
-kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
@@ -98,7 +95,10 @@ ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
 [plugins]
+com-android-application = { id = "com.android.application", version.ref = "com-android-application" } # aka Android Gradle Plugin (AGP)
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }
