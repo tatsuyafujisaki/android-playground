@@ -93,6 +93,12 @@ https://developer.android.com/build/jdks#target-compat
 
 https://docs.gradle.org/current/userguide/toolchains.html#comparison_table_for_setting_project_toolchains
 
+
+## Migrate from buildscript to plugins block
+- https://developer.android.com/build/migrate-to-kotlin-dsl#migrate-buildscript
+- > Tip: Consider migrating from buildscript to plugin syntax as this allows Android Studio to perform code completion and provide other helpful suggestions.
+  - https://firebase.google.com/docs/android/troubleshooting-faq
+
 # Troubleshooting
 ## How do I fix the build error below?
 
