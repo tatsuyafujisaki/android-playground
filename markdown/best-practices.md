@@ -19,7 +19,7 @@ https://developer.android.com/codelabs/predictive-back#4
 # Personal best practices
 ## Personal best practices for Gradle and JVM
 
-[agp-and-gradle-and-jdk-and-buil-error.md](agp-and-gradle-and-jdk-and-buil-error.md)
+[agp-and-gradle-and-jdk.md](agp-and-gradle-and-jdk.md)
 
 ## Personal best practices for Jetpack Compose
 
