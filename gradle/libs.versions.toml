@@ -17,6 +17,7 @@ hilt = "2.53.1" # https://github.com/google/dagger/releases
 hilt-androidx = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/hilt
 junit = "1.2.1" # https://developer.android.com/jetpack/androidx/releases/test
 kotlin = "2.1.20" # https://kotlinlang.org/docs/releases.html
+firebase-crashlytics-plugin = "3.0.4" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
 kotlinx-serialization = "1.8.1" # https://github.com/Kotlin/kotlinx.serialization/releases
 ksp = "2.1.20-1.0.32" # https://github.com/google/ksp/releases
 lifecycle = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
@@ -49,9 +50,10 @@ constraintlayout-compose = { group = "androidx.constraintlayout", name = "constr
 coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
-firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" } # required for Crashlytics according to https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-sdk
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
 firebase-config = { group = "com.google.firebase", name = "firebase-config" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
 foundation = { group = "androidx.compose.foundation", name = "foundation" }
 fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
@@ -95,10 +97,18 @@ ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version.ref = "com-android-application" } # aka Android Gradle Plugin (AGP)
-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }
+com-android-application = { id = "com.android.application", version.ref = "com-android-application" } # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin#updating-plugin
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" } # https://developer.android.com/develop/ui/compose/compiler#version-catalog
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-plugin" } # https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-plugin
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" } # https://firebase.google.com/docs/android/setup#add-config-file
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" } # https://developer.android.com/training/dependency-injection/hilt-android#setup
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" } # https://developer.android.com/build/migrate-to-ksp#add-ksp, https://kotlinlang.org/docs/ksp-quickstart.html#add-a-processor
+protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" } # https://github.com/google/protobuf-gradle-plugin?tab=readme-ov-file#latest-version
+
+# You don't need to specify the version of Kotlin explicitly if all of your modules depend on `org.jetbrains.kotlin.plugin.compose` because it does so.
+# Optional: kotlin("android") version libs.versions.kotlin apply false
+# Optional: alias(libs.plugins.org.jetbrains.kotlin.android) apply false
+# https://developer.android.com/build/releases/gradle-plugin#updating-plugin
+# alias(libs.plugins.org.jetbrains.kotlin.android) apply false
+#
+# org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

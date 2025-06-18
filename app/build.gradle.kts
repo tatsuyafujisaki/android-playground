@@ -1,10 +1,11 @@
 plugins {
-    id(libs.plugins.com.android.application.get().pluginId) // https://developer.android.com/build/migrate-to-kotlin-dsl#perform-refactoring
-    id(libs.plugins.compose.compiler.get().pluginId) // https://developer.android.com/develop/ui/compose/compiler#version-catalog
-    id(libs.plugins.google.services.get().pluginId) // https://developers.google.com/android/guides/google-services-plugin#introduction
-    id(libs.plugins.hilt.get().pluginId) // https://developer.android.com/training/dependency-injection/hilt-android#setup
-    id(libs.plugins.ksp.get().pluginId) // https://developer.android.com/build/migrate-to-ksp#add-ksp, https://kotlinlang.org/docs/ksp-quickstart.html#add-a-processor
-    id(libs.plugins.protobuf.get().pluginId) // https://github.com/google/protobuf-gradle-plugin?tab=readme-ov-file#latest-version
+    id(libs.plugins.com.android.application.get().pluginId)
+    id(libs.plugins.compose.compiler.get().pluginId)
+    id(libs.plugins.firebase.crashlytics.get().pluginId)
+    id(libs.plugins.google.services.get().pluginId)
+    id(libs.plugins.hilt.get().pluginId)
+    id(libs.plugins.ksp.get().pluginId)
+    id(libs.plugins.protobuf.get().pluginId)
     id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
     id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
     embeddedKotlin("plugin.serialization") // https://kotlinlang.org/docs/serialization.html#add-plugins-and-dependencies
@@ -86,6 +87,7 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.config)
+    implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.messaging)
     implementation(libs.foundation)
     implementation(libs.fragment.ktx)
