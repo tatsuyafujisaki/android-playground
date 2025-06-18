@@ -1,6 +1,9 @@
+import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
+
 plugins {
     id(libs.plugins.com.android.application.get().pluginId)
     id(libs.plugins.compose.compiler.get().pluginId)
+    id(libs.plugins.firebase.appdistribution.get().pluginId)
     id(libs.plugins.firebase.crashlytics.get().pluginId)
     id(libs.plugins.google.services.get().pluginId)
     id(libs.plugins.hilt.get().pluginId)
@@ -40,6 +43,13 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")
 
             signingConfig = signingConfigs.getByName("debug")
+
+            // https://firebase.google.com/docs/app-distribution/android/distribute-gradle?apptype=aab#step_3_configure_your_distribution_properties
+            firebaseAppDistribution {
+                artifactType = "AAB"
+                releaseNotes = "Release notes!"
+                testers = "a@example.com, b@example.com"
+            }
         }
     }
     // The Android documentation recommends using the Java toolchain instead of the Kotlin toolchain.

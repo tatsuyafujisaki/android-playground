@@ -11,13 +11,14 @@ coordinatorlayout = "1.3.0" # https://developer.android.com/jetpack/androidx/rel
 coroutines = "1.10.2" # https://github.com/Kotlin/kotlinx.coroutines/releases
 datastore = "1.1.7" # https://developer.android.com/jetpack/androidx/releases/datastore
 firebase-bom = "33.15.0" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
+firebase-appdistribution-plugin = "5.1.1" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
+firebase-crashlytics-plugin = "3.0.4" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
 fragment = "1.8.8" # https://developer.android.com/jetpack/androidx/releases/fragment
 google-services = "4.4.2" # https://developers.google.com/android/guides/releases
 hilt = "2.53.1" # https://github.com/google/dagger/releases
 hilt-androidx = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/hilt
 junit = "1.2.1" # https://developer.android.com/jetpack/androidx/releases/test
 kotlin = "2.1.20" # https://kotlinlang.org/docs/releases.html
-firebase-crashlytics-plugin = "3.0.4" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
 kotlinx-serialization = "1.8.1" # https://github.com/Kotlin/kotlinx.serialization/releases
 ksp = "2.1.20-1.0.32" # https://github.com/google/ksp/releases
 lifecycle = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
@@ -50,6 +51,7 @@ constraintlayout-compose = { group = "androidx.constraintlayout", name = "constr
 coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+firebase-appdistribution = { group = "com.google.firebase", name = "firebase-appdistribution" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" } # required for Crashlytics according to https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-sdk
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
 firebase-config = { group = "com.google.firebase", name = "firebase-config" }
@@ -99,6 +101,7 @@ viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref =
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-application" } # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin#updating-plugin
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" } # https://developer.android.com/develop/ui/compose/compiler#version-catalog
+firebase-appdistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebase-appdistribution-plugin" } # https://firebase.google.com/docs/app-distribution/android/distribute-gradle#step_1_set_up_your_android_project
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-plugin" } # https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-plugin
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" } # https://firebase.google.com/docs/android/setup#add-config-file
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" } # https://developer.android.com/training/dependency-injection/hilt-android#setup
