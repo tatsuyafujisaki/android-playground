@@ -52,14 +52,10 @@ android {
             }
         }
     }
-    // The Android documentation recommends using the Java toolchain instead of the Kotlin toolchain.
-    //
-    // > We recommend that you always specify the Java toolchain
+
     // https://developer.android.com/build/jdks#toolchain
-    // > You can set a toolchain via the java extension, and Kotlin compilation tasks will use it:
     // https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
     java.toolchain.languageVersion = JavaLanguageVersion.of(21)
-    // kotlin.jvmToolchain(jdkVersion = 21)
 
     buildFeatures {
         buildConfig = true
