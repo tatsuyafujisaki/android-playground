@@ -18,6 +18,10 @@ plugins {
 android {
     namespace = "com.github.tatsuyafujisaki.androidplayground"
     compileSdk = libs.versions.compile.target.sdk.get().toInt()
+    // https://developer.android.com/build/jdks#toolchain
+    // https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
+    java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
     defaultConfig {
         applicationId = "com.github.tatsuyafujisaki.androidplayground"
         minSdk = libs.versions.min.sdk.get().toInt()
@@ -26,6 +30,7 @@ android {
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         getByName("debug") {
             applicationIdSuffix = ".debug"
@@ -44,24 +49,28 @@ android {
 
             signingConfig = signingConfigs.getByName("debug")
 
-            // https://firebase.google.com/docs/app-distribution/android/distribute-gradle?apptype=aab#step_3_configure_your_distribution_properties
+            // https://firebase.google.com/docs/app-distribution/android/distribute-gradle#step_3_configure_your_distribution_properties
+            // How to create and distribute an APK file:
+            // `./gradlew assembleRelease appDistributionUploadRelease`
             firebaseAppDistribution {
-                artifactType = "AAB"
+                serviceCredentialsFile = "$rootDir/curious-llc-39ec9fbfbf5d.json"
                 releaseNotes = "Release notes!"
-                testers = "a@example.com, b@example.com"
+                // If the email addresses below don't exist in the list of testers in the Firebase console, they will be automatically added.
+                // https://console.firebase.google.com/project/curious-llc/appdistribution/app/android:com.github.tatsuyafujisaki.androidplayground/testers
+                // Your app will still upload even if you don't specify a tester.
+                // However, you must open Firebase Console and select the testers you want to distribute your app to.
+                // https://console.firebase.google.com/project/curious-llc/appdistribution/app/android:com.github.tatsuyafujisaki.androidplayground/releases
+                testers = "foo@example.com, bar@example.com"
             }
         }
     }
-
-    // https://developer.android.com/build/jdks#toolchain
-    // https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
-    java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
     buildFeatures {
         buildConfig = true
         compose = true
         viewBinding = true
     }
+
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
