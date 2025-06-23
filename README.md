@@ -67,33 +67,13 @@ https://developer.android.com/build/building-cmdline#DebugMode
 ```
 
 ## Testing
-
 ### How to run a local unit test
-
 ```shell
-./gradlew test
+./gradlew [module:]test[buildVariant]UnitTest
 ```
-
-### How to run an instrumented unit test
-
+### How to run an instrumented test
 ```shell
-./gradlew connectedAndroidTest
-
-# Alternatively
-# https://docs.gradle.org/current/userguide/command_line_interface.html#sec:name_abbreviation
-./gradlew cAT
-```
-
-### How to run a local unit test for a build variant and a module
-
-```shell
-./gradlew <module>:test<buildVariant>UnitTest
-```
-
-## How to run an instrumented unit test for a build variant and a module
-
-```shell
-./gradlew <module>:connected<buildVariant>AndroidTest
+./gradlew [module:]connected[buildVariant]AndroidTest
 ```
 
 ## Meaning of `task clean` in project-level `build.gradle`
