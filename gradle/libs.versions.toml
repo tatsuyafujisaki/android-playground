@@ -51,7 +51,6 @@ constraintlayout-compose = { group = "androidx.constraintlayout", name = "constr
 coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
-firebase-appdistribution = { group = "com.google.firebase", name = "firebase-appdistribution" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" } # required for Crashlytics according to https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-sdk
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
 firebase-config = { group = "com.google.firebase", name = "firebase-config" }
