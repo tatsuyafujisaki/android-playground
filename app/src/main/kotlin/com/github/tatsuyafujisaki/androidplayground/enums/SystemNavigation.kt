@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.enum
+package com.github.tatsuyafujisaki.androidplayground.enums
 
 import android.content.Context
 import android.provider.Settings

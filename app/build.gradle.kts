@@ -12,6 +12,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
     id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
     embeddedKotlin("plugin.serialization") // https://kotlinlang.org/docs/serialization.html#add-plugins-and-dependencies
+    kotlin("kapt") // equivalent to id("kotlin-kapt"), https://kotlinlang.org/docs/kapt.html#use-in-gradle
     kotlin("android") // equivalent to id("kotlin-android"), https://developer.android.com/kotlin/add-kotlin#add, https://developer.android.com/build/migrate-to-kotlin-dsl#perform-refactoring
 }
 
@@ -79,7 +80,7 @@ android {
 }
 
 dependencies {
-    androidTestImplementation(kotlin("test"))
+    androidTestImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
     androidTestImplementation(libs.junit)
     androidTestImplementation(libs.rules)
     androidTestImplementation(libs.runner)
@@ -89,17 +90,18 @@ dependencies {
     debugImplementation(libs.fragment.testing)
     debugImplementation(libs.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
-    implementation(libs.activity.compose)
+    implementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
     implementation(libs.activity)
+    implementation(libs.activity.compose)
     implementation(libs.animation)
     implementation(libs.appcompat)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
-    implementation(libs.constraintlayout.compose)
     implementation(libs.constraintlayout)
+    implementation(libs.constraintlayout.compose)
     implementation(libs.coordinatorlayout)
-    implementation(libs.datastore.preferences)
     implementation(libs.datastore)
+    implementation(libs.datastore.preferences)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.config)
     implementation(libs.firebase.crashlytics)
@@ -132,11 +134,11 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(platform(libs.firebase.bom))
     implementation(platform(libs.retrofit.bom))
-    ksp(libs.hilt.compiler.androidx)
     ksp(libs.hilt.compiler)
+    ksp(libs.hilt.compiler.androidx)
     ksp(libs.lifecycle.compiler)
     ksp(libs.room.compiler)
-    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
     testImplementation(libs.robolectric)
     testImplementation(libs.test.core.ktx)
 }

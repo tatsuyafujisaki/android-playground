@@ -4,8 +4,8 @@ import android.app.Activity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.github.tatsuyafujisaki.androidplayground.enum.Orientation2
-import com.github.tatsuyafujisaki.androidplayground.enum.Orientation4
+import com.github.tatsuyafujisaki.androidplayground.enums.Orientation2
+import com.github.tatsuyafujisaki.androidplayground.enums.Orientation4
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow

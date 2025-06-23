@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.enum
+package com.github.tatsuyafujisaki.androidplayground.enums
 
 import androidx.annotation.StringRes
 import com.github.tatsuyafujisaki.androidplayground.R

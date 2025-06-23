@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.enum
+package com.github.tatsuyafujisaki.androidplayground.enums
 
 import java.util.Locale
 
