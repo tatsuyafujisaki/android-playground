@@ -2,81 +2,33 @@
 - https://developer.android.com/kotlin/style-guide
 - https://kotlinlang.org/docs/coding-conventions.html
 
-## How to show the root project's dependencies
-
+# How to show a dependency tree
 ```shell
-# shows as a tree
-./gradlew dependencies
-
-# shows as a list
-./gradlew androidDependencies
+./gradlew [module:]dependencies
 ```
 
-## How to show the `app` module (aka project)'s dependencies
-
+# How to build an Android app
 ```shell
-# shows as a tree
-./gradlew app:dependencies --configuration <buildVariant>CompileClasspath
-./gradlew app:dependencies --configuration debugCompileClasspath
-
-# shows as a list
-./gradlew app:androidDependencies
-./gradlew app:dependencies --configuration <buildVariant>CompileClasspath | grep "^+---" | sort
-./gradlew app:dependencies --configuration debugCompileClasspath | grep "^+---" | sort
-
-# for more details
-./gradlew help --task app:dependencies
-./gradlew help --task app:androidDependencies
+./gradlew assemble[buildVariant]
 ```
 
-## How to show modules (aka projects) on which the `app` module (aka project) depends
-
+# How to install an Android app
 ```shell
-./gradlew app:dependencies --configuration implementation | grep '+--- project' | sort
+./gradlew install[buildVariant]
 ```
 
-## How to show where a dependency in the `app` module (aka project) comes from
-
-```shell
-./gradlew app:dependencyInsight --configuration <buildVariant>CompileClasspath --dependency <group>:<name>
-./gradlew app:dependencyInsight --configuration debugCompileClasspath --dependency org.jetbrains.kotlin:kotlin-stdlib
-
-# for more details
-./gradlew help --task app:dependencyInsight
-```
-
-## How to build a debug APK
-```shell
-# Build the app module with the product flavor "foo" and the build type "debug"
-./gradlew app:assembleFooDebug
-```
-```shell
-# Build all the modules with all the build variants
-./gradlew assemble
-```
-https://developer.android.com/build/building-cmdline#DebugMode
-
-## How to install a debug APK
-```shell
-# Install the app module with the product flavor "foo" and the build type "debug"
-./gradlew app:installFooDebug
-```
-```shell
-# Install with all the build variants
-./gradlew install
-```
-
-## Testing
-### How to run a local unit test
+# Testing
+## How to run a local unit test
 ```shell
 ./gradlew [module:]test[buildVariant]UnitTest
 ```
-### How to run an instrumented test
+
+## How to run an instrumented test
 ```shell
 ./gradlew [module:]connected[buildVariant]AndroidTest
 ```
 
-## Meaning of `task clean` in project-level `build.gradle`
+# Meaning of `task clean` in project-level `build.gradle`
 
 The following custom task in the project-level `build.gradle` is to delete the project-level `build`
 directory when clicking the menu bar > `Build` > `Clean Project`.
@@ -86,14 +38,6 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 ```
-
-# Predefined color resources in Android SDK
-
-https://developer.android.com/reference/kotlin/android/R.color
-
-# Predefined string resources in Android SDK
-
-https://developer.android.com/reference/kotlin/android/R.string
 
 # String
 
