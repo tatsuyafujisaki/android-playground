@@ -9,6 +9,8 @@
 - https://developer.android.com/topic/libraries/architecture/lifecycle#lc-bp
 - https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
 - https://developer.android.com/training/data-storage/use-cases
+- https://docs.gradle.org/current/userguide/best_practices_general.html
+- https://kotlinlang.org/docs/gradle-best-practices.html
 
 ## Miscellaneous
 
