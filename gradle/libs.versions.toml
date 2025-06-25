@@ -2,7 +2,7 @@
 activity = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/activity
 appcompat = "1.7.1" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "3.2.0" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
-com-android-application = "8.10.1" # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin
+com-android-application = "8.11.0" # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin
 compile-target-sdk = "36"
 compose-bom = "2025.06.01" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 constraintlayout = "2.2.1" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
