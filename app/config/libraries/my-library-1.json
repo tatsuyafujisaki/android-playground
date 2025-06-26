@@ -1,0 +1,13 @@
+{
+  "artifactVersion": "1.0.0",
+  "developers": [
+    {
+      "name": "Someone"
+    }
+  ],
+  "licenses": [
+    "my-license-1"
+  ],
+  "name": "My library 1",
+  "uniqueId": "my-library-1"
+}

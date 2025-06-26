@@ -9,6 +9,7 @@ buildscript {
 }
 
 plugins {
+    alias(libs.plugins.about.libraries) apply false
     alias(libs.plugins.com.android.application) apply false
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.firebase.appdistribution) apply false

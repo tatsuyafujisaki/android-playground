@@ -1,0 +1,13 @@
+{
+  "artifactVersion": "1.0.0",
+  "developers": [
+    {
+      "name": "Someone"
+    }
+  ],
+  "licenses": [
+    "Apache-2.0"
+  ],
+  "name": "My library 2",
+  "uniqueId": "my-library-2"
+}

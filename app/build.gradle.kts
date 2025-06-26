@@ -1,4 +1,5 @@
 import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
+import com.mikepenz.aboutlibraries.plugin.DuplicateMode
 
 plugins {
     id(libs.plugins.com.android.application.get().pluginId)
@@ -9,11 +10,12 @@ plugins {
     id(libs.plugins.hilt.get().pluginId)
     id(libs.plugins.ksp.get().pluginId)
     id(libs.plugins.protobuf.get().pluginId)
+    id(libs.plugins.about.libraries.get().pluginId)
     id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
     id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
     embeddedKotlin("plugin.serialization") // https://kotlinlang.org/docs/serialization.html#add-plugins-and-dependencies
-    kotlin("kapt") // equivalent to id("kotlin-kapt"), https://kotlinlang.org/docs/kapt.html#use-in-gradle
     kotlin("android") // equivalent to id("kotlin-android"), https://developer.android.com/kotlin/add-kotlin#add, https://developer.android.com/build/migrate-to-kotlin-dsl#perform-refactoring
+    kotlin("kapt") // equivalent to id("kotlin-kapt"), https://kotlinlang.org/docs/kapt.html#use-in-gradle
 }
 
 android {
@@ -91,6 +93,8 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
     implementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
+    implementation(libs.about.libraries.core)
+    implementation(libs.about.libraries.compose)
     implementation(libs.activity)
     implementation(libs.activity.compose)
     implementation(libs.animation)
@@ -143,6 +147,17 @@ dependencies {
     testImplementation(libs.test.core.ktx)
 }
 
+aboutLibraries {
+    // Specifies the configPath, where I can place additional library and license entries.
+    // https://github.com/mikepenz/AboutLibraries?tab=readme-ov-file#gradle-plugin-configuration
+    collect.configPath = file(path = "config")
+
+    library {
+        // Avoids displaying duplicate entries.
+        duplicationMode = DuplicateMode.MERGE
+    }
+}
+
 protobuf {
     protoc {
         artifact = libs.protobuf.protoc.get().toString()
@@ -169,5 +184,21 @@ tasks.register("printExtraPropertiesExample") {
         val price = apple?.get("price") as? Int
         println(emoji)
         println(price)
+    }
+}
+
+// https://github.com/mikepenz/AboutLibraries?tab=readme-ov-file#gradle-plugin-configuration
+tasks.register("printAbortLibrariesConfigPath") {
+    doLast {
+        println(aboutLibraries.collect.configPath.get().asFile.absolutePath)
+    }
+}
+
+// https://github.com/mikepenz/AboutLibraries
+tasks.register("printLibrariesJson") {
+    doLast {
+        file(path = "build/generated/aboutLibraries").walkTopDown()
+            .filter { it.name == "aboutlibraries.json" }
+            .forEach { println(it.absolutePath) }
     }
 }

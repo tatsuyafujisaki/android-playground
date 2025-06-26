@@ -1,4 +1,5 @@
 [versions]
+about-libraries = "12.2.3" # https://github.com/mikepenz/AboutLibraries/releases
 activity = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/activity
 appcompat = "1.7.1" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "3.2.0" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
@@ -39,6 +40,8 @@ test-runner = "1.6.2" # https://developer.android.com/jetpack/androidx/releases/
 viewpager2 = "1.1.0" # https://developer.android.com/jetpack/androidx/releases/viewpager2
 
 [libraries]
+about-libraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "about-libraries" }
+about-libraries-compose = { module = "com.mikepenz:aboutlibraries-compose-m3", version.ref = "about-libraries" }
 activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 animation = { group = "androidx.compose.animation", name = "animation" }
@@ -98,6 +101,7 @@ ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
 [plugins]
+about-libraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "about-libraries" }
 com-android-application = { id = "com.android.application", version.ref = "com-android-application" } # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin#updating-plugin
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" } # https://developer.android.com/develop/ui/compose/compiler#version-catalog
 firebase-appdistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebase-appdistribution-plugin" } # https://firebase.google.com/docs/app-distribution/android/distribute-gradle#step_1_set_up_your_android_project
