@@ -1,5 +1,7 @@
 import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
 import com.mikepenz.aboutlibraries.plugin.DuplicateMode
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     id(libs.plugins.com.android.application.get().pluginId)
@@ -18,6 +20,11 @@ plugins {
     kotlin("kapt") // equivalent to id("kotlin-kapt"), https://kotlinlang.org/docs/kapt.html#use-in-gradle
 }
 
+// https://developer.android.com/studio/publish/app-signing#secure-shared-keystore
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
 android {
     namespace = "com.github.tatsuyafujisaki.androidplayground"
     compileSdk = libs.versions.compile.target.sdk.get().toInt()
@@ -34,6 +41,16 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // https://developer.android.com/build/build-variants#signing
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
+            storeFile = file(path = keystoreProperties["storeFile"] as String)
+            storePassword = keystoreProperties["storePassword"] as String
+        }
+    }
+
     buildTypes {
         getByName("debug") {
             applicationIdSuffix = ".debug"
@@ -41,13 +58,12 @@ android {
         getByName("release") {
             isMinifyEnabled = true
 
-            // https://github.com/Kotlin/kotlinx.serialization#android
             proguardFiles(
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro",
             )
 
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
 
             // https://firebase.google.com/docs/app-distribution/android/distribute-gradle#step_3_configure_your_distribution_properties
             // How to create and distribute an APK file:
