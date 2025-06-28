@@ -18,7 +18,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
-import com.github.tatsuyafujisaki.androidplayground.BuildConfig
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.google.android.material.chip.Chip
 import java.io.BufferedReader
@@ -70,7 +69,7 @@ object ContextUtil {
         context.startActivity(
             Intent(Intent.ACTION_VIEW).apply {
                 data =
-                    ("https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}").toUri()
+                    ("https://play.google.com/store/apps/details?id=${context.packageName}").toUri()
                 setPackage("com.android.vending")
             },
         )

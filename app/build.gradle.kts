@@ -47,8 +47,6 @@ android {
                 "proguard-rules.pro",
             )
 
-            buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")
-
             signingConfig = signingConfigs.getByName("debug")
 
             // https://firebase.google.com/docs/app-distribution/android/distribute-gradle#step_3_configure_your_distribution_properties
@@ -68,7 +66,6 @@ android {
     }
 
     buildFeatures {
-        buildConfig = true
         compose = true
         viewBinding = true
     }

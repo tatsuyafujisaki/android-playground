@@ -3,7 +3,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.os.Build
 import android.util.Log
 import android.webkit.CookieManager
-import com.github.tatsuyafujisaki.androidplayground.BuildConfig
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
@@ -13,13 +12,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 object OkHttpUtil {
     fun OkHttpClient.Builder.addExtraHeadersInterceptor() = addInterceptor {
         val request = it.request().newBuilder()
-            .addHeader("X-BuildManufacturer", Build.MANUFACTURER)
             .addHeader("X-Brand", Build.BRAND)
+            .addHeader("X-Manufacturer", Build.MANUFACTURER)
+            .addHeader("X-Model", Build.MODEL)
             .addHeader("X-Product", Build.PRODUCT)
-            .addHeader("X-BuildModel", Build.MODEL)
-            // Android OS version
-            .addHeader("X-BuildVersionRelease", Build.VERSION.RELEASE)
-            .addHeader("X-VersionName", BuildConfig.VERSION_NAME)
+            .addHeader("X-Version-Release", Build.VERSION.RELEASE)
             .build()
         it.proceed(request)
     }
