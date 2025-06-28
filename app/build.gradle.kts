@@ -45,7 +45,6 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro",
-                "kotlin-serialization.pro",
             )
 
             buildConfigField("String", "BASE_URL", "\"https://www.googleapis.com\"")
@@ -192,7 +191,6 @@ tasks.register("printAbortLibrariesConfigPath") {
 tasks.register("printLibrariesJson") {
     doLast {
         file(path = "build/generated/aboutLibraries").walkTopDown()
-            .filter { it.name == "aboutlibraries.json" }
-            .forEach { println(it.absolutePath) }
+            .filter { it.name == "aboutlibraries.json" }.forEach { println(it.absolutePath) }
     }
 }
