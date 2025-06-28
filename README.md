@@ -72,51 +72,6 @@ for [TextUtils.htmlEncode](https://developer.android.com/reference/kotlin/androi
 val color: Color = Color.valueOf(0x11223344)
 ```
 
-
-# Release build
-
-## How to debug a release build
-
-You can debug a release build only if you set both `minifyenabled false` and `debuggable false`.
-
-```gradle
-// app/build.gradle
-android {
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            debuggable true
-            signingConfig signingConfigs.debug
-        }
-    }
-}
-```
-
-```gradle
-// app/build.gradle.kts
-android {
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-
-            isDebuggable = true
-            signingConfig = signingConfigs.getByName("debug")
-        }
-    }
-}
-```
-
-## How to identify the class that acts up by `minifyenabled true`
-
-Add the following to `proguard-rule.pro`.
-
-```shell
--keepattributes SourceFile,LineNumberTable
-```
-
 # How to close DrawerLayout when the user taps the Back button
 
 ```kotlin
