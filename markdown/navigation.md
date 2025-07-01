@@ -246,7 +246,7 @@ Android Studio's toolbar > `View` > `Tool Windows` > `Gradle` > `<app name>` > `
      * Hitting the Back button ...
        * pops off the top fragment if any fragment transaction exists
        * pops off the top activity if no fragment transaction exists.
-  * The following illustraitons are useful:
+  * The following illustrations are useful:
     * https://developer.android.com/codelabs/basic-android-kotlin-training-navigation-backstack#3
 * https://developer.android.com/guide/navigation/navigation-principles
   * > The back stack always has the start destination of the app at the bottom of the stack
