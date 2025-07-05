@@ -93,7 +93,7 @@ override fun onBackPressed() {
        override `onStart()` and/or `onStop()`, it is between `super.onStart()` and `super.onStop()`.
     1. Even if you pass a Fragment to `OnBackPressedDispatcher.addCallback(...)`, the Fragment's
        lifecycle does not affect `OnBackPressedDispatcher.hasEnabledCallbacks()`.
-* If your Activitiy overrides `onBackPressed()` but you forget to call `super.onBackPressed()` in
+* If your Activity overrides `onBackPressed()` but you forget to call `super.onBackPressed()` in
   it, your callback will never be called.
 
 # How to define a custom view
