@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.core.net.toUri
 
-@Suppress("unused")
+@Suppress("SpellCheckingInspection", "unused")
 object EmailUtil {
     fun Activity.composeEmailWithNoAttachment(
         to: Array<String>,
