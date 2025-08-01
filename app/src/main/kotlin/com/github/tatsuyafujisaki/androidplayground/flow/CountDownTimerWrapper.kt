@@ -4,6 +4,7 @@ import android.os.CountDownTimer
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 
+@Suppress("unused")
 class CountDownTimerWrapper(total: Long, interval: Long, onFinish: () -> Unit) {
     private lateinit var countDownTimer: CountDownTimer
 
