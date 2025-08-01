@@ -6,6 +6,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import org.junit.runners.Parameterized.Parameters
 
+@Suppress("unused")
 @RunWith(Parameterized::class)
 class FibonacciTest(private val expected: Int, private val n: Int) {
     @Test
