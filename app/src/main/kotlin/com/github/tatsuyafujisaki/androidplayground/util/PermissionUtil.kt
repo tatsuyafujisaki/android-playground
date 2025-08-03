@@ -6,6 +6,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 
+@Suppress("unused")
 object PermissionUtil {
     private const val REQUEST_EXTERNAL_STORAGE = 0
 
