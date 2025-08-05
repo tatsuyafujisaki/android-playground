@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager.BackStackEntry
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 
+@Suppress("unused")
 object FragmentUtil {
     object DialogUtil {
         fun isDialogShowing(
