@@ -35,7 +35,7 @@ retrofit = "3.0.0" # https://github.com/square/retrofit/releases/
 robolectric = "4.15.1" # https://github.com/robolectric/robolectric/releases
 room = "2.7.2" # https://developer.android.com/jetpack/androidx/releases/room
 test-core-ktx = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
-test-rules = "1.6.1" # https://developer.android.com/jetpack/androidx/releases/test
+test-rules = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
 test-runner = "1.6.2" # https://developer.android.com/jetpack/androidx/releases/test
 viewpager2 = "1.1.0" # https://developer.android.com/jetpack/androidx/releases/viewpager2
 
