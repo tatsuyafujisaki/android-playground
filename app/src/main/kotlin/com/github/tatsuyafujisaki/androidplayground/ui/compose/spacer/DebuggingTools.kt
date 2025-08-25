@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+@Suppress("unused")
 @Composable
 private fun SpacerHeight(
     modifier: Modifier = Modifier,
