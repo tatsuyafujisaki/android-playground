@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.res.Resources
+import android.os.Looper
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.DimenRes
@@ -9,6 +10,8 @@ import androidx.core.view.updatePadding
 @Suppress("unused")
 object ViewUtil {
     private const val TAG = "ViewUtil"
+
+    val isMainThread get() = Looper.getMainLooper().isCurrentThread
 
     fun updatePaddingByRes(
         view: View,
