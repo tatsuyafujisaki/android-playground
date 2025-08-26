@@ -12,7 +12,6 @@ import com.github.tatsuyafujisaki.androidplayground.data.MyRemoteConfig
 import com.github.tatsuyafujisaki.androidplayground.databinding.ActivityMainBinding
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
-import com.github.tatsuyafujisaki.androidplayground.util.ResourcesUtil.OrientationUtil
 import com.google.firebase.Firebase
 import com.google.firebase.remoteconfig.get
 import com.google.firebase.remoteconfig.remoteConfig
@@ -47,10 +46,6 @@ class MainActivity : AppCompatActivity() {
         )
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         setSupportActionBar(binding.toolbar)
-
-        OrientationUtil.enableOrientationEventListener(this) {
-            viewModel.setOrientation4(it)
-        }
 
         lifecycleScope.launch {
             val service = RetrofitClient.createJsonPlaceholderService()
