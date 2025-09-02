@@ -6,6 +6,7 @@ import android.widget.TextView
 /**
  * Impractical redundant explanatory wrappers
  */
+@Suppress("unused")
 object LinkifyUtil {
     /**
      * Equivalent to android:autoLink="email|phone|web" in XML
