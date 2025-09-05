@@ -8,6 +8,7 @@ import android.util.Patterns
 import androidx.annotation.ColorInt
 import androidx.core.text.htmlEncode
 
+@Suppress("unused")
 object StringUtil {
     fun isValidEmailAddress(emailAddress: String) =
         Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
