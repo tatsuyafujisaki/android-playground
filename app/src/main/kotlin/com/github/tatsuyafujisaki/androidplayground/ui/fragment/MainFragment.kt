@@ -13,6 +13,7 @@ import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.MainScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
 
+@Suppress("unused")
 class MainFragment : Fragment() {
     private val activityViewModel: MyActivityViewModel by activityViewModels()
     private val viewModel: MainViewModel by viewModels()
