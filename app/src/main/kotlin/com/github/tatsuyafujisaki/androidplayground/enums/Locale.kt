@@ -2,6 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.enums
 
 import java.util.Locale
 
+@Suppress("unused")
 enum class Locale {
     ENGLISH,
     JAPANESE,
