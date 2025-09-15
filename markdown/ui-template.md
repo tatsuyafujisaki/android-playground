@@ -1,28 +1,9 @@
-# xmlns
-```xlm
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-```
-
 # ComposeView
 ```xml
 <androidx.compose.ui.platform.ComposeView
     android:id="@+id/compose_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
-```
-
-# ConstraintLayout
-```xml
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/constraint_layout"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +20,7 @@ myContentLayout.updateLayoutParams<ConstraintLayout.LayoutParams> {
     topToTop  = ConstraintSet.UNSET
     topToTop = ConstraintSet.PARENT_ID
     topToBottom = myToolbar.id // safer than R.id.my_toolbar
-    
+
     bottomMargin = 0
 }
 ```
@@ -191,7 +172,7 @@ shares scrolling information between its children.
 # ViewModel and LiveData
 ```kotlin
 class MyViewModel : ViewModel() {
-    private val _something = MutableLiveData<Something>()    
+    private val _something = MutableLiveData<Something>()
     val something: LiveData<Something> = _something
 
     fun setSomething(something: Something) {
