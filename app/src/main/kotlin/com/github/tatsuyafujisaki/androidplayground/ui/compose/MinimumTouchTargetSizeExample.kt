@@ -13,18 +13,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.IntSize
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.media.logSizeChanged
 
 @Preview
 @Composable
 fun Example() {
-    Text(text = "Hello", modifier = Modifier.onSizeChanged {
-        println("Text size: $it[dp]") // Text size: 87 x 45[dp]
-        println("Text width: ${it.width.dp}") // Text width: 87.0.dp
-        println("Text height: ${it.height.dp}") // Text height: 45.0.dp
-    })
+    val density = LocalDensity.current
+    Text(
+        text = "Hello",
+        modifier = Modifier.onSizeChanged { size: IntSize ->
+            val widthInDp = with(density) { size.width.toDp() }
+            val heightInDp = with(density) { size.height.toDp() }
+            println("Text size in dp: $widthInDp x $heightInDp")
+        }
+    )
 }
 
 @Preview
