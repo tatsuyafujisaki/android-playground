@@ -1,5 +1,5 @@
 [versions]
-about-libraries = "12.2.4" # https://github.com/mikepenz/AboutLibraries/releases
+about-libraries = "13.0.0" # https://github.com/mikepenz/AboutLibraries/releases
 activity = "1.11.0" # https://developer.android.com/jetpack/androidx/releases/activity
 appcompat = "1.7.1" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "3.3.0" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
