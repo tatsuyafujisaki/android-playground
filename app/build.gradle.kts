@@ -4,15 +4,16 @@ import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
-    id(libs.plugins.com.android.application.get().pluginId)
-    id(libs.plugins.compose.compiler.get().pluginId)
-    id(libs.plugins.firebase.appdistribution.get().pluginId)
-    id(libs.plugins.firebase.crashlytics.get().pluginId)
-    id(libs.plugins.google.services.get().pluginId)
-    id(libs.plugins.hilt.get().pluginId)
-    id(libs.plugins.ksp.get().pluginId)
-    id(libs.plugins.protobuf.get().pluginId)
-    id(libs.plugins.about.libraries.get().pluginId)
+    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.firebase.appdistribution)
+    alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.protobuf)
+    alias(libs.plugins.about.libraries)
+    id("com.mikepenz.aboutlibraries.plugin.android")
     kotlin("android") // equivalent to id("kotlin-android"), https://developer.android.com/kotlin/add-kotlin#add, https://developer.android.com/build/migrate-to-kotlin-dsl#perform-refactoring
     id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
     id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize

@@ -10,13 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.tatsuyafujisaki.androidplayground.R
-import com.mikepenz.aboutlibraries.ui.compose.android.rememberLibraries
+import com.mikepenz.aboutlibraries.ui.compose.android.produceLibraries
 import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 
 @Preview
 @Composable
 private fun AboutLibrariesExample() {
-    val libraries by rememberLibraries(resId = R.raw.aboutlibraries)
+    val libraries by produceLibraries(R.raw.aboutlibraries)
     Scaffold {
         LibrariesContainer(
             libraries = libraries,
