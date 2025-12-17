@@ -44,11 +44,9 @@ object NavigationUtil {
                 "Breadcrumb",
                 navController
                     .currentBackStack
-                    .value
-                    .map {
-                        it.destination.route
-                    }
-                    .joinToString(" > "),
+                    .value.joinToString(" > ") {
+                        it.destination.route.toString()
+                    },
             )
         }
 
@@ -92,18 +90,6 @@ object NavigationUtil {
                 navController.navInflater.inflate(graphResId).apply {
                     setStartDestination(startDestId)
                 }
-        }
-
-        fun setGraphWithStartDestinationAndArgs(
-            navController: NavController,
-            @NavigationRes graphResId: Int,
-            @IdRes startDestId: Int,
-        ) {
-            val graph =
-                navController.navInflater.inflate(graphResId).apply {
-                    setStartDestination(startDestId)
-                }
-            // navController.setGraph(graph /*, MyStartDestinationArgs(arg1, arg2).toBundle() */)
         }
     }
 
