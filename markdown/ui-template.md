@@ -1,4 +1,5 @@
 # ComposeView
+
 ```xml
 <androidx.compose.ui.platform.ComposeView
     android:id="@+id/compose_view"
@@ -11,6 +12,7 @@
 ```
 
 ## How to programmatically update constraints
+
 ```kotlin
 myContentLayout.updateLayoutParams<ConstraintLayout.LayoutParams> {
     height = ConstraintSet.WRAP_CONTENT
@@ -26,6 +28,7 @@ myContentLayout.updateLayoutParams<ConstraintLayout.LayoutParams> {
 ```
 
 # LinearLayout
+
 ```xml
 <LinearLayout
     android:id="@+id/linear_layout"
@@ -33,11 +36,12 @@ myContentLayout.updateLayoutParams<ConstraintLayout.LayoutParams> {
     android:layout_height="wrap_content"
     android:showDividers="middle"
     android:dividerPadding="16dp"
-    android:divider="?android:listDivider" or "?android:dividerHorizontal"
-    android:orientation="vertical">
+    android:divider="?android:listDivider"
+    android:orientation="vertical" />
 ```
 
 # RecyclerView
+
 ```xml
 <!-- android:orientation is unnecessary if you want it vertical. -->
 <androidx.recyclerview.widget.RecyclerView
@@ -74,6 +78,7 @@ with(recyclerView) {
 ```
 
 # TextView
+
 ```xml
 <!-- "android:gravity" is unnecessary if you don't use app:drawableStartCompat and so on. -->
 <TextView
@@ -89,6 +94,7 @@ with(recyclerView) {
 ```
 
 # ImageView
+
 ```xml
 <ImageView
     android:id="@+id/image_view"
@@ -103,6 +109,7 @@ with(recyclerView) {
 ```
 
 # Divider
+
 ```xml
 <View
     android:id="@+id/divider"
@@ -112,10 +119,15 @@ with(recyclerView) {
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent" />
 ```
-Instead, use [MaterialDivider](https://material.io/components/dividers/android) when it becomes available.
+
+Instead, use [MaterialDivider](https://material.io/components/dividers/android)
+when it becomes available.
 
 # EditText
-`android:hint`, `android:importantForAutofill`, and `android:inputType` are to suppress a warning.
+
+`android:hint`, `android:importantForAutofill`, and `android:inputType` are to
+suppress a warning.
+
 ```xml
 <EditText
     android:id="@+id/edit_text"
@@ -128,6 +140,7 @@ Instead, use [MaterialDivider](https://material.io/components/dividers/android) 
 ```
 
 # HorizontalScrollView and ChipGroup
+
 ```xml
 <HorizontalScrollView
     android:id="@+id/horizontal_scroll_view"
@@ -145,9 +158,14 @@ Instead, use [MaterialDivider](https://material.io/components/dividers/android) 
         app:chipSpacingHorizontal="0dp" />
 </HorizontalScrollView>
 ```
-* `app:singleSelection="true"` makes [choice chips](https://material.io/components/chips#choice-chips) and enables [`ChipGroup.setOnCheckedChangeListener()`](https://developer.android.com/reference/com/google/android/material/chip/ChipGroup#setoncheckedchangelistener).
-* If `app:singleSelection="true"` is not set, you have to add an `View.OnClickListener` on each chip.
-* `ChipGroup.setOnCheckedChangeListener()` returns -1 if the currently selected chip is re-selected.
+
+- `app:singleSelection="true"` makes
+  [choice chips](https://material.io/components/chips#choice-chips) and enables
+  [`ChipGroup.setOnCheckedChangeListener()`](https://developer.android.com/reference/com/google/android/material/chip/ChipGroup#setoncheckedchangelistener).
+- If `app:singleSelection="true"` is not set, you have to add an
+  `View.OnClickListener` on each chip.
+- `ChipGroup.setOnCheckedChangeListener()` returns -1 if the currently selected
+  chip is re-selected.
 
 ```kotlin
 chipGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -166,10 +184,11 @@ chipGroup.setOnCheckedChangeListener { group, checkedId ->
 ```
 
 # CoordinatorLayout
+
 shares scrolling information between its children.
 
-
 # ViewModel and LiveData
+
 ```kotlin
 class MyViewModel : ViewModel() {
     private val _something = MutableLiveData<Something>()
