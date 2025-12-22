@@ -1,23 +1,22 @@
 # Activity lifecycle
-* onCreate()
-* onStart()
-* onRestoreInstanceState() (API 21+)
-  * called only if savedInstanceState is not null.
-  * > Most of the time, you restore the activity state in onCreate(). But because onRestoreInstanceState() is called after onStart(), if you ever need to restore
-  * some state after onCreate() is called, you can use onRestoreInstanceState().
-    * https://developer.android.com/codelabs/basic-android-kotlin-training-activity-lifecycle#4
-* onNewIntent()
-* onResume()
-* onPause()
-* onStop()
-* onSaveInstanceState()
-  * called after onStop() in Android P or higher.
-  * > If called, this method will occur after onStop for applications targeting platforms starting with android.os.Build.VERSION_CODES#P. For applications targeting earlier platform versions this method will occur before onStop and there are no guarantees about whether it will occur before or after onPause.
-    * https://developer.android.com/reference/kotlin/android/app/Activity#onsaveinstancestate_1
-* onDestroy()
+
+* `onCreate()`
+* `onStart()`
+* `onResume()`
+* `onPause()`
+* `onStop()`
+* `onRestart()`
+* `onDestroy()`
+* `onSaveInstanceState()`
+  * Called to save UI state. As you noted, the timing of this call relative to `onStop()` changed in Android P.
+* `onRestoreInstanceState()`
+  * Called after `onStart()` to restore UI state, only if there is a saved state.
+* `onNewIntent()`
+  * Called when an activity is re-launched while at the top of the activity stack.
 
 # Activity.finish()
-  * calls these in order: onPause > onStop > onDestroy
+* calls these in order: onPause > onStop > onDestroy
+
 
 # FragmentActivity
 is an Activity that can get FragmentManager.
