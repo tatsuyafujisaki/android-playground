@@ -13,6 +13,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.protobuf)
     alias(libs.plugins.about.libraries)
+    id("com.mikepenz.aboutlibraries.plugin.android")
     kotlin("android") // equivalent to id("kotlin-android"), https://developer.android.com/kotlin/add-kotlin#add, https://developer.android.com/build/migrate-to-kotlin-dsl#perform-refactoring
     id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
     id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
