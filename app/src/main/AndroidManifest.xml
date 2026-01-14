@@ -13,8 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!-- android:windowSoftInputMode="adjustResize" allows for scrolling to the bottom
-        even when the keyboard is displayed. -->
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
