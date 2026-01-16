@@ -71,7 +71,6 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-protobuf = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-protobuf", version.ref = "kotlinx-serialization" }
-lifecycle-compiler = { group = "androidx.lifecycle", name = "lifecycle-compiler", version.ref = "lifecycle" }
 lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata", version.ref = "lifecycle" }
 lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 lifecycle-viewmodel-savedstate = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "lifecycle" }
@@ -102,7 +101,7 @@ ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
 [plugins]
-about-libraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "about-libraries" }
+about-libraries = { id = "com.mikepenz.aboutlibraries.plugin.android", version.ref = "about-libraries" }
 com-android-application = { id = "com.android.application", version.ref = "com-android-application" } # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin#updating-plugin
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" } # https://developer.android.com/develop/ui/compose/compiler#version-catalog
 firebase-appdistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebase-appdistribution-plugin" } # https://firebase.google.com/docs/app-distribution/android/distribute-gradle#step_1_set_up_your_android_project
@@ -111,11 +110,3 @@ google-services = { id = "com.google.gms.google-services", version.ref = "google
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" } # https://developer.android.com/training/dependency-injection/hilt-android#setup
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" } # https://developer.android.com/build/migrate-to-ksp#add-ksp, https://kotlinlang.org/docs/ksp-quickstart.html#add-a-processor
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf" } # https://github.com/google/protobuf-gradle-plugin?tab=readme-ov-file#latest-version
-
-# You don't need to specify the version of Kotlin explicitly if all of your modules depend on `org.jetbrains.kotlin.plugin.compose` because it does so.
-# Optional: kotlin("android") version libs.versions.kotlin apply false
-# Optional: alias(libs.plugins.org.jetbrains.kotlin.android) apply false
-# https://developer.android.com/build/releases/gradle-plugin#updating-plugin
-# alias(libs.plugins.org.jetbrains.kotlin.android) apply false
-#
-# org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

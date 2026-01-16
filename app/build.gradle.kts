@@ -13,7 +13,6 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.protobuf)
     alias(libs.plugins.about.libraries)
-    id("com.mikepenz.aboutlibraries.plugin.android")
     kotlin("android") // equivalent to id("kotlin-android"), https://developer.android.com/kotlin/add-kotlin#add, https://developer.android.com/build/migrate-to-kotlin-dsl#perform-refactoring
     id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
     id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
@@ -151,7 +150,6 @@ dependencies {
     implementation(platform(libs.retrofit.bom))
     ksp(libs.hilt.compiler)
     ksp(libs.hilt.compiler.androidx)
-    ksp(libs.lifecycle.compiler)
     ksp(libs.room.compiler)
     testImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
     testImplementation(libs.robolectric)
