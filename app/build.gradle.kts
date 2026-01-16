@@ -103,7 +103,6 @@ dependencies {
     androidTestImplementation(platform(libs.compose.bom))
     debugImplementation(libs.fragment.testing)
     debugImplementation(libs.ui.test.manifest)
-    debugImplementation(libs.ui.tooling)
     implementation(libs.about.libraries.core)
     implementation(libs.about.libraries.compose)
     implementation(libs.activity)
