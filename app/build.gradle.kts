@@ -18,7 +18,6 @@ plugins {
     id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
     id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
     embeddedKotlin("plugin.serialization") // https://kotlinlang.org/docs/serialization.html#add-plugins-and-dependencies
-    kotlin("kapt") // equivalent to id("kotlin-kapt"), https://kotlinlang.org/docs/kapt.html#use-in-gradle
 }
 
 // https://developer.android.com/studio/publish/app-signing#secure-shared-keystore
