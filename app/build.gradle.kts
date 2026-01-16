@@ -104,7 +104,6 @@ dependencies {
     debugImplementation(libs.fragment.testing)
     debugImplementation(libs.ui.test.manifest)
     debugImplementation(libs.ui.tooling)
-    implementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
     implementation(libs.about.libraries.core)
     implementation(libs.about.libraries.compose)
     implementation(libs.activity)
