@@ -1,6 +1,6 @@
 [versions]
 about-libraries = "13.1.0" # https://github.com/mikepenz/AboutLibraries/releases
-activity = "1.12.2" # https://developer.android.com/jetpack/androidx/releases/activity
+activity = "+" # https://developer.android.com/jetpack/androidx/releases/activity
 appcompat = "+" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "3.3.0" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
 com-android-application = "9.0.1" # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin
