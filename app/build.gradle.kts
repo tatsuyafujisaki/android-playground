@@ -2,6 +2,7 @@ import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
 import com.mikepenz.aboutlibraries.plugin.DuplicateMode
 import java.io.FileInputStream
 import java.util.Properties
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
     alias(libs.plugins.com.android.application)
@@ -19,7 +20,7 @@ plugins {
 }
 
 // https://developer.android.com/studio/publish/app-signing#secure-shared-keystore
-val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystorePropertiesFile: File = rootProject.file("keystore.properties")
 val keystoreProperties = Properties()
 keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
@@ -93,7 +94,7 @@ android {
 
 kotlin {
     compilerOptions {
-        languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
+        languageVersion = KotlinVersion.KOTLIN_2_0
     }
 }
 
