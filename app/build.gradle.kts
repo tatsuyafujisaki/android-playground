@@ -150,7 +150,6 @@ dependencies {
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.room.runtime)
     implementation(libs.ui.tooling)
-    implementation(libs.viewpager2)
     implementation(platform(libs.compose.bom))
     implementation(platform(libs.firebase.bom))
     implementation(platform(libs.retrofit.bom))

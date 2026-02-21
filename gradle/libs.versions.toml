@@ -37,7 +37,6 @@ room = "2.8.4" # https://developer.android.com/jetpack/androidx/releases/room
 test-core-ktx = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
 test-rules = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
 test-runner = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
-viewpager2 = "+" # https://developer.android.com/jetpack/androidx/releases/viewpager2
 
 [libraries]
 about-libraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "about-libraries" }
@@ -98,7 +97,6 @@ test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "tes
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
 [plugins]
 about-libraries = { id = "com.mikepenz.aboutlibraries.plugin.android", version.ref = "about-libraries" }
