@@ -68,8 +68,5 @@ object UrlUtil {
         fun getQueryParameterNames(httpUrl: HttpUrl) = httpUrl.queryParameterNames
         fun getQuerySize(httpUrl: HttpUrl) = httpUrl.querySize
         fun getDomain(httpUrl: HttpUrl) = httpUrl.topPrivateDomain().orEmpty()
-
-        fun getBaseUrl(httpUrl: HttpUrl) =
-            HttpUrl.Builder().scheme(httpUrl.scheme).host(httpUrl.host).build()
     }
 }

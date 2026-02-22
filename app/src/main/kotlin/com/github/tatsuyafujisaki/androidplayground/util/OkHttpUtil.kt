@@ -2,10 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.os.Build
 import android.util.Log
-import android.webkit.CookieManager
-import okhttp3.Cookie
-import okhttp3.CookieJar
-import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -72,27 +68,5 @@ object OkHttpUtil {
         // https://square.github.io/okhttp/5.x/okhttp/okhttp3/-response-body/
         Log.d("👀response > body", response.peekBody(Long.MAX_VALUE).string())
         response
-    }
-
-    fun OkHttpClient.Builder.addCookieJar() = apply {
-        cookieJar(
-            object : CookieJar {
-                // Sets cookies from CookieManger to HTTP requests.
-                override fun loadForRequest(url: HttpUrl) =
-                    CookieManager.getInstance().getCookie(url.toString())?.split(';')?.mapNotNull {
-                        Cookie.parse(
-                            url = UrlUtil.OkHttpUrl.getBaseUrl(url),
-                            setCookie = it.trim() /* key=value */
-                        )
-                    }.orEmpty()
-
-                // Stores cookies from HTTP responses in CookieManager.
-                override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
-                    cookies.forEach {
-                        CookieManager.getInstance().setCookie(url.host, "${it.name}=${it.value}")
-                    }
-                }
-            },
-        )
     }
 }

@@ -86,7 +86,6 @@ navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "na
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation" }
 navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "navigation3" }
 navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "navigation3" }
-okhttp-urlconnection = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttp" } # for CookieJar
 paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging-compose" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protoc" }
 protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protoc" }

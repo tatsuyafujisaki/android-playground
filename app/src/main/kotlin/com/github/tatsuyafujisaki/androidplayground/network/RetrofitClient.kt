@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.network
 
-import com.github.tatsuyafujisaki.androidplayground.util.OkHttpUtil.addCookieJar
 import com.github.tatsuyafujisaki.androidplayground.util.OkHttpUtil.addExtraHeadersInterceptor
 import com.github.tatsuyafujisaki.androidplayground.util.OkHttpUtil.addLoggingInterceptor
 import com.github.tatsuyafujisaki.androidplayground.util.OkHttpUtil.addPeekingRequestInterceptor
@@ -22,7 +21,6 @@ object RetrofitClient {
                     .addLoggingInterceptor()
                     .addPeekingResponseInterceptor()
                     .addPeekingRequestInterceptor()
-                    .addCookieJar()
                     .build(),
             )
             .addConverterFactory(

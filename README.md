@@ -116,28 +116,3 @@ class MyCustomView @JvmOverloads constructor(
     }
 }
 ```
-
-# CookieManager
-
-```kotlin
-val cookieManager = CookieManager.getInstance()
-
-val url1 = "example.com"
-val url2 = "example.com/foo"
-val url3 = "sub.example.com"
-val url4 = "https://example.com"
-val url5 = "http://example.com"
-
-cookieManager.setCookie(url1, "a=1")
-cookieManager.setCookie(url2, "b=2")
-cookieManager.setCookie(url3, "c=3")
-cookieManager.setCookie(url4, "d=4")
-cookieManager.setCookie(url5, "e=5")
-cookieManager.setCookie(url5, "e=5!")
-
-val cookie1: String = cookieManager.getCookie(url1) // a = 1; b = 2; d = 4; e = 5!
-val cookie2: String = cookieManager.getCookie(url2) // a = 1; b = 2; d = 4; e = 5!
-val cookie3: String = cookieManager.getCookie(url3) // c = 3
-val cookie4: String = cookieManager.getCookie(url4) // a = 1; b = 2; d = 4; e = 5!
-val cookie5: String = cookieManager.getCookie(url5) // a = 1; b = 2; d = 4; e = 5!
-```
