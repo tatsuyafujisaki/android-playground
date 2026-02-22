@@ -27,7 +27,7 @@ media3 = "1.9.0" # https://developer.android.com/jetpack/androidx/releases/media
 min-sdk = "26" # https://developer.android.com/guide/topics/manifest/uses-sdk-element
 navigation = "2.9.6" # https://developer.android.com/jetpack/androidx/releases/navigation
 okhttp = "5.3.2" # https://square.github.io/okhttp/changelogs/changelog/
-paging = "3.3.6" # https://developer.android.com/jetpack/androidx/releases/paging
+paging-compose = "+" # https://developer.android.com/jetpack/androidx/releases/paging
 protobuf = "0.9.6" # https://github.com/google/protobuf-gradle-plugin/releases
 protoc = "4.33.2" # https://central.sonatype.com/artifact/com.google.protobuf/protobuf-kotlin-lite/versions
 recyclerview = "+" # https://developer.android.com/jetpack/androidx/releases/recyclerview
@@ -82,7 +82,7 @@ navigation-fragment = { group = "androidx.navigation", name = "navigation-fragme
 navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigation" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation" }
 okhttp-urlconnection = { group = "com.squareup.okhttp3", name = "okhttp-urlconnection", version.ref = "okhttp" } # for CookieJar
-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
+paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging-compose" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protoc" }
 protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protoc" }
 recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
