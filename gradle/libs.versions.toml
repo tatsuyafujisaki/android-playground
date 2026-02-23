@@ -3,7 +3,7 @@ about-libraries = "+" # https://github.com/mikepenz/AboutLibraries/releases
 activity = "+" # https://developer.android.com/jetpack/androidx/releases/activity
 appcompat = "+" # https://developer.android.com/jetpack/androidx/releases/appcompat
 coil-compose = "+" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
-com-android-application = "9.0.1" # aka Android Gradle Plugin (AGP), https://developer.android.com/build/releases/gradle-plugin
+com-android-application = "9.0.1" # https://developer.android.com/build/releases/gradle-plugin
 compile-target-sdk = "36"
 compose-bom = "+" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 constraintlayout = "+" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
@@ -33,9 +33,6 @@ protoc = "+" # https://central.sonatype.com/artifact/com.google.protobuf/protobu
 recyclerview = "+" # https://developer.android.com/jetpack/androidx/releases/recyclerview
 retrofit = "+" # https://github.com/square/retrofit/releases
 room = "+" # https://developer.android.com/jetpack/androidx/releases/room
-test-core-ktx = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
-test-rules = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
-test-runner = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
 
 [libraries]
 about-libraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "about-libraries" }
@@ -92,9 +89,6 @@ retrofit-bom = { group = "com.squareup.retrofit2", name = "retrofit-bom", versio
 retrofit-converter-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
-rules = { group = "androidx.test", name = "rules", version.ref = "test-rules" }
-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }
-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "test-core-ktx" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }

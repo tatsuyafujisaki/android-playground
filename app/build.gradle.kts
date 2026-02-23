@@ -100,9 +100,6 @@ kotlin {
 
 dependencies {
     androidTestImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
-    androidTestImplementation(libs.rules)
-    androidTestImplementation(libs.runner)
-    androidTestImplementation(libs.test.core.ktx)
     androidTestImplementation(libs.ui.test.junit4)
     androidTestImplementation(platform(libs.compose.bom))
     debugImplementation(libs.fragment.testing)
@@ -160,7 +157,6 @@ dependencies {
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.room.compiler)
     testImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
-    testImplementation(libs.test.core.ktx)
 }
 
 aboutLibraries {
