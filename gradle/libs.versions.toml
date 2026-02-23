@@ -33,7 +33,6 @@ protobuf = "+" # https://github.com/google/protobuf-gradle-plugin/releases
 protoc = "+" # https://central.sonatype.com/artifact/com.google.protobuf/protobuf-kotlin-lite/versions
 recyclerview = "+" # https://developer.android.com/jetpack/androidx/releases/recyclerview
 retrofit = "+" # https://github.com/square/retrofit/releases/
-robolectric = "+" # https://github.com/robolectric/robolectric/releases
 room = "+" # https://developer.android.com/jetpack/androidx/releases/room
 test-core-ktx = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
 test-rules = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/test
@@ -92,7 +91,6 @@ protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protoc
 recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 retrofit-bom = { group = "com.squareup.retrofit2", name = "retrofit-bom", version.ref = "retrofit" }
 retrofit-converter-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization" }
-robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 rules = { group = "androidx.test", name = "rules", version.ref = "test-rules" }

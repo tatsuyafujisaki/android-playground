@@ -160,7 +160,6 @@ dependencies {
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.room.compiler)
     testImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
-    testImplementation(libs.robolectric)
     testImplementation(libs.test.core.ktx)
 }
 
