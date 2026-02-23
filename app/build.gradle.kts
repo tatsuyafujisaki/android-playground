@@ -100,7 +100,6 @@ kotlin {
 
 dependencies {
     androidTestImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
-    androidTestImplementation(libs.junit)
     androidTestImplementation(libs.rules)
     androidTestImplementation(libs.runner)
     androidTestImplementation(libs.test.core.ktx)

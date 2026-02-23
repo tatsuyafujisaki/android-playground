@@ -18,7 +18,6 @@ fragment = "+" # https://developer.android.com/jetpack/androidx/releases/fragmen
 google-services = "+" # https://developers.google.com/android/guides/releases
 hilt = "+" # https://github.com/google/dagger/releases
 hilt-androidx = "+" # https://developer.android.com/jetpack/androidx/releases/hilt
-junit = "+" # https://developer.android.com/jetpack/androidx/releases/test
 kotlin = "+" # https://kotlinlang.org/docs/releases.html
 kotlinx-serialization = "+" # https://github.com/Kotlin/kotlinx.serialization/releases
 ksp = "+" # https://github.com/google/ksp/releases
@@ -65,7 +64,6 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-compiler-androidx = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt-androidx" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-androidx" }
-junit = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junit" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
