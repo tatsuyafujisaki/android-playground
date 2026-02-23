@@ -29,8 +29,8 @@ navigation = "+" # https://developer.android.com/jetpack/androidx/releases/navig
 navigation3 = "+" # https://developer.android.com/jetpack/androidx/releases/navigation3
 okhttp = "+" # https://square.github.io/okhttp/changelogs/changelog/
 paging-compose = "+" # https://developer.android.com/jetpack/androidx/releases/paging
-protobuf = "0.9.6" # https://github.com/google/protobuf-gradle-plugin/releases
-protoc = "4.33.2" # https://central.sonatype.com/artifact/com.google.protobuf/protobuf-kotlin-lite/versions
+protobuf = "+" # https://github.com/google/protobuf-gradle-plugin/releases
+protoc = "+" # https://central.sonatype.com/artifact/com.google.protobuf/protobuf-kotlin-lite/versions
 recyclerview = "+" # https://developer.android.com/jetpack/androidx/releases/recyclerview
 retrofit = "+" # https://github.com/square/retrofit/releases/
 robolectric = "4.16" # https://github.com/robolectric/robolectric/releases
@@ -88,7 +88,7 @@ navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runt
 navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "navigation3" }
 paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging-compose" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protoc" }
-protobuf-protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protoc" }
+protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protoc" }
 recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 retrofit-bom = { group = "com.squareup.retrofit2", name = "retrofit-bom", version.ref = "retrofit" }
 retrofit-converter-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization" }

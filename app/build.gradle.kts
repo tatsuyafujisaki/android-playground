@@ -177,7 +177,7 @@ aboutLibraries {
 
 protobuf {
     protoc {
-        artifact = libs.protobuf.protoc.get().toString()
+        artifact = libs.protoc.get().toString()
     }
     generateProtoTasks {
         all().configureEach {
