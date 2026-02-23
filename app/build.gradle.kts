@@ -146,6 +146,7 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.navigation3.runtime)
     implementation(libs.navigation3.ui)
+    implementation(libs.okhttp)
     implementation(libs.paging.compose)
     implementation(libs.protobuf.kotlin.lite)
     implementation(libs.recyclerview)
