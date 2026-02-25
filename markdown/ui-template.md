@@ -40,43 +40,6 @@ myContentLayout.updateLayoutParams<ConstraintLayout.LayoutParams> {
     android:orientation="vertical" />
 ```
 
-# RecyclerView
-
-```xml
-<!-- android:orientation is unnecessary if you want it vertical. -->
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recycler_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:clipToPadding="false"
-    android:orientation="horizontal"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:listitem="@layout/item" />
-```
-
-```kotlin
-with(recyclerView) {
-    adapter = myAdapter.apply {
-        registerAdapterDataObserver(
-            object : RecyclerView.AdapterDataObserver() {
-                override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-                    scrollToPosition(0) // RecyclerView#scrollToPosition(0)
-                }
-            }
-        )
-    }
-    addItemDecoration(DividerItemDecoration(context, (layoutManager as LinearLayoutManager).orientation))
-    setHasFixedSize(true) // only if the size is fixed.
-    itemAnimator = null
-    myLiveData.observe(viewLifecycleOwner) {
-        with(adapter as MyAdapter) {
-            submitList(it)
-            // notifyDataSetChanged() // Uncomment this only if new data is not reflected on UI after submitList(...).
-        }
-    }
-}
-```
-
 # TextView
 
 ```xml

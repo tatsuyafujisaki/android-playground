@@ -148,7 +148,6 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.paging.compose)
     implementation(libs.protobuf.kotlin.lite)
-    implementation(libs.recyclerview)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.room.runtime)
     implementation(libs.ui.tooling)
