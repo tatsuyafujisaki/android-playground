@@ -9,6 +9,8 @@ import androidx.compose.ui.platform.ViewCompositionStrategy.DisposeOnViewTreeLif
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.MainScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MainViewModel
 import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
@@ -27,6 +29,7 @@ class MainFragment : Fragment() {
         setContent {
             MaterialTheme {
                 MainScreen {
+                    findNavController().navigate(R.id.action_main_fragment_to_third_fragment)
                 }
             }
         }
