@@ -2,7 +2,6 @@ import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
 import com.mikepenz.aboutlibraries.plugin.DuplicateMode
 import java.io.FileInputStream
 import java.util.Properties
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
     alias(libs.plugins.com.android.application)
@@ -88,12 +87,6 @@ android {
         unitTests {
             isIncludeAndroidResources = true
         }
-    }
-}
-
-kotlin {
-    compilerOptions {
-        languageVersion = KotlinVersion.KOTLIN_2_0
     }
 }
 
