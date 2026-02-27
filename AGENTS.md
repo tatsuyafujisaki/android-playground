@@ -1,0 +1,1 @@
+- Build the app after making any changes.
