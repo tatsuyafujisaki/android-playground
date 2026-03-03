@@ -11,15 +11,11 @@ import android.text.style.ForegroundColorSpan
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.MenuItem
-import android.view.View.TEXT_ALIGNMENT_CENTER
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getColorStateList
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
-import com.github.tatsuyafujisaki.androidplayground.R
-import com.google.android.material.chip.Chip
 import java.io.BufferedReader
 
 private const val TAG = "ContextUtil"
@@ -107,24 +103,6 @@ object ContextUtil {
             TAG,
             "heightInDp [(1 / 160) inch] (= px / density): ${(displayMetrics.heightPixels / displayMetrics.density).toInt()}",
         )
-    }
-
-    fun <T> createChip(
-        context: Context,
-        text: String,
-        tag: T,
-    ): Chip {
-        return Chip(context).apply {
-            this.text = text
-            this.tag = tag
-            chipBackgroundColor = getColorStateList(context, R.color.checked_state_selector)
-            chipStrokeColor = getColorStateList(context, R.color.checked_state_selector)
-            chipStrokeWidth = 1f
-            isCheckable = true
-            isCheckedIconVisible = false
-            textAlignment = TEXT_ALIGNMENT_CENTER
-            setTextColor(getColorStateList(context, R.color.checked_state_selector))
-        }
     }
 
     fun color(
