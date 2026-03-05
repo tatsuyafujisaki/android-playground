@@ -26,7 +26,7 @@ object FragmentUtil {
                 .map {
                     val tag = getBackStackEntryAt(it).name
                     /**
-                     * [FragmentManager.findFragmentByTag returns null
+                     * [FragmentManager.findFragmentByTag] returns null
                      *   if the [BackStackEntry] has NOT been added with the tag.
                      */
                     findFragmentByTag(tag)?.javaClass?.simpleName ?: tag
