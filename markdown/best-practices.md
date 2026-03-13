@@ -1,17 +1,3 @@
-# Official best practices
-- https://developer.android.com/develop/ui/compose/performance/bestpractices
-- https://developer.android.com/develop/ui/compose/state-hoisting#best-practice
-- https://developer.android.com/guide/components/activities/parcelables-and-bundles ("This page provides recommendations and best practices for using Parcelable and Bundle objects.")
-- https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#best-practices
-- https://developer.android.com/kotlin/coroutines/coroutines-best-practices
-- https://developer.android.com/studio/gemini/best-practices
-- https://developer.android.com/topic/architecture/recommendations
-- https://developer.android.com/topic/libraries/architecture/lifecycle#lc-bp
-- https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
-- https://developer.android.com/training/data-storage/use-cases
-- https://docs.gradle.org/current/userguide/best_practices_general.html
-- https://kotlinlang.org/docs/gradle-best-practices.html
-
 ## Miscellaneous
 
 > Do not intercept back at the root (for example, MainActivity.kt)
