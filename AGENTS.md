@@ -1,15 +1,14 @@
-- Follow https://developers.google.com/style, unless otherwise specified.
-- Follow the following best practices, unless otherwise specified.
-  - https://developer.android.com/develop/ui/compose/performance/bestpractices
-  - https://developer.android.com/develop/ui/compose/state-hoisting#best-practice
-  - https://developer.android.com/guide/components/activities/parcelables-and-bundles
-  - https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#best-practices
-  - https://developer.android.com/kotlin/coroutines/coroutines-best-practices
-  - https://developer.android.com/studio/gemini/best-practices
-  - https://developer.android.com/topic/architecture/recommendations
-  - https://developer.android.com/topic/libraries/architecture/lifecycle#lc-bp
-  - https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
-  - https://developer.android.com/training/data-storage/use-cases
-  - https://docs.gradle.org/current/userguide/best_practices_general.html
-  - https://kotlinlang.org/docs/gradle-best-practices.html
 - Build the app after making any changes.
+- Follow https://developer.android.com/develop/ui/compose/performance/bestpractices
+- Follow https://developer.android.com/develop/ui/compose/state-hoisting#best-practice
+- Follow https://developer.android.com/guide/components/activities/parcelables-and-bundles
+- Follow https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#best-practices
+- Follow https://developer.android.com/kotlin/coroutines/coroutines-best-practices
+- Follow https://developer.android.com/studio/gemini/best-practices
+- Follow https://developer.android.com/topic/architecture/recommendations
+- Follow https://developer.android.com/topic/libraries/architecture/lifecycle#lc-bp
+- Follow https://developer.android.com/topic/libraries/architecture/viewmodel#best-practices
+- Follow https://developer.android.com/training/data-storage/use-cases
+- Follow https://developers.google.com/style
+- Follow https://docs.gradle.org/current/userguide/best_practices_general.html
+- Follow https://kotlinlang.org/docs/gradle-best-practices.html
