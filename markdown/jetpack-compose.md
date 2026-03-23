@@ -123,7 +123,7 @@ https://developer.android.com/topic/architecture/ui-layer/stateholders#business-
 --------------------------------------------------------------------------|------------------|-----------------------
  Modifier.size(0.dp)                                                      | true             | false                 
  Modifier.size(1.dp)                                                      | true             | true                  
- Modifier.alpha(0.dp)                                                     | true             | true                  
+ Modifier.alpha(0f)                                                       | true             | true                  
  The nodes exists below the screen and you need to scroll down to show it | true             | false                 
 
 # Best practices
