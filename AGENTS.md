@@ -4,6 +4,7 @@
 - Follow https://developer.android.com/guide/components/activities/parcelables-and-bundles
 - Follow https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#best-practices
 - Follow https://developer.android.com/kotlin/coroutines/coroutines-best-practices
+- Follow https://developer.android.com/kotlin/style-guide
 - Follow https://developer.android.com/studio/gemini/best-practices
 - Follow https://developer.android.com/topic/architecture/recommendations
 - Follow https://developer.android.com/topic/libraries/architecture/lifecycle#lc-bp
@@ -11,4 +12,5 @@
 - Follow https://developer.android.com/training/data-storage/use-cases
 - Follow https://developers.google.com/style
 - Follow https://docs.gradle.org/current/userguide/best_practices_general.html
+- Follow https://kotlinlang.org/docs/coding-conventions.html
 - Follow https://kotlinlang.org/docs/gradle-best-practices.html
