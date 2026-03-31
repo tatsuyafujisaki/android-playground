@@ -1,29 +1,36 @@
 # Style guides
+
 - https://developer.android.com/kotlin/style-guide
 - https://kotlinlang.org/docs/coding-conventions.html
 
 # How to show a dependency tree
+
 ```shell
 ./gradlew [module:]dependencies
 ```
 
 # How to build an Android app
+
 ```shell
 ./gradlew assemble[buildVariant]
 ```
 
 # How to install an Android app
+
 ```shell
 ./gradlew install[buildVariant]
 ```
 
 # Testing
+
 ## How to run a local unit test
+
 ```shell
 ./gradlew [module:]test[buildVariant]UnitTest
 ```
 
 ## How to run an instrumented test
+
 ```shell
 ./gradlew [module:]connected[buildVariant]AndroidTest
 ```
@@ -42,10 +49,13 @@ task clean(type: Delete) {
 # String
 
 # WebViewClient
+
 ## How to get `WebViewClient.onReceivedSslError()` called
+
 Open https://httpforever.com
 
 ## How to get `WebViewClient.onReceivedHttpError()` called
+
 Open https://httpstat.us/404
 
 # How to encode HTML entities
@@ -95,24 +105,3 @@ override fun onBackPressed() {
        lifecycle does not affect `OnBackPressedDispatcher.hasEnabledCallbacks()`.
 * If your Activity overrides `onBackPressed()` but you forget to call `super.onBackPressed()` in
   it, your callback will never be called.
-
-# How to define a custom view
-
-```kotlin
-class MyCustomView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyle: Int = 0
-) : View(context, attrs, defStyle) {
-    init {
-        context.withStyledAttributes(
-            attrs,
-            R.styleable.MyCustomView,
-            defStyle,
-            0
-        ) { // simpler than Theme.obtainStyledAttributes(...)
-            // ...
-        }
-    }
-}
-```
