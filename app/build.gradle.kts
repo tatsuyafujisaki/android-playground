@@ -91,7 +91,7 @@ android {
 }
 
 dependencies {
-    androidTestImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
+    androidTestImplementation(kotlin("test-junit"))
     androidTestImplementation(libs.ui.test.junit4)
     androidTestImplementation(platform(libs.compose.bom))
     debugImplementation(libs.fragment.testing)
@@ -149,7 +149,7 @@ dependencies {
     ksp(libs.hilt.compiler)
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.room.compiler)
-    testImplementation(kotlin("test")) // https://kotlinlang.org/docs/jvm-test-using-junit.html#add-dependencies
+    testImplementation(kotlin("test-junit"))
 }
 
 aboutLibraries {
@@ -171,31 +171,5 @@ protobuf {
         all().configureEach {
             builtins.create("java").option("lite")
         }
-    }
-}
-
-// https://docs.gradle.org/current/userguide/kotlin_dsl.html#extra_properties
-tasks.register("printExtraPropertiesExample") {
-    doLast {
-        val apple = rootProject.extra["apple"] as? Map<*, *>
-        val emoji = apple?.get("emoji") as? String
-        val price = apple?.get("price") as? Int
-        println(emoji)
-        println(price)
-    }
-}
-
-// https://github.com/mikepenz/AboutLibraries?tab=readme-ov-file#gradle-plugin-configuration
-tasks.register("printAbortLibrariesConfigPath") {
-    doLast {
-        println(aboutLibraries.collect.configPath.get().asFile.absolutePath)
-    }
-}
-
-// https://github.com/mikepenz/AboutLibraries
-tasks.register("printLibrariesJson") {
-    doLast {
-        file(path = "build/generated/aboutLibraries").walkTopDown()
-            .filter { it.name == "aboutlibraries.json" }.forEach { println(it.absolutePath) }
     }
 }

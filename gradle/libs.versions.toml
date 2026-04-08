@@ -18,7 +18,7 @@ fragment = "+" # https://developer.android.com/jetpack/androidx/releases/fragmen
 google-services = "+" # https://developers.google.com/android/guides/releases
 hilt = "+" # https://github.com/google/dagger/releases
 hilt-androidx = "+" # https://developer.android.com/jetpack/androidx/releases/hilt
-kotlin = "+" # https://kotlinlang.org/docs/releases.html
+kotlin = "2.3.20" # https://kotlinlang.org/docs/releases.html
 kotlinx-serialization = "+" # https://github.com/Kotlin/kotlinx.serialization/releases
 ksp = "+" # https://github.com/google/ksp/releases
 lifecycle = "+" # https://developer.android.com/jetpack/androidx/releases/lifecycle
@@ -34,8 +34,8 @@ retrofit = "+" # https://github.com/square/retrofit/releases
 room = "+" # https://developer.android.com/jetpack/androidx/releases/room
 
 [libraries]
-about-libraries-core = { module = "com.mikepenz:aboutlibraries-core", version.ref = "about-libraries" }
-about-libraries-compose = { module = "com.mikepenz:aboutlibraries-compose-m3", version.ref = "about-libraries" }
+about-libraries-core = { group = "com.mikepenz", name = "aboutlibraries-core", version.ref = "about-libraries" }
+about-libraries-compose = { group = "com.mikepenz", name = "aboutlibraries-compose-m3", version.ref = "about-libraries" }
 activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 animation = { group = "androidx.compose.animation", name = "animation" }

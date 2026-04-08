@@ -1,8 +1,3 @@
-# Style guides
-
-- https://developer.android.com/kotlin/style-guide
-- https://kotlinlang.org/docs/coding-conventions.html
-
 # How to show a dependency tree
 
 ```shell
@@ -47,16 +42,6 @@ task clean(type: Delete) {
 ```
 
 # String
-
-# WebViewClient
-
-## How to get `WebViewClient.onReceivedSslError()` called
-
-Open https://httpforever.com
-
-## How to get `WebViewClient.onReceivedHttpError()` called
-
-Open https://httpstat.us/404
 
 # How to encode HTML entities
 

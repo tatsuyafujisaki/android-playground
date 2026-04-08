@@ -1,5 +1,3 @@
-extra["apple"] = mapOf("emoji" to "🍎", "price" to 42)
-
 buildscript {
     dependencies {
         // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
