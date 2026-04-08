@@ -42,7 +42,7 @@ android {
     // https://developer.android.com/build/build-variants#signing
     signingConfigs {
         create("release") {
-            keyAlias = "upload" // keystoreProperties["keyAlias"] as String
+            keyAlias = keystoreProperties["keyAlias"] as String
             keyPassword = keystoreProperties["keyPassword"] as String
             storeFile = file(path = keystoreProperties["storeFile"] as String)
             storePassword = keystoreProperties["storePassword"] as String
