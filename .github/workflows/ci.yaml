@@ -13,9 +13,9 @@ jobs:
           distribution: 'jetbrains'
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v6
-      - run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" > app/google-services.json
-      - run: echo "${{ secrets.KEYSTORE_PROPERTIES }}" > keystore.properties
-      - run: echo "${{ secrets.UPLOAD_KEYSTORE_JKS }}" | base64 --decode > app/upload-keystore.jks
+      - run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
+      - run: echo "${{ secrets.KEYSTORE_PROPERTIES_BASE64 }}" | base64 --decode > keystore.properties
+      - run: echo "${{ secrets.UPLOAD_KEYSTORE_JKS_BASE64 }}" | base64 --decode > app/upload-keystore.jks
       - run: ./gradlew --info test
       - run: ./gradlew assembleRelease
       - uses: actions/upload-artifact@v7
