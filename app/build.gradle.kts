@@ -11,7 +11,6 @@ plugins {
     alias(libs.plugins.google.services)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.protobuf)
     alias(libs.plugins.about.libraries)
     id("androidx.navigation.safeargs.kotlin") // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
     id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
