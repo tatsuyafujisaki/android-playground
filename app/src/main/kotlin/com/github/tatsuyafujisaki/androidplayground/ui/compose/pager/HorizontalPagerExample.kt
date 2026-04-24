@@ -23,8 +23,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -36,7 +37,8 @@ private val URLS = List(size = 3) { RandomImage.getUrl() }
 @Preview
 @Composable
 fun HorizontalPagerExample() {
-    val screenWidth = LocalConfiguration.current.screenWidthDp
+    val density = LocalDensity.current
+    val screenWidth = with(density) { LocalWindowInfo.current.containerSize.width.toDp() }
     val pagerState = rememberPagerState(pageCount = { URLS.size })
     val uriHandler = LocalUriHandler.current
 
@@ -67,11 +69,11 @@ fun HorizontalPagerExample() {
                 .align(alignment = Alignment.BottomCenter),
             horizontalArrangement = Arrangement.spacedBy(space = 4.dp)
         ) {
-            val singleIndicatorWidth = screenWidth * 0.64 / pagerState.pageCount
+            val singleIndicatorWidth = screenWidth * 0.64f / pagerState.pageCount
 
             repeat(times = pagerState.pageCount) {
                 LinearIndicator(
-                    width = singleIndicatorWidth.dp,
+                    width = singleIndicatorWidth,
                     currentPage = it == pagerState.currentPage
                 )
                 // CircularIndicator(currentPage = it == pagerState.currentPage)
