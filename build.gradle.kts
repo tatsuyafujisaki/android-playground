@@ -1,11 +1,3 @@
-buildscript {
-    dependencies {
-        // https://developer.android.com/guide/navigation/use-graph/safe-args#enable
-        // https://developer.android.com/jetpack/androidx/releases/navigation#safe_args
-        classpath(libs.navigation.safe.args.gradle.plugin)
-    }
-}
-
 plugins {
     alias(libs.plugins.about.libraries) apply false
     alias(libs.plugins.com.android.application) apply false
