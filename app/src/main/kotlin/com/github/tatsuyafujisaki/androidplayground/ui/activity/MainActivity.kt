@@ -19,12 +19,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import androidx.navigation3.runtime.NavEntry
+import androidx.navigation3.ui.NavDisplay
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.data.MyRemoteConfig
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
@@ -52,9 +50,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
-            val navBackStackEntry by navController.currentBackStackEntryAsState()
-            val currentDestination = navBackStackEntry?.destination
+            val backStack = remember { mutableStateListOf<Screen>(Screen.Main) }
+            val currentDestination = backStack.last()
 
             val items = listOf(
                 Screen.Main,
@@ -68,11 +65,10 @@ class MainActivity : AppCompatActivity() {
                         TopAppBar(
                             title = {
                                 Text(
-                                    text = when (currentDestination?.route) {
-                                        Screen.Main.route -> stringResource(R.string.main)
-                                        Screen.Second.route -> stringResource(R.string.second)
-                                        Screen.Third.route -> stringResource(R.string.third)
-                                        else -> stringResource(R.string.app_name)
+                                    text = when (currentDestination) {
+                                        Screen.Main -> stringResource(R.string.main)
+                                        Screen.Second -> stringResource(R.string.second)
+                                        Screen.Third -> stringResource(R.string.third)
                                     }
                                 )
                             },
@@ -93,14 +89,11 @@ class MainActivity : AppCompatActivity() {
                                         )
                                     },
                                     label = { Text(stringResource(screen.resourceId)) },
-                                    selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
+                                    selected = currentDestination == screen,
                                     onClick = {
-                                        navController.navigate(screen.route) {
-                                            popUpTo(navController.graph.findStartDestination().id) {
-                                                saveState = true
-                                            }
-                                            launchSingleTop = true
-                                            restoreState = true
+                                        if (currentDestination != screen) {
+                                            backStack.clear()
+                                            backStack.add(screen)
                                         }
                                     }
                                 )
@@ -108,19 +101,30 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 ) { innerPadding ->
-                    NavHost(
-                        navController,
-                        startDestination = Screen.Main.route,
-                        Modifier.padding(innerPadding)
-                    ) {
-                        composable(Screen.Main.route) {
-                            MainScreen {
-                                navController.navigate(Screen.Third.route)
+                    NavDisplay(
+                        backStack = backStack,
+                        modifier = Modifier.padding(innerPadding),
+                        onBack = {
+                            if (backStack.size > 1) {
+                                backStack.removeAt(backStack.size - 1)
+                            } else {
+                                finish()
+                            }
+                        },
+                        entryProvider = { screen ->
+                            NavEntry(key = screen) {
+                                when (screen) {
+                                    Screen.Main -> {
+                                        MainScreen {
+                                            backStack.add(Screen.Third)
+                                        }
+                                    }
+                                    Screen.Second -> SecondScreen()
+                                    Screen.Third -> ThirdScreen()
+                                }
                             }
                         }
-                        composable(Screen.Second.route) { SecondScreen() }
-                        composable(Screen.Third.route) { ThirdScreen() }
-                    }
+                    )
                 }
             }
         }
