@@ -108,6 +108,7 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.datastore.preferences)
     implementation(libs.firebase.analytics)
+    implementation(libs.firebase.appcheck.playintegrity)
     implementation(libs.firebase.config)
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.messaging)

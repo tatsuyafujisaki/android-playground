@@ -4,6 +4,9 @@ import android.app.Application
 import android.os.Build
 import android.os.StrictMode
 import android.util.Log
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import dagger.hilt.android.HiltAndroidApp
 import java.util.concurrent.Executors
 
@@ -11,7 +14,12 @@ import java.util.concurrent.Executors
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        println("Kotlin version: ${KotlinVersion.CURRENT}")
+
+        FirebaseApp.initializeApp(this)
+        FirebaseAppCheck.getInstance().installAppCheckProviderFactory(
+            PlayIntegrityAppCheckProviderFactory.getInstance()
+        )
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api
             StrictMode.setVmPolicy(
