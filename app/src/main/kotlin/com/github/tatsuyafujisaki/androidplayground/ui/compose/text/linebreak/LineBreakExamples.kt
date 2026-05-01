@@ -35,36 +35,36 @@ fun LineBreakExamples() {
         item {
             Text(text = "LineBreak.Paragraph")
         }
-        repeat(10) {
+        repeat(10) { index ->
             val texts = listOf(
-                generateText(s = "a", charCountPerWord = it + 1),
-                generateText(s = "あ", charCountPerWord = it + 1)
+                generateText(s = "a", charCountPerWord = index + 1),
+                generateText(s = "あ", charCountPerWord = index + 1)
             )
-            texts.forEach {
+            texts.forEach { text ->
                 item {
                     Text(
-                        text = it,
+                        text = text,
                         modifier = Modifier.background(color = Color.Cyan),
                         style = TextStyle(lineBreak = LineBreak.Unspecified),
                     )
                 }
                 item {
                     Text(
-                        text = it,
+                        text = text,
                         modifier = Modifier.background(color = Color.Magenta),
                         style = TextStyle(lineBreak = LineBreak.Simple)
                     )
                 }
                 item {
                     Text(
-                        text = it,
+                        text = text,
                         modifier = Modifier.background(color = Color.Cyan),
                         style = TextStyle(lineBreak = LineBreak.Heading)
                     )
                 }
                 item {
                     Text(
-                        text = it,
+                        text = text,
                         modifier = Modifier.background(color = Color.Magenta),
                         style = TextStyle(lineBreak = LineBreak.Paragraph)
                     )
