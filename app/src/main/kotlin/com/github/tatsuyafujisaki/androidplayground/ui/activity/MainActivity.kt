@@ -14,7 +14,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -29,7 +28,6 @@ import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.MainScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.SecondScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.ThirdScreen
-import com.github.tatsuyafujisaki.androidplayground.ui.viewmodel.MyActivityViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.remoteconfig.get
 import com.google.firebase.remoteconfig.remoteConfig
@@ -44,8 +42,6 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var json: Json
 
-    private val viewModel: MyActivityViewModel by viewModels()
-
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             val items = listOf(
                 Screen.Main,
                 Screen.Second,
-                Screen.Third
+                Screen.Third,
             )
 
             MaterialTheme {
@@ -110,21 +106,20 @@ class MainActivity : AppCompatActivity() {
                             } else {
                                 finish()
                             }
-                        },
-                        entryProvider = { screen ->
-                            NavEntry(key = screen) {
-                                when (screen) {
-                                    Screen.Main -> {
-                                        MainScreen {
-                                            backStack.add(Screen.Third)
-                                        }
+                        }
+                    ) { screen ->
+                        NavEntry(key = screen) {
+                            when (screen) {
+                                Screen.Main -> {
+                                    MainScreen {
+                                        backStack.add(Screen.Third)
                                     }
-                                    Screen.Second -> SecondScreen()
-                                    Screen.Third -> ThirdScreen()
                                 }
+                                Screen.Second -> SecondScreen()
+                                Screen.Third -> ThirdScreen()
                             }
                         }
-                    )
+                    }
                 }
             }
         }
@@ -157,9 +152,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    sealed class Screen(val route: String, val resourceId: Int, val iconId: Int) {
-        object Main : Screen("main", R.string.main, R.drawable.baseline_home_24)
-        object Second : Screen("second", R.string.second, R.drawable.baseline_explore_24)
-        object Third : Screen("third", R.string.third, R.drawable.baseline_account_circle_24)
+    sealed class Screen(val resourceId: Int, val iconId: Int) {
+        object Main : Screen(R.string.main, R.drawable.baseline_home_24)
+        object Second : Screen(R.string.second, R.drawable.baseline_explore_24)
+        object Third : Screen(R.string.third, R.drawable.baseline_account_circle_24)
     }
 }
