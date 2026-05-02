@@ -6,11 +6,9 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
-import androidx.annotation.IdRes
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat.Type
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.navigation.findNavController
 
 /**
  * Impractical redundant explanatory wrappers
@@ -79,10 +77,6 @@ object ActivityUtil {
         }
     }
 
-    fun getNavController(
-        activity: Activity,
-        @IdRes navHostFragmentId: Int,
-    ) = activity.findNavController(navHostFragmentId)
 
     fun hasEnabledCallbacks(activity: ComponentActivity) {
         activity.onBackPressedDispatcher.hasEnabledCallbacks()

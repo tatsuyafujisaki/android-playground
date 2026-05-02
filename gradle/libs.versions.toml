@@ -14,7 +14,6 @@ datastore = "+" # https://developer.android.com/jetpack/androidx/releases/datast
 firebase-bom = "+" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
 firebase-appdistribution-plugin = "+" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
 firebase-crashlytics-plugin = "+" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
-fragment = "+" # https://developer.android.com/jetpack/androidx/releases/fragment
 google-services = "+" # https://developers.google.com/android/guides/releases
 hilt = "+" # https://github.com/google/dagger/releases
 hilt-androidx = "+" # https://developer.android.com/jetpack/androidx/releases/hilt
@@ -54,8 +53,6 @@ firebase-config = { group = "com.google.firebase", name = "firebase-config" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
 foundation = { group = "androidx.compose.foundation", name = "foundation" }
-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
-fragment-testing = { group = "androidx.fragment", name = "fragment-testing", version.ref = "fragment" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-compiler-androidx = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hilt-androidx" }

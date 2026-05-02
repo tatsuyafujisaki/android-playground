@@ -1,7 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.util.Log
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -88,20 +87,4 @@ object LifecycleUtil {
                 }
             }
 
-    fun onViewCreated(fragment: Fragment) {
-        fragment.viewLifecycleOwner.lifecycle.addObserver(
-            object : DefaultLifecycleObserver {
-                override fun onDestroy(owner: LifecycleOwner) {
-                    println("Fragment.onDestroyView() is called.")
-                }
-            },
-        )
-        fragment.lifecycle.addObserver(
-            object : DefaultLifecycleObserver {
-                override fun onDestroy(owner: LifecycleOwner) {
-                    println("Fragment.onDestroy() is called.")
-                }
-            },
-        )
-    }
 }
