@@ -2,7 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.ui.activity
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -14,12 +13,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.lifecycleScope
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
 import com.github.tatsuyafujisaki.androidplayground.R
@@ -115,6 +114,7 @@ class MainActivity : AppCompatActivity() {
                                         backStack.add(Screen.Third)
                                     }
                                 }
+
                                 Screen.Second -> SecondScreen()
                                 Screen.Third -> ThirdScreen()
                             }
