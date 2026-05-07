@@ -1,4 +1,3 @@
-# Edge-to-edge
 - If `targetSdk = 35` or later, edge-to-edge is enabled by default on Android 15 or later without calling [enableEdgeToEdge()](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)).
 - In Android 14 or earlier, `enableEdgeToEdge()` must be called in each Activity to enable edge-to-edge.
 
@@ -27,15 +26,3 @@ https://developer.android.com/develop/ui/views/layout/edge-to-edge
 > Note: SociaLite has one activity. If your app has more than one activity, enableEdgeToEdge should be called on each activity.
 
 https://developer.android.com/codelabs/edge-to-edge#3
-
-# Predictable back gesture
-
-&nbsp;|Android 12|Android 13|Android 14|Android 15|Note
---|--|--|--|--|--
-(Application-level) Predictive back gesture|Unavailable|Available but disabled by default|(same as ⬅️)|(same as ⬅️)
-Activity-level predictive back gesture|Unavailable|Unavailable|Available|Available|> Starting with Android 14, the `android:enableOnBackInvokedCallback` flag lets you opt-in to predictive system animations at the activity level.<br>https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-activity-level
-Settings > System > Developer options > Predictive back animations|Does not exist|Exists|Exists|Does not exist|> Starting with Android 15, the developer option for predictive back animations is no longer available.<br>https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#dev-option<br><br>> With Android 15, system animations such as back-to-home, cross-task, and cross-activity are no longer behind the developer option.<br>https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#dev-option
-
-- https://developer.android.com/codelabs/predictive-back
-- https://developer.android.com/develop/ui/compose/system/predictive-back
-- https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture
