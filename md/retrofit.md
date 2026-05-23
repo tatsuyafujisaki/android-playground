@@ -28,7 +28,7 @@ https://example.com/api/v1/mydata?key2=a&key2=b
 ```
 
 # What happens if a key is missing or the value of a key is null in the JSON response?
-## If the expected type of a key's value in the JSON response is array ...
+## If the expected type of key value in the JSON response is array ...
 Corresponding property in data class annotated with `@Serializable`|"foo" key is missing in JSON response|"foo":null in JSON response
 --|--|--
 val foo: List&lt;String>|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
@@ -36,7 +36,7 @@ val foo: List&lt;String>?|[MissingFieldException](https://kotlinlang.org/api/kot
 val foo: List&lt;String> = emptyList()|Success|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
 val foo: List&lt;String>? = null|Success|Success
 
-## If the expected type of a key's value in the JSON response is string ...
+## If the expected type of key value in the JSON response is string ...
 Corresponding property in data class annotated with `@Serializable`|"foo" key is missing in JSON response|"foo":null in JSON response
 --|--|--
 val foo: String|[MissingFieldException](https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-missing-field-exception/)|[JsonDecodingException](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/json/commonMain/src/kotlinx/serialization/json/internal/JsonExceptions.kt#L18-L21)
