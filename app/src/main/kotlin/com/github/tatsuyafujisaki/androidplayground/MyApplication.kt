@@ -1,7 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground
 
 import android.app.Application
-import android.os.Build
 import android.os.StrictMode
 import com.google.firebase.FirebaseApp
 import com.google.firebase.appcheck.FirebaseAppCheck
@@ -18,7 +17,7 @@ class MyApplication : Application() {
             PlayIntegrityAppCheckProviderFactory.getInstance()
         )
 
-        if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (BuildConfig.DEBUG) {
             // https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api
             StrictMode.setVmPolicy(
                 StrictMode.VmPolicy.Builder()

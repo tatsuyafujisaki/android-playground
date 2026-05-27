@@ -9,8 +9,6 @@ import android.graphics.Color
 import android.graphics.ImageDecoder
 import android.graphics.Matrix
 import android.graphics.Paint
-import android.os.Build
-import android.provider.MediaStore
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
@@ -49,11 +47,7 @@ object GraphicsUtil {
         val uri = url.toUri()
 
         return runCatching {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, uri))
-            } else {
-                MediaStore.Images.Media.getBitmap(contentResolver, uri)
-            }
+            ImageDecoder.decodeBitmap(ImageDecoder.createSource(contentResolver, uri))
         }.getOrNull()
     }
 

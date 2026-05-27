@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager.PackageInfoFlags
 import android.content.res.Resources
-import android.os.Build
 import android.provider.Settings
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -35,11 +34,7 @@ object ContextUtil {
     fun getVersionName(context: Context): String {
         val packageManager = context.packageManager
         val packageName = context.packageName
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            packageManager.getPackageInfo(packageName, PackageInfoFlags.of(0))
-        } else {
-            packageManager.getPackageInfo(packageName, 0)
-        }?.versionName ?: ""
+        return packageManager.getPackageInfo(packageName, PackageInfoFlags.of(0)).versionName ?: ""
     }
 
     /**
