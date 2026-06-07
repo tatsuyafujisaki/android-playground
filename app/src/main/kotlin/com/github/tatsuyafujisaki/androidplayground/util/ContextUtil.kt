@@ -3,12 +3,9 @@ package com.github.tatsuyafujisaki.androidplayground.util
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager.PackageInfoFlags
-import android.content.res.Resources
 import android.provider.Settings
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import android.util.DisplayMetrics
-import android.util.Log
 import android.view.MenuItem
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -63,40 +60,6 @@ object ContextUtil {
                     ("https://play.google.com/store/apps/details?id=${context.packageName}").toUri()
                 setPackage("com.android.vending")
             },
-        )
-    }
-
-    /**
-     * @param displayMetrics is a property of [Resources]
-     */
-    fun printScreenInfo(displayMetrics: DisplayMetrics) {
-        require(displayMetrics.density == displayMetrics.densityDpi / 160f)
-
-        val densityQualifier =
-            displayMetrics.densityDpi.let {
-                when {
-                    it <= DisplayMetrics.DENSITY_LOW -> "ldpi (~120dpi)"
-                    it <= DisplayMetrics.DENSITY_MEDIUM -> "mdpi (121~160dpi)"
-                    it <= DisplayMetrics.DENSITY_HIGH -> "hdpi (161~240dpi)"
-                    it <= DisplayMetrics.DENSITY_XHIGH -> "xhdpi (241~320dpi)"
-                    it <= DisplayMetrics.DENSITY_XXHIGH -> "xxhdpi (321~480dpi)"
-                    it <= DisplayMetrics.DENSITY_XXXHIGH -> "xxxhdpi (481~640dpi)"
-                    else -> error("Screen quantifier for $it is not supported.")
-                }
-            }
-
-        Log.d(TAG, "dpi: $${displayMetrics.densityDpi}")
-        Log.d(TAG, "density [(# of 160px) / inch] (= dpi / 160): ${displayMetrics.density}")
-        Log.d(TAG, "densityQualifier: $densityQualifier")
-        Log.d(TAG, "widthPixels: ${displayMetrics.widthPixels}")
-        Log.d(TAG, "heightPixels: ${displayMetrics.heightPixels}")
-        Log.d(
-            TAG,
-            "widthInDp [(1 / 160) inch] (= px / density): ${(displayMetrics.widthPixels / displayMetrics.density).toInt()}",
-        )
-        Log.d(
-            TAG,
-            "heightInDp [(1 / 160) inch] (= px / density): ${(displayMetrics.heightPixels / displayMetrics.density).toInt()}",
         )
     }
 
