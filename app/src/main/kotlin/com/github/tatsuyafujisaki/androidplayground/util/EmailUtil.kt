@@ -5,6 +5,10 @@ import android.content.Intent
 import android.net.Uri
 import androidx.core.net.toUri
 
+/**
+ * Impractical redundant explanatory wrappers
+ */
+@Suppress("unused")
 object EmailUtil {
     fun Activity.composeEmailWithNoAttachment(
         to: Array<String>,
@@ -16,7 +20,7 @@ object EmailUtil {
          */
         val intent =
             Intent(Intent.ACTION_SENDTO).apply {
-                data = "mailto:".toUri() // filters only email apps.
+                data = "mailto:".toUri() // Filters only email apps.
                 putExtra(Intent.EXTRA_EMAIL, to)
                 putExtra(Intent.EXTRA_SUBJECT, subject)
                 putExtra(Intent.EXTRA_TEXT, body)
@@ -37,7 +41,11 @@ object EmailUtil {
          */
         val intent =
             Intent(Intent.ACTION_SEND).apply {
-                data = "mailto:".toUri() // filters only email apps.
+                type = "message/rfc822"
+                selector =
+                    Intent(Intent.ACTION_SENDTO).apply {
+                        data = "mailto:".toUri() // Filters only email apps.
+                    }
                 putExtra(Intent.EXTRA_EMAIL, to)
                 putExtra(Intent.EXTRA_SUBJECT, subject)
                 putExtra(Intent.EXTRA_TEXT, body)
@@ -59,11 +67,16 @@ object EmailUtil {
          */
         val intent =
             Intent(Intent.ACTION_SEND_MULTIPLE).apply {
-                data = "mailto:".toUri() // filters only email apps.
+                type = "message/rfc822"
+                selector =
+                    Intent(Intent.ACTION_SENDTO).apply {
+                        data = "mailto:".toUri() // Filters only email apps.
+                    }
                 putExtra(Intent.EXTRA_EMAIL, to)
                 putExtra(Intent.EXTRA_SUBJECT, subject)
                 putExtra(Intent.EXTRA_TEXT, body)
-                putExtra(Intent.EXTRA_STREAM, attachments)
+                // ACTION_SEND_MULTIPLE requires an ArrayList, not an Array.
+                putParcelableArrayListExtra(Intent.EXTRA_STREAM, ArrayList(attachments.toList()))
             }
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)

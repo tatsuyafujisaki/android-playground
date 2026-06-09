@@ -77,7 +77,6 @@ object ActivityUtil {
         }
     }
 
-
     fun hasEnabledCallbacks(activity: ComponentActivity) {
         activity.onBackPressedDispatcher.hasEnabledCallbacks()
     }
