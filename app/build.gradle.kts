@@ -66,13 +66,6 @@ android {
             // `./gradlew assembleRelease appDistributionUploadRelease`
             firebaseAppDistribution {
                 serviceCredentialsFile = "$rootDir/curious-llc-39ec9fbfbf5d.json"
-                releaseNotes = "Release notes!"
-                // If the email addresses below don't exist in the list of testers in the Firebase console, they will be automatically added.
-                // https://console.firebase.google.com/project/curious-llc/appdistribution/app/android:com.github.tatsuyafujisaki.androidplayground/testers
-                // Your app will still upload even if you don't specify a tester.
-                // However, you must open Firebase Console and select the testers you want to distribute your app to.
-                // https://console.firebase.google.com/project/curious-llc/appdistribution/app/android:com.github.tatsuyafujisaki.androidplayground/releases
-                testers = "foo@example.com, bar@example.com"
             }
         }
     }
