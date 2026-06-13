@@ -135,6 +135,7 @@ dependencies {
     implementation(platform(libs.retrofit.bom))
     ksp(libs.hilt.compiler)
     ksp(libs.hilt.compiler.androidx)
+    ksp(libs.kotlin.metadata.jvm)
     ksp(libs.room.compiler)
     testImplementation(kotlin("test-junit"))
 }
