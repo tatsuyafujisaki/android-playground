@@ -1,0 +1,6 @@
+tests:
+- displayName: Launch App
+  id: launch-test
+  steps:
+  - goal: Launch the app.
+    finalScreenAssertion: The text "Hello Compose!" is visible.

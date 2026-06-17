@@ -51,6 +51,17 @@ android {
     buildTypes {
         getByName("debug") {
             applicationIdSuffix = ".debug"
+
+            // https://firebase.google.com/docs/app-distribution/android/app-testing-agent
+            // https://firebase.google.com/docs/app-distribution/android/distribute-gradle#step_3_configure_your_distribution_properties
+            // How to create and distribute an APK file:
+            // `./gradlew assembleDebug appDistributionUploadDebug`
+            firebaseAppDistribution {
+                // `gcloud firebase test android models list shows` the available device models.
+                testDevices = "model=tokay,version=36,locale=en,orientation=portrait"
+                testCases = "launch-test"
+                testCasesFile = "firebase-tests/tests.yaml"
+            }
         }
         getByName("release") {
             isMinifyEnabled = true
@@ -60,13 +71,6 @@ android {
             )
 
             signingConfig = signingConfigs.getByName("release")
-
-            // https://firebase.google.com/docs/app-distribution/android/distribute-gradle#step_3_configure_your_distribution_properties
-            // How to create and distribute an APK file:
-            // `./gradlew assembleRelease appDistributionUploadRelease`
-            firebaseAppDistribution {
-                serviceCredentialsFile = "$rootDir/curious-llc-39ec9fbfbf5d.json"
-            }
         }
     }
 
