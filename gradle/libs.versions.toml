@@ -2,6 +2,7 @@
 about-libraries = "+" # https://github.com/mikepenz/AboutLibraries/releases
 activity = "+" # https://developer.android.com/jetpack/androidx/releases/activity
 appcompat = "+" # https://developer.android.com/jetpack/androidx/releases/appcompat
+appfunctions = "+" # https://developer.android.com/jetpack/androidx/releases/appfunctions
 coil-compose = "+" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
 com-android-application = "9.2.1" # https://developer.android.com/build/releases/gradle-plugin
 compile-target-sdk = "37"
@@ -11,8 +12,8 @@ constraintlayout-compose = "+" # https://developer.android.com/jetpack/androidx/
 coordinatorlayout = "+" # https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
 coroutines = "+" # https://github.com/Kotlin/kotlinx.coroutines/releases
 datastore = "+" # https://developer.android.com/jetpack/androidx/releases/datastore
-firebase-bom = "+" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
 firebase-appdistribution-plugin = "+" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
+firebase-bom = "+" # https://firebase.google.com/support/release-notes/android#compare-bom-versions
 firebase-crashlytics-plugin = "+" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
 google-services = "+" # https://developers.google.com/android/guides/releases
 hilt = "+" # https://github.com/google/dagger/releases
@@ -83,6 +84,9 @@ retrofit-bom = { group = "com.squareup.retrofit2", name = "retrofit-bom", versio
 retrofit-converter-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+appfunctions = { group = "androidx.appfunctions", name = "appfunctions", version.ref = "appfunctions" }
+appfunctions-service = { group = "androidx.appfunctions", name = "appfunctions-service", version.ref = "appfunctions" }
+appfunctions-compiler = { group = "androidx.appfunctions", name = "appfunctions-compiler", version.ref = "appfunctions" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppFunctionAppMetadata xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions"
+    appfn:description="This app provides functions for album management.
+    Operational Patterns:
+    - Use 'createAlbum' to add a new album by providing a title.
+    - Use 'getAlbum' to retrieve an existing album by its identifier."
+    appfn:displayDescription="@string/app_functions_description" />

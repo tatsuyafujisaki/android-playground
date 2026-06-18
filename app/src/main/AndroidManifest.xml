@@ -29,6 +29,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+
+        <property
+            android:name="android.app.appfunctions.app_metadata"
+            android:resource="@xml/app_metadata" />
+
+        <service
+            android:name=".appfunctions.AlbumAppFunctionService"
+            android:exported="true"
+            android:permission="android.permission.BIND_APP_FUNCTION_SERVICE">
+            <intent-filter>
+                <action android:name="android.app.appfunctions.AppFunctionService" />
+            </intent-filter>
+            <property
+                android:name="android.app.appfunctions"
+                android:value="album_app_functions.xml" />
+            <property
+                android:name="android.app.appfunctions.app_functions"
+                android:value="album_app_functions.xml" />
+            <property
+                android:name="android.app.appfunctions.v2"
+                android:value="album_app_functions.xml" />
+        </service>
+
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"

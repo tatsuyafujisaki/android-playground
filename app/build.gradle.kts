@@ -17,6 +17,10 @@ plugins {
     embeddedKotlin("plugin.serialization") // https://kotlinlang.org/docs/serialization.html#add-plugins-and-dependencies
 }
 
+ksp {
+    arg("appfunctions:aggregateAppFunctions", "true")
+}
+
 // https://developer.android.com/studio/publish/app-signing#secure-shared-keystore
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
 val keystoreProperties = Properties()
@@ -130,6 +134,8 @@ dependencies {
     implementation(libs.navigation3.ui)
     implementation(libs.okhttp)
     implementation(libs.paging.compose)
+    implementation(libs.appfunctions)
+    implementation(libs.appfunctions.service)
     implementation(libs.protobuf.kotlin.lite)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.room.runtime)
@@ -141,6 +147,7 @@ dependencies {
     ksp(libs.hilt.compiler.androidx)
     ksp(libs.kotlin.metadata.jvm)
     ksp(libs.room.compiler)
+    ksp(libs.appfunctions.compiler)
     testImplementation(kotlin("test-junit"))
 }
 

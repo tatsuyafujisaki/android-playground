@@ -7,4 +7,5 @@
     <!-- Fruit -->
     <string name="apple">🍎</string>
     <string name="orange">🍊</string>
+    <string name="app_functions_description">Manage albums in the playground app.</string>
 </resources>
