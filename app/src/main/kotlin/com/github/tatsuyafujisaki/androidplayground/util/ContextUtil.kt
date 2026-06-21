@@ -4,17 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager.PackageInfoFlags
 import android.provider.Settings
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
-import android.view.MenuItem
-import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
 import java.io.BufferedReader
-
-private const val TAG = "ContextUtil"
 
 /**
  * Impractical redundant explanatory wrappers
@@ -61,26 +53,5 @@ object ContextUtil {
                 setPackage("com.android.vending")
             },
         )
-    }
-
-    fun color(
-        menuItem: MenuItem,
-        @ColorInt color: Int,
-    ) {
-        menuItem.title =
-            SpannableString(menuItem.title.toString()).apply {
-                setSpan(ForegroundColorSpan(color), 0, length, 0)
-            }
-    }
-
-    fun color(
-        context: Context,
-        menuItem: MenuItem,
-        @ColorRes id: Int,
-    ) {
-        menuItem.title =
-            SpannableString(menuItem.title.toString()).apply {
-                setSpan(ForegroundColorSpan(ContextCompat.getColor(context, id)), 0, length, 0)
-            }
     }
 }
