@@ -9,7 +9,6 @@ import android.graphics.Color
 import android.graphics.ImageDecoder
 import android.graphics.Matrix
 import android.graphics.Paint
-import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
@@ -80,12 +79,6 @@ object GraphicsUtil {
             Matrix().apply { postRotate(degrees) },
             true,
         )
-
-    fun takeScreenshot(view: View): Bitmap {
-        val bitmap = createBitmap(view.width, view.height)
-        view.draw(Canvas(bitmap).apply { drawColor(Color.WHITE) })
-        return bitmap
-    }
 
     fun drawCircleAsBitmap(
         radius: Float = 100f,
