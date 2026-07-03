@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 fun TextAlignExample() {
     Text(
         modifier = Modifier.width(100.dp),
-        text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        text = "a".repeat(100),
         textAlign = TextAlign.Center,
     )
 }
