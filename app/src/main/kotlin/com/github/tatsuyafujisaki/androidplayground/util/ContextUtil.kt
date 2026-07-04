@@ -2,7 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.Context
 import android.content.Intent
-import android.provider.Settings
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
 import java.io.BufferedReader
@@ -12,13 +11,6 @@ import java.io.BufferedReader
  */
 @Suppress("unused")
 object ContextUtil {
-    object AutoRotation {
-        fun isAutoRotatable(context: Context) =
-            Settings.System.getInt(
-                context.contentResolver, Settings.System.ACCELEROMETER_ROTATION,
-            ) == 1
-    }
-
     /**
      * Read a text file in the "assets" directory.
      * cf. [ResourcesUtil.readResourceAsText]
