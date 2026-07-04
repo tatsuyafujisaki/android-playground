@@ -2,7 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.util
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager.PackageInfoFlags
 import android.provider.Settings
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
@@ -18,12 +17,6 @@ object ContextUtil {
             Settings.System.getInt(
                 context.contentResolver, Settings.System.ACCELEROMETER_ROTATION,
             ) == 1
-    }
-
-    fun getVersionName(context: Context): String {
-        val packageManager = context.packageManager
-        val packageName = context.packageName
-        return packageManager.getPackageInfo(packageName, PackageInfoFlags.of(0)).versionName ?: ""
     }
 
     /**
