@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.util
+package com.github.tatsuyafujisaki.androidplayground.sample
 
 import android.content.Context
 import android.content.Intent
@@ -10,10 +10,10 @@ import java.io.BufferedReader
  * Impractical redundant explanatory wrappers
  */
 @Suppress("unused")
-object ContextUtil {
+object ContextSample {
     /**
      * Read a text file in the "assets" directory.
-     * cf. [ResourcesUtil.readResourceAsText]
+     * cf. [ResourcesSample.readResourceAsText]
      */
     fun readAssetAsText(
         context: Context,

@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.util.datastore
+package com.github.tatsuyafujisaki.androidplayground.sample.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -10,7 +10,7 @@ val Context.myPersonProtoDataStore: DataStore<MyPerson> by dataStore(
     serializer = MyPersonSerializer,
 )
 
-object ProtoDataStoreUtil {
+object ProtoDataStoreSample {
     suspend fun clear(context: Context) {
         context.myPersonProtoDataStore.updateData {
             it.toBuilder().clear().build()

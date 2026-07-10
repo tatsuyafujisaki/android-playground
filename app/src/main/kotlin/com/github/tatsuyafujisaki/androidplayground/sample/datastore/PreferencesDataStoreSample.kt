@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.util.datastore
+package com.github.tatsuyafujisaki.androidplayground.sample.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.map
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore("")
 
-object PreferencesDataStoreUtil {
+object PreferencesDataStoreSample {
     suspend fun <T> get(
         context: Context,
         key: Preferences.Key<T>,

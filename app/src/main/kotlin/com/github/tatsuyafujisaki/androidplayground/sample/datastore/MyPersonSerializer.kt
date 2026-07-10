@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.util.datastore
+package com.github.tatsuyafujisaki.androidplayground.sample.datastore
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
