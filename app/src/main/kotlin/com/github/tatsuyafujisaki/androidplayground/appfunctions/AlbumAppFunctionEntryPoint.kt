@@ -2,8 +2,8 @@ package com.github.tatsuyafujisaki.androidplayground.appfunctions
 
 import androidx.appfunctions.AppFunctionContext
 import androidx.appfunctions.AppFunctionService
-import androidx.appfunctions.service.AppFunction
-import androidx.appfunctions.service.AppFunctionEntryPoint
+import androidx.appfunctions.AppFunction
+import androidx.appfunctions.AppFunctionServiceEntryPoint
 import com.github.tatsuyafujisaki.androidplayground.data.Album
 import com.github.tatsuyafujisaki.androidplayground.data.AlbumToPost
 import com.github.tatsuyafujisaki.androidplayground.hilt.AppFunctionEntryPoint as HiltAppFunctionEntryPoint
@@ -12,7 +12,7 @@ import dagger.hilt.EntryPoints
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-@AppFunctionEntryPoint(
+@AppFunctionServiceEntryPoint(
     serviceName = "AlbumAppFunctionService",
     appFunctionXmlFileName = "album_app_functions"
 )
