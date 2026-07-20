@@ -17,7 +17,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import coil3.compose.AsyncImage
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.media.fillWindowHeight
-import com.github.tatsuyafujisaki.androidplayground.util.RandomImage
+import com.github.tatsuyafujisaki.androidplayground.sample.RandomImage
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

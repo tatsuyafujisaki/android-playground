@@ -11,7 +11,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import coil3.compose.AsyncImage
 import com.github.tatsuyafujisaki.androidplayground.R
-import com.github.tatsuyafujisaki.androidplayground.util.RandomImage
+import com.github.tatsuyafujisaki.androidplayground.sample.RandomImage
 
 @Composable
 fun AsyncImageOverlay(

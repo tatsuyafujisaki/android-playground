@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.util
+package com.github.tatsuyafujisaki.androidplayground.sample
 
 import android.net.Uri
 import androidx.core.net.toUri

@@ -1,4 +1,4 @@
-package com.github.tatsuyafujisaki.androidplayground.util
+package com.github.tatsuyafujisaki.androidplayground.sample
 
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver

@@ -30,7 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.github.tatsuyafujisaki.androidplayground.util.RandomImage
+import com.github.tatsuyafujisaki.androidplayground.sample.RandomImage
 
 private val URLS = List(size = 3) { RandomImage.getUrl() }
 
