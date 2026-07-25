@@ -5,6 +5,7 @@ import androidx.annotation.FloatRange
 /**
  * NB: You cannot validate "lower <= upper" with [FloatRange] because [FloatRange] can only take compile-time constants.
  */
+@Suppress("unused")
 data class FloatRangeExample(
     @FloatRange(from = MIN, to = MAX) val lower: Float,
     @FloatRange(from = MIN, to = MAX) val upper: Float,
