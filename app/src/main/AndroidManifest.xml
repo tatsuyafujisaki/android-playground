@@ -27,12 +27,6 @@
             </intent-filter>
 
             <property
-                android:name="android.app.appfunctions"
-                android:value="album_app_functions.xml" />
-            <property
-                android:name="android.app.appfunctions.app_functions"
-                android:value="album_app_functions.xml" />
-            <property
                 android:name="android.app.appfunctions.v2"
                 android:value="album_app_functions.xml" />
         </service>
@@ -43,7 +37,6 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
