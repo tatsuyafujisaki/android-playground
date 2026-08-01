@@ -8,7 +8,6 @@ com-android-application = "9.3.1" # https://developer.android.com/build/releases
 compile-target-sdk = "37"
 compose-bom = "+" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 constraintlayout = "+" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
-constraintlayout-compose = "+" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 coordinatorlayout = "+" # https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
 coroutines = "+" # https://github.com/Kotlin/kotlinx.coroutines/releases
 datastore = "+" # https://developer.android.com/jetpack/androidx/releases/datastore
@@ -42,8 +41,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil-compose" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout-compose" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout" }
 coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
