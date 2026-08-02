@@ -8,7 +8,6 @@ com-android-application = "9.3.1" # https://developer.android.com/build/releases
 compile-target-sdk = "37"
 compose-bom = "+" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 constraintlayout = "+" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
-coordinatorlayout = "+" # https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
 coroutines = "+" # https://github.com/Kotlin/kotlinx.coroutines/releases
 datastore = "+" # https://developer.android.com/jetpack/androidx/releases/datastore
 firebase-appdistribution-plugin = "+" # https://firebase.google.com/support/release-notes/android#latest_sdk_versions
@@ -42,7 +41,6 @@ coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref 
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout" }
-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }

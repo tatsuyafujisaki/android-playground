@@ -103,7 +103,6 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.constraintlayout)
-    implementation(libs.coordinatorlayout)
     implementation(libs.datastore)
     implementation(libs.datastore.preferences)
     implementation(libs.firebase.analytics)
