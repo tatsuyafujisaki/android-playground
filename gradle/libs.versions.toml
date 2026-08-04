@@ -6,6 +6,7 @@ appfunctions = "+" # https://developer.android.com/jetpack/androidx/releases/app
 coil-compose = "+" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
 com-android-application = "9.3.1" # https://developer.android.com/build/releases/gradle-plugin
 compile-target-sdk = "37"
+core-splashscreen = "+"
 compose-bom = "+" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 constraintlayout = "+" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 coroutines = "+" # https://github.com/Kotlin/kotlinx.coroutines/releases
@@ -39,6 +40,7 @@ animation = { group = "androidx.compose.animation", name = "animation" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil-compose" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil-compose" }
+core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout" }
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }
