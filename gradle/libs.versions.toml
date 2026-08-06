@@ -1,7 +1,6 @@
 [versions]
 about-libraries = "+" # https://github.com/mikepenz/AboutLibraries/releases
 activity = "+" # https://developer.android.com/jetpack/androidx/releases/activity
-appcompat = "+" # https://developer.android.com/jetpack/androidx/releases/appcompat
 appfunctions = "+" # https://developer.android.com/jetpack/androidx/releases/appfunctions
 coil-compose = "+" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
 com-android-application = "9.3.1" # https://developer.android.com/build/releases/gradle-plugin
@@ -37,7 +36,6 @@ about-libraries-compose = { group = "com.mikepenz", name = "aboutlibraries-compo
 activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 animation = { group = "androidx.compose.animation", name = "animation" }
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil-compose" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil-compose" }
 core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
