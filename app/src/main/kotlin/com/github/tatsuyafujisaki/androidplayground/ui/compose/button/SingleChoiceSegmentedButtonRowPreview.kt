@@ -3,7 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.button
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.MusicNote
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.SegmentedButton
@@ -23,8 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 private fun SingleChoiceSegmentedButtonRowPreview() {
     val options =
         listOf(
+            Icons.Default.Home to "Home",
             Icons.Default.Favorite to "Heart",
-            Icons.Default.MusicNote to "Music",
             Icons.Default.Star to "Star",
         )
     var selectedIndex by remember { mutableIntStateOf(0) }

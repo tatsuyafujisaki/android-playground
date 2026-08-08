@@ -3,7 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.text
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons.AutoMirrored
-import androidx.compose.material.icons.automirrored.filled.NavigateNext
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,7 +30,7 @@ fun VerticallyCenteredTextExample1(
             maxLines = 1,
         )
         Icon(
-            imageVector = AutoMirrored.Default.NavigateNext,
+            imageVector = AutoMirrored.Default.ArrowForward,
             contentDescription = null,
         )
     }
@@ -53,7 +53,7 @@ fun VerticallyCenteredTextExample2(
             maxLines = 1,
         )
         Icon(
-            imageVector = AutoMirrored.Default.NavigateNext,
+            imageVector = AutoMirrored.Default.ArrowForward,
             contentDescription = null,
         )
     }

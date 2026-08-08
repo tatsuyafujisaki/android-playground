@@ -3,7 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.row
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.NavigateNext
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -37,7 +37,7 @@ fun WeightedRowExample(
             maxLines = 1,
         )
         Icon(
-            imageVector = Icons.AutoMirrored.Default.NavigateNext,
+            imageVector = Icons.AutoMirrored.Default.ArrowForward,
             contentDescription = null,
         )
     }

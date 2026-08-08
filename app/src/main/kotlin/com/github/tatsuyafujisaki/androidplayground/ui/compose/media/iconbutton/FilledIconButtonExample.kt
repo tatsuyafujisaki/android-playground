@@ -1,7 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.media.iconbutton
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Android
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -16,7 +16,7 @@ private fun FilledIconButtonExample() {
 
     FilledIconButton(onClick = { uriHandler.openUri("https://example.com") }) {
         Icon(
-            imageVector = Icons.Default.Android,
+            imageVector = Icons.Default.Favorite,
             contentDescription = null,
             tint = Color.Unspecified,
         )

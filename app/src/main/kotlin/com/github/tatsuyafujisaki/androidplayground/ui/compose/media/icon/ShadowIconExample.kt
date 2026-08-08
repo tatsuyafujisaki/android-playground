@@ -3,7 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.media.icon
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.offset
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Android
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,7 +20,7 @@ private fun ShadowIconExample(modifier: Modifier = Modifier) {
         modifier = modifier,
         contentAlignment = Alignment.Center,
     ) {
-        val imageVector = Icons.Default.Android
+        val imageVector = Icons.Default.Favorite
         Icon(
             imageVector = imageVector,
             contentDescription = null,
