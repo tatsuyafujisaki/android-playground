@@ -2,8 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.media
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,7 +15,7 @@ import com.github.tatsuyafujisaki.androidplayground.R
 @Composable
 private fun ImageExample1() {
     Image(
-        imageVector = Icons.Default.Favorite,
+        painter = painterResource(R.drawable.favorite_24),
         contentDescription = null,
         modifier = Modifier.size(size = 48.dp),
         colorFilter = ColorFilter.tint(color = Color.Green)

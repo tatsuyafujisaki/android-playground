@@ -2,18 +2,17 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose.row
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
+import com.github.tatsuyafujisaki.androidplayground.R
 
 @Preview(showBackground = true)
 @Composable
@@ -24,7 +23,7 @@ fun WeightedRowExample(
         modifier = Modifier.fillMaxWidth(),
     ) {
         Icon(
-            imageVector = Icons.Default.Home,
+            painter = painterResource(R.drawable.baseline_home_24),
             contentDescription = null,
         )
         Text(
@@ -37,7 +36,7 @@ fun WeightedRowExample(
             maxLines = 1,
         )
         Icon(
-            imageVector = Icons.AutoMirrored.Default.ArrowForward,
+            painter = painterResource(R.drawable.arrow_forward_24),
             contentDescription = null,
         )
     }

@@ -1,12 +1,6 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.webview
 
 import androidx.compose.foundation.clickable
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.Icons.AutoMirrored.Filled
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -15,8 +9,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import com.github.tatsuyafujisaki.androidplayground.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -39,7 +35,7 @@ fun WebViewTopBar(
         },
         navigationIcon = {
             Icon(
-                imageVector = Icons.Filled.Close,
+                painter = painterResource(R.drawable.close_24),
                 contentDescription = null,
                 modifier = Modifier.clickable(onClick = onNavigationIconClick),
             )
@@ -50,14 +46,14 @@ fun WebViewTopBar(
                 enabled = canGoBack,
             ) {
                 Icon(
-                    imageVector = Filled.ArrowBack,
+                    painter = painterResource(R.drawable.arrow_back_24),
                     contentDescription = null,
                     tint = if (canGoBack) Color.Black else Color.Gray,
                 )
             }
             IconButton(onReloadClick) {
                 Icon(
-                    imageVector = Icons.Default.Refresh,
+                    painter = painterResource(R.drawable.refresh_24),
                     contentDescription = null,
                     tint = Color.Black,
                 )
@@ -67,7 +63,7 @@ fun WebViewTopBar(
                 enabled = canGoForward,
             ) {
                 Icon(
-                    imageVector = Filled.ArrowForward,
+                    painter = painterResource(R.drawable.arrow_forward_24),
                     contentDescription = null,
                     tint = if (canGoForward) Color.Black else Color.Gray,
                 )

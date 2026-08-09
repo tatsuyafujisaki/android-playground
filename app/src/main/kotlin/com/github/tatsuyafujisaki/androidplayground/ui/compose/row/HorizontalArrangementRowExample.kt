@@ -7,12 +7,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.github.tatsuyafujisaki.androidplayground.R
 
 @Composable
 private fun MyRow(
@@ -33,7 +33,7 @@ private fun HorizontalArrangementRowExample() {
     val content = @Composable { _: RowScope ->
         repeat(3) {
             Image(
-                imageVector = Icons.Default.Favorite,
+                painter = painterResource(R.drawable.favorite_24),
                 contentDescription = null,
             )
         }

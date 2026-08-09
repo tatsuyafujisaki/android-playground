@@ -1,8 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.compose.media.iconbutton
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.minimumInteractiveComponentSize
@@ -13,7 +10,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.github.tatsuyafujisaki.androidplayground.R
 
 @Preview
 @Composable
@@ -26,7 +25,7 @@ private fun IconToggleButtonExample() {
         onCheckedChange = { checked = it },
     ) {
         Icon(
-            imageVector = if (checked) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+            painter = painterResource(if (checked) R.drawable.favorite_24 else R.drawable.favorite_border_24),
             contentDescription = null,
             tint = Color.Red,
         )
