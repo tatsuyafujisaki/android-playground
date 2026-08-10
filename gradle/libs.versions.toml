@@ -32,7 +32,6 @@ room = "+" # https://developer.android.com/jetpack/androidx/releases/room
 [libraries]
 about-libraries-core = { group = "com.mikepenz", name = "aboutlibraries-core", version.ref = "about-libraries" }
 about-libraries-compose = { group = "com.mikepenz", name = "aboutlibraries-compose-m3", version.ref = "about-libraries" }
-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 animation = { group = "androidx.compose.animation", name = "animation" }
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil-compose" }

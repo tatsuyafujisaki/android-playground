@@ -96,7 +96,6 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
     implementation(libs.about.libraries.compose)
     implementation(libs.about.libraries.core)
-    implementation(libs.activity)
     implementation(libs.activity.compose)
     implementation(libs.animation)
     implementation(libs.coil.compose)
