@@ -138,7 +138,6 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(platform(libs.retrofit.bom))
     ksp(libs.hilt.compiler)
-    ksp(libs.hilt.compiler.androidx)
     ksp(libs.room.compiler)
     ksp(libs.appfunctions.compiler)
     testImplementation(kotlin("test-junit"))
