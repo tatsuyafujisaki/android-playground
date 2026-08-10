@@ -16,6 +16,7 @@ google-services = "+" # https://developers.google.com/android/guides/releases
 hilt = "+" # https://github.com/google/dagger/releases
 hilt-androidx = "+" # https://developer.android.com/jetpack/androidx/releases/hilt
 kotlin = "+" # https://kotlinlang.org/docs/releases.html
+kotlinx-datetime = "+" # https://github.com/Kotlin/kotlinx-datetime/releases
 kotlinx-serialization = "+" # https://github.com/Kotlin/kotlinx.serialization/releases
 ksp = "+" # https://github.com/google/ksp/releases
 lifecycle = "+" # https://developer.android.com/jetpack/androidx/releases/lifecycle
@@ -52,6 +53,7 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.r
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-androidx" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutines" }
+kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-protobuf = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-protobuf", version.ref = "kotlinx-serialization" }
 lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
