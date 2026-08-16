@@ -121,6 +121,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.navigation3)
     implementation(libs.logging.interceptor)
     implementation(libs.material3)
+    implementation(libs.compose.material3.adaptive.navigation3)
     implementation(libs.media3.common.ktx)
     implementation(libs.media3.exoplayer)
     implementation(libs.media3.ui.compose.material3)
