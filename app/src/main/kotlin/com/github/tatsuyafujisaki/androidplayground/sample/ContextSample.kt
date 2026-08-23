@@ -2,7 +2,6 @@ package com.github.tatsuyafujisaki.androidplayground.sample
 
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
 import java.io.BufferedReader
 
@@ -13,7 +12,6 @@ import java.io.BufferedReader
 object ContextSample {
     /**
      * Read a text file in the "assets" directory.
-     * cf. [ResourcesSample.readResourceAsText]
      */
     fun readAssetAsText(
         context: Context,
@@ -24,7 +22,7 @@ object ContextSample {
         context: Context,
         url: String,
     ) {
-        startActivity(context, Intent(Intent.ACTION_VIEW, url.toUri()), null)
+        context.startActivity(Intent(Intent.ACTION_VIEW, url.toUri()))
     }
 
     /**
