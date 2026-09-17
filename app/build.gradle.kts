@@ -13,8 +13,8 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.protobuf)
     alias(libs.plugins.about.libraries)
-    id("kotlin-parcelize") // https://developer.android.com/kotlin/parcelize
-    embeddedKotlin("plugin.serialization") // https://kotlinlang.org/docs/serialization.html#add-plugins-and-dependencies
+    alias(libs.plugins.parcelize)
+    alias(libs.plugins.serialization)
 }
 
 ksp {

@@ -90,4 +90,6 @@ firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" } # https://firebase.google.com/docs/android/setup#add-config-file
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" } # https://developer.android.com/training/dependency-injection/hilt-android#setup
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" } # https://developer.android.com/build/migrate-to-ksp#add-ksp, https://kotlinlang.org/docs/ksp-quickstart.html#add-a-processor
+parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" } # https://developer.android.com/kotlin/parcelize
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf" } # https://github.com/google/protobuf-gradle-plugin?tab=readme-ov-file#latest-version
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" } # https://kotlinlang.org/docs/serialization.html#add-plugins-and-dependencies
