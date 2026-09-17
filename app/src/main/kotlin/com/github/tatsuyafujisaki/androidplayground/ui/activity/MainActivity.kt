@@ -25,6 +25,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.data.MyRemoteConfig
 import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
+import com.github.tatsuyafujisaki.androidplayground.ui.activity.MainActivity.Screen.Third
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.MainScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.SecondScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.ThirdScreen
@@ -112,9 +113,11 @@ class MainActivity : ComponentActivity() {
                         NavEntry(key = screen) {
                             when (screen) {
                                 Screen.Main -> {
-                                    MainScreen {
-                                        backStack.add(Screen.Third)
-                                    }
+                                    MainScreen(
+                                        onClick = {
+                                            backStack.add(Third)
+                                        }
+                                    )
                                 }
 
                                 Screen.Second -> SecondScreen()
