@@ -92,7 +92,9 @@ android {
 
 dependencies {
     androidTestImplementation(kotlin("test-junit"))
+    androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
+    debugImplementation(platform(libs.compose.bom))
     debugImplementation(libs.ui.test.manifest)
     implementation(libs.about.libraries.compose)
     implementation(libs.about.libraries.core)

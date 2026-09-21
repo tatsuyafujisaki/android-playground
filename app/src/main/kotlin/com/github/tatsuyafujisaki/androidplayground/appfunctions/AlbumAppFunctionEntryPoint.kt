@@ -1,6 +1,5 @@
 package com.github.tatsuyafujisaki.androidplayground.appfunctions
 
-import androidx.appfunctions.AppFunctionContext
 import androidx.appfunctions.AppFunctionService
 import androidx.appfunctions.AppFunction
 import androidx.appfunctions.AppFunctionServiceEntryPoint
@@ -14,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 @AppFunctionServiceEntryPoint(
     serviceName = "AlbumAppFunctionService",
-    appFunctionXmlFileName = "album_app_functions"
+    appFunctionXmlFileName = "album_app_functions",
 )
 abstract class AlbumAppFunctionEntryPoint : AppFunctionService() {
 
@@ -24,21 +23,19 @@ abstract class AlbumAppFunctionEntryPoint : AppFunctionService() {
         super.onCreate()
         service = EntryPoints.get(
             applicationContext,
-            HiltAppFunctionEntryPoint::class.java
+            HiltAppFunctionEntryPoint::class.java,
         ).jsonPlaceholderService()
     }
 
     /**
      * Create a new album with the given title.
      *
-     * @param appFunctionContext The execution context.
      * @param title The title of the album.
      * @return The created album including its generated ID.
      */
     @AppFunction(isDescribedByKDoc = true)
     suspend fun createAlbum(
-        appFunctionContext: AppFunctionContext,
-        title: String
+        title: String,
     ): Album = withContext(Dispatchers.IO) {
         service.postAlbum(AlbumToPost(title))
     }
@@ -46,14 +43,12 @@ abstract class AlbumAppFunctionEntryPoint : AppFunctionService() {
     /**
      * Retrieve an album by its unique identifier.
      *
-     * @param appFunctionContext The execution context.
      * @param id The unique identifier of the album to retrieve.
      * @return The album with the specified ID.
      */
     @AppFunction(isDescribedByKDoc = true)
     suspend fun getAlbum(
-        appFunctionContext: AppFunctionContext,
-        id: Int
+        id: Int,
     ): Album = withContext(Dispatchers.IO) {
         service.getAlbum(id)
     }
