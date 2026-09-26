@@ -24,7 +24,7 @@ import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.data.MyRemoteConfig
-import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
+import com.github.tatsuyafujisaki.androidplayground.network.JsonPlaceholderService
 import com.github.tatsuyafujisaki.androidplayground.ui.activity.MainActivity.Screen.Third
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.MainScreen
 import com.github.tatsuyafujisaki.androidplayground.ui.compose.screen.SecondScreen
@@ -42,6 +42,9 @@ import kotlinx.serialization.json.Json
 class MainActivity : ComponentActivity() {
     @Inject
     lateinit var json: Json
+
+    @Inject
+    lateinit var jsonPlaceholderService: JsonPlaceholderService
 
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -130,8 +133,7 @@ class MainActivity : ComponentActivity() {
         }
 
         lifecycleScope.launch {
-            val service = RetrofitClient.createJsonPlaceholderService()
-            service.deleteAlbum(id = 1)
+            jsonPlaceholderService.deleteAlbum(id = 1)
         }
 
         doRemoteConfigStuff()
