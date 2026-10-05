@@ -8,8 +8,6 @@ import com.github.tatsuyafujisaki.androidplayground.data.AlbumToPost
 import com.github.tatsuyafujisaki.androidplayground.hilt.AppFunctionEntryPoint as HiltAppFunctionEntryPoint
 import com.github.tatsuyafujisaki.androidplayground.network.JsonPlaceholderService
 import dagger.hilt.EntryPoints
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 @AppFunctionServiceEntryPoint(
     serviceName = "AlbumAppFunctionService",
@@ -36,9 +34,7 @@ abstract class AlbumAppFunctionEntryPoint : AppFunctionService() {
     @AppFunction(isDescribedByKDoc = true)
     suspend fun createAlbum(
         title: String,
-    ): Album = withContext(Dispatchers.IO) {
-        service.postAlbum(AlbumToPost(title))
-    }
+    ): Album = service.postAlbum(AlbumToPost(title))
 
     /**
      * Retrieve an album by its unique identifier.
@@ -49,7 +45,5 @@ abstract class AlbumAppFunctionEntryPoint : AppFunctionService() {
     @AppFunction(isDescribedByKDoc = true)
     suspend fun getAlbum(
         id: Int,
-    ): Album = withContext(Dispatchers.IO) {
-        service.getAlbum(id)
-    }
+    ): Album = service.getAlbum(id)
 }
