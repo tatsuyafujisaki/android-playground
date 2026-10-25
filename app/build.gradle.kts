@@ -93,6 +93,7 @@ android {
 dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.test.manifest)
+    debugImplementation(libs.ui.tooling)
     implementation(libs.about.libraries.compose)
     implementation(libs.about.libraries.core)
     implementation(libs.activity.compose)
@@ -132,7 +133,7 @@ dependencies {
     implementation(libs.protobuf.kotlin.lite)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.room.runtime)
-    implementation(libs.ui.tooling)
+    implementation(libs.ui.tooling.preview)
     implementation(platform(libs.compose.bom))
     implementation(platform(libs.firebase.bom))
     implementation(platform(libs.retrofit.bom))
