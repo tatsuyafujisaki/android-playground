@@ -1,7 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.appfunctions
 
+import androidx.appfunctions.AppFunctionDeclaration
 import androidx.appfunctions.AppFunctionService
-import androidx.appfunctions.AppFunction
 import androidx.appfunctions.AppFunctionServiceEntryPoint
 import com.github.tatsuyafujisaki.androidplayground.data.Album
 import com.github.tatsuyafujisaki.androidplayground.data.AlbumToPost
@@ -31,7 +31,7 @@ abstract class AlbumAppFunctionEntryPoint : AppFunctionService() {
      * @param title The title of the album.
      * @return The created album including its generated ID.
      */
-    @AppFunction(isDescribedByKDoc = true)
+    @AppFunctionDeclaration(isDescribedByKDoc = true)
     suspend fun createAlbum(
         title: String,
     ): Album = service.postAlbum(AlbumToPost(title))
@@ -42,7 +42,7 @@ abstract class AlbumAppFunctionEntryPoint : AppFunctionService() {
      * @param id The unique identifier of the album to retrieve.
      * @return The album with the specified ID.
      */
-    @AppFunction(isDescribedByKDoc = true)
+    @AppFunctionDeclaration(isDescribedByKDoc = true)
     suspend fun getAlbum(
         id: Int,
     ): Album = service.getAlbum(id)
