@@ -124,6 +124,7 @@ dependencies {
     implementation(libs.media3.ui.compose.material3)
     implementation(libs.navigation3.runtime)
     implementation(libs.navigation3.ui)
+    implementation(libs.navigationevent.compose)
     implementation(libs.okhttp)
     implementation(libs.paging.compose)
     implementation(libs.appfunctions)
