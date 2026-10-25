@@ -34,7 +34,6 @@ room = "+" # https://developer.android.com/jetpack/androidx/releases/room
 about-libraries-core = { group = "com.mikepenz", name = "aboutlibraries-core", version.ref = "about-libraries" }
 about-libraries-compose = { group = "com.mikepenz", name = "aboutlibraries-compose-m3", version.ref = "about-libraries" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
-animation = { group = "androidx.compose.animation", name = "animation" }
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil-compose" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil-compose" }
 core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "core-splashscreen" }
@@ -48,7 +47,6 @@ firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.r
 firebase-config = { group = "com.google.firebase", name = "firebase-config" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-androidx" }
