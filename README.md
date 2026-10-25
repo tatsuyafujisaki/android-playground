@@ -30,17 +30,6 @@
 ./gradlew [module:]connected[buildVariant]AndroidTest
 ```
 
-# Meaning of `task clean` in project-level `build.gradle`
-
-The following custom task in the project-level `build.gradle` is to delete the project-level `build`
-directory when clicking the menu bar > `Build` > `Clean Project`.
-
-```gradle
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-```
-
 # String
 
 # How to encode HTML entities
