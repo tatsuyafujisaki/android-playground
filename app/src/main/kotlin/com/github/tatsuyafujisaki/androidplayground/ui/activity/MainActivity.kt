@@ -3,6 +3,8 @@ package com.github.tatsuyafujisaki.androidplayground.ui.activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -13,14 +15,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation3.runtime.NavEntry
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.github.tatsuyafujisaki.androidplayground.R
 import com.github.tatsuyafujisaki.androidplayground.data.MyRemoteConfig
@@ -36,6 +38,7 @@ import com.google.firebase.remoteconfig.remoteConfigSettings
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
 @AndroidEntryPoint
@@ -51,8 +54,8 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
-            val backStack = remember { mutableStateListOf<Screen>(Screen.Main) }
-            val currentDestination = backStack.last()
+            val backStack = rememberNavBackStack(Screen.Main)
+            val currentDestination = backStack.last() as Screen
 
             val items = listOf(
                 Screen.Main,
@@ -65,13 +68,7 @@ class MainActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             title = {
-                                Text(
-                                    text = when (currentDestination) {
-                                        Screen.Main -> stringResource(R.string.main)
-                                        Screen.Second -> stringResource(R.string.second)
-                                        Screen.Third -> stringResource(R.string.third)
-                                    }
-                                )
+                                Text(text = stringResource(currentDestination.resourceId))
                             },
                             colors = TopAppBarDefaults.topAppBarColors(
                                 containerColor = MaterialTheme.colorScheme.primary,
@@ -105,29 +102,19 @@ class MainActivity : ComponentActivity() {
                     NavDisplay(
                         backStack = backStack,
                         modifier = Modifier.padding(innerPadding),
-                        onBack = {
-                            if (backStack.size > 1) {
-                                backStack.removeAt(backStack.size - 1)
-                            } else {
-                                finish()
+                        onBack = { backStack.removeLastOrNull() },
+                        entryProvider = entryProvider {
+                            entry<Screen.Main> {
+                                MainScreen(
+                                    onClick = {
+                                        backStack.add(Third)
+                                    }
+                                )
                             }
+                            entry<Screen.Second> { SecondScreen() }
+                            entry<Screen.Third> { ThirdScreen() }
                         }
-                    ) { screen ->
-                        NavEntry(key = screen) {
-                            when (screen) {
-                                Screen.Main -> {
-                                    MainScreen(
-                                        onClick = {
-                                            backStack.add(Third)
-                                        }
-                                    )
-                                }
-
-                                Screen.Second -> SecondScreen()
-                                Screen.Third -> ThirdScreen()
-                            }
-                        }
-                    }
+                    )
                 }
             }
         }
@@ -159,9 +146,18 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    sealed class Screen(val resourceId: Int, val iconId: Int) {
-        object Main : Screen(R.string.main, R.drawable.baseline_home_24)
-        object Second : Screen(R.string.second, R.drawable.baseline_explore_24)
-        object Third : Screen(R.string.third, R.drawable.baseline_account_circle_24)
+    @Serializable
+    sealed class Screen(
+        @param:StringRes val resourceId: Int,
+        @param:DrawableRes val iconId: Int,
+    ) : NavKey {
+        @Serializable
+        data object Main : Screen(R.string.main, R.drawable.baseline_home_24)
+
+        @Serializable
+        data object Second : Screen(R.string.second, R.drawable.baseline_explore_24)
+
+        @Serializable
+        data object Third : Screen(R.string.third, R.drawable.baseline_account_circle_24)
     }
 }
