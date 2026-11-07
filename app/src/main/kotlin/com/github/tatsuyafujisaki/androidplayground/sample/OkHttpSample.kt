@@ -5,7 +5,7 @@ import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
-object OkHttpUtil {
+object OkHttpSample {
     fun OkHttpClient.Builder.addExtraHeadersInterceptor() = addInterceptor {
         val request = it.request().newBuilder()
             .addHeader("X-Brand", Build.BRAND)

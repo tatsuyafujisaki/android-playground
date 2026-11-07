@@ -8,7 +8,7 @@ import android.os.PowerManager
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.getSystemService
 
-object ServiceUtil {
+object ServiceSample {
     object ActivityService {
         private fun getActivityManager(context: Context) =
             context.getSystemService<ActivityManager>()!!

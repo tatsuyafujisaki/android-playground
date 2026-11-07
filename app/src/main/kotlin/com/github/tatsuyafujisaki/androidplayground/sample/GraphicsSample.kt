@@ -20,7 +20,7 @@ import androidx.core.graphics.drawable.toBitmapOrNull
 import androidx.core.net.toUri
 import kotlin.math.max
 
-object GraphicsUtil {
+object GraphicsSample {
     object Converter {
         private fun convertDrawableResToBitmapOrNull1(
             resources: Resources,

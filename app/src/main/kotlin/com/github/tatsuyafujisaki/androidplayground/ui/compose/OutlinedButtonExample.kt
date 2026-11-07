@@ -41,7 +41,7 @@ fun OutlinedButtonExample(
 
 @Preview
 @Composable
-private fun OutlineButtonExamplePreview(
+private fun OutlinedButtonExamplePreview(
     @PreviewParameter(BooleanProvider::class) enabled: Boolean,
 ) {
     OutlinedButtonExample(enabled) {}

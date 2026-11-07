@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
-object LifecycleUtil {
+object LifecycleSample {
     object RepeatOnLifecycle {
         private fun launchWithStartAndCompletion(
             lifecycleOwner: LifecycleOwner,

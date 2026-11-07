@@ -15,7 +15,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
  * https://square.github.io/okhttp/5.x/okhttp/okhttp3/-http-url/
  */
 @Suppress("unused")
-object UrlUtil {
+object UrlSample {
     object AndroidNetUri {
         fun convertToUri(url: String) = url.toUri()
         fun isAbsolute(uri: Uri) = uri.isAbsolute

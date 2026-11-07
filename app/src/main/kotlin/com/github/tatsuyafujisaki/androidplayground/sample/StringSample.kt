@@ -3,7 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.sample
 import android.util.Patterns
 
 @Suppress("unused")
-object StringUtil {
+object StringSample {
     fun isValidEmailAddress(emailAddress: String) =
         Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()
 

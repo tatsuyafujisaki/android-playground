@@ -1,9 +1,9 @@
 package com.github.tatsuyafujisaki.androidplayground.network
 
-import com.github.tatsuyafujisaki.androidplayground.sample.OkHttpUtil.addExtraHeadersInterceptor
-import com.github.tatsuyafujisaki.androidplayground.sample.OkHttpUtil.addLoggingInterceptor
-import com.github.tatsuyafujisaki.androidplayground.sample.OkHttpUtil.addPeekingRequestInterceptor
-import com.github.tatsuyafujisaki.androidplayground.sample.OkHttpUtil.addPeekingResponseInterceptor
+import com.github.tatsuyafujisaki.androidplayground.sample.OkHttpSample.addExtraHeadersInterceptor
+import com.github.tatsuyafujisaki.androidplayground.sample.OkHttpSample.addLoggingInterceptor
+import com.github.tatsuyafujisaki.androidplayground.sample.OkHttpSample.addPeekingRequestInterceptor
+import com.github.tatsuyafujisaki.androidplayground.sample.OkHttpSample.addPeekingResponseInterceptor
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
