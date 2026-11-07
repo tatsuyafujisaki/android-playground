@@ -94,8 +94,12 @@ fun WebViewExample(
                         isForwardClicked = false
                         it.goForward()
                     }
+
+                    it.tag != url -> {
+                        it.tag = url
+                        it.loadUrl(url)
+                    }
                 }
-                it.loadUrl(url)
             },
         )
     }

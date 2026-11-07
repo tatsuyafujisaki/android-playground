@@ -23,7 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,8 +36,7 @@ private val URLS = List(size = 3) { RandomImage.getUrl() }
 @Preview
 @Composable
 fun HorizontalPagerExample() {
-    val density = LocalDensity.current
-    val screenWidth = with(density) { LocalWindowInfo.current.containerSize.width.toDp() }
+    val screenWidth = LocalWindowInfo.current.containerDpSize.width
     val pagerState = rememberPagerState(pageCount = { URLS.size })
     val uriHandler = LocalUriHandler.current
 

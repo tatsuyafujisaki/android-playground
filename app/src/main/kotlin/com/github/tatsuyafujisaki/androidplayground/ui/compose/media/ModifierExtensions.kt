@@ -16,9 +16,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.toSize
 
 fun Modifier.circleBorder(
     isCircle: Boolean = false,
@@ -33,15 +34,21 @@ fun Modifier.circleBorder(
 }
 
 @Composable
-fun Modifier.fillWindowWidth() = width(width = LocalWindowInfo.current.containerSize.width.dp)
+fun Modifier.fillWindowWidth() = width(width = LocalWindowInfo.current.containerDpSize.width)
 
 @Composable
-fun Modifier.fillWindowHeight() = height(height = LocalWindowInfo.current.containerSize.height.dp)
+fun Modifier.fillWindowHeight() = height(height = LocalWindowInfo.current.containerDpSize.height)
 
-fun Modifier.logSizeChanged() = onSizeChanged {
-    Log.d("👀", "onSizeChanged > size: $it[dp]")
-    Log.d("👀", "onSizeChanged > width: ${it.width.dp}")
-    Log.d("👀", "onSizeChanged > height: ${it.height.dp}")
+@Composable
+fun Modifier.logSizeChanged(): Modifier {
+    val density = LocalDensity.current
+    return onSizeChanged {
+        with(density) {
+            Log.d("👀", "onSizeChanged > size: ${it.toSize().toDpSize()}")
+            Log.d("👀", "onSizeChanged > width: ${it.width.toDp()}")
+            Log.d("👀", "onSizeChanged > height: ${it.height.toDp()}")
+        }
+    }
 }
 
 @Composable

@@ -37,7 +37,6 @@ import com.github.tatsuyafujisaki.androidplayground.R
 private data class MyData(
     val title: String,
     val body: String,
-    var expanded: Boolean = false,
 )
 
 @Composable
@@ -57,8 +56,8 @@ fun <T> ExpandableList(
             ExpandableListItem(
                 expanded = expanded,
                 onExpandedChange = {
-                    onExpandedChange(item, expanded)
                     expanded = !expanded
+                    onExpandedChange(item, expanded)
                 },
                 collapsedContent = {
                     collapsedListItemContent(item, expanded)
