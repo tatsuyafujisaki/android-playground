@@ -1,6 +1,5 @@
 import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
 import com.mikepenz.aboutlibraries.plugin.DuplicateMode
-import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
@@ -23,8 +22,9 @@ ksp {
 
 // https://developer.android.com/studio/publish/app-signing#secure-shared-keystore
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
-val keystoreProperties = Properties()
-keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+val keystoreProperties = Properties().apply {
+    keystorePropertiesFile.inputStream().use(::load)
+}
 
 android {
     namespace = "com.github.tatsuyafujisaki.androidplayground"

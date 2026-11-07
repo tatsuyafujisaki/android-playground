@@ -2,8 +2,8 @@ package com.github.tatsuyafujisaki.androidplayground
 
 import android.app.Application
 import android.os.StrictMode
-import com.google.firebase.FirebaseApp
-import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.Firebase
+import com.google.firebase.appcheck.appCheck
 import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import dagger.hilt.android.HiltAndroidApp
 
@@ -12,8 +12,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        FirebaseApp.initializeApp(this)
-        FirebaseAppCheck.getInstance().installAppCheckProviderFactory(
+        Firebase.appCheck.installAppCheckProviderFactory(
             PlayIntegrityAppCheckProviderFactory.getInstance()
         )
 

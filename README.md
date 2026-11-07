@@ -41,7 +41,7 @@ val encoded: String = "<>&'\"".htmlEncode() // &lt;&gt;&amp;&#39;&quot;
 # How to decode HTML entities
 
 ```kotlin
-val decoded: String = String =
+val decoded: String =
     Html.fromHtml("&lt;&gt;&amp;&#39;&quot;", Html.FROM_HTML_MODE_COMPACT).toString() // <>&'"
 ```
 
@@ -59,12 +59,12 @@ val color: Color = Color.valueOf(0x11223344)
 # How to close DrawerLayout when the user taps the Back button
 
 ```kotlin
-/** isOpen and close() require "androidx.drawerlayout:drawerlayout:1.1.0" or higher. */
-override fun onBackPressed() {
+onBackPressedDispatcher.addCallback(this) {
     if (drawerLayout.isOpen) {
         drawerLayout.close()
-        return
+    } else {
+        isEnabled = false
+        onBackPressedDispatcher.onBackPressed()
     }
-    super.onBackPressed()
 }
 ```

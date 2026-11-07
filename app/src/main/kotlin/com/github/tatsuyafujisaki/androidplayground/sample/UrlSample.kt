@@ -2,6 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.sample
 
 import android.net.Uri
 import androidx.core.net.toUri
+import java.net.URI
 import java.net.URL
 import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
@@ -52,7 +53,7 @@ object UrlUtil {
     }
 
     object JavaNetUrl {
-        fun convertToURL(url: String) = URL(url)
+        fun convertToURL(url: String): URL = URI.create(url).toURL()
         fun getHost(url: URL): String = url.host
         fun getPath(url: URL): String = url.path
         fun getQuery(url: URL): String = url.query

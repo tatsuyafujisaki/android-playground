@@ -6,11 +6,12 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.PowerManager
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.getSystemService
 
 object ServiceUtil {
     object ActivityService {
         private fun getActivityManager(context: Context) =
-            context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            context.getSystemService<ActivityManager>()!!
 
         fun getMemoryInfo(context: Context): ActivityManager.MemoryInfo {
             return ActivityManager.MemoryInfo().also {
@@ -21,7 +22,7 @@ object ServiceUtil {
 
     object InputMethodService {
         fun getInputMethodManager(context: Context) =
-            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            context.getSystemService<InputMethodManager>()!!
     }
 
     object ConnectivityService {
@@ -32,7 +33,7 @@ object ServiceUtil {
         }
 
         private fun getConnectivityService(context: Context) =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            context.getSystemService<ConnectivityManager>()!!
 
         fun getNetworkType(context: Context): MyNetworkType {
             val connectivityService = getConnectivityService(context)
@@ -58,7 +59,7 @@ object ServiceUtil {
 
     object PowerService {
         private fun getPowerService(context: Context) =
-            context.getSystemService(Context.POWER_SERVICE) as PowerManager
+            context.getSystemService<PowerManager>()!!
 
         fun isInteractive(context: Context) = getPowerService(context).isInteractive
     }

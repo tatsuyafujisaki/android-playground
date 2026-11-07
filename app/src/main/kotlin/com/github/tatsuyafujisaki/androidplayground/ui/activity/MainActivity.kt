@@ -38,6 +38,7 @@ import com.google.firebase.remoteconfig.remoteConfigSettings
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
@@ -121,28 +122,27 @@ class MainActivity : ComponentActivity() {
 
         lifecycleScope.launch {
             jsonPlaceholderService.deleteAlbum(id = 1)
+            doRemoteConfigStuff()
         }
-
-        doRemoteConfigStuff()
     }
 
-    private fun doRemoteConfigStuff() {
+    private suspend fun doRemoteConfigStuff() {
         val remoteConfig = Firebase.remoteConfig
 
         remoteConfig.setConfigSettingsAsync(
             remoteConfigSettings {
                 minimumFetchIntervalInSeconds = 0
             },
-        )
+        ).await()
 
-        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
+        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults).await()
 
-        remoteConfig.fetchAndActivate().addOnCompleteListener {
-            if (it.isSuccessful) {
-                val myRemoteConfig =
-                    json.decodeFromString<MyRemoteConfig>(remoteConfig["my_key"].asString())
-                println(myRemoteConfig)
-            }
+        runCatching {
+            remoteConfig.fetchAndActivate().await()
+        }.onSuccess {
+            val myRemoteConfig =
+                json.decodeFromString<MyRemoteConfig>(remoteConfig["my_key"].asString())
+            println(myRemoteConfig)
         }
     }
 

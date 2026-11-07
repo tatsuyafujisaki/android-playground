@@ -18,7 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toBitmapOrNull
 import androidx.core.net.toUri
-import java.lang.Integer.max
+import kotlin.math.max
 
 object GraphicsUtil {
     object Converter {

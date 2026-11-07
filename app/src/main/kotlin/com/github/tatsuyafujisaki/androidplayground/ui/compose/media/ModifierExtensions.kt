@@ -12,7 +12,6 @@ import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -49,10 +48,10 @@ fun Modifier.logSizeChanged() = onSizeChanged {
 fun Modifier.safeClickable(
     delayMillis: Long = 1_000,
     onClick: () -> Unit,
-): Modifier = composed {
+): Modifier {
     var lastClickTime by remember { mutableLongStateOf(0L) }
 
-    clickable {
+    return clickable {
         val now = System.currentTimeMillis()
         if (now - lastClickTime >= delayMillis) {
             onClick()

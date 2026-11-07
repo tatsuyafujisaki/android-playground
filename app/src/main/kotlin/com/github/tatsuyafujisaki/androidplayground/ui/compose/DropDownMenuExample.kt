@@ -2,6 +2,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose
 
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Text
@@ -11,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -27,9 +29,10 @@ fun <T> DropdownMenuExample(
         onExpandedChange = { expanded = !expanded },
     ) {
         TextField(
-            readOnly = true,
             value = selectedValue,
             onValueChange = {},
+            modifier = Modifier.menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
+            readOnly = true,
             trailingIcon = {
                 ExposedDropdownMenuDefaults.TrailingIcon(
                     expanded = expanded,
