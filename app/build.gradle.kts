@@ -160,7 +160,10 @@ protobuf {
     }
     generateProtoTasks {
         all().configureEach {
+            // protobuf-kotlin-lite requires both the Java and the Kotlin generator in lite mode.
+            // https://github.com/google/protobuf-gradle-plugin?tab=readme-ov-file#default-outputs
             builtins.create("java").option("lite")
+            builtins.create("kotlin").option("lite")
         }
     }
 }
