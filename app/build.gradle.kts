@@ -28,7 +28,12 @@ val keystoreProperties = Properties().apply {
 
 android {
     namespace = "com.github.tatsuyafujisaki.androidplayground"
-    compileSdk = libs.versions.compile.target.sdk.get().toInt()
+    compileSdk {
+        version =
+            release(libs.versions.compile.target.sdk.get().toInt()) {
+                minorApiLevel = libs.versions.compile.sdk.minor.get().toInt()
+            }
+    }
     // https://developer.android.com/build/jdks#toolchain
     // https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
     java.toolchain.languageVersion = JavaLanguageVersion.of(21)

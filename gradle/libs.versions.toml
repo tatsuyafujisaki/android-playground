@@ -4,6 +4,7 @@ activity = "+" # https://developer.android.com/jetpack/androidx/releases/activit
 appfunctions = "+" # https://developer.android.com/jetpack/androidx/releases/appfunctions
 coil-compose = "+" # https://github.com/coil-kt/coil/blob/main/CHANGELOG.md
 com-android-application = "9.5.2" # https://developer.android.com/build/releases/gradle-plugin
+compile-sdk-minor = "2"
 compile-target-sdk = "37"
 compose-bom = "+" # https://developer.android.com/jetpack/compose/bom/bom-mapping
 core-splashscreen = "+" # https://developer.android.com/jetpack/androidx/releases/core
