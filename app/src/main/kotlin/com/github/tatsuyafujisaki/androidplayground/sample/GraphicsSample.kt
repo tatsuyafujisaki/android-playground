@@ -14,7 +14,6 @@ import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toBitmapOrNull
 import androidx.core.net.toUri
@@ -30,7 +29,7 @@ object GraphicsSample {
         fun convertDrawableResToBitmapOrNull2(
             context: Context,
             @DrawableRes id: Int,
-        ) = ContextCompat.getDrawable(context, id)?.toBitmapOrNull()
+        ) = context.getDrawable(id)?.toBitmapOrNull()
 
         @Composable
         fun convertDrawableResToImageVector(

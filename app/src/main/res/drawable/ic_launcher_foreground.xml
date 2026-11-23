@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Keeps the robot's aspect ratio and fits it in the 66dp safe zone of the 108dp layer. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_android_robot"
+    android:insetBottom="35.9%"
+    android:insetLeft="25%"
+    android:insetRight="25%"
+    android:insetTop="35.9%" />

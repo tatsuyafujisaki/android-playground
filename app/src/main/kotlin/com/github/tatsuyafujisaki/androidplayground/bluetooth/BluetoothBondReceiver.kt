@@ -5,11 +5,10 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import androidx.core.content.IntentCompat
 
 class BluetoothBondReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) = with(intent) {
-        val device = IntentCompat.getParcelableExtra(this, BluetoothDevice.EXTRA_DEVICE, BluetoothDevice::class.java)
+        val device = getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice::class.java)
         val address = device?.address
 
         when (action) {

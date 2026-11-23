@@ -104,7 +104,6 @@ dependencies {
     implementation(libs.activity.compose)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
-    implementation(libs.core.splashscreen)
     implementation(libs.datastore)
     implementation(libs.datastore.preferences)
     implementation(libs.firebase.analytics)
