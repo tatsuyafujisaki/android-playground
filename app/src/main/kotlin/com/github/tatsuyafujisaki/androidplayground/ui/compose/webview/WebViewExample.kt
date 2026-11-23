@@ -29,9 +29,11 @@ fun WebViewExample(
 ) {
     var canGoBack by remember { mutableStateOf(false) }
     var canGoForward by remember { mutableStateOf(false) }
-    var isBackClicked by remember { mutableStateOf(false) }
-    var isReloadClicked by remember { mutableStateOf(false) }
-    var isForwardClicked by remember { mutableStateOf(false) }
+    var webView by remember { mutableStateOf<WebView?>(null) }
+    val goBack: () -> Unit = {
+        val view = webView
+        if (view != null && view.canGoBack()) view.goBack() else onBack()
+    }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -41,9 +43,9 @@ fun WebViewExample(
                 canGoBack = canGoBack,
                 canGoForward = canGoForward,
                 onNavigationIconClick = onBack,
-                onBackClick = { isBackClicked = true },
-                onReloadClick = { isReloadClicked = true },
-                onForwardClick = { isForwardClicked = true },
+                onBackClick = goBack,
+                onReloadClick = { webView?.reload() },
+                onForwardClick = { webView?.goForward() },
             )
         },
     ) { paddingValues ->
@@ -71,41 +73,24 @@ fun WebViewExample(
                             v.performClick()
                         }
                     }
+                    webView = this
                 }
             },
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
-            onReset = { println("onReset") },
-            onRelease = { println("onRelease") },
+            onRelease = { webView = null },
             update = {
-                when {
-                    isBackClicked -> {
-                        isBackClicked = false
-                        if (it.canGoBack()) it.goBack() else onBack()
-                    }
-
-                    isReloadClicked -> {
-                        isReloadClicked = false
-                        it.reload()
-                    }
-
-                    isForwardClicked -> {
-                        isForwardClicked = false
-                        it.goForward()
-                    }
-
-                    it.tag != url -> {
-                        it.tag = url
-                        it.loadUrl(url)
-                    }
+                if (it.tag != url) {
+                    it.tag = url
+                    it.loadUrl(url)
                 }
             },
         )
     }
     NavigationBackHandler(
         state = rememberNavigationEventState(currentInfo = NavigationEventInfo.None),
-        onBackCompleted = { isBackClicked = true },
+        onBackCompleted = goBack,
     )
 }
 

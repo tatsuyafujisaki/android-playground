@@ -55,16 +55,3 @@ for [TextUtils.htmlEncode](https://developer.android.com/reference/kotlin/androi
 ```kotlin
 val color: Color = Color.valueOf(0x11223344)
 ```
-
-# How to close DrawerLayout when the user taps the Back button
-
-```kotlin
-onBackPressedDispatcher.addCallback(this) {
-    if (drawerLayout.isOpen) {
-        drawerLayout.close()
-    } else {
-        isEnabled = false
-        onBackPressedDispatcher.onBackPressed()
-    }
-}
-```

@@ -1,28 +1,23 @@
 package com.github.tatsuyafujisaki.androidplayground.data
 
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import kotlinx.serialization.KSerializer
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalTime
+import kotlinx.datetime.format.char
+import kotlinx.datetime.serializers.FormattedLocalDateTimeSerializer
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.descriptors.PrimitiveKind
-import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
-import kotlinx.serialization.descriptors.SerialDescriptor
-import kotlinx.serialization.encoding.Decoder
-import kotlinx.serialization.encoding.Encoder
 
-private object LocalDateTimeSerializer : KSerializer<LocalDateTime> {
-    private val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-
-    override val descriptor: SerialDescriptor =
-        PrimitiveSerialDescriptor("LocalDateTime", PrimitiveKind.STRING)
-
-    override fun serialize(encoder: Encoder, value: LocalDateTime) {
-        encoder.encodeString(value.format(formatter))
-    }
-
-    override fun deserialize(decoder: Decoder): LocalDateTime =
-        LocalDateTime.parse(decoder.decodeString(), formatter)
-}
+/**
+ * Serializes [LocalDateTime] as "yyyy-MM-dd HH:mm:ss" instead of the default ISO 8601 format.
+ */
+private object LocalDateTimeSerializer : FormattedLocalDateTimeSerializer(
+    name = "LocalDateTime",
+    format = LocalDateTime.Format {
+        date(LocalDate.Formats.ISO)
+        char(' ')
+        time(LocalTime.Formats.ISO)
+    },
+)
 
 @Serializable
 data class MyRemoteConfig(

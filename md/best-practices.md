@@ -27,11 +27,10 @@ Select the first of the following options that applies to your use case.
 
  A                                        | B                                                           | Note                           
 ------------------------------------------|-------------------------------------------------------------|--------------------------------
- `Activity.resources`<br>`View.resources` | `Activity.context.resources`<br>`View.context.resources`    
+ `Activity.resources` | `Activity.context.resources`    
  `Activity.getString(...)`                | `Activity.resources.getString(...)`                         
  `String.toUri()`                         | `Uri.parse(...)`                                            
  `bundleOf(...)`                          | `Bundle().apply { ... }`                                    
  `CharSequence.isDigitsOnly()`            | (old-school ways to check if a string contains only digits) 
- `Context.withStyledAttributes(...)`      | `obtainStyledAttributes(...)`                               
  `Intent.getStringExtra("foo")`           | `Intent.extras?.getString("foo")`                           | The same goes for other types. 
  `Uri.encode(url)`                        | `URLEncoder.encode(url, Charsets.UTF_8.name())`             
