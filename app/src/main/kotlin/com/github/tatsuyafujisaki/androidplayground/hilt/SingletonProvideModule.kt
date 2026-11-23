@@ -6,18 +6,21 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 import kotlinx.serialization.json.Json
 
 @Module
 @InstallIn(SingletonComponent::class)
 object SingletonProvideModule {
     @Provides
-    fun provideJson() = Json {
+    @Singleton
+    fun provideJson(): Json = Json {
         ignoreUnknownKeys = true
         isLenient = true
     }
 
     @Provides
-    fun provideJsonPlaceholderService(): JsonPlaceholderService =
-        RetrofitClient.createJsonPlaceholderService()
+    @Singleton
+    fun provideJsonPlaceholderService(json: Json): JsonPlaceholderService =
+        RetrofitClient.createJsonPlaceholderService(json)
 }

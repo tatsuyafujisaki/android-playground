@@ -1,6 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
@@ -35,11 +36,13 @@ import com.google.firebase.remoteconfig.get
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.IOException
 import javax.inject.Inject
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import retrofit2.HttpException
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -119,7 +122,16 @@ class MainActivity : ComponentActivity() {
         }
 
         lifecycleScope.launch {
-            jsonPlaceholderService.deleteAlbum(id = 1)
+            try {
+                jsonPlaceholderService.deleteAlbum(id = 1)
+            } catch (e: IOException) {
+                Log.w(TAG, "Failed to delete the album because of a network error.", e)
+            } catch (e: HttpException) {
+                Log.w(TAG, "Failed to delete the album because of an HTTP error.", e)
+            }
+        }
+
+        lifecycleScope.launch {
             doRemoteConfigStuff()
         }
     }
@@ -157,5 +169,9 @@ class MainActivity : ComponentActivity() {
 
         @Serializable
         data object Third : Screen(R.string.third, R.drawable.baseline_account_circle_24)
+    }
+
+    private companion object {
+        const val TAG = "MainActivity"
     }
 }

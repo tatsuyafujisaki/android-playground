@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
 object RetrofitClient {
-    fun createJsonPlaceholderService(): JsonPlaceholderService =
+    fun createJsonPlaceholderService(json: Json): JsonPlaceholderService =
         Retrofit.Builder()
             .baseUrl("https://jsonplaceholder.typicode.com")
             .client(
@@ -24,7 +24,7 @@ object RetrofitClient {
                     .build(),
             )
             .addConverterFactory(
-                Json.asConverterFactory("application/json".toMediaType())
+                json.asConverterFactory("application/json".toMediaType())
             )
             .build()
             .create(JsonPlaceholderService::class.java)

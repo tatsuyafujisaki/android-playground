@@ -67,7 +67,7 @@ android {
             // `./gradlew assembleDebug appDistributionUploadDebug`
             firebaseAppDistribution {
                 // `gcloud firebase test android models list shows` the available device models.
-                testDevices = "model=tokay,version=36,locale=en,orientation=portrait"
+                testDevices = "model=tokay,version=37,locale=en,orientation=portrait"
                 testCases = "launch-test"
                 testCasesFile = "firebase-tests/tests.yaml"
             }
