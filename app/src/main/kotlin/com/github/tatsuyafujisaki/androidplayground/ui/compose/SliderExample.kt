@@ -3,6 +3,7 @@ package com.github.tatsuyafujisaki.androidplayground.ui.compose
 import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Slider
+import androidx.compose.material3.rememberSliderState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -25,8 +26,10 @@ fun SliderExample(
     Column {
         Text(text = sliderValue.toString())
         Slider(
-            value = sliderValue,
-            valueRange = 0f..maxValue,
+            state = rememberSliderState(
+                value = sliderValue,
+                trackRange = 0f..maxValue,
+            ),
             onValueChange = {
                 if (started) {
                     started = false

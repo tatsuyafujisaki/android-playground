@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Slider
+import androidx.compose.material3.rememberSliderState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableFloatStateOf
@@ -50,9 +51,11 @@ fun TextLineBreakingDemo() {
     Column(modifier = Modifier.fillMaxSize()) {
         Text("Font size: ${selectedFontSize.floatValue}")
         Slider(
-            value = selectedFontSize.floatValue,
+            state = rememberSliderState(
+                value = selectedFontSize.floatValue,
+                trackRange = 8f..48f,
+            ),
             onValueChange = { value -> selectedFontSize.floatValue = value },
-            valueRange = 8f..48f
         )
 
         Row(Modifier.fillMaxWidth()) {
