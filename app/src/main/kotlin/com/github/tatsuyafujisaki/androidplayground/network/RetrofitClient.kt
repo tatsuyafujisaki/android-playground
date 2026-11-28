@@ -10,22 +10,20 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
-object RetrofitClient {
-    fun createJsonPlaceholderService(json: Json): JsonPlaceholderService =
-        Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com")
-            .client(
-                OkHttpClient
-                    .Builder()
-                    .addExtraHeadersInterceptor()
-                    .addLoggingInterceptor()
-                    .addPeekingResponseInterceptor()
-                    .addPeekingRequestInterceptor()
-                    .build(),
-            )
-            .addConverterFactory(
-                json.asConverterFactory("application/json".toMediaType())
-            )
-            .build()
-            .create(JsonPlaceholderService::class.java)
-}
+fun createJsonPlaceholderService(json: Json): JsonPlaceholderService =
+    Retrofit.Builder()
+        .baseUrl("https://jsonplaceholder.typicode.com")
+        .client(
+            OkHttpClient
+                .Builder()
+                .addExtraHeadersInterceptor()
+                .addLoggingInterceptor()
+                .addPeekingResponseInterceptor()
+                .addPeekingRequestInterceptor()
+                .build(),
+        )
+        .addConverterFactory(
+            json.asConverterFactory("application/json".toMediaType())
+        )
+        .build()
+        .create(JsonPlaceholderService::class.java)

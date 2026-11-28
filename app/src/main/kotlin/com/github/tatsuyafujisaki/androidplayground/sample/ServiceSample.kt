@@ -8,59 +8,39 @@ import android.os.PowerManager
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.getSystemService
 
-object ServiceSample {
-    object ActivityService {
-        private fun getActivityManager(context: Context) =
-            context.getSystemService<ActivityManager>()!!
+enum class MyNetworkType {
+    WIFI,
+    CELLULAR,
+    UNKNOWN,
+}
 
-        fun getMemoryInfo(context: Context): ActivityManager.MemoryInfo {
-            return ActivityManager.MemoryInfo().also {
-                getActivityManager(context).getMemoryInfo(it)
-            }
-        }
+fun getMemoryInfo(context: Context): ActivityManager.MemoryInfo =
+    ActivityManager.MemoryInfo().also {
+        context.getSystemService<ActivityManager>()!!.getMemoryInfo(it)
     }
 
-    object InputMethodService {
-        fun getInputMethodManager(context: Context) =
-            context.getSystemService<InputMethodManager>()!!
-    }
+fun getInputMethodManager(context: Context) = context.getSystemService<InputMethodManager>()!!
 
-    object ConnectivityService {
-        enum class MyNetworkType {
-            WIFI,
-            CELLULAR,
-            UNKNOWN,
-        }
+fun getNetworkType(context: Context): MyNetworkType {
+    val capabilities = getActiveNetworkCapabilities(context)
 
-        private fun getConnectivityService(context: Context) =
-            context.getSystemService<ConnectivityManager>()!!
-
-        fun getNetworkType(context: Context): MyNetworkType {
-            val connectivityService = getConnectivityService(context)
-            val capabilities =
-                connectivityService.getNetworkCapabilities(connectivityService.activeNetwork)
-
-            return when {
-                capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true -> MyNetworkType.WIFI
-                capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) == true -> MyNetworkType.CELLULAR
-                else -> MyNetworkType.UNKNOWN
-            }
-        }
-
-        fun isNetworkAvailable(context: Context) =
-            with(getConnectivityService(context)) {
-                getNetworkCapabilities(activeNetwork)?.run {
-                    hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                            hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                            hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
-                } ?: false
-            }
-    }
-
-    object PowerService {
-        private fun getPowerService(context: Context) =
-            context.getSystemService<PowerManager>()!!
-
-        fun isInteractive(context: Context) = getPowerService(context).isInteractive
+    return when {
+        capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true -> MyNetworkType.WIFI
+        capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) == true -> MyNetworkType.CELLULAR
+        else -> MyNetworkType.UNKNOWN
     }
 }
+
+fun isNetworkAvailable(context: Context) =
+    getActiveNetworkCapabilities(context)?.run {
+        hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+    } ?: false
+
+fun isInteractive(context: Context) = context.getSystemService<PowerManager>()!!.isInteractive
+
+private fun getActiveNetworkCapabilities(context: Context): NetworkCapabilities? =
+    with(context.getSystemService<ConnectivityManager>()!!) {
+        getNetworkCapabilities(activeNetwork)
+    }

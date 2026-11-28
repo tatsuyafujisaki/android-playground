@@ -58,7 +58,7 @@ android {
     }
 
     buildTypes {
-        getByName("debug") {
+        debug {
             applicationIdSuffix = ".debug"
 
             // https://firebase.google.com/docs/app-distribution/android/app-testing-agent
@@ -72,7 +72,7 @@ android {
                 testCasesFile = "firebase-tests/tests.yaml"
             }
         }
-        getByName("release") {
+        release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(

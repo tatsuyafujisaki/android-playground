@@ -1,7 +1,7 @@
 package com.github.tatsuyafujisaki.androidplayground.hilt
 
 import com.github.tatsuyafujisaki.androidplayground.network.JsonPlaceholderService
-import com.github.tatsuyafujisaki.androidplayground.network.RetrofitClient
+import com.github.tatsuyafujisaki.androidplayground.network.createJsonPlaceholderService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,5 +22,5 @@ object SingletonProvideModule {
     @Provides
     @Singleton
     fun provideJsonPlaceholderService(json: Json): JsonPlaceholderService =
-        RetrofitClient.createJsonPlaceholderService(json)
+        createJsonPlaceholderService(json)
 }
